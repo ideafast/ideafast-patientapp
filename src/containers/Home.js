@@ -5,6 +5,7 @@
 import React, {useEffect, useState} from 'react';
 import {
   ActivityIndicator,
+  Button,
   FlatList,
   StyleSheet,
   Text,
@@ -39,6 +40,10 @@ const Home: () => React$Node = props => {
           <ClickMe setNumber={props.setNumber} />
           <NumeralDisplay number={props.number} />
           <FetchFilms />
+          <Button
+            title="Go to profile"
+            onPress={() => props.navigation.navigate('Profile')}
+          />
           <FlatList
             data={data}
             keyExtractor={({id}, index) => id}
