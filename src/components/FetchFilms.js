@@ -5,7 +5,7 @@
 import React, {useEffect, useState} from 'react';
 import {ActivityIndicator, FlatList, Text} from 'react-native';
 
-const FetchFilms: () => React$Node = props => {
+const FetchFilms: () => React$Node = ({fetchFilms, films}) => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 

@@ -17,7 +17,7 @@ const Away: () => React$Node = props => {
     <View style={styles.view}>
       <ClickMe setNumber={props.setNumber} />
       <NumeralDisplay number={props.number} />
-      <FetchFilms />
+      <FetchFilms fetchFilms={props.fetchFilms} films={props.films} />
       <Button
         title="Go to home"
         onPress={() => props.navigation.navigate('Home')}
@@ -33,9 +33,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function mapStateToProps(state) {
-  return state;
-}
+const mapStateToProps = state => state;
 
 const AwayContainer = connect(
   mapStateToProps,

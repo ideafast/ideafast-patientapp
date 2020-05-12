@@ -5,8 +5,8 @@
 import React from 'react';
 import {Text} from 'react-native';
 
-const NumeralDisplay: () => React$Node = props => {
-  return <Text>{props.number}</Text>;
+const NumeralDisplay: () => React$Node = ({number}) => {
+  return <Text>{number}</Text>;
 };
 
 export default NumeralDisplay;

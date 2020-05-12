@@ -1,7 +1,7 @@
-// /**
-//  * @format
-//  * @flow strict-local
-//  */
+/**
+ * @format
+ * @flow strict-local
+ */
 import React from 'react';
 import {
   Button,
@@ -116,9 +116,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function mapStateToProps(state) {
-  return state;
-}
+const mapStateToProps = state => state;
 
 const HomeContainer = connect(
   mapStateToProps,
