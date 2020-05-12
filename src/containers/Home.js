@@ -5,8 +5,14 @@
  * @format
  * @flow strict-local
  */
-import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, Text, View } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {
+  ActivityIndicator,
+  FlatList,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
 const Home: () => React$Node = () => {
   const [isLoading, setLoading] = useState(true);
@@ -14,26 +20,37 @@ const Home: () => React$Node = () => {
 
   useEffect(() => {
     fetch('https://reactnative.dev/movies.json')
-      .then((response) => response.json())
-      .then((json) => setData(json.movies))
-      .catch((error) => console.error(error))
+      .then(response => response.json())
+      .then(json => setData(json.movies))
+      .catch(error => console.error(error))
       .finally(() => setLoading(false));
   }, []);
 
   return (
-    <View style={{ flex: 1, padding: 24 }}>
-      {isLoading ? <ActivityIndicator/> : (
+    <View style={styles.view}>
+      {isLoading ? (
+        <ActivityIndicator />
+      ) : (
         <FlatList
           data={data}
-          keyExtractor={({ id }, index) => id}
-          renderItem={({ item }) => (
-            <Text>{item.title}, {item.releaseYear}</Text>
+          keyExtractor={({id}, index) => id}
+          renderItem={({item}) => (
+            <Text>
+              {item.title}, {item.releaseYear}
+            </Text>
           )}
         />
       )}
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  view: {
+    flex: 1,
+    padding: 24,
+  },
+});
 
 // import React from 'react';
 // import {
