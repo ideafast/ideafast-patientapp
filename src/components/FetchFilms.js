@@ -1,37 +1,39 @@
-// import React, { Component } from 'react';
-//
-// export default class FetchRandomUsers extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = { users: [] };
-//     }
-//
-//     async componentDidMount() {
-//         const response = await fetch('https://randomuser.me/api/?results=2');
-//         const json = await response.json();
-//         this.setState({ users: json.results });
-//     }
-//
-//     render() {
-//         return (
-//             <ul>
-//                 {this.state.users.map((user, i) => (
-//                     <li key={i}>{user.name.title} {user.name.first} {user.name.last}</li>
-//                 ))}
-//             </ul>
-//         );
-//     }
-//}
-
 /**
  * @format
  * @flow strict-local
  */
-import React from 'react';
-import {Text} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {ActivityIndicator, FlatList, Text} from 'react-native';
 
 const FetchFilms: () => React$Node = props => {
-  return <Text>'FetchFilms'</Text>;
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch('https://reactnative.dev/movies.json')
+      .then(response => response.json())
+      .then(json => setData(json.movies))
+      .catch(error => console.error(error))
+      .finally(() => setLoading(false));
+  }, []);
+
+  return (
+    <>
+      {isLoading ? (
+        <ActivityIndicator />
+      ) : (
+        <FlatList
+          data={data}
+          keyExtractor={({id}, index) => id}
+          renderItem={({item}) => (
+            <Text>
+              {item.title}, {item.releaseYear}
+            </Text>
+          )}
+        />
+      )}
+    </>
+  );
 };
 
 export default FetchFilms;
