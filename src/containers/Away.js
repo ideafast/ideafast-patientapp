@@ -19,7 +19,7 @@ import ClickMe from '../components/ClickMe';
 import FetchFilms from '../components/FetchFilms';
 import NumeralDisplay from '../components/NumeralDisplay';
 
-const Profile: () => React$Node = props => {
+const Away: () => React$Node = props => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
@@ -70,9 +70,9 @@ function mapStateToProps(state) {
   return state;
 }
 
-const ProfileContainer = connect(
+const AwayContainer = connect(
   mapStateToProps,
   actions,
-)(Profile);
+)(Away);
 
-export default ProfileContainer;
+export default Away;

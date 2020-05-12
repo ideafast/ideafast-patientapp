@@ -42,7 +42,7 @@ const Home: () => React$Node = props => {
           <FetchFilms />
           <Button
             title="Go to profile"
-            onPress={() => props.navigation.navigate('Profile')}
+            onPress={() => props.navigation.navigate('Away')}
           />
           <FlatList
             data={data}

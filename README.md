@@ -14,4 +14,5 @@ React-Native Patient-facing application (currently working towards prototype)
 
 ## Debugging
 
-1. `brew cask install react-native-debugger`
+1. Go to http://localhost:8081/debugger-ui/ for console logs
+1. `npx react-devtools` for UI inspection

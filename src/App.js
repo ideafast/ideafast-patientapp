@@ -10,8 +10,9 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {Provider} from 'react-redux';
 
 import configureStore from './configureStore';
+
+import Away from './containers/Away';
 import Home from './containers/Home';
-import Profile from './containers/Profile';
 
 const {Navigator, Screen} = createStackNavigator();
 
@@ -21,9 +22,9 @@ const App: () => React$Node = () => {
   return (
     <NavigationContainer>
       <Provider store={store}>
-        <Navigator>
+        <Navigator initialRouteName="Home">
+          <Screen name="Away" component={Away} />
           <Screen name="Home" component={Home} />
-          <Screen name="Profile" component={Profile} />
         </Navigator>
       </Provider>
     </NavigationContainer>
