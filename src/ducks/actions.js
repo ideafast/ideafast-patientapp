@@ -5,18 +5,12 @@ export const mapDispatchToProps = dispatch => ({
   setNumber: number => dispatch(setNumber(number)),
 });
 
-const fetchFilms = () => dispatch => {
+const fetchFilms = () => async dispatch => {
   const url = 'https://reactnative.dev/movies.json';
-  fetch(url)
-    .then(response => {
-      if (!response.ok) {
-        throw Error(response.statusText);
-      }
-      return response;
-    })
-    .then(response => response.json())
-    .then(response => response.movies)
-    .then(films => dispatch(fetchFilmsSuccess(films)));
+  const response = await fetch(url);
+  const responseJSON = await response.json();
+  const films = await responseJSON.movies;
+  await dispatch(fetchFilmsSuccess(films));
 };
 
 const fetchFilmsSuccess = films => ({
