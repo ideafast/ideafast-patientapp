@@ -1,7 +1,4 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
  * @format
  * @flow strict-local
  */
@@ -13,8 +10,15 @@ import {
   Text,
   View,
 } from 'react-native';
+import {connect} from 'react-redux';
 
-const Home: () => React$Node = () => {
+import * as actions from '../ducks/actions';
+
+import ClickMe from '../components/ClickMe';
+import FetchFilms from '../components/FetchFilms';
+import NumeralDisplay from '../components/NumeralDisplay';
+
+const Home: () => React$Node = props => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
@@ -31,15 +35,20 @@ const Home: () => React$Node = () => {
       {isLoading ? (
         <ActivityIndicator />
       ) : (
-        <FlatList
-          data={data}
-          keyExtractor={({id}, index) => id}
-          renderItem={({item}) => (
-            <Text>
-              {item.title}, {item.releaseYear}
-            </Text>
-          )}
-        />
+        <>
+          <ClickMe setNumber={props.setNumber} />
+          <NumeralDisplay number={props.number} />
+          <FetchFilms />
+          <FlatList
+            data={data}
+            keyExtractor={({id}, index) => id}
+            renderItem={({item}) => (
+              <Text>
+                {item.title}, {item.releaseYear}
+              </Text>
+            )}
+          />
+        </>
       )}
     </View>
   );
@@ -51,6 +60,15 @@ const styles = StyleSheet.create({
     padding: 24,
   },
 });
+
+function mapStateToProps(state) {
+  return state;
+}
+
+const HomeContainer = connect(
+  mapStateToProps,
+  actions,
+)(Home);
 
 // import React from 'react';
 // import {
@@ -157,4 +175,4 @@ const styles = StyleSheet.create({
 //   },
 // });
 //
-export default Home;
+export default HomeContainer;
