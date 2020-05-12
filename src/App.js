@@ -9,14 +9,13 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Provider} from 'react-redux';
 
-import configureStore from './configureStore';
-
 import Away from './containers/Away';
 import Home from './containers/Home';
+import configureStore from './configureStore';
 
 const {Navigator, Screen} = createStackNavigator();
 
-const store = configureStore({films: [], number: 0});
+const store = configureStore();
 
 const App: () => React$Node = () => {
   return (
