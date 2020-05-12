@@ -7,15 +7,13 @@ import {ActivityIndicator, FlatList, Text} from 'react-native';
 
 const FetchFilms: () => React$Node = ({fetchFilms, films}) => {
   const [isLoading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('https://reactnative.dev/movies.json')
-      .then(response => response.json())
-      .then(json => setData(json.movies))
-      .catch(error => console.error(error))
-      .finally(() => setLoading(false));
-  }, []);
+    if (isLoading) {
+      fetchFilms();
+      setLoading(false);
+    }
+  }, [isLoading, fetchFilms]);
 
   return (
     <>
@@ -23,7 +21,7 @@ const FetchFilms: () => React$Node = ({fetchFilms, films}) => {
         <ActivityIndicator />
       ) : (
         <FlatList
-          data={data}
+          data={films}
           keyExtractor={({id}, index) => id}
           renderItem={({item}) => (
             <Text>

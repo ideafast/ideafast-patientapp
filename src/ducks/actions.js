@@ -15,6 +15,7 @@ const fetchFilms = () => dispatch => {
       return response;
     })
     .then(response => response.json())
+    .then(response => response.movies)
     .then(films => dispatch(fetchFilmsSuccess(films)));
 };
 
