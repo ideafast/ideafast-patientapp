@@ -23,7 +23,7 @@ import {
 
 import {connect} from 'react-redux';
 
-import * as actions from '../ducks/actions';
+import {mapDispatchToProps} from '../ducks/actions';
 
 const Home: () => React$Node = props => {
   return (
@@ -122,7 +122,7 @@ function mapStateToProps(state) {
 
 const HomeContainer = connect(
   mapStateToProps,
-  actions,
+  mapDispatchToProps,
 )(Home);
 
 export default HomeContainer;

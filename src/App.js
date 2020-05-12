@@ -16,7 +16,7 @@ import Home from './containers/Home';
 
 const {Navigator, Screen} = createStackNavigator();
 
-const store = configureStore({number: 0});
+const store = configureStore({films: [], number: 0});
 
 const App: () => React$Node = () => {
   return (

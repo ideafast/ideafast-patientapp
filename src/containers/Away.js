@@ -6,7 +6,7 @@ import React from 'react';
 import {Button, StyleSheet, View} from 'react-native';
 import {connect} from 'react-redux';
 
-import * as actions from '../ducks/actions';
+import {mapDispatchToProps} from '../ducks/actions';
 
 import ClickMe from '../components/ClickMe';
 import FetchFilms from '../components/FetchFilms';
@@ -39,7 +39,7 @@ function mapStateToProps(state) {
 
 const AwayContainer = connect(
   mapStateToProps,
-  actions,
+  mapDispatchToProps,
 )(Away);
 
 export default AwayContainer;
