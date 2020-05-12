@@ -9,7 +9,7 @@ import {Provider} from 'react-redux';
 import configureStore from './configureStore';
 import Home from './containers/Home';
 
-const store = configureStore();
+const store = configureStore({number: 0});
 
 const App: () => React$Node = () => {
   return (
