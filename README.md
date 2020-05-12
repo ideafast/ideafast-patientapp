@@ -5,6 +5,7 @@ React-Native Patient-facing application (currently working towards prototype)
 ## Initial set up
 
 1. Follow environment instructions on https://reactnative.dev/docs/environment-setup
+1. Make sure your node version >= 10
 1. Install yarn package manager
 1. Pull down repository
 1. Run `yarn`
