@@ -6,11 +6,10 @@ const monitorReducerEnhancer = createStore => (
   enhancer,
 ) => {
   const monitoredReducer = (state, action) => {
-    // const start = performance.now();
+    const start = Date.now();
     const newState = reducer(state, action);
-    // const end = performance.now();
-    // const diff = round(end - start);
-    const diff = 0;
+    const end = Date.now();
+    const diff = round(end - start);
 
     console.log('reducer process time:', diff);
 
