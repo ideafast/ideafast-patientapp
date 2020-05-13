@@ -10,7 +10,7 @@ React-Native Patient-facing application (currently working towards prototype)
 1. Pull down repository
 1. Run `yarn`
 1. Start android emulator
-1. In project directory, run `npx react-native run android`
+1. In project directory, run `npx react-native run-android`
 
 ## Debugging
 
