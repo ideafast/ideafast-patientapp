@@ -11,6 +11,7 @@ import {Provider} from 'react-redux';
 
 import Away from './containers/Away';
 import Home from './containers/Home';
+import One from './containers/One';
 import configureStore from './configureStore';
 
 const {Navigator, Screen} = createStackNavigator();
@@ -21,9 +22,10 @@ const App: () => React$Node = () => {
   return (
     <NavigationContainer>
       <Provider store={store}>
-        <Navigator initialRouteName="Home">
+        <Navigator initialRouteName="One">
           <Screen name="Away" component={Away} />
           <Screen name="Home" component={Home} />
+          <Screen name="One" component={One} />
         </Navigator>
       </Provider>
     </NavigationContainer>
