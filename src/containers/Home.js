@@ -4,7 +4,6 @@
  */
 import React from 'react';
 import {
-  Button,
   SafeAreaView,
   StyleSheet,
   ScrollView,
@@ -40,10 +39,6 @@ const Home: () => React$Node = props => {
             </View>
           )}
           <View style={styles.body}>
-            <Button
-              title="Go to away"
-              onPress={() => props.navigation.navigate('Away')}
-            />
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
               <Text style={styles.sectionDescription}>

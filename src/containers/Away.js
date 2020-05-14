@@ -3,7 +3,7 @@
  * @flow strict-local
  */
 import React from 'react';
-import {Button, StyleSheet, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {connect} from 'react-redux';
 
 import {mapDispatchToProps} from '../ducks/actions';
@@ -18,10 +18,6 @@ const Away: () => React$Node = props => {
       <ClickMe setNumber={props.setNumber} />
       <NumeralDisplay number={props.number} />
       <FetchFilms fetchFilms={props.fetchFilms} films={props.films} />
-      <Button
-        title="Go to home"
-        onPress={() => props.navigation.navigate('Home')}
-      />
     </View>
   );
 };
