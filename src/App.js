@@ -9,7 +9,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Provider} from 'react-redux';
 
-// import Intro from './containers/Intro';
+import Intro from './containers/Intro';
 import Home from './containers/Home';
 import Away from './containers/Away';
 import One from './containers/One';
@@ -34,7 +34,8 @@ const App: () => React$Node = () => {
   return (
     <NavigationContainer>
       <Provider store={store}>
-        <TabNavigator initialRouteName="Home">
+        <TabNavigator initialRouteName="Intro">
+          <TabScreen name="Intro" component={Intro} />
           <TabScreen name="Home" component={Home} />
           <TabScreen name="Away" component={Away} />
           <TabScreen name="One" component={OneStack} />
