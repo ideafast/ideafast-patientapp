@@ -9,12 +9,11 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Provider} from 'react-redux';
 
-import Intro from './containers/Intro';
-import Home from './containers/Home';
-import Away from './containers/Away';
-import One from './containers/One';
-import Two from './containers/Two';
-import Three from './containers/Three';
+import Devices from './containers/Devices';
+import Profile from './containers/Profile';
+import Help from './containers/Help';
+import FAQ from './containers/FAQ';
+import AboutDevices from './containers/AboutDevices';
 import configureStore from './configureStore';
 
 const {Navigator: TabNavigator, Screen: TabScreen} = createBottomTabNavigator();
@@ -24,9 +23,8 @@ const store = configureStore();
 
 const OneStack = () => (
   <StackNavigator>
-    <StackScreen name="One" component={One} />
-    <StackScreen name="Two" component={Two} />
-    <StackScreen name="Three" component={Three} />
+    <StackScreen name="FAQ" component={FAQ} />
+    <StackScreen name="AboutDevices" component={AboutDevices} />
   </StackNavigator>
 );
 
@@ -34,11 +32,10 @@ const App: () => React$Node = () => {
   return (
     <NavigationContainer>
       <Provider store={store}>
-        <TabNavigator initialRouteName="Intro">
-          <TabScreen name="Intro" component={Intro} />
-          <TabScreen name="Home" component={Home} />
-          <TabScreen name="Away" component={Away} />
-          <TabScreen name="One" component={OneStack} />
+        <TabNavigator initialRouteName="Devices">
+          <TabScreen name="Devices" component={Devices} />
+          <TabScreen name="Profile" component={Profile} />
+          <TabScreen name="Help" component={OneStack} />
         </TabNavigator>
       </Provider>
     </NavigationContainer>
