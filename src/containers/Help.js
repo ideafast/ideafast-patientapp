@@ -8,7 +8,7 @@ import {connect} from 'react-redux';
 
 import {mapDispatchToProps} from '../ducks/actions';
 import {createStackNavigator} from '@react-navigation/stack';
-
+import { NavigationContainer } from '@react-navigation/native';
 
 
 const Help: () => React$Node = props => {
@@ -37,6 +37,8 @@ const styles = StyleSheet.create({
   view: {
     flex: 1,
     padding: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

@@ -21,8 +21,9 @@ const {Navigator: StackNavigator, Screen: StackScreen} = createStackNavigator();
 
 const store = configureStore();
 
-const OneStack = () => (
+const HelpStack = () => (
   <StackNavigator>
+    <StackScreen name="Help" component={Help} />
     <StackScreen name="FAQ_help" component={FAQ_help} />
     <StackScreen name="AboutDevices" component={AboutDevices} />
   </StackNavigator>
@@ -35,7 +36,7 @@ const App: () => React$Node = () => {
         <TabNavigator initialRouteName="Devices">
           <TabScreen name="Devices" component={Devices} />
           <TabScreen name="Profile" component={Profile} />
-          <TabScreen name="Help" component={Help} />
+          <TabScreen name="Help" component={HelpStack} />
         </TabNavigator>
       </Provider>
     </NavigationContainer>
