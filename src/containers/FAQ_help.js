@@ -3,17 +3,15 @@
  * @flow strict-local
  */
 import React from 'react';
-import {StyleSheet, Text, View, Button} from 'react-native';
+import {Button, StyleSheet, Text, View} from 'react-native';
 import {connect} from 'react-redux';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
-
-
-const AboutDevices: () => React$Node = props => {
+const FAQ_help: () => React$Node = props => {
   return (
     <View style={styles.view}>
-      <Text>This is All about devices!</Text>
+        <Text>This is Frequency Ask Question!</Text>
     </View>
   );
 };
@@ -21,15 +19,15 @@ const AboutDevices: () => React$Node = props => {
 const styles = StyleSheet.create({
   view: {
     flex: 1,
-    padding: 24,
+    padding: 100,
   },
 });
 
 const mapStateToProps = state => state;
 
-const AboutDevicesContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(AboutDevices);
+const FAQ_helpContainer = connect(
+ mapStateToProps,
+ mapDispatchToProps,
+)(FAQ_help);
 
-export default AboutDevicesContainer;
+export default FAQ_helpContainer;

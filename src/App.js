@@ -12,7 +12,7 @@ import {Provider} from 'react-redux';
 import Devices from './containers/Devices';
 import Profile from './containers/Profile';
 import Help from './containers/Help';
-import FAQ from './containers/FAQ';
+import FAQ_help from './containers/FAQ_help';
 import AboutDevices from './containers/AboutDevices';
 import configureStore from './configureStore';
 
@@ -23,7 +23,7 @@ const store = configureStore();
 
 const OneStack = () => (
   <StackNavigator>
-    <StackScreen name="FAQ" component={FAQ} />
+    <StackScreen name="FAQ_help" component={FAQ_help} />
     <StackScreen name="AboutDevices" component={AboutDevices} />
   </StackNavigator>
 );
@@ -35,7 +35,7 @@ const App: () => React$Node = () => {
         <TabNavigator initialRouteName="Devices">
           <TabScreen name="Devices" component={Devices} />
           <TabScreen name="Profile" component={Profile} />
-          <TabScreen name="Help" component={OneStack} />
+          <TabScreen name="Help" component={Help} />
         </TabNavigator>
       </Provider>
     </NavigationContainer>

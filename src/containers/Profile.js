@@ -3,7 +3,7 @@
  * @flow strict-local
  */
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 import {connect} from 'react-redux';
 
 import {mapDispatchToProps} from '../ducks/actions';
@@ -12,12 +12,13 @@ import ClickMe from '../components/ClickMe';
 import FetchFilms from '../components/FetchFilms';
 import NumeralDisplay from '../components/NumeralDisplay';
 
-const Away: () => React$Node = props => {
+const Profile: () => React$Node = props => {
   return (
     <View style={styles.view}>
       <ClickMe setNumber={props.setNumber} />
       <NumeralDisplay number={props.number} />
       <FetchFilms fetchFilms={props.fetchFilms} films={props.films} />
+      <Text>This is your profile!</Text>
     </View>
   );
 };
@@ -31,9 +32,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => state;
 
-const AwayContainer = connect(
+const ProfileContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Away);
+)(Profile);
 
-export default AwayContainer;
+export default ProfileContainer;
