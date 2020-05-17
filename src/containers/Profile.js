@@ -15,6 +15,10 @@ import NumeralDisplay from '../components/NumeralDisplay';
 const Profile: () => React$Node = props => {
   return (
     <View style={styles.container}>
+      <View style={{ height: 100, marginTop: 10, marginVertical:40, marginHorizontal:60 }}>
+        <Image
+        />
+      </View>
       <TextInput
         style={{
         height: 40,
@@ -27,7 +31,7 @@ const Profile: () => React$Node = props => {
         underlineColorAndroid="transparent"
       />
       <View style={{ height: 100, marginTop: 10, marginVertical:40, marginHorizontal:60 }}>
-          <Button title="Sign Out" color="#2E8B57" />
+          <Button title="Sign Out" color='#841584' />
       </View>
     </View>
   );

@@ -21,19 +21,27 @@ const Help: () => React$Node = props => {
       <View style={styles.separator}>
          <Button
             title="FAQ"
-            //color='#841584'
-            color="#2E8B57"
+            color='#841584'
+            //color="#2E8B57"
             onPress={() => props.navigation.navigate('FAQ')}
          />
       </View>
       <View style={styles.separator}>
          <Button
-         title="About Devices"
-         //color='#841584'
-         color="#2E8B57"
-         onPress={() => props.navigation.navigate('AboutDevices')}
+            title="About Devices"
+            color='#841584'
+            //color="#2E8B57"
+            onPress={() => props.navigation.navigate('AboutDevices')}
          />
-      </View>
+       </View>
+       <View style={styles.separator}>
+          <Button
+            title="Contact Us!"
+            color='#841584'
+            //color="#2E8B57"
+            onPress={() => props.navigation.navigate('AboutDevices')}
+           />
+       </View>
     </View>
   );
 };
