@@ -3,7 +3,7 @@
  * @flow strict-local
  */
 import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View, Text, TextInput, Button, Image} from 'react-native';
 import {connect} from 'react-redux';
 
 import {mapDispatchToProps} from '../ducks/actions';
@@ -14,21 +14,54 @@ import NumeralDisplay from '../components/NumeralDisplay';
 
 const Profile: () => React$Node = props => {
   return (
-    <View style={styles.view}>
-      <ClickMe setNumber={props.setNumber} />
-      <NumeralDisplay number={props.number} />
-      <FetchFilms fetchFilms={props.fetchFilms} films={props.films} />
-      <Text>This is your profile!</Text>
+    <View style={styles.container}>
+      <TextInput
+        style={{
+        height: 40,
+        borderColor: "gray",
+        marginVertical: 40,
+        marginHorizontal: 60,
+        borderWidth: 0.5
+        }}
+        placeholder="This is your Id number"
+        underlineColorAndroid="transparent"
+      />
+      <View style={{ height: 100, marginTop: 10, marginVertical:40, marginHorizontal:60 }}>
+          <Button title="Sign Out" color="#2E8B57" />
+      </View>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
+const styles1 = StyleSheet.create({
   view: {
     flex: 1,
     padding: 24,
   },
 });
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginVertical:50,
+    marginHorizontal: 60,
+  },
+  title: {
+    textAlign: 'center',
+    marginVertical: 10,
+  },
+  fixToText: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  separator: {
+    marginVertical: 10,
+    marginHorizontal: 60,
+    borderBottomColor: '#737373',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+});
+
 
 const mapStateToProps = state => state;
 

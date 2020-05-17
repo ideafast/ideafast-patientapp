@@ -8,7 +8,7 @@ import {connect} from 'react-redux';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
-const FAQ_help: () => React$Node = props => {
+const FAQ: () => React$Node = props => {
   return (
     <View style={styles.view}>
         <Text>This is Frequency Ask Question!</Text>
@@ -25,9 +25,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => state;
 
-const FAQ_helpContainer = connect(
+const FAQContainer = connect(
  mapStateToProps,
  mapDispatchToProps,
-)(FAQ_help);
+)(FAQ);
 
-export default FAQ_helpContainer;
+export default FAQContainer;
