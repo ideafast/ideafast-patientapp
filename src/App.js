@@ -13,6 +13,7 @@ import Devices from './containers/Devices';
 import Profile from './containers/Profile';
 import Help from './containers/Help';
 import FAQ from './containers/FAQ';
+import ContactUs from './containers/ContactUs';
 import AboutDevices from './containers/AboutDevices';
 import configureStore from './configureStore';
 
@@ -26,6 +27,7 @@ const HelpStack = () => (
     <StackScreen name="Help" component={Help} />
     <StackScreen name="FAQ" component={FAQ} />
     <StackScreen name="AboutDevices" component={AboutDevices} />
+    <StackScreen name="ContactUs" component={ContactUs} />
   </StackNavigator>
 );
 

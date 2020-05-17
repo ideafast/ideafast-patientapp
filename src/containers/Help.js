@@ -39,7 +39,7 @@ const Help: () => React$Node = props => {
             title="Contact Us!"
             color='#841584'
             //color="#2E8B57"
-            onPress={() => props.navigation.navigate('AboutDevices')}
+            onPress={() => props.navigation.navigate('ContactUs')}
            />
        </View>
     </View>
