@@ -16,7 +16,7 @@ const Profile: () => React$Node = props => {
   return (
     <View style={styles.container}>
       <View style={{ height: 100, marginTop: 10, marginVertical:40, marginHorizontal:60 }}>
-        <Image
+        <Image source={require('../images/profile.png')} style={{ width: 160, height: 160 }}
         />
       </View>
       <TextInput
