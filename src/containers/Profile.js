@@ -1,6 +1,8 @@
 /**
  * @format
  * @flow strict-local
+ * <div>Icons made by <a href="https://www.flaticon.com/authors/vitaly-gorbachev" title="Vitaly Gorbachev">Vitaly Gorbachev</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+ * <div>Icons made by <a href="https://www.flaticon.com/authors/vitaly-gorbachev" title="Vitaly Gorbachev">Vitaly Gorbachev</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
  */
 import React from 'react';
 import {StyleSheet, View, Text, TextInput, Button, Image} from 'react-native';
@@ -16,7 +18,7 @@ const Profile: () => React$Node = props => {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <Image source={require('../assets/profile.png')} style={{ width: 160, height: 160 }}
+        <Image source={require('../assets/man1.png')} style={{ width: 160, height: 160 }}
         />
       </View>
       <TextInput
