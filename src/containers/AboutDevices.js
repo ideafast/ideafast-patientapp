@@ -3,15 +3,17 @@
  * @flow strict-local
  */
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, Button} from 'react-native';
 import {connect} from 'react-redux';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
-const Three: () => React$Node = props => {
+
+
+const AboutDevices: () => React$Node = props => {
   return (
     <View style={styles.view}>
-      <Text>We're at three.</Text>
+      <Text>This is All about devices!</Text>
     </View>
   );
 };
@@ -25,9 +27,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => state;
 
-const ThreeContainer = connect(
+const AboutDevicesContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Three);
+)(AboutDevices);
 
-export default ThreeContainer;
+export default AboutDevicesContainer;

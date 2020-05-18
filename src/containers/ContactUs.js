@@ -3,19 +3,17 @@
  * @flow strict-local
  */
 import React from 'react';
-import {Button, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, Button} from 'react-native';
 import {connect} from 'react-redux';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
-const Two: () => React$Node = props => {
+
+
+const ContactUs: () => React$Node = props => {
   return (
     <View style={styles.view}>
-      <Text>We're at two. Click below to go to three.</Text>
-      <Button
-        title="Go to three"
-        onPress={() => props.navigation.navigate('Three')}
-      />
+      <Text>This is our contact information!</Text>
     </View>
   );
 };
@@ -29,9 +27,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => state;
 
-const TwoContainer = connect(
+const ContactUsContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Two);
+)(ContactUs);
 
-export default TwoContainer;
+export default ContactUsContainer;
