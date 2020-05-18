@@ -46,19 +46,11 @@ const Help: () => React$Node = props => {
   );
 };
 
-/*const styles1 = StyleSheet.create({
-  view: {
-    flex: 1,
-    padding: 24,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-}); */
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginHorizontal: 16,
+    padding: 24,
   },
   title: {
     textAlign: 'center',
@@ -72,12 +64,10 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     marginHorizontal:60,
     borderBottomColor: '#737373',
-    borderBottomWidth: StyleSheet.hairlineWidth,
+    //borderBottomWidth: StyleSheet.hairlineWidth,
 
   },
 });
-
-
 
 const mapStateToProps = state => state;
 

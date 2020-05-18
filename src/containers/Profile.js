@@ -15,7 +15,7 @@ import NumeralDisplay from '../components/NumeralDisplay';
 const Profile: () => React$Node = props => {
   return (
     <View style={styles.container}>
-      <View style={{ height: 100, marginTop: 10, marginVertical:40, marginHorizontal:60 }}>
+      <View style={styles.content}>
         <Image source={require('../images/profile.png')} style={{ width: 160, height: 160 }}
         />
       </View>
@@ -30,39 +30,26 @@ const Profile: () => React$Node = props => {
         placeholder="This is your Id number"
         underlineColorAndroid="transparent"
       />
-      <View style={{ height: 100, marginTop: 10, marginVertical:40, marginHorizontal:60 }}>
+      <View style={styles.content}>
           <Button title="Sign Out" color='#841584' />
       </View>
     </View>
   );
 };
 
-const styles1 = StyleSheet.create({
-  view: {
-    flex: 1,
-    padding: 24,
-  },
-});
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginVertical:50,
     marginHorizontal: 60,
+    //padding: 24,
   },
-  title: {
-    textAlign: 'center',
-    marginVertical: 10,
-  },
-  fixToText: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  separator: {
-    marginVertical: 10,
-    marginHorizontal: 60,
-    borderBottomColor: '#737373',
-    borderBottomWidth: StyleSheet.hairlineWidth,
+  content:{
+    height: 100,
+    marginTop: 10,
+    marginVertical:40,
+    marginHorizontal:60,
+    //width: 160,
   },
 });
 
