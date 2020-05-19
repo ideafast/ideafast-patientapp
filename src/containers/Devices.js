@@ -24,7 +24,7 @@ import {connect} from 'react-redux';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
-const Home: () => React$Node = props => {
+const Devices: () => React$Node = props => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -113,9 +113,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => state;
 
-const HomeContainer = connect(
+const DevicesContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Home);
+)(Devices);
 
-export default HomeContainer;
+export default DevicesContainer;
