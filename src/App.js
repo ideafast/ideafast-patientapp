@@ -4,7 +4,7 @@
  */
 import 'react-native-gesture-handler';
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Provider} from 'react-redux';
@@ -17,10 +17,11 @@ import ContactUs from './containers/ContactUs';
 import AboutDevices from './containers/AboutDevices';
 import configureStore from './configureStore';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const {Navigator: TabNavigator, Screen: TabScreen} = createBottomTabNavigator();
 const {Navigator: StackNavigator, Screen: StackScreen} = createStackNavigator();
+
 
 const store = configureStore();
 
@@ -37,12 +38,14 @@ const App: () => React$Node = () => {
   return (
     <NavigationContainer>
       <Provider store={store}>
-        <TabNavigator initialRouteName="Devices" tabBarOptions={{ activeTintColor: '#e91e63',}}>
+        <TabNavigator initialRouteName="Devices"
+        tabBarOptions={{ activeTintColor: '#FFFFFF', style: {backgroundColor: '#5533FF'},
+         labelStyle: {fontSize: 13}}}>
           <TabScreen name="Devices" component={Devices}
             options={{
                 tabBarLabel: 'Devices',
                 tabBarIcon: ({ color, size }) => (
-                <MaterialCommunityIcons name="bluetooth" color={color} size={size} />
+                <MaterialCommunityIcons name="bluetooth-audio" color={color} size={size} />
                 ),
             }}
           />
@@ -50,7 +53,7 @@ const App: () => React$Node = () => {
             options={{
                 tabBarLabel: 'Profile',
                 tabBarIcon: ({ color, size }) => (
-                <MaterialCommunityIcons name="account-arrow-right-outline" color={color} size={size} />
+                <FontAwesome name="user-circle" color={color} size={size} />
                  ),
             }}
           />
@@ -58,7 +61,7 @@ const App: () => React$Node = () => {
             options={{
                 tabBarLabel: 'Help',
                 tabBarIcon: ({ color, size }) => (
-                <MaterialCommunityIcons name="question" color={color} size={size} />
+                <FontAwesome name="question-circle" color={color} size={size} />
                 ),
             }}
 
