@@ -8,7 +8,7 @@ import {connect} from 'react-redux';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
-const Intro: () => React$Node = props => {
+const Verify: () => React$Node = props => {
   return (
     <View style={styles.view}>
       <Text>Welcome. Please click button below to continue.</Text>
@@ -29,9 +29,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => state;
 
-const IntroContainer = connect(
+const VerifyContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Intro);
+)(Verify);
 
-export default IntroContainer;
+export default VerifyContainer;

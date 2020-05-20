@@ -9,7 +9,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Provider} from 'react-redux';
 
-import Intro from './containers/Intro';
+import Verify from './containers/Verify';
 import Devices from './containers/Devices';
 import Profile from './containers/Profile';
 import Help from './containers/Help';
@@ -39,17 +39,17 @@ const App: () => React$Node = () => {
     <NavigationContainer>
       <Provider store={store}>
         <TabNavigator
-          initialRouteName="Intro"
+          initialRouteName="Verify"
           tabBarOptions={{
             activeTintColor: '#FFFFFF',
             style: {backgroundColor: '#5533FF'},
             labelStyle: {fontSize: 13},
           }}>
           <TabScreen
-            name="Intro"
-            component={Intro}
+            name="Verify"
+            component={Verify}
             options={{
-              tabBarLabel: 'Intro',
+              tabBarLabel: 'ON OPEN',
             }}
           />
           <TabScreen
