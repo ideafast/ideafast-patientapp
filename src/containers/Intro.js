@@ -13,8 +13,8 @@ const Intro: () => React$Node = props => {
     <View style={styles.view}>
       <Text>Welcome. Please click button below to continue.</Text>
       <Button
-        title="Go to home"
-        onPress={() => props.navigation.navigate('Home')}
+        title="Sign In"
+        onPress={() => props.navigation.navigate('Profile')}
       />
     </View>
   );
