@@ -10,15 +10,16 @@ import {connect} from 'react-redux';
 import {mapDispatchToProps} from '../ducks/actions';
 
 const Verify: () => React$Node = props => {
+  const verify = () => {
+    props.navigation.navigate('Profile');
+  };
+
   return (
     <View style={styles.view}>
       <Text>Welcome to ideafast-patientapp.</Text>
       <Text>Please enter your ID to begin.</Text>
       <Input containerStyle={styles.idInput} />
-      <Button
-        title="Log In"
-        onPress={() => props.navigation.navigate('Profile')}
-      />
+      <Button title="Log In" onPress={verify} />
     </View>
   );
 };

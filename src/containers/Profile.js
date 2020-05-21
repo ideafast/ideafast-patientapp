@@ -11,6 +11,10 @@ import {connect} from 'react-redux';
 import {mapDispatchToProps} from '../ducks/actions';
 
 const Profile: () => React$Node = props => {
+  const signOut = () => {
+    props.navigation.navigate('Verify');
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.content}>
@@ -22,7 +26,7 @@ const Profile: () => React$Node = props => {
         underlineColorAndroid="transparent"
       />
       <View style={styles.content}>
-        <Button title="Sign Out" color="#841584" />
+        <Button title="Sign Out" color="#841584" onPress={signOut} />
       </View>
     </View>
   );
