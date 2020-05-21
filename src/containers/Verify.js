@@ -3,7 +3,7 @@
  * @flow strict-local
  */
 import React from 'react';
-import {Button, StyleSheet, Text, View} from 'react-native';
+import {Button, Image, StyleSheet, Text, View} from 'react-native';
 import {Input} from 'react-native-elements';
 import {connect} from 'react-redux';
 
@@ -15,7 +15,13 @@ const Verify: () => React$Node = props => {
   };
 
   return (
-    <View style={styles.view}>
+    <View style={styles.container}>
+      <View style={styles.content}>
+        <Image
+          source={require('../assets/idea-fast-logo.png')}
+          style={styles.image}
+        />
+      </View>
       <Text>Welcome to ideafast-patientapp.</Text>
       <Text>Please enter your ID to begin.</Text>
       <Input containerStyle={styles.idInput} />
@@ -25,9 +31,22 @@ const Verify: () => React$Node = props => {
 };
 
 const styles = StyleSheet.create({
-  view: {
+  container: {
     flex: 1,
-    padding: 24,
+    marginVertical: 50,
+    marginHorizontal: 60,
+    //padding: 24,
+  },
+  content: {
+    height: 160,
+    marginTop: 10,
+    marginVertical: 40,
+    marginHorizontal: 60,
+    //width: 160,
+  },
+  image: {
+    width: 240,
+    height: 160,
   },
   idInput: {
     borderColor: 'red',
