@@ -32,39 +32,67 @@ const FAQ: () => React$Node = props => {
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
+              <Text style={styles.sectionTitle}>Question1:</Text>
               <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
+                This is <Text style={styles.highlight}>answer1</Text> lalla..
               </Text>
             </View>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
+              <Text style={styles.sectionTitle}>Question2:</Text>
               <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
+                This is <Text style={styles.highlight}>answer2</Text> lalla..
               </Text>
             </View>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
+              <Text style={styles.sectionTitle}>Question3</Text>
               <Text style={styles.sectionDescription}>
-                <DebugInstructions />
+                This is <Text style={styles.highlight}>answer3</Text> lalla..
               </Text>
             </View>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
+              <Text style={styles.sectionTitle}>Question4:</Text>
               <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
+                This is <Text style={styles.highlight}>answer4</Text> lalla..
               </Text>
             </View>
-            <LearnMoreLinks />
+            <View style={styles.sectionContainer}>
+                <Text style={styles.sectionTitle}>Question5:</Text>
+                <Text style={styles.sectionDescription}>
+                    This is <Text style={styles.highlight}>answer5</Text> lalla..
+                </Text>
+            </View>
+            <View style={styles.sectionContainer}>
+                <Text style={styles.sectionTitle}>Question6:</Text>
+                <Text style={styles.sectionDescription}>
+                    This is <Text style={styles.highlight}>answer6</Text> lalla..
+                </Text>
+             </View>
+            <View style={styles.sectionContainer}>
+                <Text style={styles.sectionTitle}>Question7:</Text>
+                <Text style={styles.sectionDescription}>
+                    This is <Text style={styles.highlight}>answer7</Text> lalla..
+                </Text>
+            </View>
+            <View style={styles.sectionContainer}>
+                <Text style={styles.sectionTitle}>Question8:</Text>
+                <Text style={styles.sectionDescription}>
+                    This is <Text style={styles.highlight}>answer8</Text> lalla..
+                </Text>
+            </View>
+            <View style={styles.sectionContainer}>
+                <Text style={styles.sectionTitle}>Question9:</Text>
+                <Text style={styles.sectionDescription}>
+                    This is <Text style={styles.highlight}>answer9</Text> lalla..
+                </Text>
+            </View>
+            <View style={styles.sectionContainer}>
+                <Text style={styles.sectionTitle}>Question10:</Text>
+                <Text style={styles.sectionDescription}>
+                    This is <Text style={styles.highlight}>answer10</Text> lalla..
+                    </Text>
+          </View>
           </View>
         </ScrollView>
       </SafeAreaView>
