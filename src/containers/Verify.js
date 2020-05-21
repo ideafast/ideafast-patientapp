@@ -2,15 +2,18 @@
  * @format
  * @flow strict-local
  */
-import React from 'react';
-import {Button, Image, StyleSheet, Text, View} from 'react-native';
-import {Input} from 'react-native-elements';
+import React, {useState} from 'react';
+import {Button, Image, StyleSheet, TextInput, View} from 'react-native';
+import {Text} from 'react-native-elements';
 import {connect} from 'react-redux';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
 const Verify: () => React$Node = props => {
+  const [userID, setUserID] = useState('');
+
   const verify = () => {
+    console.log(userID);
     props.navigation.navigate('Profile');
   };
 
@@ -22,9 +25,13 @@ const Verify: () => React$Node = props => {
           style={styles.image}
         />
       </View>
-      <Text>Welcome to ideafast-patientapp.</Text>
-      <Text>Please enter your ID to begin.</Text>
-      <Input containerStyle={styles.idInput} />
+      <Text h4>Welcome to ideafast-patientapp.</Text>
+      <Text h4>Please enter your ID to begin.</Text>
+      <TextInput
+        containerStyle={styles.idInput}
+        placeholder="User ID"
+        onChangeText={text => setUserID(text)}
+      />
       <Button title="Log In" onPress={verify} />
     </View>
   );
