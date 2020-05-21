@@ -48,15 +48,7 @@ const App: () => React$Node = () => {
                 <MaterialCommunityIcons name="bluetooth-audio" color={color} size={size} />
                 ),
             }}
-          />
-          <TabScreen name="Profile" component={Profile}
-            options={{
-                tabBarLabel: 'Profile',
-                tabBarIcon: ({ color, size }) => (
-                <FontAwesome name="user-circle" color={color} size={size} />
-                 ),
-            }}
-          />
+           />
           <TabScreen name="Help" component={HelpStack}
             options={{
                 tabBarLabel: 'Help',
@@ -64,9 +56,14 @@ const App: () => React$Node = () => {
                 <FontAwesome name="question-circle" color={color} size={size} />
                 ),
             }}
-
-
-
+           />
+           <TabScreen name="Profile" component={Profile}
+            options={{
+                tabBarLabel: 'Profile',
+                    tabBarIcon: ({ color, size }) => (
+                        <FontAwesome name="user-circle" color={color} size={size} />
+                ),
+            }}
            />
         </TabNavigator>
       </Provider>
