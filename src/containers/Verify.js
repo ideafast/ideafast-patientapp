@@ -12,8 +12,8 @@ import {mapDispatchToProps} from '../ducks/actions';
 const Verify: () => React$Node = props => {
   const [userID, setUserID] = useState('');
 
-  const verify = () => {
-    console.log(userID);
+  const verify = async () => {
+    await props.verifyUserID(userID);
     props.navigation.navigate('Profile');
   };
 
