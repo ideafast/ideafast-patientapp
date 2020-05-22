@@ -4,10 +4,12 @@
  */
 import 'react-native-gesture-handler';
 import React from 'react';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
-import {Provider} from 'react-redux';
+import {Provider, connect} from 'react-redux';
 
 import Verify from './containers/Verify';
 import Devices from './containers/Devices';
@@ -17,8 +19,7 @@ import FAQ from './containers/FAQ';
 import ContactUs from './containers/ContactUs';
 import AboutDevices from './containers/AboutDevices';
 import configureStore from './configureStore';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import {mapDispatchToProps} from './ducks/actions';
 
 const {Navigator: TabNavigator, Screen: TabScreen} = createBottomTabNavigator();
 const {Navigator: StackNavigator, Screen: StackScreen} = createStackNavigator();
@@ -34,61 +35,69 @@ const HelpStack = () => (
   </StackNavigator>
 );
 
+const NavigationRoute = props => {
+  console.log(props);
+  if (!props.userID) {
+    return <Verify />;
+  }
+  return (
+    <TabNavigator
+      initialRouteName="Profile"
+      tabBarOptions={{
+        activeTintColor: '#FFFFFF',
+        style: {backgroundColor: '#5533FF'},
+        labelStyle: {fontSize: 13},
+      }}>
+      <TabScreen
+        name="Devices"
+        component={Devices}
+        options={{
+          tabBarLabel: 'Devices',
+          tabBarIcon: ({color, size}) => (
+            <MaterialCommunityIcons
+              name="bluetooth-audio"
+              color={color}
+              size={size}
+            />
+          ),
+        }}
+      />
+      <TabScreen
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({color, size}) => (
+            <FontAwesome name="user-circle" color={color} size={size} />
+          ),
+        }}
+      />
+      <TabScreen
+        name="Help"
+        component={HelpStack}
+        options={{
+          tabBarLabel: 'Help',
+          tabBarIcon: ({color, size}) => (
+            <FontAwesome name="question-circle" color={color} size={size} />
+          ),
+        }}
+      />
+    </TabNavigator>
+  );
+};
+
+const NavigationRouteContainer = connect(
+  state => state,
+  mapDispatchToProps,
+)(NavigationRoute);
+
 const App: () => React$Node = () => {
   return (
-    <NavigationContainer>
-      <Provider store={store}>
-        <TabNavigator
-          initialRouteName="Verify"
-          tabBarOptions={{
-            activeTintColor: '#FFFFFF',
-            style: {backgroundColor: '#5533FF'},
-            labelStyle: {fontSize: 13},
-          }}>
-          <TabScreen
-            name="Verify"
-            component={Verify}
-            options={{
-              tabBarLabel: 'ON OPEN',
-            }}
-          />
-          <TabScreen
-            name="Devices"
-            component={Devices}
-            options={{
-              tabBarLabel: 'Devices',
-              tabBarIcon: ({color, size}) => (
-                <MaterialCommunityIcons
-                  name="bluetooth-audio"
-                  color={color}
-                  size={size}
-                />
-              ),
-            }}
-          />
-          <TabScreen
-            name="Profile"
-            component={Profile}
-            options={{
-              tabBarLabel: 'Profile',
-              tabBarIcon: ({color, size}) => (
-                <FontAwesome name="user-circle" color={color} size={size} />
-              ),
-            }}
-          />
-          <TabScreen
-            name="Help"
-            component={HelpStack}
-            options={{
-              tabBarLabel: 'Help',
-              tabBarIcon: ({color, size}) => (
-                <FontAwesome name="question-circle" color={color} size={size} />
-              ),
-            }}
-          />
-        </TabNavigator>
-      </Provider>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <NavigationRouteContainer />
+      </NavigationContainer>
+    </Provider>
   );
 };
 
