@@ -2,16 +2,29 @@
  * @format
  * @flow strict-local
  */
-import React from 'react';
-import {Button} from 'react-native';
+import React, {useState} from 'react';
+import {ActivityIndicator, Button} from 'react-native';
 
-const LoadingButton: () => React$Node = ({setNumber}) => {
-  return (
-    <Button
-      title="Click Me"
-      onPress={() => setNumber(Math.floor(100 * Math.random()))}
-    />
-  );
+const LoadingButton: () => React$Node = ({
+  onPress,
+  title,
+  willUnmountOnSuccess = false,
+}) => {
+  const [isLoading, setLoading] = useState(false);
+
+  const onButtonPressed = async () => {
+    setLoading(true);
+    await onPress();
+    if (!willUnmountOnSuccess) {
+      setLoading(false);
+    }
+  };
+
+  if (isLoading) {
+    return <ActivityIndicator />;
+  }
+
+  return <Button title={title} onPress={onButtonPressed} />;
 };
 
 export default LoadingButton;

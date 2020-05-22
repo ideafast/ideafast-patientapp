@@ -7,6 +7,8 @@ import {Button, Image, StyleSheet, TextInput, View} from 'react-native';
 import {Text} from 'react-native-elements';
 import {connect} from 'react-redux';
 
+import LoadingButton from '../components/LoadingButton';
+
 import {mapDispatchToProps} from '../ducks/actions';
 
 const Verify: () => React$Node = props => {
@@ -29,7 +31,7 @@ const Verify: () => React$Node = props => {
         placeholder="User ID"
         onChangeText={text => setUserID(text)}
       />
-      <Button title="Log In" onPress={verify} />
+    <LoadingButton title="Log In" onPress={verify} willUnmountOnSuccess />
     </View>
   );
 };
