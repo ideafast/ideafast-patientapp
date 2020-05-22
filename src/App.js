@@ -54,7 +54,7 @@ const HelpStack = () => (
     />
     <StackScreen name="ContactDetails"
                  component={ContactDetails}
-                 options={{ title: 'Study center Contact Details',
+                 options={{ title: 'Study Center Contact Details',
                             headerStyle: {
                             backgroundColor:'#5533FF',
                             },
