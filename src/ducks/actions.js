@@ -5,10 +5,7 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 const verifyUserID = userID => async dispatch => {
-  // const url = 'https://reactnative.dev/movies.json';
-  // const response = await fetch(url);
-  // const responseJSON = await response.json();
-  // const films = await responseJSON.movies;
+  await new Promise(r => setTimeout(r, 2000));
   await dispatch(setUserID(userID));
 };
 
