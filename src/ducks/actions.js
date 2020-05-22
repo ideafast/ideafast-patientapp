@@ -1,24 +1,18 @@
 import * as actiontypes from './actiontypes';
 
 export const mapDispatchToProps = dispatch => ({
-  fetchFilms: () => dispatch(fetchFilms()),
-  setNumber: number => dispatch(setNumber(number)),
+  verifyUserID: userID => dispatch(verifyUserID(userID)),
 });
 
-const fetchFilms = () => async dispatch => {
-  const url = 'https://reactnative.dev/movies.json';
-  const response = await fetch(url);
-  const responseJSON = await response.json();
-  const films = await responseJSON.movies;
-  await dispatch(fetchFilmsSuccess(films));
+const verifyUserID = userID => async dispatch => {
+  // const url = 'https://reactnative.dev/movies.json';
+  // const response = await fetch(url);
+  // const responseJSON = await response.json();
+  // const films = await responseJSON.movies;
+  await dispatch(setUserID(userID));
 };
 
-const fetchFilmsSuccess = films => ({
-  type: actiontypes.FETCH_FILMS,
-  films,
-});
-
-const setNumber = number => ({
-  type: actiontypes.SET_NUMBER,
-  number,
+const setUserID = userID => ({
+  type: actiontypes.SET_USERID,
+  userID,
 });

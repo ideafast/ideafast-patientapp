@@ -21,7 +21,7 @@ const Profile: () => React$Node = props => {
         <Image source={require('../assets/man1.png')} style={styles.image} />
       </View>
       <Text h4 style={styles.idNumber} underlineColorAndroid="transparent">
-        This is your ID number
+        {props.userID}
       </Text>
       <View style={styles.content}>
         <Button title="Sign Out" color="#841584" onPress={signOut} />

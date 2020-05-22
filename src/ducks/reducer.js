@@ -1,14 +1,11 @@
 import * as actiontypes from './actiontypes';
 
-const setFilms = (state, films) => ({...state, films});
-const setNumber = (state, number) => ({...state, number});
+const setUserID = (state, userID) => ({...state, userID});
 
 export default function(state = {}, action) {
   switch (action.type) {
-    case actiontypes.FETCH_FILMS:
-      return setFilms(state, action.films);
-    case actiontypes.SET_NUMBER:
-      return setNumber(state, action.number);
+    case actiontypes.SET_USERID:
+      return setUserID(state, action.userID);
     default:
       return state;
   }
