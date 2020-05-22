@@ -29,8 +29,8 @@ const HelpStack = () => (
   <StackNavigator>
     <StackScreen name="Help" component={Help} />
     <StackScreen name="FAQ" component={FAQ} />
-    <StackScreen name="AboutDevices" component={AboutDevices} />
-    <StackScreen name="ContactDetails" component={ContactDetails} />
+    <StackScreen name="AboutDevices" component={AboutDevices} options={{ title: 'About Devices' }}/>
+    <StackScreen name="ContactDetails" component={ContactDetails} options={{ title: 'Study Center Contact Details' }}/>
   </StackNavigator>
 );
 
