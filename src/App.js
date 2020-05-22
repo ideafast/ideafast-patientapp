@@ -13,7 +13,7 @@ import Devices from './containers/Devices';
 import Profile from './containers/Profile';
 import Help from './containers/Help';
 import FAQ from './containers/FAQ';
-import ContactUs from './containers/ContactUs';
+import ContactDetails from './containers/ContactDetails';
 import AboutDevices from './containers/AboutDevices';
 import configureStore from './configureStore';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -30,7 +30,7 @@ const HelpStack = () => (
     <StackScreen name="Help" component={Help} />
     <StackScreen name="FAQ" component={FAQ} />
     <StackScreen name="AboutDevices" component={AboutDevices} />
-    <StackScreen name="ContactUs" component={ContactUs} />
+    <StackScreen name="ContactDetails" component={ContactDetails} />
   </StackNavigator>
 );
 
