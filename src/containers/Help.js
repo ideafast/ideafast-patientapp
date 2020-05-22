@@ -28,18 +28,18 @@ const Help: () => React$Node = props => {
       <StatusBar barStyle="dark-content" />
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}
-                onPress={() => props.navigation.navigate('FAQ')}>FAQ
+              <Text style={styles.sectionTitle} onPress={() => props.navigation.navigate('FAQ')}>
+                FAQ
               </Text>
             </View>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}
-                onPress={() => props.navigation.navigate('AboutDevices')}>About Devices
+              <Text style={styles.sectionTitle} onPress={() => props.navigation.navigate('AboutDevices')}>
+                About Devices
               </Text>
             </View>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}
-                onPress={() => props.navigation.navigate('ContactDetails')}>Study Center Contact Details
+              <Text style={styles.sectionTitle} onPress={() => props.navigation.navigate('ContactDetails')}>
+                Study Center Contact Details
               </Text>
             </View>
           </View>
