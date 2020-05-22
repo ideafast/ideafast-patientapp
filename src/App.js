@@ -28,9 +28,42 @@ const store = configureStore();
 const HelpStack = () => (
   <StackNavigator>
     <StackScreen name="Help" component={Help} />
-    <StackScreen name="FAQ" component={FAQ} />
-    <StackScreen name="AboutDevices" component={AboutDevices} options={{ title: 'About Devices' }}/>
-    <StackScreen name="ContactDetails" component={ContactDetails} options={{ title: 'Study Center Contact Details' }}/>
+    <StackScreen name="FAQ"
+                 component={FAQ}
+                 options={{ title: 'FAQ',
+                            headerStyle: {
+                            backgroundColor:'#5533FF',
+                            },
+                            headerTintColor: '#fff',
+                            headerTitleStyle: {
+                            fontWeight: 'bold',
+                            },
+                 }}
+    />
+    <StackScreen name="AboutDevices"
+                 component={AboutDevices}
+                 options={{ title: 'About Devices',
+                            headerStyle: {
+                            backgroundColor:'#5533FF',
+                            },
+                            headerTintColor: '#fff',
+                            headerTitleStyle: {
+                            fontWeight: 'bold',
+                            },
+                 }}
+    />
+    <StackScreen name="ContactDetails"
+                 component={ContactDetails}
+                 options={{ title: 'Study center Contact Details',
+                            headerStyle: {
+                            backgroundColor:'#5533FF',
+                            },
+                            headerTintColor: '#fff',
+                            headerTitleStyle: {
+                            fontWeight: 'bold',
+                            },
+                 }}
+    />
   </StackNavigator>
 );
 
