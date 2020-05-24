@@ -36,7 +36,7 @@ const HelpStack = () => (
                             },
                             headerTintColor: '#fff',
                             headerTitleStyle: {
-                            fontWeight: 'bold',
+                            //fontWeight: 'bold',
                             },
                  }}
     />
@@ -48,7 +48,7 @@ const HelpStack = () => (
                             },
                             headerTintColor: '#fff',
                             headerTitleStyle: {
-                            fontWeight: 'bold',
+                            //fontWeight: 'bold',
                             },
                  }}
     />
@@ -60,7 +60,7 @@ const HelpStack = () => (
                             },
                             headerTintColor: '#fff',
                             headerTitleStyle: {
-                            fontWeight: 'bold',
+                            //fontWeight: 'bold',
                             },
                  }}
     />
