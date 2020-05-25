@@ -74,7 +74,8 @@ const CONTENT = [
 
 ];
 
-export default class App extends Component {
+export default class FAQ extends Component {
+
   state = {
     activeSections: [],
     collapsed: true,
@@ -119,7 +120,6 @@ export default class App extends Component {
 
   render() {
     const { multipleSelect, activeSections } = this.state;
-
     return (
       <View style={styles.container}>
         <ScrollView contentContainerStyle={{ paddingTop: 20 }}>
@@ -192,14 +192,5 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     padding: 10,
   },
-  multipleToggle: {
-    flexDirection: 'row',
-    //ustifyContent: 'center',
-    marginVertical: 30,
-    //alignItems: 'center',
-  },
-  multipleToggle__title: {
-    fontSize: 20,
-    marginRight: 8,
-  },
+
 });
