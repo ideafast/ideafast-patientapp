@@ -20,7 +20,7 @@ const IC_ARR_DOWN = require('../icons/ic_arr_down.png');
 const IC_ARR_UP = require('../icons/ic_arr_up.png');
 
 type Props = {};
-export default class App extends Component<Props> {
+export default class FAQ extends Component<Props> {
   state = {
     contents: [
       {
