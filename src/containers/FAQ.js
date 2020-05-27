@@ -72,33 +72,25 @@ const FAQ: () => React$Node = props => {
 
     ],
   };
-
-    return (
+  return (
         <>
         <View style={styles.container}>
             <ScrollView style={{ alignSelf: 'stretch' }}>
-            {
-                state.contents
-                    ? state.contents.map((param, i) => {
-                    return (
-                        <DropDownItem
-                        key={i}
+                {
+                    <DropDownItem
                         style={styles.dropDownItem}
                         contentVisible={false}
                         invisibleImage={IC_ARR_DOWN}
                         visibleImage={IC_ARR_UP}
                         header={
                         <View style={styles.header}>
-                        <Text style={styles.headerTxt}>{param.title}</Text>
+                        <Text style={styles.headerTxt}>{state.contents.title}</Text>
                         </View>
                         }
                         >
-                        <Text style={styles.txt}>{param.body}</Text>
+                        <Text style={styles.txt}>{state.contents.body}</Text>
                     </DropDownItem>
-                    );
-                })
-              : null
-            }
+                }
           <View style={{ height: 96 }}/>
         </ScrollView>
       </View>
