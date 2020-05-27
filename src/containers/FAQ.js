@@ -14,13 +14,15 @@ import {
   Header,
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
+import {connect} from 'react-redux';
+import {mapDispatchToProps} from '../ducks/actions';
 
 
 const IC_ARR_DOWN = require('../icons/ic_arr_down.png');
 const IC_ARR_UP = require('../icons/ic_arr_up.png');
 
-type Props = {};
-export default class FAQ extends Component<Props> {
+const FAQ: () => React$Node = props => {
+
   state = {
     contents: [
       {
@@ -71,51 +73,51 @@ export default class FAQ extends Component<Props> {
     ],
   };
 
-  render() {
     return (
-      <View style={styles.container}>
-        <ScrollView style={{ alignSelf: 'stretch' }}>
-          {
-            this.state.contents
-              ? this.state.contents.map((param, i) => {
-                return (
-                  <DropDownItem
-                    key={i}
-                    style={styles.dropDownItem}
-                    contentVisible={false}
-                    invisibleImage={IC_ARR_DOWN}
-                    visibleImage={IC_ARR_UP}
-                    header={
-                      <View style={styles.header}>
+        <>
+        <View style={styles.container}>
+            <ScrollView style={{ alignSelf: 'stretch' }}>
+            {
+                this.state.contents
+                ? this.state.contents.map((param, i) => {
+                    return (
+                        <DropDownItem
+                        key={i}
+                        style={styles.dropDownItem}
+                        contentVisible={false}
+                        invisibleImage={IC_ARR_DOWN}
+                        visibleImage={IC_ARR_UP}
+                        header={
+                        <View style={styles.header}>
                         <Text style={{
                           fontSize: 20,
                           fontWeight: '600',
                           color: Colors.black,
                         }}>{param.title}</Text>
-                      </View>
-                    }
-                  >
-                    <Text style={[
-                      styles.txt,
-                      {
-                        fontSize: 18,
-                        fontWeight: '400',
-                        color: Colors.dark,
-                      },
-                    ]}>
-                      {param.body}
-                    </Text>
-                  </DropDownItem>
-                );
-              })
+                        </View>
+                        }
+                        >
+                        <Text style={[
+                            styles.txt,
+                            {
+                            fontSize: 18,
+                            fontWeight: '400',
+                            color: Colors.dark,
+                            },
+                        ]}>
+                        {param.body}
+                        </Text>
+                    </DropDownItem>
+                    );
+                })
               : null
-          }
+            }
           <View style={{ height: 96 }}/>
         </ScrollView>
       </View>
-    );
-  }
-}
+    </>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -143,3 +145,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
 });
+
+const mapStateToProps = state => state;
+
+const FAQContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(FAQ);
+
+export default FAQContainer;
