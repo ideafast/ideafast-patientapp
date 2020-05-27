@@ -78,8 +78,8 @@ const FAQ: () => React$Node = props => {
         <View style={styles.container}>
             <ScrollView style={{ alignSelf: 'stretch' }}>
             {
-                this.state.contents
-                ? this.state.contents.map((param, i) => {
+                state.contents
+                    ? state.contents.map((param, i) => {
                     return (
                         <DropDownItem
                         key={i}
