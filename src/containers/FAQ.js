@@ -89,24 +89,11 @@ const FAQ: () => React$Node = props => {
                         visibleImage={IC_ARR_UP}
                         header={
                         <View style={styles.header}>
-                        <Text style={{
-                          fontSize: 20,
-                          fontWeight: '600',
-                          color: Colors.black,
-                        }}>{param.title}</Text>
+                        <Text style={styles.headerTxt}>{param.title}</Text>
                         </View>
                         }
                         >
-                        <Text style={[
-                            styles.txt,
-                            {
-                            fontSize: 18,
-                            fontWeight: '400',
-                            color: Colors.dark,
-                            },
-                        ]}>
-                        {param.body}
-                        </Text>
+                        <Text style={styles.txt}>{param.body}</Text>
                     </DropDownItem>
                     );
                 })
@@ -124,25 +111,25 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-    paddingTop: 20,
+    marginTop: 12,
   },
   header: {
     width: '100%',
     paddingVertical: 8,
-    paddingHorizontal: 12,
+    paddingHorizontal: 10,
     flexWrap: 'wrap',
     flexDirection: 'row',
     alignItems: 'center',
   },
   headerTxt: {
-    fontSize: 12,
-    color: 'rgb(74,74,74)',
-    marginRight: 60,
-    flexWrap: 'wrap',
+    fontSize: 20,
+    fontWeight: '600',
+    color: Colors.black,
   },
   txt: {
-    fontSize: 14,
+    fontSize: 18,
+    fontWeight: '400',
+    color: Colors.dark,
   },
 });
 
