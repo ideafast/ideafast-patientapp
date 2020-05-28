@@ -1,1 +1,1 @@
-export default {films: [], number: 20};
+export default {userID: null};

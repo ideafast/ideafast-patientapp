@@ -8,8 +8,6 @@ import {connect} from 'react-redux';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
-
-
 const Devices: () => React$Node = props => {
   return (
     <View style={styles.view}>
