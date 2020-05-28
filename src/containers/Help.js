@@ -3,61 +3,87 @@
  * @flow strict-local
  */
 import React from 'react';
-import {Button, StyleSheet, Text, View} from 'react-native';
+import {
+  SafeAreaView,
+  StyleSheet,
+  ScrollView,
+  View,
+  Text,
+  StatusBar,
+  Image,
+} from 'react-native';
+
+import {
+  Header,
+  Colors,
+} from 'react-native/Libraries/NewAppScreen';
+
 import {connect} from 'react-redux';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
 const Help: () => React$Node = props => {
   return (
-    <View style={styles.container}>
-      <View style={styles.title}>
-        <Text />
-      </View>
-      <View style={styles.separator}>
-        <Button
-          title="FAQ"
-          color="#841584"
-          onPress={() => props.navigation.navigate('FAQ')}
-        />
-      </View>
-      <View style={styles.separator}>
-        <Button
-          title="About Devices"
-          color="#841584"
-          onPress={() => props.navigation.navigate('AboutDevices')}
-        />
-      </View>
-      <View style={styles.separator}>
-        <Button
-          title="Contact Us!"
-          color="#841584"
-          onPress={() => props.navigation.navigate('ContactUs')}
-        />
-      </View>
-    </View>
+    <>
+      <StatusBar barStyle="dark-content" />
+          <View style={styles.body}>
+            <View style={styles.sectionContainer}>
+              <Text style={styles.sectionTitle} onPress={() => props.navigation.navigate('FAQ')}>
+                FAQ
+              </Text>
+            </View>
+            <View style={styles.sectionContainer}>
+              <Text style={styles.sectionTitle} onPress={() => props.navigation.navigate('AboutDevices')}>
+                About Devices
+              </Text>
+            </View>
+            <View style={styles.sectionContainer}>
+              <Text style={styles.sectionTitle} onPress={() => props.navigation.navigate('ContactDetails')}>
+                Study Center Contact Details
+              </Text>
+            </View>
+          </View>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginHorizontal: 16,
-    padding: 24,
+  scrollView: {
+    backgroundColor: Colors.lighter,
   },
-  title: {
-    textAlign: 'center',
-    marginVertical: 20,
+  engine: {
+    //position: 'absolute',
+    right: 0,
   },
-  fixToText: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+  body: {
+    //backgroundColor: Colors.white,
   },
-  separator: {
-    marginVertical: 10,
-    marginHorizontal: 60,
-    borderBottomColor: '#737373',
-    //borderBottomWidth: StyleSheet.hairlineWidth,
+  sectionContainer: {
+    marginTop: 32,
+    //paddingHorizontal: 24,
+    paddingHorizontal: 14,
+  },
+  sectionTitle: {
+    fontSize: 20,
+    fontWeight: '600',
+    color: Colors.black,
+  },
+  sectionDescription: {
+    marginTop: 8,
+    fontSize: 18,
+    fontWeight: '400',
+    color: Colors.dark,
+  },
+  highlight: {
+    fontWeight: '700',
+  },
+  footer: {
+    color: Colors.dark,
+    fontSize: 12,
+    fontWeight: '100',
+    padding: 4,
+    paddingRight: 12,
+    textAlign: 'right',
   },
 });
 

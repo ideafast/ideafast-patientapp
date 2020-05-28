@@ -1,113 +1,135 @@
 /**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
  * @format
- * @flow strict-local
+ * @flow
  */
-import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+
+import React, { Component } from 'react';
+import { Platform, StyleSheet, Text, View, ScrollView, Image } from 'react-native';
+import DropDownItem from 'react-native-drop-down-item';
 
 import {
   Header,
-  LearnMoreLinks,
   Colors,
-  DebugInstructions,
-  ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-
 import {connect} from 'react-redux';
-
 import {mapDispatchToProps} from '../ducks/actions';
 
+
+const IC_ARR_DOWN = require('../icons/ic_arr_down.png');
+const IC_ARR_UP = require('../icons/ic_arr_up.png');
+
 const FAQ: () => React$Node = props => {
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
+
+  state = {
+    contents: [
+      {
+        title: 'How often do I need to use that?',
+        body: 'This is the answer and I think this is fantastic:)',
+      },
+      {
+        title: 'Shall I do any special activity?',
+        body: 'Yes. You can have more items.',
+      },
+      {
+        title: 'These questions are just for test. yes?',
+        body: 'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
+      },
+      {
+        title: 'These questions are just for test. yes?',
+        body: 'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
+       },
+      {
+        title: 'These questions are just for test. yes?',
+        body: 'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
+      },
+      {
+        title: 'These questions are just for test. yes?',
+        body: 'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
+       },
+       {
+        title: 'These questions are just for test. yes?',
+        body: 'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
+      },
+      {
+        title: 'These questions are just for test. yes?',
+        body: 'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
+      },
+      {
+        title: 'These questions are just for test. yes?',
+        body: 'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
+      },
+      {
+        title: 'These questions are just for test. yes?',
+        body: 'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
+      },
+      {
+        title: 'These questions are just for test. yes?',
+        body: 'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
+      },
+
+    ],
+  };
+
+    return (
+        <>
+        <View style={styles.container}>
+            <ScrollView style={{ alignSelf: 'stretch' }}>
+            {
+                state.contents
+                    ? state.contents.map((param, i) => {
+                    return (
+                        <DropDownItem
+                        key={i}
+                        style={styles.dropDownItem}
+                        contentVisible={false}
+                        invisibleImage={IC_ARR_DOWN}
+                        visibleImage={IC_ARR_UP}
+                        header={
+                        <View style={styles.header}>
+                        <Text style={styles.headerTxt}>{param.title}</Text>
+                        </View>
+                        }
+                        >
+                        <Text style={styles.txt}>{param.body}</Text>
+                    </DropDownItem>
+                    );
+                })
+              : null
+            }
+          <View style={{ height: 96 }}/>
         </ScrollView>
-      </SafeAreaView>
+      </View>
     </>
   );
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 12,
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
+  header: {
+    width: '100%',
+    paddingVertical: 8,
+    paddingHorizontal: 10,
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
+  headerTxt: {
+    fontSize: 20,
     fontWeight: '600',
     color: Colors.black,
   },
-  sectionDescription: {
-    marginTop: 8,
+  txt: {
     fontSize: 18,
     fontWeight: '400',
     color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
   },
 });
 
