@@ -3,7 +3,7 @@
  * @flow strict-local
  */
 import React, {useState} from 'react';
-import {Image, StyleSheet, TextInput, View} from 'react-native';
+import {Image, ScrollView, StyleSheet, TextInput, View} from 'react-native';
 import {Text} from 'react-native-elements';
 import {connect} from 'react-redux';
 
@@ -17,7 +17,7 @@ const Verify: () => React$Node = props => {
   const verify = async () => props.verifyUserID(userID);
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.content}>
         <Image
           source={require('../assets/idea-fast-logo.png')}
@@ -37,7 +37,7 @@ const Verify: () => React$Node = props => {
         onPress={verify}
         willUnmountOnSuccess
       />
-    </View>
+    </ScrollView>
   );
 };
 
