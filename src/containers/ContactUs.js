@@ -3,12 +3,10 @@
  * @flow strict-local
  */
 import React from 'react';
-import {StyleSheet, Text, View, Button} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {connect} from 'react-redux';
 
 import {mapDispatchToProps} from '../ducks/actions';
-
-
 
 const ContactUs: () => React$Node = props => {
   return (
