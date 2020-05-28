@@ -20,3 +20,5 @@ React-Native Patient-facing application (currently working towards prototype)
 ## Linting
 
 To lint the code locally, simply run `yarn lint`
+
+To fix lint errors, simply run `yarn fixlint`
