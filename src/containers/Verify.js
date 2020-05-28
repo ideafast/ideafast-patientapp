@@ -3,7 +3,7 @@
  * @flow strict-local
  */
 import React, {useState} from 'react';
-import {Button, Image, StyleSheet, TextInput, View} from 'react-native';
+import {Image, StyleSheet, TextInput, View} from 'react-native';
 import {Text} from 'react-native-elements';
 import {connect} from 'react-redux';
 
@@ -27,11 +27,11 @@ const Verify: () => React$Node = props => {
       <Text h4>Welcome to ideafast-patientapp.</Text>
       <Text h4>Please enter your ID to begin.</Text>
       <TextInput
-        containerStyle={styles.idInput}
+        style={styles.idInput}
         placeholder="User ID"
         onChangeText={text => setUserID(text)}
       />
-    <LoadingButton title="Log In" onPress={verify} willUnmountOnSuccess />
+      <LoadingButton title="Log In" onPress={verify} willUnmountOnSuccess />
     </View>
   );
 };
@@ -55,7 +55,10 @@ const styles = StyleSheet.create({
     height: 160,
   },
   idInput: {
-    borderColor: 'red',
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginVertical: 10,
   },
 });
 
