@@ -1,11 +1,10 @@
 /**
  * @format
  * @flow strict-local
- * <div>Icons made by <a href="https://www.flaticon.com/authors/vitaly-gorbachev" title="Vitaly Gorbachev">Vitaly Gorbachev</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
- * TextInput is temporary for this screen, when welcome screen is implemented then we can adjust this part.
  */
 import React from 'react';
-import {StyleSheet, View, TextInput, Button, Image} from 'react-native';
+import {StyleSheet, View, Image} from 'react-native';
+import {Text} from 'react-native-elements';
 import {connect} from 'react-redux';
 
 import {mapDispatchToProps} from '../ducks/actions';
@@ -16,14 +15,9 @@ const Profile: () => React$Node = props => {
       <View style={styles.content}>
         <Image source={require('../assets/man1.png')} style={styles.image} />
       </View>
-      <TextInput
-        style={styles.idNumber}
-        placeholder="This is your Id number"
-        underlineColorAndroid="transparent"
-      />
-      <View style={styles.content}>
-        <Button title="Sign Out" color="#841584" />
-      </View>
+      <Text h4 style={styles.idNumber} underlineColorAndroid="transparent">
+        {props.userID}
+      </Text>
     </View>
   );
 };
