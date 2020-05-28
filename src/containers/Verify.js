@@ -31,7 +31,12 @@ const Verify: () => React$Node = props => {
         placeholder="User ID"
         onChangeText={text => setUserID(text)}
       />
-      <LoadingButton title="Log In" onPress={verify} willUnmountOnSuccess />
+      <LoadingButton
+        title="Log In"
+        disabled={!userID}
+        onPress={verify}
+        willUnmountOnSuccess
+      />
     </View>
   );
 };

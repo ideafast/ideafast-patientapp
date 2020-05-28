@@ -6,6 +6,7 @@ import React, {useState} from 'react';
 import {ActivityIndicator, Button} from 'react-native';
 
 const LoadingButton: () => React$Node = ({
+  disabled,
   onPress,
   title,
   willUnmountOnSuccess = false,
@@ -24,7 +25,7 @@ const LoadingButton: () => React$Node = ({
     return <ActivityIndicator />;
   }
 
-  return <Button title={title} onPress={onButtonPressed} />;
+  return <Button disabled={disabled} title={title} onPress={onButtonPressed} />;
 };
 
 export default LoadingButton;
