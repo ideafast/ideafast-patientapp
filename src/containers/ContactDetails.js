@@ -8,7 +8,7 @@ import {connect} from 'react-redux';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
-const ContactUs: () => React$Node = props => {
+const ContactDetails: () => React$Node = props => {
   return (
     <View style={styles.view}>
       <Text>This is our contact information!</Text>
@@ -25,9 +25,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => state;
 
-const ContactUsContainer = connect(
+const ContactDetailsContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(ContactUs);
+)(ContactDetails);
 
-export default ContactUsContainer;
+export default ContactDetailsContainer;
