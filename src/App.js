@@ -90,23 +90,27 @@ const App: () => React$Node = () => {
                 />
               ),
             }}
-           />
-          <TabScreen name="Help" component={HelpStack}
+          />
+          <TabScreen
+            name="Help"
+            component={HelpStack}
             options={{
               tabBarLabel: 'Help',
               tabBarIcon: ({color, size}) => (
                 <FontAwesome name="question-circle" color={color} size={size} />
               ),
             }}
-           />
-           <TabScreen name="Profile" component={Profile}
+          />
+          <TabScreen
+            name="Profile"
+            component={Profile}
             options={{
-                tabBarLabel: 'Profile',
-                    tabBarIcon: ({ color, size }) => (
-                        <FontAwesome name="user-circle" color={color} size={size} />
-                ),
+              tabBarLabel: 'Profile',
+              tabBarIcon: ({color, size}) => (
+                <FontAwesome name="user-circle" color={color} size={size} />
+              ),
             }}
-           />
+          />
         </TabNavigator>
       </Provider>
     </NavigationContainer>

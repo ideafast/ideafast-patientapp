@@ -3,21 +3,8 @@
  * @flow strict-local
  */
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  Image,
-} from 'react-native';
-
-import {
-  Header,
-  Colors,
-} from 'react-native/Libraries/NewAppScreen';
-
+import {StyleSheet, View, Text, StatusBar} from 'react-native';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {connect} from 'react-redux';
 
 import {mapDispatchToProps} from '../ducks/actions';
@@ -26,23 +13,29 @@ const Help: () => React$Node = props => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle} onPress={() => props.navigation.navigate('FAQ')}>
-                FAQ
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle} onPress={() => props.navigation.navigate('AboutDevices')}>
-                About Devices
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle} onPress={() => props.navigation.navigate('ContactDetails')}>
-                Study Center Contact Details
-              </Text>
-            </View>
-          </View>
+      <View style={styles.body}>
+        <View style={styles.sectionContainer}>
+          <Text
+            style={styles.sectionTitle}
+            onPress={() => props.navigation.navigate('FAQ')}>
+            FAQ
+          </Text>
+        </View>
+        <View style={styles.sectionContainer}>
+          <Text
+            style={styles.sectionTitle}
+            onPress={() => props.navigation.navigate('AboutDevices')}>
+            About Devices
+          </Text>
+        </View>
+        <View style={styles.sectionContainer}>
+          <Text
+            style={styles.sectionTitle}
+            onPress={() => props.navigation.navigate('ContactDetails')}>
+            Study Center Contact Details
+          </Text>
+        </View>
+      </View>
     </>
   );
 };

@@ -6,24 +6,19 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, ScrollView, Image } from 'react-native';
+import React from 'react';
+import {StyleSheet, Text, View, ScrollView} from 'react-native';
 import DropDownItem from 'react-native-drop-down-item';
-
-import {
-  Header,
-  Colors,
-} from 'react-native/Libraries/NewAppScreen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {connect} from 'react-redux';
-import {mapDispatchToProps} from '../ducks/actions';
 
+import {mapDispatchToProps} from '../ducks/actions';
 
 const IC_ARR_DOWN = require('../icons/ic_arr_down.png');
 const IC_ARR_UP = require('../icons/ic_arr_up.png');
 
 const FAQ: () => React$Node = props => {
-
-  state = {
+  const state = {
     contents: [
       {
         title: 'How often do I need to use that?',
@@ -40,7 +35,7 @@ const FAQ: () => React$Node = props => {
       {
         title: 'These questions are just for test. yes?',
         body: 'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
-       },
+      },
       {
         title: 'These questions are just for test. yes?',
         body: 'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
@@ -48,7 +43,7 @@ const FAQ: () => React$Node = props => {
       {
         title: 'These questions are just for test. yes?',
         body: 'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
-       },
+      },
        {
         title: 'These questions are just for test. yes?',
         body: 'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
@@ -69,37 +64,33 @@ const FAQ: () => React$Node = props => {
         title: 'These questions are just for test. yes?',
         body: 'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
       },
-
     ],
   };
 
-    return (
-        <>
-        <View style={styles.container}>
-            <ScrollView style={{ alignSelf: 'stretch' }}>
-            {
-                state.contents
-                    ? state.contents.map((param, i) => {
-                    return (
-                        <DropDownItem
-                        key={i}
-                        style={styles.dropDownItem}
-                        contentVisible={false}
-                        invisibleImage={IC_ARR_DOWN}
-                        visibleImage={IC_ARR_UP}
-                        header={
-                        <View style={styles.header}>
+  return (
+    <>
+      <View style={styles.container}>
+        <ScrollView style={styles.scroll}>
+          {state.contents
+            ? state.contents.map((param, i) => {
+                return (
+                  <DropDownItem
+                    key={i}
+                    style={styles.dropDownItem}
+                    contentVisible={false}
+                    invisibleImage={IC_ARR_DOWN}
+                    visibleImage={IC_ARR_UP}
+                    header={
+                      <View style={styles.header}>
                         <Text style={styles.headerTxt}>{param.title}</Text>
-                        </View>
-                        }
-                        >
-                        <Text style={styles.txt}>{param.body}</Text>
-                    </DropDownItem>
-                    );
-                })
-              : null
-            }
-          <View style={{ height: 96 }}/>
+                      </View>
+                    }>
+                    <Text style={styles.txt}>{param.body}</Text>
+                  </DropDownItem>
+                );
+              })
+            : null}
+          <View style={styles.bottomView}/>
         </ScrollView>
       </View>
     </>
@@ -112,6 +103,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 12,
+  },
+  scroll: {
+    alignSelf: 'stretch',
   },
   header: {
     width: '100%',
@@ -130,6 +124,9 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '400',
     color: Colors.dark,
+  },
+  bottomView: {
+    height: 96,
   },
 });
 
