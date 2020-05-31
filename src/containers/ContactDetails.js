@@ -52,7 +52,7 @@ const ContactDetails: () => React$Node = props => {
                 Science building
               </Text>
               <Text style={styles.sectionDescription}>
-                <Text style={styles.highlight}>Location: </Text> United Kingdom
+                <Text style={styles.highlight}>Location: </Text> The Netherlands
               </Text>
             </View>
 
@@ -67,12 +67,12 @@ const ContactDetails: () => React$Node = props => {
                 Science building
               </Text>
               <Text style={styles.sectionDescription}>
-                <Text style={styles.highlight}>Location: </Text> United Kingdom
+                <Text style={styles.highlight}>Location: </Text> Keil
               </Text>
             </View>
 
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Münster, Germany</Text>
+              <Text style={styles.sectionTitle}>Münster</Text>
               <Text style={styles.sectionDescription}>
                 <Text style={styles.highlight}>Person Name: </Text> Dr Alex
                 barbi
@@ -82,7 +82,7 @@ const ContactDetails: () => React$Node = props => {
                 Science building
               </Text>
               <Text style={styles.sectionDescription}>
-                <Text style={styles.highlight}>Location: </Text> United Kingdom
+                <Text style={styles.highlight}>Location: </Text> Germany
               </Text>
             </View>
           </View>
