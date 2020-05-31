@@ -123,8 +123,9 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.white,
   },
   sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+    marginTop: 20,
+    paddingHorizontal: 20,
+    marginBottom: 10,
   },
   sectionTitle: {
     fontSize: 26,
