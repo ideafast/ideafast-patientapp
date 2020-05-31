@@ -45,29 +45,30 @@ const ContactDetails: () => React$Node = props => {
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Newcastle, United Kingdom</Text>
               <Text style={styles.sectionDescription}>
-                <Text style={styles.highlight}>Person Name: </Text>{' '}
+                <Text style={styles.highlight}>Person Name: </Text>
                 {personNameNCl}
               </Text>
               <Text style={styles.sectionDescription}>
-                <Text style={styles.highlight}>Center Name: </Text>{' '}
+                <Text style={styles.highlight}>Center Name: </Text>
                 {centerNameNCl}
               </Text>
               <Text style={styles.sectionDescription}>
-                <Text style={styles.highlight}>Location: </Text> {locationNCl}
+                <Text style={styles.highlight}>Location: </Text>
+                {locationNCl}
               </Text>
             </View>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Rotterdam, Netherlands</Text>
               <Text style={styles.sectionDescription}>
-                <Text style={styles.highlight}>Person Name: </Text>{' '}
+                <Text style={styles.highlight}>Person Name: </Text>
                 {personNameRotterdam}
               </Text>
               <Text style={styles.sectionDescription}>
-                <Text style={styles.highlight}>Center Name: </Text>{' '}
+                <Text style={styles.highlight}>Center Name: </Text>
                 {centerNameRotterdam}
               </Text>
               <Text style={styles.sectionDescription}>
-                <Text style={styles.highlight}>Location: </Text>{' '}
+                <Text style={styles.highlight}>Location: </Text>
                 {locationRotterdam}
               </Text>
             </View>
@@ -75,26 +76,27 @@ const ContactDetails: () => React$Node = props => {
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Kiel, Germany</Text>
               <Text style={styles.sectionDescription}>
-                <Text style={styles.highlight}>Person Name: </Text>{' '}
+                <Text style={styles.highlight}>Person Name: </Text>
                 {personNameKiel}
               </Text>
               <Text style={styles.sectionDescription}>
-                <Text style={styles.highlight}>Center Name: </Text>{' '}
+                <Text style={styles.highlight}>Center Name: </Text>
                 {centerNameKiel}
               </Text>
               <Text style={styles.sectionDescription}>
-                <Text style={styles.highlight}>Location: </Text> {locationKiel}
+                <Text style={styles.highlight}>Location: </Text>
+                {locationKiel}
               </Text>
             </View>
 
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Münster, Germany</Text>
               <Text style={styles.sectionDescription}>
-                <Text style={styles.highlight}>Person Name: </Text>{' '}
+                <Text style={styles.highlight}>Person Name: </Text>
                 {personNameMünster}
               </Text>
               <Text style={styles.sectionDescription}>
-                <Text style={styles.highlight}>Center Name: </Text>{' '}
+                <Text style={styles.highlight}>Center Name: </Text>
                 {centerNameMünster}
               </Text>
               <Text style={styles.sectionDescription}>
