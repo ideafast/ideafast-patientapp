@@ -42,7 +42,7 @@ const ContactDetails: () => React$Node = props => {
               </Text>
             </View>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Newcastle, United Kingdom</Text>
+              <Text style={styles.sectionTitle}>Rotterdam, Netherlands</Text>
               <Text style={styles.sectionDescription}>
                 <Text style={styles.highlight}>Person Name: </Text> Dr Alex
                 barbi
@@ -57,7 +57,7 @@ const ContactDetails: () => React$Node = props => {
             </View>
 
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Newcastle, United Kingdom</Text>
+              <Text style={styles.sectionTitle}>Kiel, Germany</Text>
               <Text style={styles.sectionDescription}>
                 <Text style={styles.highlight}>Person Name: </Text> Dr Alex
                 barbi
@@ -72,7 +72,7 @@ const ContactDetails: () => React$Node = props => {
             </View>
 
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Newcastle, United Kingdom</Text>
+              <Text style={styles.sectionTitle}>Münster, Germany</Text>
               <Text style={styles.sectionDescription}>
                 <Text style={styles.highlight}>Person Name: </Text> Dr Alex
                 barbi
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
   },
   sectionTitle: {
-    fontSize: 24,
+    fontSize: 26,
     fontWeight: '600',
     color: Colors.black,
   },
