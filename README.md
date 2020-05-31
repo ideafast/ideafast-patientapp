@@ -16,3 +16,9 @@ React-Native Patient-facing application (currently working towards prototype)
 
 1. Go to http://localhost:8081/debugger-ui/ for console logs
 1. `npx react-devtools` for UI inspection
+
+## Linting
+
+To lint the code locally, simply run `yarn lint`
+
+To fix lint errors, simply run `yarn fixlint`
