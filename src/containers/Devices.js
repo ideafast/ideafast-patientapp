@@ -3,7 +3,8 @@
  * @flow strict-local
  */
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
+import {Text} from 'react-native-elements';
 import {connect} from 'react-redux';
 
 import {mapDispatchToProps} from '../ducks/actions';
@@ -11,7 +12,13 @@ import {mapDispatchToProps} from '../ducks/actions';
 const Devices: () => React$Node = props => {
   return (
     <View style={styles.view}>
-      <Text>You have not connected any devices yet!......</Text>
+      <Text h4>Connecting your first device</Text>
+      <Text>
+        You are not connected to any devices. Tap the "+" button below to connect to all the devices you have.
+      </Text>
+      <Text>
+        If you would like more information about each device, tap the "Discover" button in the menu below.
+      </Text>
     </View>
   );
 };
