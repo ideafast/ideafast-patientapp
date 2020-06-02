@@ -19,20 +19,32 @@ import {connect} from 'react-redux';
 import {mapDispatchToProps} from '../ducks/actions';
 
 const ContactDetails: () => React$Node = props => {
-  const personNameNCl = 'Dr Alex Babrbi';
-  const personNameRotterdam = 'Dr Javad Javidi';
-  const personNameKiel = 'Dr Luara Babrbi';
-  const personNameMünster = ' Dr Herad Alexi';
-
-  const centerNameNCl = 'Urben Science Building';
-  const centerNameRotterdam = 'xx';
-  const centerNameKiel = 'yy';
-  const centerNameMünster = 'zz';
-
-  const locationNCl = 'UK';
-  const locationRotterdam = 'The Netherlands';
-  const locationKiel = 'Kiel';
-  const locationMünster = 'Munster';
+  const state = [
+    {
+      title: 'Newcastle, United Kingdom',
+      personName: 'Dr Alex Babrbi',
+      centerName: 'Urben Science Building',
+      location: 'UK',
+    },
+    {
+      title: 'Rotterdam, Netherlands',
+      personName: 'Dr Javad Javidi',
+      centerName: 'xx',
+      location: 'The Netherlands',
+    },
+    {
+      title: 'Kiel, Germany',
+      personName: 'Dr Alex Babrbi',
+      centerName: 'Urben Science Building',
+      location: 'Kiel',
+    },
+    {
+      title: 'Münster, Germany',
+      personName: 'Dr Alex Babrbi',
+      centerName: 'Urben Science Building',
+      location: 'Munster',
+    },
+  ];
 
   return (
     <>
@@ -42,68 +54,27 @@ const ContactDetails: () => React$Node = props => {
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
           <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Newcastle, United Kingdom</Text>
-              <Text style={styles.sectionDescription}>
-                <Text style={styles.highlight}>Person Name: </Text>
-                {personNameNCl}
-              </Text>
-              <Text style={styles.sectionDescription}>
-                <Text style={styles.highlight}>Center Name: </Text>
-                {centerNameNCl}
-              </Text>
-              <Text style={styles.sectionDescription}>
-                <Text style={styles.highlight}>Location: </Text>
-                {locationNCl}
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Rotterdam, Netherlands</Text>
-              <Text style={styles.sectionDescription}>
-                <Text style={styles.highlight}>Person Name: </Text>
-                {personNameRotterdam}
-              </Text>
-              <Text style={styles.sectionDescription}>
-                <Text style={styles.highlight}>Center Name: </Text>
-                {centerNameRotterdam}
-              </Text>
-              <Text style={styles.sectionDescription}>
-                <Text style={styles.highlight}>Location: </Text>
-                {locationRotterdam}
-              </Text>
-            </View>
-
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Kiel, Germany</Text>
-              <Text style={styles.sectionDescription}>
-                <Text style={styles.highlight}>Person Name: </Text>
-                {personNameKiel}
-              </Text>
-              <Text style={styles.sectionDescription}>
-                <Text style={styles.highlight}>Center Name: </Text>
-                {centerNameKiel}
-              </Text>
-              <Text style={styles.sectionDescription}>
-                <Text style={styles.highlight}>Location: </Text>
-                {locationKiel}
-              </Text>
-            </View>
-
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Münster, Germany</Text>
-              <Text style={styles.sectionDescription}>
-                <Text style={styles.highlight}>Person Name: </Text>
-                {personNameMünster}
-              </Text>
-              <Text style={styles.sectionDescription}>
-                <Text style={styles.highlight}>Center Name: </Text>
-                {centerNameMünster}
-              </Text>
-              <Text style={styles.sectionDescription}>
-                <Text style={styles.highlight}>Location: </Text>
-                {locationMünster}
-              </Text>
-            </View>
+            {state
+              ? state.map((param, i) => {
+                  return (
+                    <View key={i} style={styles.sectionContainer}>
+                      <Text style={styles.sectionTitle}>{param.title}</Text>
+                      <Text style={styles.sectionDescription}>
+                        <Text style={styles.highlight}>Person Name: </Text>
+                        {param.personName}
+                      </Text>
+                      <Text style={styles.sectionDescription}>
+                        <Text style={styles.highlight}>Center Name: </Text>
+                        {param.centerName}
+                      </Text>
+                      <Text style={styles.sectionDescription}>
+                        <Text style={styles.highlight}>Location: </Text>
+                        {param.location}
+                      </Text>
+                    </View>
+                  );
+                })
+              : null}
           </View>
         </ScrollView>
       </SafeAreaView>
