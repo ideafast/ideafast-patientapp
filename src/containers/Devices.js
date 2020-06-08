@@ -28,7 +28,9 @@ const Devices: () => React$Node = props => {
   return (
     <View style={styles.view}>
       <View style={styles.header}>
-        <Text h4 style={styles.headerTxt}>Connecting your first device</Text>
+        <Text h4 style={styles.headerTxt}>
+          Connecting your first device
+        </Text>
       </View>
       <Text style={styles.txt}>
         You are not connected to any devices. Tap the "+" button below to
