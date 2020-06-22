@@ -23,6 +23,22 @@ import {mapDispatchToProps} from '../ducks/actions';
 const {Navigator: TabNavigator, Screen: TabScreen} = createBottomTabNavigator();
 const {Navigator: StackNavigator, Screen: StackScreen} = createStackNavigator();
 
+const ProfileStack = () => (
+  <StackNavigator>
+    <StackScreen
+      name="Profile"
+      component={Profile}
+      options={{
+        title: 'Profile',
+        headerStyle: {
+          backgroundColor: '#5533FF',
+        },
+        headerTintColor: '#fff',
+      }}
+    />
+  </StackNavigator>
+);
+
 const DevicesStack = () => (
   <StackNavigator>
     <StackScreen
@@ -34,9 +50,6 @@ const DevicesStack = () => (
           backgroundColor: '#5533FF',
         },
         headerTintColor: '#fff',
-        headerTitleStyle: {
-          //fontWeight: 'bold',
-        },
       }}
     />
   </StackNavigator>
@@ -44,7 +57,17 @@ const DevicesStack = () => (
 
 const HelpStack = () => (
   <StackNavigator>
-    <StackScreen name="Help" component={Help} />
+    <StackScreen
+      name="Help"
+      component={Help}
+      options={{
+        title: 'Help',
+        headerStyle: {
+          backgroundColor: '#5533FF',
+        },
+        headerTintColor: '#fff',
+      }}
+    />
     <StackScreen
       name="FAQ"
       component={FAQ}
@@ -54,9 +77,6 @@ const HelpStack = () => (
           backgroundColor: '#5533FF',
         },
         headerTintColor: '#fff',
-        headerTitleStyle: {
-          //fontWeight: 'bold',
-        },
       }}
     />
     <StackScreen
@@ -68,9 +88,6 @@ const HelpStack = () => (
           backgroundColor: '#5533FF',
         },
         headerTintColor: '#fff',
-        headerTitleStyle: {
-          //fontWeight: 'bold',
-        },
       }}
     />
     <StackScreen
@@ -82,9 +99,6 @@ const HelpStack = () => (
           backgroundColor: '#5533FF',
         },
         headerTintColor: '#fff',
-        headerTitleStyle: {
-          //fontWeight: 'bold',
-        },
       }}
     />
   </StackNavigator>
@@ -128,7 +142,7 @@ const AppNavigation = props => {
       />
       <TabScreen
         name="Profile"
-        component={Profile}
+        component={ProfileStack}
         options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({color, size}) => (

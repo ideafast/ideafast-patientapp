@@ -85,7 +85,7 @@ const FAQ: () => React$Node = props => {
                 return (
                   <DropDownItem
                     key={i}
-                    style={styles.dropDownItem}
+                    style={(styles.dropDownItem, styles.border)}
                     contentVisible={false}
                     invisibleImage={IC_ARR_DOWN}
                     visibleImage={IC_ARR_UP}
@@ -115,6 +115,12 @@ const styles = StyleSheet.create({
   },
   scroll: {
     alignSelf: 'stretch',
+  },
+  border: {
+    borderWidth: 1,
+    borderColor: 'gray',
+    //borderRadius: 22,
+    marginBottom: 10,
   },
   header: {
     width: '100%',
