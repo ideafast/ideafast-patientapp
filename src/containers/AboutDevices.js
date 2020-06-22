@@ -21,42 +21,42 @@ const FAQ: () => React$Node = props => {
   const state = {
     contents: [
       {
-        image: require('../assets/man1.png'),
-        title: 'Axivity',
+        image: require('../assets/Axivity.jpg'),
+        title: '    Axivity',
         body: 'This is the answer and I think this is fantastic:)',
       },
       {
-        image: require('../assets/man1.png'),
-        title: 'Biovotion',
+        image: require('../assets/Biovotion.jpg'),
+        title: '    Biovotion',
         body: 'Yes. You can have more items.',
       },
       {
-        image: require('../assets/man1.png'),
-        title: 'Dreem',
+        image: require('../assets/Dreem.jpg'),
+        title: '    Dreem',
         body:
           'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
       },
       {
-        image: require('../assets/man1.png'),
-        title: 'Fibion',
+        image: require('../assets/Fibion.jpg'),
+        title: '    Fibion',
         body:
           'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
       },
       {
-        image: require('../assets/man1.png'),
-        title: 'Byteflies',
+        image: require('../assets/Byteflies.jpg'),
+        title: '    Byteflies',
         body:
           'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
       },
       {
-        image: require('../assets/man1.png'),
-        title: 'Move Monitor',
+        image: require('../assets/MoveMonitor.jpg'),
+        title: '    Move Monitor',
         body:
           'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
       },
       {
-        image: require('../assets/man1.png'),
-        title: 'Mbient',
+        image: require('../assets/Mbient.jpg'),
+        title: '    Mbient',
         body:
           'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
       },
