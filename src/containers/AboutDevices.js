@@ -103,6 +103,8 @@ const styles = StyleSheet.create({
   },
   border: {
     borderWidth: 1,
+    borderColor: 'gray',
+    marginBottom: 20,
   },
   scroll: {
     alignSelf: 'stretch',
