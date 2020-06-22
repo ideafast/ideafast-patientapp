@@ -1,33 +1,144 @@
 /**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
  * @format
- * @flow strict-local
+ * @flow
  */
+
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, ScrollView, Image} from 'react-native';
+import DropDownItem from 'react-native-drop-down-item';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {connect} from 'react-redux';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
-const AboutDevices: () => React$Node = props => {
+const IC_ARR_DOWN = require('../icons/ic_arr_down.png');
+const IC_ARR_UP = require('../icons/ic_arr_up.png');
+
+const FAQ: () => React$Node = props => {
+  const state = {
+    contents: [
+      {
+        image: require('../assets/man1.png'),
+        title: 'Axivity',
+        body: 'This is the answer and I think this is fantastic:)',
+      },
+      {
+        image: require('../assets/man1.png'),
+        title: 'Biovotion',
+        body: 'Yes. You can have more items.',
+      },
+      {
+        image: require('../assets/man1.png'),
+        title: 'Dreem',
+        body:
+          'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
+      },
+      {
+        image: require('../assets/man1.png'),
+        title: 'Fibion',
+        body:
+          'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
+      },
+      {
+        image: require('../assets/man1.png'),
+        title: 'Byteflies',
+        body:
+          'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
+      },
+      {
+        image: require('../assets/man1.png'),
+        title: 'Move Monitor',
+        body:
+          'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
+      },
+      {
+        image: require('../assets/man1.png'),
+        title: 'Mbient',
+        body:
+          'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
+      },
+    ],
+  };
+
   return (
-    <View style={styles.view}>
-      <Text>This is All about devices!</Text>
-    </View>
+    <>
+      <View style={styles.container}>
+        <ScrollView style={styles.scroll}>
+          {state.contents
+            ? state.contents.map((param, i) => {
+                return (
+                  <DropDownItem
+                    key={i}
+                    style={(styles.dropDownItem, styles.border)}
+                    contentVisible={false}
+                    invisibleImage={IC_ARR_DOWN}
+                    visibleImage={IC_ARR_UP}
+                    header={
+                      <View style={styles.header}>
+                        <Image source={param.image} style={styles.image} />
+                        <Text style={styles.headerTxt}>{param.title}</Text>
+                      </View>
+                    }>
+                    <Text style={styles.txt}>{param.body}</Text>
+                  </DropDownItem>
+                );
+              })
+            : null}
+          <View style={styles.bottomView} />
+        </ScrollView>
+      </View>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
-  view: {
+  container: {
     flex: 1,
-    padding: 24,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 12,
+  },
+  border: {
+    borderWidth: 1,
+  },
+  scroll: {
+    alignSelf: 'stretch',
+  },
+  header: {
+    width: '100%',
+    paddingVertical: 8,
+    paddingHorizontal: 10,
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  headerTxt: {
+    fontSize: 20,
+    fontWeight: '600',
+    color: Colors.black,
+  },
+  image: {
+    width: 60,
+    height: 60,
+  },
+  txt: {
+    fontSize: 18,
+    fontWeight: '400',
+    color: Colors.dark,
+  },
+  bottomView: {
+    height: 96,
   },
 });
 
 const mapStateToProps = state => state;
 
-const AboutDevicesContainer = connect(
+const FAQContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(AboutDevices);
+)(FAQ);
 
-export default AboutDevicesContainer;
+export default FAQContainer;

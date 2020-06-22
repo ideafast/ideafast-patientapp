@@ -99,8 +99,6 @@ const HelpStack = () => (
           backgroundColor: '#5533FF',
         },
         headerTintColor: '#fff',
-        headerTitleStyle: {
-        },
       }}
     />
   </StackNavigator>
