@@ -44,7 +44,20 @@ const DevicesStack = () => (
 
 const HelpStack = () => (
   <StackNavigator>
-    <StackScreen name="Help" component={Help} />
+    <StackScreen
+      name="Help"
+      component={Help}
+      options={{
+        title: 'Help',
+        headerStyle: {
+          backgroundColor: '#5533FF',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          //fontWeight: 'bold',
+        },
+      }}
+    />
     <StackScreen
       name="FAQ"
       component={FAQ}
