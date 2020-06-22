@@ -37,7 +37,7 @@ const Devices: () => React$Node = props => {
         connect to all the devices you have.
       </Text>
       <Text style={styles.txt}>
-        If you would like more information about each device, tap the "Discover"
+        If you would like more information about each device, tap the "Help"
         button in the menu below.
       </Text>
       <ActionButton buttonColor="#5533FF" onPress={searchForDevice} />
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     flexWrap: 'wrap',
     flexDirection: 'row',
-    alignItems: 'center',
+    //alignItems: 'center',
   },
   headerTxt: {
     fontSize: 20,
