@@ -1,1 +1,1 @@
-export default {userID: 'rrete'};
+export default {userID: null};
