@@ -37,12 +37,6 @@ const FAQ: () => React$Node = props => {
           'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
       },
       {
-        image: require('../assets/Fibion.jpg'),
-        title: '    Fibion',
-        body:
-          'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
-      },
-      {
         image: require('../assets/Byteflies.jpg'),
         title: '    Byteflies',
         body:
@@ -96,15 +90,15 @@ const FAQ: () => React$Node = props => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    //flex: 1,
+    //justifyContent: 'center',
+    //alignItems: 'center',
     marginTop: 12,
   },
   border: {
     borderWidth: 1,
     borderColor: 'gray',
-    marginBottom: 20,
+    marginBottom: 15,
   },
   scroll: {
     alignSelf: 'stretch',
@@ -115,24 +109,28 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     flexWrap: 'wrap',
     flexDirection: 'row',
-    alignItems: 'center',
+    //alignItems: 'center',
   },
   headerTxt: {
     fontSize: 20,
     fontWeight: '600',
     color: Colors.black,
+    alignItems: 'center',
   },
   image: {
     width: 60,
     height: 60,
+    //alignItems: 'center',
   },
   txt: {
     fontSize: 18,
     fontWeight: '400',
     color: Colors.dark,
+    alignItems: 'center',
   },
   bottomView: {
-    height: 96,
+    //height: 96,
+    //alignItems: 'center',
   },
 });
 
