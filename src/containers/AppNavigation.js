@@ -23,6 +23,25 @@ import {mapDispatchToProps} from '../ducks/actions';
 const {Navigator: TabNavigator, Screen: TabScreen} = createBottomTabNavigator();
 const {Navigator: StackNavigator, Screen: StackScreen} = createStackNavigator();
 
+const ProfileStack = () => (
+  <StackNavigator>
+    <StackScreen
+      name="Profile"
+      component={Profile}
+      options={{
+        title: 'Profile',
+        headerStyle: {
+          backgroundColor: '#5533FF',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          //fontWeight: 'bold',
+        },
+      }}
+    />
+  </StackNavigator>
+);
+
 const DevicesStack = () => (
   <StackNavigator>
     <StackScreen
@@ -141,7 +160,7 @@ const AppNavigation = props => {
       />
       <TabScreen
         name="Profile"
-        component={Profile}
+        component={ProfileStack}
         options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({color, size}) => (
