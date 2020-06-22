@@ -34,9 +34,6 @@ const ProfileStack = () => (
           backgroundColor: '#5533FF',
         },
         headerTintColor: '#fff',
-        headerTitleStyle: {
-          //fontWeight: 'bold',
-        },
       }}
     />
   </StackNavigator>
@@ -53,9 +50,6 @@ const DevicesStack = () => (
           backgroundColor: '#5533FF',
         },
         headerTintColor: '#fff',
-        headerTitleStyle: {
-          //fontWeight: 'bold',
-        },
       }}
     />
   </StackNavigator>
@@ -72,9 +66,6 @@ const HelpStack = () => (
           backgroundColor: '#5533FF',
         },
         headerTintColor: '#fff',
-        headerTitleStyle: {
-          //fontWeight: 'bold',
-        },
       }}
     />
     <StackScreen
@@ -86,9 +77,6 @@ const HelpStack = () => (
           backgroundColor: '#5533FF',
         },
         headerTintColor: '#fff',
-        headerTitleStyle: {
-          //fontWeight: 'bold',
-        },
       }}
     />
     <StackScreen
@@ -100,9 +88,6 @@ const HelpStack = () => (
           backgroundColor: '#5533FF',
         },
         headerTintColor: '#fff',
-        headerTitleStyle: {
-          //fontWeight: 'bold',
-        },
       }}
     />
     <StackScreen
@@ -115,7 +100,6 @@ const HelpStack = () => (
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
-          //fontWeight: 'bold',
         },
       }}
     />
