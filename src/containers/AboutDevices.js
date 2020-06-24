@@ -17,7 +17,7 @@ import {mapDispatchToProps} from '../ducks/actions';
 const IC_ARR_DOWN = require('../icons/ic_arr_down.png');
 const IC_ARR_UP = require('../icons/ic_arr_up.png');
 
-const FAQ: () => React$Node = props => {
+const AboutDevices: () => React$Node = props => {
   const state = {
     contents: [
       {
@@ -136,9 +136,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => state;
 
-const FAQContainer = connect(
+const AboutDevicesContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(FAQ);
+)(AboutDevices);
 
-export default FAQContainer;
+export default AboutDevicesContainer;
