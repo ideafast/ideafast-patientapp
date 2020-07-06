@@ -22,35 +22,35 @@ const AboutDevices: () => React$Node = props => {
     contents: [
       {
         image: require('../assets/Axivity.jpg'),
-        title: '    Axivity',
+        title: '    Axivity ',
         body: 'This is the answer and I think this is fantastic:)',
       },
       {
         image: require('../assets/Biovotion.jpg'),
-        title: '    Biovotion',
+        title: '    Biovotion ',
         body: 'Yes. You can have more items.',
       },
       {
         image: require('../assets/Dreem.jpg'),
-        title: '    Dreem',
+        title: '    Dreem ',
         body:
           'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
       },
       {
         image: require('../assets/Byteflies.jpg'),
-        title: '    Byteflies',
+        title: '    Byteflies ',
         body:
           'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
       },
       {
         image: require('../assets/MoveMonitor.jpg'),
-        title: '    Move Monitor',
+        title: '    Move Monitor ',
         body:
           'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
       },
       {
         image: require('../assets/Mbient.jpg'),
-        title: '    Mbient',
+        title: '    Mbient ',
         body:
           'What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text? What about very long text?',
       },
@@ -73,6 +73,7 @@ const AboutDevices: () => React$Node = props => {
                     header={
                       <View style={styles.header}>
                         <Image source={param.image} style={styles.image} />
+
                         <Text style={styles.headerTxt}>{param.title}</Text>
                       </View>
                     }>
@@ -115,12 +116,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '600',
     color: Colors.black,
-    alignItems: 'center',
+    //alignItems: 'center',
   },
   image: {
     width: 60,
     height: 60,
-    //alignItems: 'center',
+    alignItems: 'center',
   },
   txt: {
     fontSize: 18,

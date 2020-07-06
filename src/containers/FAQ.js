@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 12,
+    marginTop: 5,
   },
   scroll: {
     alignSelf: 'stretch',
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     color: Colors.dark,
   },
   bottomView: {
-    height: 96,
+    //height: 96,
   },
 });
 
