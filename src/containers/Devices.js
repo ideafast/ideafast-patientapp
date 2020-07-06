@@ -2,8 +2,10 @@
  * @format
  * @flow strict-local
  */
-import React, {useState} from 'react';
-import {ActivityIndicator, StyleSheet, View} from 'react-native';
+import React from 'react';
+//import {useState} from 'react';
+import {StyleSheet, View} from 'react-native';
+//import {ActivityIndicator} from 'react-native';
 import ActionButton from 'react-native-action-button';
 import {Text} from 'react-native-elements';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
@@ -12,7 +14,9 @@ import {connect} from 'react-redux';
 import {mapDispatchToProps} from '../ducks/actions';
 
 const Devices: () => React$Node = props => {
+  /* Device has been navigate to the Ble container
   const [isSearching, setSearching] = useState(false);
+
 
   const searchForDevice = async () => {
     setSearching(true);
@@ -21,26 +25,30 @@ const Devices: () => React$Node = props => {
     setSearching(false);
   };
 
+
   if (isSearching) {
     return <ActivityIndicator />;
   }
+  */
 
   return (
     <View style={styles.view}>
       <View style={styles.header}>
         <Text h4 style={styles.headerTxt}>
-          Connecting your first device
+          Connecting your device
         </Text>
       </View>
       <Text style={styles.txt}>
-        You are not connected to any devices. Tap the "+" button below to
-        connect to all the devices you have.
+        Tap the "+" button below to connect to all the devices you have.
       </Text>
       <Text style={styles.txt}>
         If you would like more information about each device, tap the "Help"
         button in the menu below.
       </Text>
-      <ActionButton buttonColor="#5533FF" onPress={searchForDevice} />
+      <ActionButton
+        buttonColor="#5533FF"
+        onPress={() => props.navigation.navigate('Ble')}
+      />
     </View>
   );
 };
@@ -53,20 +61,22 @@ const styles = StyleSheet.create({
   header: {
     width: '100%',
     paddingVertical: 8,
-    paddingHorizontal: 10,
+    paddingHorizontal: 1,
     flexWrap: 'wrap',
     flexDirection: 'row',
-    //alignItems: 'center',
+    alignItems: 'center',
+    //margin:10,
   },
   headerTxt: {
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: '600',
     color: Colors.black,
   },
   txt: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: '400',
     color: Colors.dark,
+    margin: 10,
   },
 });
 

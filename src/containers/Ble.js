@@ -16,7 +16,7 @@ import {
   SafeAreaView,
 } from 'react-native';
 
-import BleManager from './BleManager';
+import BleManager from '../components/BleManager';
 
 import {connect} from 'react-redux';
 

@@ -53,16 +53,11 @@ const DevicesStack = () => (
         headerTintColor: '#fff',
       }}
     />
-  </StackNavigator>
-);
-
-const BleStack = () => (
-  <StackNavigator>
     <StackScreen
       name="Ble"
       component={Ble}
       options={{
-        title: 'Ble',
+        title: 'Bluetooth scanner',
         headerStyle: {
           backgroundColor: '#5533FF',
         },
@@ -155,17 +150,6 @@ const AppNavigation = props => {
           tabBarLabel: 'Help',
           tabBarIcon: ({color, size}) => (
             <FontAwesome name="question-circle" color={color} size={size} />
-          ),
-        }}
-      />
-
-      <TabScreen
-        name="Ble"
-        component={BleStack}
-        options={{
-          tabBarLabel: 'Ble',
-          tabBarIcon: ({color, size}) => (
-            <FontAwesome name="circle" color={color} size={size} />
           ),
         }}
       />
