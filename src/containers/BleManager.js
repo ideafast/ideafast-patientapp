@@ -401,7 +401,7 @@ class BleManager {
 
   requestMTU(peripheralId, mtu) {
     return new Promise((fulfill, reject) => {
-      bleManager.requestMTU(peripheralId, mtu, (error, mtu) => {
+      bleManager.requestMTU(peripheralId, mtu, error => {
         if (error) {
           reject(error);
         } else {

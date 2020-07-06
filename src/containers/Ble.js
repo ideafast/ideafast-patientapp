@@ -149,7 +149,7 @@ class Ble extends Component {
 
   retrieveConnected() {
     BleManager.getConnectedPeripherals([]).then(results => {
-      if (results.length == 0) {
+      if (results.length === 0) {
         console.log('No connected peripherals');
       }
       console.log(results);
@@ -267,34 +267,9 @@ class Ble extends Component {
     return (
       <TouchableHighlight onPress={() => this.test(item)}>
         <View style={[styles.row, {backgroundColor: color}]}>
-          <Text
-            style={{
-              fontSize: 12,
-              textAlign: 'center',
-              color: '#333333',
-              padding: 10,
-            }}>
-            {item.name}
-          </Text>
-          <Text
-            style={{
-              fontSize: 10,
-              textAlign: 'center',
-              color: '#333333',
-              padding: 2,
-            }}>
-            RSSI: {item.rssi}
-          </Text>
-          <Text
-            style={{
-              fontSize: 8,
-              textAlign: 'center',
-              color: '#333333',
-              padding: 2,
-              paddingBottom: 20,
-            }}>
-            {item.id}
-          </Text>
+          <Text style={styles.name}>{item.name}</Text>
+          <Text style={styles.rssi}>RSSI: {item.rssi}</Text>
+          <Text style={styles.id}>{item.id}</Text>
         </View>
       </TouchableHighlight>
     );
@@ -308,11 +283,11 @@ class Ble extends Component {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.container}>
-          <View style={{margin: 10}}>
+          <View style={styles.row}>
             <Button title={btnScanTitle} onPress={() => this.startScan()} />
           </View>
 
-          <View style={{margin: 10}}>
+          <View style={styles.row}>
             <Button
               title="Retrieve connected peripherals"
               onPress={() => this.retrieveConnected()}
@@ -320,9 +295,9 @@ class Ble extends Component {
           </View>
 
           <ScrollView style={styles.scroll}>
-            {list.length == 0 && (
-              <View style={{flex: 1, margin: 20}}>
-                <Text style={{textAlign: 'center'}}>No peripherals</Text>
+            {list.length === 0 && (
+              <View style={styles.NoPeripherals}>
+                <Text>No peripherals</Text>
               </View>
             )}
             <FlatList
@@ -351,6 +326,30 @@ const styles = StyleSheet.create({
   },
   row: {
     margin: 10,
+  },
+  name: {
+    fontSize: 12,
+    textAlign: 'center',
+    color: '#333333',
+    padding: 10,
+  },
+  rssi: {
+    fontSize: 10,
+    textAlign: 'center',
+    color: '#333333',
+    padding: 2,
+  },
+  id: {
+    fontSize: 8,
+    textAlign: 'center',
+    color: '#333333',
+    padding: 2,
+    paddingBottom: 20,
+  },
+  NoPeripherals: {
+    flex: 1,
+    margin: 20,
+    textAlign: 'center',
   },
 });
 
