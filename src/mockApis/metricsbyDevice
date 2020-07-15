@@ -1,0 +1,18 @@
+/**
+
+* Example: get    /ideafast/metrics/{deviceName}/{patinetId}
+
+*/
+
+{
+  "devices": [
+    {
+      "byteflies": {
+        "metrics": {
+          "brain": {},
+          "heart": {}
+        }
+      }
+    },
+  ],
+}
