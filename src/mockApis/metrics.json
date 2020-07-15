@@ -1,13 +1,13 @@
 /**
 
-* Example: get    /ideafast/metrics/{deviceName}/{patinetId}
+* Example: get    /api/device/{deviceId}/metrics
 * https://dev.fitbit.com/build/reference/web-api/heart-rate/
 
 */
 
 
 {
-  "devices": [
+  "device": [
     {
       "dateTime": "2015-08-04",
       "byteflies": {

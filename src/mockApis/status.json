@@ -1,11 +1,11 @@
 /**
 
-* Example: get    /ideafast/status/{deviceName}/{patinetId}
+* Example: get    /api/device/{deviceID}/status/{patinetId}
 
 */
 
 {
-  "devices": [
+  "device": [
     {
       "byteflies": {
         "UUID": "yyyxxx12668888",

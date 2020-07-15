@@ -1,6 +1,6 @@
 /**
 
-* Example: get    /ideafast/alldevices/metadata/{patinetId}
+* Example: get    /api/devices/metadata/{patientID}
 
 */
 
@@ -27,8 +27,8 @@
         }
         ],
         "metrics": [{
-          "brain": {},
-          "heart": {}
+          "brain": [],
+          "heart": []
         }]
       }
     },
@@ -51,8 +51,8 @@
           }
         },
         "metrics": [{
-          "brain": {},
-          "heart": {}
+          "brain": [],
+          "heart": []
         }]
       }
     }
