@@ -13,7 +13,7 @@
       "byteflies": {
         "metrics": {
           "brain": [],
-          "heartRateZones": [
+          "heart": [
             {
               "caloriesOut": 740.15264,
               "max": 94,
@@ -45,7 +45,7 @@
           ],
           "restingHeartRate": 68
         }
-        }
+      }
     }
   ]
 }

@@ -10,11 +10,11 @@
       "byteflies": {
         "UUID": "yyyxxx12668888",
         "patientId": "1487766",
-        "status": {
+        "status": [{
           "device": {
             "battery": "72",
             "BLEisOn": "False"
-          },
+            },
           "data": {
             "onDevice": "True",
             "size": "1000Mb",
@@ -22,8 +22,9 @@
             "startRecorded": "23/09/2020",
             "endRecorded": "26/09/2020",
             "lastUploaded": "10/10/2020"
-          }
+            }
         }
+        ]
       }
     }
   ]
