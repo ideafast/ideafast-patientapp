@@ -1,6 +1,6 @@
 /**
 
-* Example: get    /api/devices/metadata/{patientID}
+* Example: get    /api/devices/{participantID}
 
 */
 
@@ -8,10 +8,11 @@
 {
   "devices": [
     {
-      "byteflies": {
-        "UUID": "yyyxxx12668888",
-        "patientId": "1487766",
-        "status": [{
+      "deviceId": {
+        "uuid": "yyyxxx12668888",
+        "bluetoothIdNumber": "ff:21:00:pp",
+        "participantId": "1487766",
+        "status": {
           "device": {
             "battery": "72",
             "BLEisOn": "False"
@@ -24,18 +25,17 @@
             "endRecorded": "26/09/2020",
             "lastUploaded": "10/10/2020"
           }
-        }
-        ],
-        "metrics": [{
+        },
+        "metrics": {
           "brain": [],
           "heart": []
-        }]
+        }
       }
     },
     {
-      "dreem": {
-        "UUID": "zzz777xxx12668888",
-        "patientId": "1487766",
+      "deviceId": {
+        "uuid": "zzz777xxx12668888",
+        "participantId": "1487766",
         "status": {
           "device": {
             "battery": "72",

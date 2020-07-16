@@ -1,16 +1,13 @@
 /**
 
-* Example: get    /api/device/{deviceId}/metrics
+* Example: get    /api/{deviceId}/metrics
 * https://dev.fitbit.com/build/reference/web-api/heart-rate/
 
 */
 
 
 {
-  "device": [
-    {
-      "dateTime": "2015-08-04",
-      "byteflies": {
+      "deviceId": {
         "metrics": {
           "brain": [],
           "heart": [
@@ -46,6 +43,4 @@
           "restingHeartRate": 68
         }
       }
-    }
-  ]
 }
