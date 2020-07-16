@@ -35,6 +35,7 @@
     {
       "deviceId": {
         "uuid": "zzz777xxx12668888",
+        "bluetoothIdNumber": "ff:21:00:pp",
         "participantId": "1487766",
         "status": {
           "device": {
