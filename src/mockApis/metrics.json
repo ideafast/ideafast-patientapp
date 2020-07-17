@@ -8,6 +8,12 @@
 
 {
       "deviceId": {
+        "uuid": "yyyxxx12668888",
+        "bluetoothIdNumber": "ff:21:00:pp",
+        "participant": {
+          "id": 776655,
+          "site": 2
+        },
         "metrics": {
           "brain": [],
           "heart": [
