@@ -1,6 +1,6 @@
 /**
 
-* Example: get    /api/{deviceId}/status/{participantId}
+* Example: get    /api/{deviceId}/status
 
 */
 
