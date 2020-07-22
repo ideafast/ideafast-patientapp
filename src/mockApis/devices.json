@@ -10,7 +10,7 @@
     {
       "deviceId": {
         "uuid": "yyyxxx12668888",
-        "bluetoothIdNumber": "ff:21:00:pp",
+        "deviceType": "Dreem",
         "participant": {
           "id": 776655,
           "site": 2
@@ -38,7 +38,7 @@
     {
       "deviceId": {
         "uuid": "zzz777xxx12668888",
-        "bluetoothIdNumber": "ff:21:00:pp",
+        "deviceType": "butterflies",
         "participant": {
           "id": 776655,
           "site": 2
