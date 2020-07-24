@@ -109,7 +109,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     flexWrap: 'wrap',
     flexDirection: 'row',
-    //alignItems: 'center',
   },
   headerTxt: {
     fontSize: 20,

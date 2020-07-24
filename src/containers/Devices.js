@@ -12,6 +12,7 @@ import {
   StatusBar,
   Button,
   Alert,
+  Image,
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
@@ -23,16 +24,20 @@ import {mapDispatchToProps} from '../ducks/actions';
 const Devices: () => React$Node = props => {
   const state = [
     {
+      title: 'Axivity',
+      image: require('../assets/Axivity.jpg'),
+    },
+    {
+      title: 'Biovotion',
+      image: require('../assets/Biovotion.jpg'),
+    },
+    {
       title: 'Dreem',
+      image: require('../assets/Dreem.jpg'),
     },
     {
       title: 'Byteflies',
-    },
-    {
-      title: 'Axitivity',
-    },
-    {
-      title: 'Watch',
+      image: require('../assets/Byteflies.jpg'),
     },
   ];
 
@@ -49,6 +54,7 @@ const Devices: () => React$Node = props => {
                   return (
                     <View key={i} style={styles.sectionContainer}>
                       <View style={styles.border}>
+                        <Image source={param.image} style={styles.image} />
                         <Text style={styles.sectionTitle}>{param.title}</Text>
                         <View style={styles.fixToText}>
                           <Button
@@ -89,6 +95,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginBottom: 0,
   },
+  image: {
+      width: 60,
+      height: 60,
+    },
   sectionTitle: {
     fontSize: 26,
     fontWeight: '600',
@@ -98,6 +108,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 20,
+    marginBottom: 10,
     height: 50,
     width: '40%',
   },
