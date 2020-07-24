@@ -50,14 +50,22 @@ const Devices: () => React$Node = props => {
                     <View key={i} style={styles.sectionContainer}>
                       <View style={styles.border}>
                         <Text style={styles.sectionTitle}>{param.title}</Text>
-                        <View styles={styles.fixToText}>
-                          <Button
-                            title="Sync"
-                            onPress={() => Alert.alert('Left button pressed')}
-                          />
+                        <View style={styles.fixToText}>
                           <Button
                             title="Upload"
+                            onPress={() => Alert.alert('Left button pressed')}
+                            titleStyle={{
+                                   color: "white",
+                                   fontSize: 76,
+                               }}
+                          />
+                          <Button
+                            title="Sync"
                             onPress={() => Alert.alert('Right button pressed')}
+                            titleStyle={{
+                                   color: "white",
+                                   fontSize: 16,
+                               }}
                           />
                         </View>
                       </View>
@@ -87,7 +95,7 @@ const styles = StyleSheet.create({
   sectionContainer: {
     marginTop: 30,
     paddingHorizontal: 10,
-    marginBottom: 20,
+    marginBottom: 0,
   },
   sectionTitle: {
     fontSize: 26,
@@ -97,6 +105,9 @@ const styles = StyleSheet.create({
   fixToText: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    marginTop: 20,
+    height: 50,
+    width: "40%",
   },
 });
 
