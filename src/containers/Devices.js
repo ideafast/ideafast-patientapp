@@ -54,18 +54,10 @@ const Devices: () => React$Node = props => {
                           <Button
                             title="Upload"
                             onPress={() => Alert.alert('Left button pressed')}
-                            titleStyle={{
-                                   color: "white",
-                                   fontSize: 76,
-                               }}
                           />
                           <Button
                             title="Sync"
                             onPress={() => Alert.alert('Right button pressed')}
-                            titleStyle={{
-                                   color: "white",
-                                   fontSize: 16,
-                               }}
                           />
                         </View>
                       </View>
@@ -107,7 +99,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginTop: 20,
     height: 50,
-    width: "40%",
+    width: '40%',
   },
 });
 
