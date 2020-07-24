@@ -11,12 +11,13 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {connect} from 'react-redux';
 
 import Verify from './Verify';
-import Devices from './Devices';
+import DeviceManagement from './DeviceManagement';
 import Profile from './Profile';
 import Help from './Help';
 import FAQ from './FAQ';
 import ContactDetails from './ContactDetails';
 import AboutDevices from './AboutDevices';
+import Devices from './Devices';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
@@ -39,13 +40,24 @@ const ProfileStack = () => (
   </StackNavigator>
 );
 
-const DevicesStack = () => (
+const DeviceManagementStack = () => (
   <StackNavigator>
+    <StackScreen
+      name="Device Management"
+      component={DeviceManagement}
+      options={{
+        title: 'Device Management',
+        headerStyle: {
+          backgroundColor: '#5533FF',
+        },
+        headerTintColor: '#fff',
+      }}
+    />
     <StackScreen
       name="Devices"
       component={Devices}
       options={{
-        title: 'Device Management',
+        title: 'Devices',
         headerStyle: {
           backgroundColor: '#5533FF',
         },
@@ -110,17 +122,17 @@ const AppNavigation = props => {
   }
   return (
     <TabNavigator
-      initialRouteName="Devices"
+      initialRouteName="DeviceManagement"
       tabBarOptions={{
         activeTintColor: '#FFFFFF',
         style: {backgroundColor: '#5533FF'},
         labelStyle: {fontSize: 13},
       }}>
       <TabScreen
-        name="Devices"
-        component={DevicesStack}
+        name="DeviceManagement"
+        component={DeviceManagementStack}
         options={{
-          tabBarLabel: 'Devices',
+          tabBarLabel: 'Device Management',
           tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons
               name="bluetooth-audio"

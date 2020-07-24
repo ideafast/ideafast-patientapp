@@ -2,71 +2,101 @@
  * @format
  * @flow strict-local
  */
-import React, {useState} from 'react';
-import {ActivityIndicator, StyleSheet, View} from 'react-native';
-import ActionButton from 'react-native-action-button';
-import {Text} from 'react-native-elements';
+import React from 'react';
+import {
+  SafeAreaView,
+  StyleSheet,
+  ScrollView,
+  View,
+  Text,
+  StatusBar,
+  Button,
+  Alert,
+} from 'react-native';
+
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+
 import {connect} from 'react-redux';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
 const Devices: () => React$Node = props => {
-  const [isSearching, setSearching] = useState(false);
-
-  const searchForDevice = async () => {
-    setSearching(true);
-    console.log('SEARCHING FOR DEVICES');
-    await new Promise(r => setTimeout(r, 500));
-    setSearching(false);
-  };
-
-  if (isSearching) {
-    return <ActivityIndicator />;
-  }
+  const state = [
+    {
+      title: 'Dreem',
+    },
+    {
+      title: 'Byteflies',
+    },
+    {
+      title: 'Axitivity',
+    },
+    {
+      title: 'Watch',
+    },
+  ];
 
   return (
-    <View style={styles.view}>
-      <View style={styles.header}>
-        <Text h4 style={styles.headerTxt}>
-          Connecting your first device
-        </Text>
-      </View>
-      <Text style={styles.txt}>
-        You are not connected to any devices. Tap the "+" button below to
-        connect to all the devices you have.
-      </Text>
-      <Text style={styles.txt}>
-        If you would like more information about each device, tap the "Help"
-        button in the menu below.
-      </Text>
-      <ActionButton buttonColor="#5533FF" onPress={searchForDevice} />
-    </View>
+    <>
+      <StatusBar barStyle="dark-content" />
+      <SafeAreaView>
+        <ScrollView
+          contentInsetAdjustmentBehavior="automatic"
+          style={styles.scrollView}>
+          <View style={styles.body}>
+            {state
+              ? state.map((param, i) => {
+                  return (
+                    <View key={i} style={styles.sectionContainer}>
+                      <View style={styles.border}>
+                        <Text style={styles.sectionTitle}>{param.title}</Text>
+                        <View styles={styles.fixToText}>
+                          <Button
+                            title="Sync"
+                            onPress={() => Alert.alert('Left button pressed')}
+                          />
+                          <Button
+                            title="Upload"
+                            onPress={() => Alert.alert('Right button pressed')}
+                          />
+                        </View>
+                      </View>
+                    </View>
+                  );
+                })
+              : null}
+          </View>
+        </ScrollView>
+      </SafeAreaView>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
-  view: {
-    flex: 1,
-    padding: 24,
+  scrollView: {
+    backgroundColor: Colors.lighter,
   },
-  header: {
-    width: '100%',
-    paddingVertical: 8,
+  engine: {
+    position: 'absolute',
+    right: 0,
+  },
+  border: {
+    borderWidth: 1,
+    borderColor: 'blue',
+  },
+  sectionContainer: {
+    marginTop: 30,
     paddingHorizontal: 10,
-    flexWrap: 'wrap',
-    flexDirection: 'row',
-    //alignItems: 'center',
+    marginBottom: 20,
   },
-  headerTxt: {
-    fontSize: 20,
+  sectionTitle: {
+    fontSize: 26,
     fontWeight: '600',
     color: Colors.black,
   },
-  txt: {
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
+  fixToText: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 });
 
