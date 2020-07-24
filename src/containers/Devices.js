@@ -54,9 +54,9 @@ const Devices: () => React$Node = props => {
                   return (
                     <View key={i} style={styles.sectionContainer}>
                       <View style={styles.border}>
-                        <View style={{flexDirection: 'row', textAlign: 'left', fontSize: 15}}>
-                        <Image source={param.image} style={styles.image} />
-                        <Text style={styles.sectionTitle}>{param.title}</Text>
+                        <View style={styles.sectionRow}>
+                          <Image source={param.image} style={styles.image} />
+                          <Text style={styles.sectionTitle}>{param.title}</Text>
                         </View>
                         <View style={styles.fixToText}>
                           <Button
@@ -67,7 +67,6 @@ const Devices: () => React$Node = props => {
                             title="Sync"
                             onPress={() => Alert.alert('Right button pressed')}
                           />
-
                         </View>
                       </View>
                     </View>
@@ -97,12 +96,14 @@ const styles = StyleSheet.create({
     marginTop: 30,
     paddingHorizontal: 10,
     marginBottom: 0,
-
   },
   image: {
     width: 100,
     height: 100,
-    borderRadius:30,
+    borderRadius: 30,
+  },
+  sectionRow: {
+    flexDirection: 'row',
   },
   sectionTitle: {
     fontSize: 26,
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     height: 50,
     width: '40%',
-    alignSelf: "center",
+    alignSelf: 'center',
   },
 });
 
