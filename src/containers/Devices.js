@@ -96,9 +96,9 @@ const styles = StyleSheet.create({
     marginBottom: 0,
   },
   image: {
-      width: 60,
-      height: 60,
-    },
+    width: 60,
+    height: 60,
+  },
   sectionTitle: {
     fontSize: 26,
     fontWeight: '600',
