@@ -24,19 +24,19 @@ import {mapDispatchToProps} from '../ducks/actions';
 const Devices: () => React$Node = props => {
   const state = [
     {
-      title: 'Axivity',
+      title: '  Axivity ',
       image: require('../assets/Axivity.jpg'),
     },
     {
-      title: 'Biovotion',
+      title: '  Biovotion   ',
       image: require('../assets/Biovotion.jpg'),
     },
     {
-      title: 'Dreem',
+      title: '  Dreem   ',
       image: require('../assets/Dreem.jpg'),
     },
     {
-      title: 'Byteflies',
+      title: '  Byteflies   ',
       image: require('../assets/Byteflies.jpg'),
     },
   ];
@@ -54,8 +54,10 @@ const Devices: () => React$Node = props => {
                   return (
                     <View key={i} style={styles.sectionContainer}>
                       <View style={styles.border}>
+                        <View style={{flexDirection: 'row', textAlign: 'left', fontSize: 15}}>
                         <Image source={param.image} style={styles.image} />
                         <Text style={styles.sectionTitle}>{param.title}</Text>
+                        </View>
                         <View style={styles.fixToText}>
                           <Button
                             title="Upload"
@@ -65,6 +67,7 @@ const Devices: () => React$Node = props => {
                             title="Sync"
                             onPress={() => Alert.alert('Right button pressed')}
                           />
+
                         </View>
                       </View>
                     </View>
@@ -94,23 +97,26 @@ const styles = StyleSheet.create({
     marginTop: 30,
     paddingHorizontal: 10,
     marginBottom: 0,
+
   },
   image: {
-    width: 60,
-    height: 60,
+    width: 100,
+    height: 100,
+    borderRadius:30,
   },
   sectionTitle: {
     fontSize: 26,
     fontWeight: '600',
     color: Colors.black,
+    //alignSelf: "center",
   },
   fixToText: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 20,
     marginBottom: 10,
     height: 50,
     width: '40%',
+    alignSelf: "center",
   },
 });
 
