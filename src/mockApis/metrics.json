@@ -1,11 +1,3 @@
-/**
-
-* Example: get    /api/{deviceId}/metrics
-* https://dev.fitbit.com/build/reference/web-api/heart-rate/
-
-*/
-
-
 {
       "deviceId": {
         "uuid": "yyyxxx12668888",
