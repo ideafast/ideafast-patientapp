@@ -57,26 +57,22 @@ const Devices: () => React$Node = props => {
                         <View style={styles.sectionImage}>
                           <Image source={param.image} style={styles.image} />
                           <Text style={styles.sectionTitle}>{param.title}</Text>
-                          <Text style={styles.textStyle}>
-                            Battery Life: 72 % {}
+                          <Text style={styles.textStyle}><Image source={require('../assets/battrey.png')} style={styles.icon} />
+                              72 % {}
                           </Text>
                         </View>
                         <View style={styles.sectionRow}>
                           <View style={styles.fixToText}>
                             <Button
-                              title="Connect"
-                              onPress={() => Alert.alert('Left button pressed')}
-                            />
-                          </View>
-                          <View style={styles.fixToText}>
-                            <Button
                               title="Upload"
+                              //color="blue"
                               onPress={() => Alert.alert('Left button pressed')}
                             />
                           </View>
                           <View style={styles.fixToText}>
                             <Button
                               title="Sync"
+                              //color="blue"
                               onPress={() =>
                                 Alert.alert('Wait to see the battery life')
                               }
@@ -111,12 +107,19 @@ const styles = StyleSheet.create({
     marginTop: 30,
     paddingHorizontal: 10,
     marginBottom: 0,
+    backgroundColor: 'white',
   },
   image: {
     width: 70,
     height: 70,
     borderRadius: 30,
   },
+  icon: {
+      width: 30,
+      height: 30,
+      //borderRadius: 30,
+      justifyContent: 'flex-end',
+    },
   sectionRow: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
