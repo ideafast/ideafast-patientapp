@@ -62,7 +62,7 @@ const Devices: () => React$Node = props => {
                               source={require('../assets/battrey-icon.png')}
                               style={styles.icon}
                             />
-                            92 % {}
+                            No status {}
                           </Text>
                         </View>
                         <View style={styles.sectionRow}>
@@ -78,7 +78,7 @@ const Devices: () => React$Node = props => {
                               title="Sync"
                               //color="blue"
                               onPress={() =>
-                                Alert.alert('Wait to see the battery life')
+                                Alert.alert('Wait to see the battery status')
                               }
                             />
                           </View>
