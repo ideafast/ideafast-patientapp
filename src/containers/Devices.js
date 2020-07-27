@@ -57,8 +57,8 @@ const Devices: () => React$Node = props => {
                         <View style={styles.sectionImage}>
                           <Image source={param.image} style={styles.image} />
                           <Text style={styles.sectionTitle}>{param.title}</Text>
-                          <Text style={styles.textStyle}><Image source={require('../assets/battrey.png')} style={styles.icon} />
-                              72 % {}
+                          <Text style={styles.textStyle}><Image source={require('../assets/battrey-icon.png')} style={styles.icon} />
+                              92 % {}
                           </Text>
                         </View>
                         <View style={styles.sectionRow}>
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: 'green',
     fontWeight: '600',
-    marginTop: 20,
+    marginTop: 10,
     marginLeft: 'auto',
   },
 });
