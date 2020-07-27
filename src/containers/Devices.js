@@ -54,19 +54,32 @@ const Devices: () => React$Node = props => {
                   return (
                     <View key={i} style={styles.sectionContainer}>
                       <View style={styles.border}>
-                        <View style={styles.sectionRow}>
+                        <View style={styles.sectionImage}>
                           <Image source={param.image} style={styles.image} />
                           <Text style={styles.sectionTitle}>{param.title}</Text>
                         </View>
-                        <View style={styles.fixToText}>
-                          <Button
-                            title="Upload"
-                            onPress={() => Alert.alert('Left button pressed')}
-                          />
-                          <Button
-                            title="Sync"
-                            onPress={() => Alert.alert('Right button pressed')}
-                          />
+                        <View style={styles.sectionRow}>
+                          <View style={styles.fixToText}>
+                            <Button
+                              title="Connect"
+                              onPress={() => Alert.alert('Left button pressed')}
+                            />
+                          </View>
+                          <View style={styles.fixToText}>
+                            <Button
+                              title="Upload"
+                              onPress={() => Alert.alert('Left button pressed')}
+                            />
+                          </View>
+
+                          <View style={styles.fixToText}>
+                            <Button
+                              title="Sync"
+                              onPress={() =>
+                                Alert.alert('Right button pressed')
+                              }
+                            />
+                          </View>
                         </View>
                       </View>
                     </View>
@@ -98,26 +111,30 @@ const styles = StyleSheet.create({
     marginBottom: 0,
   },
   image: {
-    width: 100,
-    height: 100,
+    width: 70,
+    height: 70,
     borderRadius: 30,
   },
   sectionRow: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+  },
+  sectionImage: {
     flexDirection: 'row',
   },
   sectionTitle: {
     fontSize: 26,
     fontWeight: '600',
     color: Colors.black,
-    //alignSelf: "center",
+    alignSelf: 'center',
   },
   fixToText: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 10,
-    height: 50,
-    width: '40%',
-    alignSelf: 'center',
+    width: 80,
+    height: 40,
+    backgroundColor: 'white',
+    marginTop: 20,
+    margin: 5,
+    justifyContent: 'flex-end',
   },
 });
 
