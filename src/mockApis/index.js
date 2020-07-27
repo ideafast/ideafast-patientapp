@@ -31,6 +31,10 @@ router.get('/:deviceId/status', (req, res) => {
   res.status(200).json(fileread(`${rootDir}/status.json`));
 });
 
+router.post('/verify', (req, res) => {
+  res.status(200).json(fileread(`${rootDir}/verification.json`));
+});
+
 app.use('/api', router);
 app.listen(port, () => {
   console.log(`Listening to requests on http://localhost:${port}`);
