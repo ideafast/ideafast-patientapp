@@ -13,8 +13,11 @@
           "site": 2
         },
         "metrics": {
-          "brain": [],
-          "heart": [
+          "data": {},
+          "brain": {},
+          "heart": {
+            "restingHeartRate": 68,
+            "sessions": [
             {
               "caloriesOut": 740.15264,
               "max": 94,
@@ -43,7 +46,6 @@
               "minutes": 0,
               "name": "Peak"
             }
-          ],
-          "restingHeartRate": 68
+          ]
         }
 }
