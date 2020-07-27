@@ -132,7 +132,7 @@ const AppNavigation = props => {
         name="DeviceManagement"
         component={DeviceManagementStack}
         options={{
-          tabBarLabel: 'Device Management',
+          tabBarLabel: 'Devices',
           tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons
               name="bluetooth-audio"
