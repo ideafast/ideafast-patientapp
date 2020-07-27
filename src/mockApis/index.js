@@ -20,13 +20,15 @@ router.get('/devices', (req, res) => {
   res.status(200).json(formattedData.toString());
 });
 
-router.get('/deviceId/metrics', (req, res) => {
+router.get('/:deviceId/metrics', (req, res) => {
+  console.log(req.params.deviceId);
   const data = fileread(`${rootDir}/metrics.json`);
   const formattedData = data;
   res.status(200).json(formattedData.toString());
 });
 
-router.get('/deviceId/status', (req, res) => {
+router.get('/:deviceId/status', (req, res) => {
+  console.log(req.params.deviceId);
   const data = fileread(`${rootDir}/status.json`);
   const formattedData = data;
   res.status(200).json(formattedData.toString());
