@@ -1,15 +1,13 @@
 /**
 
-* Example: get    /api/{deviceId}/metrics
+* GET /api/devices/{deviceId}/metrics
 * https://dev.fitbit.com/build/reference/web-api/heart-rate/
 
 */
 
 
 {
-      "deviceId": {
         "uuid": "yyyxxx12668888",
-        "deviceType": "Dreem",
         "participant": {
           "id": 776655,
           "site": 2
@@ -48,5 +46,4 @@
           ],
           "restingHeartRate": 68
         }
-      }
 }

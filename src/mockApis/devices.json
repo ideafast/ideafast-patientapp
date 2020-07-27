@@ -1,6 +1,6 @@
 /**
 
-* Example: get    /api/devices
+* GET /api/devices
 
 */
 
@@ -10,7 +10,6 @@
     {
       "deviceId": {
         "uuid": "yyyxxx12668888",
-        "deviceType": "Dreem",
         "participant": {
           "id": 776655,
           "site": 2
@@ -22,7 +21,7 @@
           },
           "data": {
             "isOnDevice": true,
-            "size": "1000Mb",
+            "size": 100000000,
             "isUploading": false,
             "startRecorded": "2020-04-23T18:25:43.511Z",
             "endRecorded": "2020-04-26T18:25:43.511Z",
@@ -30,15 +29,15 @@
           }
         },
         "metrics": {
-          "brain": [],
-          "heart": []
+          "data": {},
+          "brain": {},
+          "heart": {}
         }
       }
     },
     {
       "deviceId": {
         "uuid": "zzz777xxx12668888",
-        "deviceType": "butterflies",
         "participant": {
           "id": 776655,
           "site": 2
@@ -50,7 +49,7 @@
           },
           "data": {
             "isOnDevice": true,
-            "size": "1000Mb",
+            "size": 100000000,
             "isUploading": false,
             "startRecorded": "2020-04-23T18:25:43.511Z",
             "endRecorded": "2020-04-26T18:25:43.511Z",
@@ -58,8 +57,9 @@
           }
         },
         "metrics": {
-          "brain": [],
-          "heart": []
+          "data": {},
+          "brain": {},
+          "heart": {}
         }
       }
     }
