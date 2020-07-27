@@ -64,7 +64,7 @@ const Devices: () => React$Node = props => {
                         <View style={styles.sectionRow}>
                           <View style={styles.fixToText}>
                             <Button
-                              title="Upload"
+                              title="Metrics"
                               //color="blue"
                               onPress={() => Alert.alert('Left button pressed')}
                             />
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   fixToText: {
-    width: 80,
+    width: 100,
     height: 40,
     backgroundColor: 'white',
     marginTop: 20,
