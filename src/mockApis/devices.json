@@ -8,7 +8,7 @@
 {
   "devices": [
     {
-      "deviceId": {
+      "byteflies": {
         "uuid": "yyyxxx12668888",
         "participant": {
           "id": 776655,
@@ -36,7 +36,7 @@
       }
     },
     {
-      "deviceId": {
+      "dream": {
         "uuid": "zzz777xxx12668888",
         "participant": {
           "id": 776655,
