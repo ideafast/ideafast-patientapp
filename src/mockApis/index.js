@@ -32,6 +32,7 @@ router.get('/:deviceId/status', (req, res) => {
 });
 
 router.post('/verify', (req, res) => {
+  console.log(req);
   res.status(200).json(fileread(`${rootDir}/verification.json`));
 });
 

@@ -5,7 +5,13 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 const verifyUserID = userID => async dispatch => {
-  await new Promise(r => setTimeout(r, 500));
+  const response = await fetch('http://192.168.1.64:8000/api/verify', {
+    method: 'post',
+    body: JSON.stringify({userID}),
+  });
+  console.log(response);
+  const verifyJSON = await response.json();
+  console.log(verifyJSON);
   await dispatch(setUserID(userID));
 };
 
