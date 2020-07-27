@@ -10,28 +10,25 @@ const rootDir = path.dirname(__filename);
 
 app.use(bodyParser.json());
 
-const fileread = filename => fs.readFileSync(filename);
+const fileread = filename => {
+  const data = fs.readFileSync(filename);
+  return JSON.parse(data);
+};
 
 const router = express.Router();
 
 router.get('/devices', (req, res) => {
-  const data = fileread(`${rootDir}/devices.json`);
-  const formattedData = data;
-  res.status(200).json(formattedData.toString());
+  res.status(200).json(fileread(`${rootDir}/devices.json`));
 });
 
 router.get('/:deviceId/metrics', (req, res) => {
   console.log(req.params.deviceId);
-  const data = fileread(`${rootDir}/metrics.json`);
-  const formattedData = data;
-  res.status(200).json(formattedData.toString());
+  res.status(200).json(fileread(`${rootDir}/metrics.json`));
 });
 
 router.get('/:deviceId/status', (req, res) => {
   console.log(req.params.deviceId);
-  const data = fileread(`${rootDir}/status.json`);
-  const formattedData = data;
-  res.status(200).json(formattedData.toString());
+  res.status(200).json(fileread(`${rootDir}/status.json`));
 });
 
 app.use('/api', router);
