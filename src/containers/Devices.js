@@ -71,7 +71,6 @@ const Devices: () => React$Node = props => {
                               onPress={() => Alert.alert('Left button pressed')}
                             />
                           </View>
-
                           <View style={styles.fixToText}>
                             <Button
                               title="Sync"
