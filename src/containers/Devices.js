@@ -24,19 +24,19 @@ import {mapDispatchToProps} from '../ducks/actions';
 const Devices: () => React$Node = props => {
   const state = [
     {
-      title: '  Axivity ',
+      title: '  Axivity     ',
       image: require('../assets/Axivity.jpg'),
     },
     {
-      title: '  Biovotion   ',
+      title: '  Biovotion       ',
       image: require('../assets/Biovotion.jpg'),
     },
     {
-      title: '  Dreem   ',
+      title: '  Dreem       ',
       image: require('../assets/Dreem.jpg'),
     },
     {
-      title: '  Byteflies   ',
+      title: '  Byteflies       ',
       image: require('../assets/Byteflies.jpg'),
     },
   ];
@@ -57,6 +57,9 @@ const Devices: () => React$Node = props => {
                         <View style={styles.sectionImage}>
                           <Image source={param.image} style={styles.image} />
                           <Text style={styles.sectionTitle}>{param.title}</Text>
+                          <Text style={styles.textStyle}>
+                            Battery Life: 72 % {}
+                          </Text>
                         </View>
                         <View style={styles.sectionRow}>
                           <View style={styles.fixToText}>
@@ -75,7 +78,7 @@ const Devices: () => React$Node = props => {
                             <Button
                               title="Sync"
                               onPress={() =>
-                                Alert.alert('Right button pressed')
+                                Alert.alert('Wait to see the battery life')
                               }
                             />
                           </View>
@@ -134,6 +137,13 @@ const styles = StyleSheet.create({
     marginTop: 20,
     margin: 5,
     justifyContent: 'flex-end',
+  },
+  textStyle: {
+    fontSize: 16,
+    color: 'green',
+    fontWeight: '600',
+    marginTop: 20,
+    marginLeft: 'auto',
   },
 });
 
