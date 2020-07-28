@@ -1,3 +1,5 @@
+import {MOCK_API_ADDRESS} from '../../envVar.js';
+
 import * as actiontypes from './actiontypes';
 
 export const mapDispatchToProps = dispatch => ({
@@ -5,7 +7,7 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 const verifyUserID = userID => async dispatch => {
-  const response = await fetch('http://192.168.1.64:8000/api/verify', {
+  const response = await fetch(`${MOCK_API_ADDRESS}/api/verify`, {
     method: 'post',
     body: JSON.stringify({userID}),
   });
