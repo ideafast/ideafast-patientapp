@@ -1,44 +1,85 @@
 {
-  "deviceId": {
-    "uuid": "yyyxxx12668888",
-    "deviceType": "Dreem",
-    "participant": {
-      "id": 776655,
-      "site": 2
-    },
-    "metrics": {
-      "brain": [],
-      "heart": [
+  "uuid":"yyyxxx12668888",
+  "participant":{
+    "id":776655,
+    "site":2
+  },
+  "days":3,
+  "start":"2020-04-23T22:25:43.511Z",
+  "end":"2020-04-25T04:00:00.111Z",
+  "metrics":{
+    "sleep":{
+      "sessions":[
         {
-          "caloriesOut": 740.15264,
-          "max": 94,
-          "min": 30,
-          "minutes": 593,
-          "name": "Out of Range"
+          "size":10000000,
+          "duration":1080,
+          "quality":{
+            "frontal":0.72,
+            "occipital":0.77,
+            "global":0.65
+          },
+          "startDate":"2020-04-23T22:25:43.511Z",
+          "endDate":"2020-04-24T08:00:01.511Z"
         },
         {
-          "caloriesOut": 249.66204,
-          "max": 132,
-          "min": 94,
-          "minutes": 46,
-          "name": "Fat Burn"
+          "size":10000000,
+          "duration":120,
+          "quality":{
+            "frontal":0.9,
+            "occipital":0.87,
+            "global":0.88
+          },
+          "startDate":"2020-04-24T12:25:43.511Z",
+          "endDate":"2020-04-24T14:09:01.511Z"
         },
         {
-          "caloriesOut": 0,
-          "max": 160,
-          "min": 132,
-          "minutes": 0,
-          "name": "Cardio"
-        },
-        {
-          "caloriesOut": 0,
-          "max": 220,
-          "min": 160,
-          "minutes": 0,
-          "name": "Peak"
+          "size":1000000,
+          "duration":540,
+          "quality":{
+            "frontal":0.3,
+            "occipital":0.4,
+            "global":0.35
+          },
+          "startDate":"2020-04-24T23:00:00.000Z",
+          "endDate":"2020-04-25T04:00:00.111Z"
         }
-      ],
-      "restingHeartRate": 68
+      ]
     }
+  },
+  "brain":{
+
+  },
+  "heart":{
+    "restingHeartRate":68,
+    "sessions":[
+      {
+        "caloriesOut":740.15264,
+        "max":94,
+        "min":30,
+        "minutes":593,
+        "name":"Out of Range"
+      },
+      {
+        "caloriesOut":249.66204,
+        "max":132,
+        "min":94,
+        "minutes":46,
+        "name":"Fat Burn"
+      },
+      {
+        "caloriesOut":0,
+        "max":160,
+        "min":132,
+        "minutes":0,
+        "name":"Cardio"
+      },
+      {
+        "caloriesOut":0,
+        "max":220,
+        "min":160,
+        "minutes":0,
+        "name":"Peak"
+      }
+    ]
   }
 }
