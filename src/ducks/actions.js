@@ -11,10 +11,8 @@ const verifyUserID = userID => async dispatch => {
     method: 'post',
     body: JSON.stringify({userID}),
   });
-  console.log(response);
-  const verifyJSON = await response.json();
-  console.log(verifyJSON);
-  await dispatch(setUserID(userID));
+  const verificationJSON = await response.json();
+  await dispatch(setUserID(verificationJSON.participant.id));
 };
 
 const setUserID = userID => ({
