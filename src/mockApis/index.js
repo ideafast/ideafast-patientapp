@@ -21,22 +21,19 @@ router.get('/devices', (req, res) => {
   res.status(200).json(fileread(`${rootDir}/devices.json`));
 });
 
-router.get('/:deviceId/metrics', (req, res) => {
-  console.log(req.params.deviceId);
+router.get('/devices/:deviceId/metrics', (req, res) => {
   res.status(200).json(fileread(`${rootDir}/metrics.json`));
 });
 
-router.get('/:deviceId/status', (req, res) => {
-  console.log(req.params.deviceId);
+router.get('/devices/:deviceId/status', (req, res) => {
   res.status(200).json(fileread(`${rootDir}/status.json`));
 });
 
 router.post('/verify', (req, res) => {
-  console.log(req);
   res.status(200).json(fileread(`${rootDir}/verification.json`));
 });
 
-app.use('/api', router);
+app.use('/', router);
 app.listen(port, () => {
   console.log(`Listening to requests on http://localhost:${port}`);
 });
