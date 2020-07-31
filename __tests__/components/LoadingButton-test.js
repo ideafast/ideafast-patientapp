@@ -13,7 +13,7 @@ const defaultProps = {
   disabled: false,
   onPress: () => {},
   title: 'This is a loading Button',
-}
+};
 
 it('renders correctly', () => {
   renderer.create(<LoadingButton {...defaultProps} />);

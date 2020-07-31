@@ -10,8 +10,8 @@ it('should set the userID', () => {
   const userID = 1;
   const action = {
     type: actiontypes.SET_USERID,
-    userID
-  }
+    userID,
+  };
   const newState = reducer(action, initialState);
   expect(newState.userID).toBe(userID);
 });
