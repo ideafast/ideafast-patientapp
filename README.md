@@ -10,7 +10,7 @@ React-Native Patient-facing application (currently working towards prototype)
 1. Pull down repository
 1. Run `yarn`
 1. Run `npx react-native link`
-1. Add file named `envVar.js` in root directory and add line `export const MOCK_API_ADDRESS = 'http://YOUR_IP:8000';`
+1. Add `.env` file in root directory and add line `MOCK_API_ADDRESS=http://YOUR_IP:8000`
 1. Run `npm run mockServer` to run mock api endpoints
 1. Start android emulator
 1. In project directory, run `npx react-native run-android`

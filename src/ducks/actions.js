@@ -1,4 +1,4 @@
-import {MOCK_API_ADDRESS} from '../../envVar.js';
+import Config from "react-native-config";
 
 import * as actiontypes from './actiontypes';
 
@@ -7,7 +7,7 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 const verifyUserID = userID => async dispatch => {
-  const response = await fetch(`${MOCK_API_ADDRESS}/api/verify`, {
+  const response = await fetch(`${Config.MOCK_API_ADDRESS}/api/verify`, {
     method: 'post',
     body: JSON.stringify({userID}),
   });
