@@ -1,7 +1,7 @@
 ---
 name: "\U0001F381   Feature"
 about: " What new feature or improvement needs added?"
-title: "[FEATURE]: << title >>"
+title: "<< title >>"
 labels: feature
 assignees: ''
 

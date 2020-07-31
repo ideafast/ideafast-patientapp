@@ -1,7 +1,7 @@
 ---
 name: "\U0001F5C3  Exploration"
 about: Exploring new tech or/and features
-title: "[EXP]: << title >>"
+title: "<< title >>"
 labels: exploration
 assignees: ''
 
