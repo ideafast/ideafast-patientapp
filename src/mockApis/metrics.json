@@ -1,14 +1,6 @@
-/**
-
-* GET /api/devices/{deviceId}/metrics
-* https://dev.fitbit.com/build/reference/web-api/heart-rate/
-
-* Assume this is a Dreem device: duration is 9hours (1080) and produced a large file (1GB->10000000 bytes) on one day, then
-*/
-
-
 {
   "uuid":"yyyxxx12668888",
+  "name": "dreem",
   "participant":{
     "id":776655,
     "site":2
@@ -16,11 +8,9 @@
   "days":3,
   "start":"2020-04-23T22:25:43.511Z",
   "end":"2020-04-25T04:00:00.111Z",
-  "metrics":{
-    "sleep":{
-      "sessions":[
+  "metrics":[
         {
-          "size":10000000,
+          "size":1000000,
           "duration":1080,
           "quality":{
             "frontal":0.72,
@@ -31,7 +21,7 @@
           "endDate":"2020-04-24T08:00:01.511Z"
         },
         {
-          "size":10000000,
+          "size":120000000,
           "duration":120,
           "quality":{
             "frontal":0.9,
@@ -42,7 +32,7 @@
           "endDate":"2020-04-24T14:09:01.511Z"
         },
         {
-          "size":1000000,
+          "size":600000000,
           "duration":540,
           "quality":{
             "frontal":0.3,
@@ -52,43 +42,5 @@
           "startDate":"2020-04-24T23:00:00.000Z",
           "endDate":"2020-04-25T04:00:00.111Z"
         }
-      ]
-    }
-  },
-  "brain":{
-
-  },
-  "heart":{
-    "restingHeartRate":68,
-    "sessions":[
-      {
-        "caloriesOut":740.15264,
-        "max":94,
-        "min":30,
-        "minutes":593,
-        "name":"Out of Range"
-      },
-      {
-        "caloriesOut":249.66204,
-        "max":132,
-        "min":94,
-        "minutes":46,
-        "name":"Fat Burn"
-      },
-      {
-        "caloriesOut":0,
-        "max":160,
-        "min":132,
-        "minutes":0,
-        "name":"Cardio"
-      },
-      {
-        "caloriesOut":0,
-        "max":220,
-        "min":160,
-        "minutes":0,
-        "name":"Peak"
-      }
-    ]
-  }
+  ]
 }
