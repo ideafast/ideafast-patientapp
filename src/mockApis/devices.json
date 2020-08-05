@@ -8,7 +8,7 @@
         },
         "status": {
           "device": {
-            "battery": 72,
+            "battery": null,
             "isBleOn": false
           },
           "data": {
@@ -52,7 +52,7 @@
         "status": {
           "device": {
             "battery": 72,
-            "isBleOn": false
+            "isBleOn": true
           },
           "data": {
             "isOnDevice": true,
