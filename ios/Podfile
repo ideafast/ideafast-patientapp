@@ -79,6 +79,8 @@ target 'ideafastpatientapp' do
 
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
+  pod 'react-native-config', :path => '../node_modules/react-native-config'
+
   target 'ideafastpatientappTests' do
     inherit! :complete
     # Pods for testing
