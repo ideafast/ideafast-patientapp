@@ -20,30 +20,27 @@
             "lastUploaded": "2020-04-29T18:25:43.511Z"
           }
         },
-        "metrics":[
-              {
-                "size":2000000,
-                "duration":50400,
-                "quality":{
-                  "frontal":0.70,
-                  "occipital":0.77,
-                  "global":0.65
-                },
-                "startDate":"2020-04-23T22:25:43.511Z",
-                "endDate":"2020-04-24T08:00:01.511Z"
-              },
-              {
-                "size":240000,
-                "duration":120,
-                "quality":{
-                  "frontal":0.30,
-                  "occipital":0.33,
-                  "global":0.38
-                },
-                "startDate":"2020-04-24T12:25:43.511Z",
-                "endDate":"2020-04-24T14:09:01.511Z"
+      "metrics": {
+        "days":2,
+        "start":"2020-04-23T22:25:43.511Z",
+        "end":"2020-04-24T04:00:00.111Z",
+        "sessions": [
+          {
+            "size": 2000000,
+            "duration": 50400,
+            "quality": 0.65,
+            "startDate": "2020-04-23T22:25:43.511Z",
+            "endDate": "2020-04-24T08:00:01.511Z"
+          },
+          {
+            "size": 240000,
+            "duration": 120,
+            "quality": 0.38,
+            "startDate": "2020-04-24T12:25:43.511Z",
+            "endDate": "2020-04-24T14:09:01.511Z"
           }
         ]
+      }
     },
     {
         "uuid": "zzz777xxx12668888",
@@ -66,41 +63,34 @@
             "lastUploaded": "2020-04-29T18:25:43.511Z"
           }
         },
-        "metrics":[
-              {
-                "size":1000000,
-                "duration":1080,
-                "quality":{
-                  "frontal":0.72,
-                  "occipital":0.77,
-                  "global":0.65
-                },
-                "startDate":"2020-04-23T22:25:43.511Z",
-                "endDate":"2020-04-24T08:00:01.511Z"
-              },
-              {
-                "size":120000000,
-                "duration":120,
-                "quality":{
-                  "frontal":0.9,
-                  "occipital":0.87,
-                  "global":0.88
-                },
-                "startDate":"2020-04-24T12:25:43.511Z",
-                "endDate":"2020-04-24T14:09:01.511Z"
-              },
-              {
-                "size":600000000,
-                "duration":540,
-                "quality":{
-                  "frontal":0.3,
-                  "occipital":0.4,
-                  "global":0.35
-                },
-                "startDate":"2020-04-24T23:00:00.000Z",
-                "endDate":"2020-04-25T04:00:00.111Z"
-              }
+      "metrics": {
+        "days":3,
+        "start":"2020-04-23T22:25:43.511Z",
+        "end":"2020-04-25T04:00:00.111Z",
+        "sessions": [
+          {
+            "size": 1000000,
+            "duration": 1080,
+            "quality": 0.65,
+            "startDate": "2020-04-23T22:25:43.511Z",
+            "endDate": "2020-04-24T08:00:01.511Z"
+          },
+          {
+            "size": 120000000,
+            "duration": 120,
+            "quality": 0.88,
+            "startDate": "2020-04-24T12:25:43.511Z",
+            "endDate": "2020-04-24T14:09:01.511Z"
+          },
+          {
+            "size": 600000000,
+            "duration": 540,
+            "quality": 0.35,
+            "startDate": "2020-04-24T23:00:00.000Z",
+            "endDate": "2020-04-25T04:00:00.111Z"
+          }
         ]
+      }
     }
 ]
 
