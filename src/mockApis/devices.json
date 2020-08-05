@@ -1,8 +1,7 @@
-{
-  "devices": [
+[
     {
-      "byteflies": {
         "uuid": "yyyxxx12668888",
+        "name": "byteflies",
         "participant": {
           "id": 776656,
           "site": 2
@@ -45,11 +44,10 @@
                 "endDate":"2020-04-24T14:09:01.511Z"
           }
         ]
-      }
     },
     {
-      "dreem": {
         "uuid": "zzz777xxx12668888",
+        "name": "dreem",
         "participant": {
           "id": 776655,
           "site": 2
@@ -103,9 +101,7 @@
                 "endDate":"2020-04-25T04:00:00.111Z"
               }
         ]
-      }
     }
-  ]
-}
+]
 
 
