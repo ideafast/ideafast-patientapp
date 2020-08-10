@@ -18,12 +18,8 @@ import {
 import {connect} from 'react-redux';
 
 import BleManager from '../components/BleManager';
+import BleManagerEmitter from '../util/BleManagerEmitter';
 import {mapDispatchToProps} from '../ducks/actions';
-
-const window = Dimensions.get('window');
-
-const BleManagerModule = NativeModules.BleManager;
-const bleManagerEmitter = new NativeEventEmitter(BleManagerModule);
 
 class Ble extends Component {
   constructor() {
@@ -51,19 +47,19 @@ class Ble extends Component {
 
     BleManager.start({showAlert: false});
 
-    this.handlerDiscover = bleManagerEmitter.addListener(
+    this.handlerDiscover = BleManagerEmitter.addListener(
       'BleManagerDiscoverPeripheral',
       this.handleDiscoverPeripheral,
     );
-    this.handlerStop = bleManagerEmitter.addListener(
+    this.handlerStop = BleManagerEmitter.addListener(
       'BleManagerStopScan',
       this.handleStopScan,
     );
-    this.handlerDisconnect = bleManagerEmitter.addListener(
+    this.handlerDisconnect = BleManagerEmitter.addListener(
       'BleManagerDisconnectPeripheral',
       this.handleDisconnectedPeripheral,
     );
-    this.handlerUpdate = bleManagerEmitter.addListener(
+    this.handlerUpdate = BleManagerEmitter.addListener(
       'BleManagerDidUpdateValueForCharacteristic',
       this.handleUpdateValueForCharacteristic,
     );
@@ -309,6 +305,8 @@ class Ble extends Component {
     );
   }
 }
+
+const window = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {

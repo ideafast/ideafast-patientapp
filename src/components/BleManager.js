@@ -4,7 +4,7 @@
  */
 import {NativeModules} from 'react-native';
 
-const bleManager = NativeModules.BleManager;
+const BleManagerModule = NativeModules.BleManager;
 
 const simpleDataCallback = (fulfill, reject) => (error, success) =>
   error ? reject(error) : fulfill(success);
@@ -27,7 +27,7 @@ class BleManager {
 
   read(peripheralId, serviceUUID, characteristicUUID) {
     return new Promise((f, r) => {
-      bleManager.read(
+      BleManagerModule.read(
         peripheralId,
         serviceUUID,
         characteristicUUID,
@@ -38,19 +38,19 @@ class BleManager {
 
   readRSSI(peripheralId) {
     return new Promise((f, r) => {
-      bleManager.readRSSI(peripheralId, simpleDataCallback(f, r));
+      BleManagerModule.readRSSI(peripheralId, simpleDataCallback(f, r));
     });
   }
 
   refreshCache(peripheralId) {
     return new Promise((f, r) => {
-      bleManager.refreshCache(peripheralId, simpleDataCallback(f, r));
+      BleManagerModule.refreshCache(peripheralId, simpleDataCallback(f, r));
     });
   }
 
   retrieveServices(peripheralId, services) {
     return new Promise((f, r) => {
-      bleManager.retrieveServices(
+      BleManagerModule.retrieveServices(
         peripheralId,
         services,
         simpleDataCallback(f, r),
@@ -63,7 +63,7 @@ class BleManager {
       maxByteSize = 20;
     }
     return new Promise((f, r) => {
-      bleManager.write(
+      BleManagerModule.write(
         peripheralId,
         serviceUUID,
         characteristicUUID,
@@ -89,7 +89,7 @@ class BleManager {
       queueSleepTime = 10;
     }
     return new Promise((f, r) => {
-      bleManager.writeWithoutResponse(
+      BleManagerModule.writeWithoutResponse(
         peripheralId,
         serviceUUID,
         characteristicUUID,
@@ -103,31 +103,31 @@ class BleManager {
 
   connect(peripheralId) {
     return new Promise((f, r) => {
-      bleManager.connect(peripheralId, simpleDataCallback(f, r));
+      BleManagerModule.connect(peripheralId, simpleDataCallback(f, r));
     });
   }
 
   createBond(peripheralId) {
     return new Promise((f, r) => {
-      bleManager.createBond(peripheralId, simpleDataCallback(f, r));
+      BleManagerModule.createBond(peripheralId, simpleDataCallback(f, r));
     });
   }
 
   removeBond(peripheralId) {
     return new Promise((f, r) => {
-      bleManager.removeBond(peripheralId, simpleDataCallback(f, r));
+      BleManagerModule.removeBond(peripheralId, simpleDataCallback(f, r));
     });
   }
 
   disconnect(peripheralId, force = true) {
     return new Promise((f, r) => {
-      bleManager.disconnect(peripheralId, force, simpleDataCallback(f, r));
+      BleManagerModule.disconnect(peripheralId, force, simpleDataCallback(f, r));
     });
   }
 
   startNotification(peripheralId, serviceUUID, characteristicUUID) {
     return new Promise((f, r) => {
-      bleManager.startNotification(
+      BleManagerModule.startNotification(
         peripheralId,
         serviceUUID,
         characteristicUUID,
@@ -143,7 +143,7 @@ class BleManager {
     buffer,
   ) {
     return new Promise((f, r) => {
-      bleManager.startNotificationUseBuffer(
+      BleManagerModule.startNotificationUseBuffer(
         peripheralId,
         serviceUUID,
         characteristicUUID,
@@ -155,7 +155,7 @@ class BleManager {
 
   stopNotification(peripheralId, serviceUUID, characteristicUUID) {
     return new Promise((f, r) => {
-      bleManager.stopNotification(
+      BleManagerModule.stopNotification(
         peripheralId,
         serviceUUID,
         characteristicUUID,
@@ -165,7 +165,7 @@ class BleManager {
   }
 
   checkState() {
-    bleManager.checkState();
+    BleManagerModule.checkState();
   }
 
   start(options) {
@@ -173,7 +173,7 @@ class BleManager {
       if (options == null) {
         options = {};
       }
-      bleManager.start(options, simpleDataCallback(f, r));
+      BleManagerModule.start(options, simpleDataCallback(f, r));
     });
   }
 
@@ -203,7 +203,7 @@ class BleManager {
         scanningOptions.reportDelay = 0;
       }
 
-      bleManager.scan(
+      BleManagerModule.scan(
         serviceUUIDs,
         seconds,
         allowDuplicates,
@@ -215,19 +215,19 @@ class BleManager {
 
   stopScan() {
     return new Promise((f, r) => {
-      bleManager.stopScan(isErrorNotNullCallback(f, r));
+      BleManagerModule.stopScan(isErrorNotNullCallback(f, r));
     });
   }
 
   enableBluetooth() {
     return new Promise((f, r) => {
-      bleManager.enableBluetooth(isErrorNotNullCallback(f, r));
+      BleManagerModule.enableBluetooth(isErrorNotNullCallback(f, r));
     });
   }
 
   getConnectedPeripherals(serviceUUIDs) {
     return new Promise((f, r) => {
-      bleManager.getConnectedPeripherals(
+      BleManagerModule.getConnectedPeripherals(
         serviceUUIDs,
         nullSuccessDataCallback(f, r, []),
       );
@@ -236,19 +236,19 @@ class BleManager {
 
   getBondedPeripherals() {
     return new Promise((f, r) => {
-      bleManager.getBondedPeripherals(nullSuccessDataCallback(f, r, []));
+      BleManagerModule.getBondedPeripherals(nullSuccessDataCallback(f, r, []));
     });
   }
 
   getDiscoveredPeripherals() {
     return new Promise((f, r) => {
-      bleManager.getDiscoveredPeripherals(nullSuccessDataCallback(f, r, []));
+      BleManagerModule.getDiscoveredPeripherals(nullSuccessDataCallback(f, r, []));
     });
   }
 
   removePeripheral(peripheralId) {
     return new Promise((f, r) => {
-      bleManager.removePeripheral(peripheralId, simpleDataCallback(f, r));
+      BleManagerModule.removePeripheral(peripheralId, simpleDataCallback(f, r));
     });
   }
 
@@ -260,7 +260,7 @@ class BleManager {
 
   requestConnectionPriority(peripheralId, connectionPriority) {
     return new Promise((f, r) => {
-      bleManager.requestConnectionPriority(
+      BleManagerModule.requestConnectionPriority(
         peripheralId,
         connectionPriority,
         simpleDataCallback(f, r),
@@ -270,7 +270,7 @@ class BleManager {
 
   requestMTU(peripheralId, mtu) {
     return new Promise((fulfill, reject) => {
-      bleManager.requestMTU(peripheralId, mtu, error =>
+      BleManagerModule.requestMTU(peripheralId, mtu, error =>
         error ? reject(error) : fulfill(mtu),
       );
     });
