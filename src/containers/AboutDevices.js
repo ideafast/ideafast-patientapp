@@ -73,7 +73,6 @@ const AboutDevices: () => React$Node = props => {
                     header={
                       <View style={styles.header}>
                         <Image source={param.image} style={styles.image} />
-
                         <Text style={styles.headerTxt}>{param.title}</Text>
                       </View>
                     }>

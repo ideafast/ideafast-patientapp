@@ -3,9 +3,7 @@
  * @flow strict-local
  */
 import React from 'react';
-//import {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
-//import {ActivityIndicator} from 'react-native';
 import ActionButton from 'react-native-action-button';
 import {Text} from 'react-native-elements';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
@@ -14,23 +12,6 @@ import {connect} from 'react-redux';
 import {mapDispatchToProps} from '../ducks/actions';
 
 const Devices: () => React$Node = props => {
-  /* Device has been navigate to the Ble container
-  const [isSearching, setSearching] = useState(false);
-
-
-  const searchForDevice = async () => {
-    setSearching(true);
-    console.log('SEARCHING FOR DEVICES');
-    await new Promise(r => setTimeout(r, 500));
-    setSearching(false);
-  };
-
-
-  if (isSearching) {
-    return <ActivityIndicator />;
-  }
-  */
-
   return (
     <View style={styles.view}>
       <View style={styles.header}>
