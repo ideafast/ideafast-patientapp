@@ -115,18 +115,12 @@ class BleManager {
   }
 
   startNotification(peripheralId, serviceUUID, characteristicUUID) {
-    return new Promise((fulfill, reject) => {
+    return new Promise((f, r) => {
       bleManager.startNotification(
         peripheralId,
         serviceUUID,
         characteristicUUID,
-        error => {
-          if (error) {
-            reject(error);
-          } else {
-            fulfill();
-          }
-        },
+        simpleDataCallback(f, r),
       );
     });
   }
@@ -137,36 +131,24 @@ class BleManager {
     characteristicUUID,
     buffer,
   ) {
-    return new Promise((fulfill, reject) => {
+    return new Promise((f, r) => {
       bleManager.startNotificationUseBuffer(
         peripheralId,
         serviceUUID,
         characteristicUUID,
         buffer,
-        error => {
-          if (error) {
-            reject(error);
-          } else {
-            fulfill();
-          }
-        },
+        simpleDataCallback(f, r),
       );
     });
   }
 
   stopNotification(peripheralId, serviceUUID, characteristicUUID) {
-    return new Promise((fulfill, reject) => {
+    return new Promise((f, r) => {
       bleManager.stopNotification(
         peripheralId,
         serviceUUID,
         characteristicUUID,
-        error => {
-          if (error) {
-            reject(error);
-          } else {
-            fulfill();
-          }
-        },
+        simpleDataCallback(f, r),
       );
     });
   }
@@ -176,22 +158,16 @@ class BleManager {
   }
 
   start(options) {
-    return new Promise((fulfill, reject) => {
+    return new Promise((f, r) => {
       if (options == null) {
         options = {};
       }
-      bleManager.start(options, error => {
-        if (error) {
-          reject(error);
-        } else {
-          fulfill();
-        }
-      });
+      bleManager.start(options, simpleDataCallback(f, r));
     });
   }
 
   scan(serviceUUIDs, seconds, allowDuplicates, scanningOptions = {}) {
-    return new Promise((fulfill, reject) => {
+    return new Promise((f, r) => {
       if (allowDuplicates == null) {
         allowDuplicates = false;
       }
@@ -221,13 +197,7 @@ class BleManager {
         seconds,
         allowDuplicates,
         scanningOptions,
-        error => {
-          if (error) {
-            reject(error);
-          } else {
-            fulfill();
-          }
-        },
+        simpleDataCallback(f, r),
       );
     });
   }
@@ -305,14 +275,8 @@ class BleManager {
   }
 
   removePeripheral(peripheralId) {
-    return new Promise((fulfill, reject) => {
-      bleManager.removePeripheral(peripheralId, error => {
-        if (error) {
-          reject(error);
-        } else {
-          fulfill();
-        }
-      });
+    return new Promise((f, r) => {
+      bleManager.removePeripheral(peripheralId, simpleDataCallback(f, r));
     });
   }
 
@@ -331,17 +295,11 @@ class BleManager {
   }
 
   requestConnectionPriority(peripheralId, connectionPriority) {
-    return new Promise((fulfill, reject) => {
+    return new Promise((f, r) => {
       bleManager.requestConnectionPriority(
         peripheralId,
         connectionPriority,
-        (error, status) => {
-          if (error) {
-            reject(error);
-          } else {
-            fulfill(status);
-          }
-        },
+        simpleDataCallback(f, r),
       );
     });
   }
