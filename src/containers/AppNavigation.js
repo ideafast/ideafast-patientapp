@@ -44,13 +44,13 @@ const ProfileStack = () => (
 //   name="Devices"
 //   component={Devices}
 //   options={{
-  //     title: 'Device Management',
-  //     headerStyle: {
-    //       backgroundColor: '#5533FF',
-    //     },
-    //     headerTintColor: '#fff',
-    //   }}
-    // />
+//     title: 'Device Management',
+//     headerStyle: {
+//       backgroundColor: '#5533FF',
+//     },
+//     headerTintColor: '#fff',
+//   }}
+// />
 const DevicesStack = () => (
   <StackNavigator>
     <StackScreen

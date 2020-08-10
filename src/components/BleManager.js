@@ -6,64 +6,43 @@ import {NativeModules} from 'react-native';
 
 const bleManager = NativeModules.BleManager;
 
+const simpleDataCallback = (fulfill, reject) => (error, success) =>
+  error ? reject(error) : fulfill(success);
+
 class BleManager {
   constructor() {
     this.isPeripheralConnected = this.isPeripheralConnected.bind(this);
   }
 
   read(peripheralId, serviceUUID, characteristicUUID) {
-    return new Promise((fulfill, reject) => {
+    return new Promise((f, r) => {
       bleManager.read(
         peripheralId,
         serviceUUID,
         characteristicUUID,
-        (error, data) => {
-          if (error) {
-            reject(error);
-          } else {
-            fulfill(data);
-          }
-        },
+        simpleDataCallback(f, r),
       );
     });
   }
 
   readRSSI(peripheralId) {
-    return new Promise((fulfill, reject) => {
-      bleManager.readRSSI(peripheralId, (error, rssi) => {
-        if (error) {
-          reject(error);
-        } else {
-          fulfill(rssi);
-        }
-      });
+    return new Promise((f, r) => {
+      bleManager.readRSSI(peripheralId, simpleDataCallback(f, r));
     });
   }
 
   refreshCache(peripheralId) {
-    return new Promise((fulfill, reject) => {
-      bleManager.refreshCache(peripheralId, (error, result) => {
-        if (error) {
-          reject(error);
-        } else {
-          fulfill(result);
-        }
-      });
+    return new Promise((f, r) => {
+      bleManager.refreshCache(peripheralId, simpleDataCallback(f, r));
     });
   }
 
   retrieveServices(peripheralId, services) {
-    return new Promise((fulfill, reject) => {
+    return new Promise((f, r) => {
       bleManager.retrieveServices(
         peripheralId,
         services,
-        (error, peripheral) => {
-          if (error) {
-            reject(error);
-          } else {
-            fulfill(peripheral);
-          }
-        },
+        simpleDataCallback(f, r),
       );
     });
   }
@@ -72,20 +51,14 @@ class BleManager {
     if (maxByteSize == null) {
       maxByteSize = 20;
     }
-    return new Promise((fulfill, reject) => {
+    return new Promise((f, r) => {
       bleManager.write(
         peripheralId,
         serviceUUID,
         characteristicUUID,
         data,
         maxByteSize,
-        error => {
-          if (error) {
-            reject(error);
-          } else {
-            fulfill();
-          }
-        },
+        simpleDataCallback(f, r),
       );
     });
   }
@@ -104,7 +77,7 @@ class BleManager {
     if (queueSleepTime == null) {
       queueSleepTime = 10;
     }
-    return new Promise((fulfill, reject) => {
+    return new Promise((f, r) => {
       bleManager.writeWithoutResponse(
         peripheralId,
         serviceUUID,
@@ -112,62 +85,32 @@ class BleManager {
         data,
         maxByteSize,
         queueSleepTime,
-        error => {
-          if (error) {
-            reject(error);
-          } else {
-            fulfill();
-          }
-        },
+        simpleDataCallback(f, r),
       );
     });
   }
 
   connect(peripheralId) {
-    return new Promise((fulfill, reject) => {
-      bleManager.connect(peripheralId, error => {
-        if (error) {
-          reject(error);
-        } else {
-          fulfill();
-        }
-      });
+    return new Promise((f, r) => {
+      bleManager.connect(peripheralId, simpleDataCallback(f, r));
     });
   }
 
   createBond(peripheralId) {
-    return new Promise((fulfill, reject) => {
-      bleManager.createBond(peripheralId, error => {
-        if (error) {
-          reject(error);
-        } else {
-          fulfill();
-        }
-      });
+    return new Promise((f, r) => {
+      bleManager.createBond(peripheralId, simpleDataCallback(f, r));
     });
   }
 
   removeBond(peripheralId) {
-    return new Promise((fulfill, reject) => {
-      bleManager.removeBond(peripheralId, error => {
-        if (error) {
-          reject(error);
-        } else {
-          fulfill();
-        }
-      });
+    return new Promise((f, r) => {
+      bleManager.removeBond(peripheralId, simpleDataCallback(f, r));
     });
   }
 
   disconnect(peripheralId, force = true) {
-    return new Promise((fulfill, reject) => {
-      bleManager.disconnect(peripheralId, force, error => {
-        if (error) {
-          reject(error);
-        } else {
-          fulfill();
-        }
-      });
+    return new Promise((f, r) => {
+      bleManager.disconnect(peripheralId, force, simpleDataCallback(f, r));
     });
   }
 
