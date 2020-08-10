@@ -1,3 +1,6 @@
+import Config from 'react-native-config';
+const {API_URL} = Config;
+
 import * as actiontypes from './actiontypes';
 
 export const mapDispatchToProps = dispatch => ({
@@ -5,8 +8,12 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 const verifyUserID = userID => async dispatch => {
-  await new Promise(r => setTimeout(r, 500));
-  await dispatch(setUserID(userID));
+  const response = await fetch(`${API_URL}/verify`, {
+    method: 'post',
+    body: JSON.stringify({userID}),
+  });
+  const verificationJSON = await response.json();
+  await dispatch(setUserID(verificationJSON.participant.id));
 };
 
 const setUserID = userID => ({
