@@ -1,4 +1,7 @@
-'use strict';
+/**
+ * @format
+ * @flow strict-local
+ */
 import {NativeModules} from 'react-native';
 
 const bleManager = NativeModules.BleManager;
