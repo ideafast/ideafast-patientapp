@@ -15,11 +15,9 @@ import {
   Button,
   SafeAreaView,
 } from 'react-native';
-
-import BleManager from '../components/BleManager';
-
 import {connect} from 'react-redux';
 
+import BleManager from '../components/BleManager';
 import {mapDispatchToProps} from '../ducks/actions';
 
 const window = Dimensions.get('window');
@@ -39,12 +37,8 @@ class Ble extends Component {
 
     this.handleDiscoverPeripheral = this.handleDiscoverPeripheral.bind(this);
     this.handleStopScan = this.handleStopScan.bind(this);
-    this.handleUpdateValueForCharacteristic = this.handleUpdateValueForCharacteristic.bind(
-      this,
-    );
-    this.handleDisconnectedPeripheral = this.handleDisconnectedPeripheral.bind(
-      this,
-    );
+    this.handleUpdateValueForCharacteristic = this.handleUpdateValueForCharacteristic.bind(this);
+    this.handleDisconnectedPeripheral = this.handleDisconnectedPeripheral.bind(this);
     this.handleAppStateChange = this.handleAppStateChange.bind(this);
   }
 
