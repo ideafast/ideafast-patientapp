@@ -1,6 +1,7 @@
 'use strict';
-var React = require('react-native');
-var bleManager = React.NativeModules.BleManager;
+import {NativeModules} from 'react-native';
+
+const bleManager = NativeModules.BleManager;
 
 class BleManager {
   constructor() {
@@ -412,4 +413,4 @@ class BleManager {
   }
 }
 
-module.exports = new BleManager();
+export default new BleManager();
