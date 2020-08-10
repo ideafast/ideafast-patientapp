@@ -8,6 +8,17 @@ const bleManager = NativeModules.BleManager;
 
 const simpleDataCallback = (fulfill, reject) => (error, success) =>
   error ? reject(error) : fulfill(success);
+const nullSuccessDataCallback = (fulfill, reject) => (
+  error,
+  success,
+  nullAlternate,
+) =>
+  error ? reject(error) : fulfill(success != null ? success : nullAlternate);
+const isErrorNotNullCallback = (fulfill, reject) => error =>
+  error != null ? reject(error) : fulfill();
+
+// const replaceIfNull = (value, replaceWithIfNull) =>
+//   value != null ? value : replaceWithIfNull;
 
 class BleManager {
   constructor() {
@@ -203,74 +214,35 @@ class BleManager {
   }
 
   stopScan() {
-    return new Promise((fulfill, reject) => {
-      bleManager.stopScan(error => {
-        if (error != null) {
-          reject(error);
-        } else {
-          fulfill();
-        }
-      });
+    return new Promise((f, r) => {
+      bleManager.stopScan(isErrorNotNullCallback(f, r));
     });
   }
 
   enableBluetooth() {
-    return new Promise((fulfill, reject) => {
-      bleManager.enableBluetooth(error => {
-        if (error != null) {
-          reject(error);
-        } else {
-          fulfill();
-        }
-      });
+    return new Promise((f, r) => {
+      bleManager.enableBluetooth(isErrorNotNullCallback(f, r));
     });
   }
 
   getConnectedPeripherals(serviceUUIDs) {
-    return new Promise((fulfill, reject) => {
-      bleManager.getConnectedPeripherals(serviceUUIDs, (error, result) => {
-        if (error) {
-          reject(error);
-        } else {
-          if (result != null) {
-            fulfill(result);
-          } else {
-            fulfill([]);
-          }
-        }
-      });
+    return new Promise((f, r) => {
+      bleManager.getConnectedPeripherals(
+        serviceUUIDs,
+        nullSuccessDataCallback(f, r, []),
+      );
     });
   }
 
   getBondedPeripherals() {
-    return new Promise((fulfill, reject) => {
-      bleManager.getBondedPeripherals((error, result) => {
-        if (error) {
-          reject(error);
-        } else {
-          if (result != null) {
-            fulfill(result);
-          } else {
-            fulfill([]);
-          }
-        }
-      });
+    return new Promise((f, r) => {
+      bleManager.getBondedPeripherals(nullSuccessDataCallback(f, r, []));
     });
   }
 
   getDiscoveredPeripherals() {
-    return new Promise((fulfill, reject) => {
-      bleManager.getDiscoveredPeripherals((error, result) => {
-        if (error) {
-          reject(error);
-        } else {
-          if (result != null) {
-            fulfill(result);
-          } else {
-            fulfill([]);
-          }
-        }
-      });
+    return new Promise((f, r) => {
+      bleManager.getDiscoveredPeripherals(nullSuccessDataCallback(f, r, []));
     });
   }
 
@@ -281,17 +253,9 @@ class BleManager {
   }
 
   isPeripheralConnected(peripheralId, serviceUUIDs) {
-    return this.getConnectedPeripherals(serviceUUIDs).then(result => {
-      if (
-        result.find(p => {
-          return p.id === peripheralId;
-        })
-      ) {
-        return true;
-      } else {
-        return false;
-      }
-    });
+    return this.getConnectedPeripherals(serviceUUIDs).then(result =>
+      result.find(p => p.id === peripheralId) ? true : false,
+    );
   }
 
   requestConnectionPriority(peripheralId, connectionPriority) {
@@ -306,13 +270,9 @@ class BleManager {
 
   requestMTU(peripheralId, mtu) {
     return new Promise((fulfill, reject) => {
-      bleManager.requestMTU(peripheralId, mtu, error => {
-        if (error) {
-          reject(error);
-        } else {
-          fulfill(mtu);
-        }
-      });
+      bleManager.requestMTU(peripheralId, mtu, error =>
+        error ? reject(error) : fulfill(mtu),
+      );
     });
   }
 }
