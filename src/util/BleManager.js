@@ -121,7 +121,11 @@ class BleManager {
 
   disconnect(peripheralId, force = true) {
     return new Promise((f, r) => {
-      BleManagerModule.disconnect(peripheralId, force, simpleDataCallback(f, r));
+      BleManagerModule.disconnect(
+        peripheralId,
+        force,
+        simpleDataCallback(f, r),
+      );
     });
   }
 
@@ -242,7 +246,9 @@ class BleManager {
 
   getDiscoveredPeripherals() {
     return new Promise((f, r) => {
-      BleManagerModule.getDiscoveredPeripherals(nullSuccessDataCallback(f, r, []));
+      BleManagerModule.getDiscoveredPeripherals(
+        nullSuccessDataCallback(f, r, []),
+      );
     });
   }
 

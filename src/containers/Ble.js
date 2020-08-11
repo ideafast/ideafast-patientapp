@@ -4,8 +4,6 @@ import {
   Text,
   View,
   TouchableHighlight,
-  NativeEventEmitter,
-  NativeModules,
   Platform,
   PermissionsAndroid,
   ScrollView,
@@ -17,9 +15,9 @@ import {
 } from 'react-native';
 import {connect} from 'react-redux';
 
-import BleManager from '../components/BleManager';
-import BleManagerEmitter from '../util/BleManagerEmitter';
 import {mapDispatchToProps} from '../ducks/actions';
+import BleManager from '../util/BleManager';
+import BleManagerEmitter from '../util/BleManagerEmitter';
 
 class Ble extends Component {
   constructor() {

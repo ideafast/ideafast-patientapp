@@ -11,7 +11,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {connect} from 'react-redux';
 
 import Verify from './Verify';
-import Devices from './Devices';
+// import Devices from './Devices';
 import Profile from './Profile';
 import Help from './Help';
 import FAQ from './FAQ';
