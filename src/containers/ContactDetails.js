@@ -8,7 +8,6 @@ import {
   StyleSheet,
   ScrollView,
   View,
-  Text,
   StatusBar,
 } from 'react-native';
 
@@ -16,6 +15,7 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 import {connect} from 'react-redux';
 
+import ContactRow from '../components/ContactRow';
 import {mapDispatchToProps} from '../ducks/actions';
 
 const ContactDetails: () => React$Node = props => {
@@ -56,23 +56,7 @@ const ContactDetails: () => React$Node = props => {
           <View style={styles.body}>
             {state &&
               state.map((param, i) => {
-                return (
-                  <View key={i} style={styles.sectionContainer}>
-                    <Text style={styles.sectionTitle}>{param.title}</Text>
-                    <Text style={styles.sectionDescription}>
-                      <Text style={styles.highlight}>Person Name: </Text>
-                      {param.personName}
-                    </Text>
-                    <Text style={styles.sectionDescription}>
-                      <Text style={styles.highlight}>Center Name: </Text>
-                      {param.centerName}
-                    </Text>
-                    <Text style={styles.sectionDescription}>
-                      <Text style={styles.highlight}>Location: </Text>
-                      {param.location}
-                    </Text>
-                  </View>
-                );
+                return <ContactRow key={i} {...param} />;
               })}
           </View>
         </ScrollView>
@@ -91,25 +75,6 @@ const styles = StyleSheet.create({
   },
   body: {
     //backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 20,
-    paddingHorizontal: 20,
-    marginBottom: 10,
-  },
-  sectionTitle: {
-    fontSize: 26,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
   },
   footer: {
     color: Colors.dark,
