@@ -17,8 +17,8 @@ const nullSuccessDataCallback = (fulfill, reject) => (
 const isErrorNotNullCallback = (fulfill, reject) => error =>
   error != null ? reject(error) : fulfill();
 
-// const replaceIfNull = (value, replaceWithIfNull) =>
-//   value != null ? value : replaceWithIfNull;
+const replaceIfNull = (value, replaceWithIfNull) =>
+  value != null ? value : replaceWithIfNull;
 
 class BleManager {
   constructor() {
@@ -59,16 +59,13 @@ class BleManager {
   }
 
   write(peripheralId, serviceUUID, characteristicUUID, data, maxByteSize) {
-    if (maxByteSize == null) {
-      maxByteSize = 20;
-    }
     return new Promise((f, r) => {
       BleManagerModule.write(
         peripheralId,
         serviceUUID,
         characteristicUUID,
         data,
-        maxByteSize,
+        replaceIfNull(maxByteSize, 20),
         simpleDataCallback(f, r),
       );
     });
@@ -85,17 +82,14 @@ class BleManager {
     if (maxByteSize == null) {
       maxByteSize = 20;
     }
-    if (queueSleepTime == null) {
-      queueSleepTime = 10;
-    }
     return new Promise((f, r) => {
       BleManagerModule.writeWithoutResponse(
         peripheralId,
         serviceUUID,
         characteristicUUID,
         data,
-        maxByteSize,
-        queueSleepTime,
+        replaceIfNull(maxByteSize, 20),
+        replaceIfNull(queueSleepTime, 10),
         simpleDataCallback(f, r),
       );
     });
@@ -174,44 +168,32 @@ class BleManager {
 
   start(options) {
     return new Promise((f, r) => {
-      if (options == null) {
-        options = {};
-      }
-      BleManagerModule.start(options, simpleDataCallback(f, r));
+      BleManagerModule.start(
+        replaceIfNull(options, {}),
+        simpleDataCallback(f, r),
+      );
     });
   }
 
   scan(serviceUUIDs, seconds, allowDuplicates, scanningOptions = {}) {
     return new Promise((f, r) => {
-      if (allowDuplicates == null) {
-        allowDuplicates = false;
-      }
-
       // (ANDROID) Match as many advertisement per filter as hw could allow
       // dependes on current capability and availability of the resources in hw.
-      if (scanningOptions.numberOfMatches == null) {
-        scanningOptions.numberOfMatches = 3;
-      }
-
       // (ANDROID) Defaults to MATCH_MODE_AGGRESSIVE
-      if (scanningOptions.matchMode == null) {
-        scanningOptions.matchMode = 1;
-      }
-
       // (ANDROID) Defaults to SCAN_MODE_LOW_POWER on android
-      if (scanningOptions.scanMode == null) {
-        scanningOptions.scanMode = 0;
-      }
-
-      if (scanningOptions.reportDelay == null) {
-        scanningOptions.reportDelay = 0;
-      }
+      const modifiedScanningOptions = {
+        ...scanningOptions,
+        numberOfMatches: replaceIfNull(scanningOptions.numberOfMatches, 3),
+        matchMode: replaceIfNull(scanningOptions.matchMode, 1),
+        scanMode: replaceIfNull(scanningOptions.scanMode, 0),
+        reportDelay: replaceIfNull(scanningOptions.reportDelay, 0),
+      };
 
       BleManagerModule.scan(
         serviceUUIDs,
         seconds,
-        allowDuplicates,
-        scanningOptions,
+        replaceIfNull(allowDuplicates, false),
+        modifiedScanningOptions,
         simpleDataCallback(f, r),
       );
     });
