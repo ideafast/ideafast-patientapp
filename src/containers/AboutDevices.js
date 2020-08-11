@@ -61,26 +61,25 @@ const AboutDevices: () => React$Node = props => {
     <>
       <View style={styles.container}>
         <ScrollView style={styles.scroll}>
-          {state.contents
-            ? state.contents.map((param, i) => {
-                return (
-                  <DropDownItem
-                    key={i}
-                    style={(styles.dropDownItem, styles.border)}
-                    contentVisible={false}
-                    invisibleImage={IC_ARR_DOWN}
-                    visibleImage={IC_ARR_UP}
-                    header={
-                      <View style={styles.header}>
-                        <Image source={param.image} style={styles.image} />
-                        <Text style={styles.headerTxt}>{param.title}</Text>
-                      </View>
-                    }>
-                    <Text style={styles.txt}>{param.body}</Text>
-                  </DropDownItem>
-                );
-              })
-            : null}
+          {state.contents &&
+            state.contents.map((param, i) => {
+              return (
+                <DropDownItem
+                  key={i}
+                  style={(styles.dropDownItem, styles.border)}
+                  contentVisible={false}
+                  invisibleImage={IC_ARR_DOWN}
+                  visibleImage={IC_ARR_UP}
+                  header={
+                    <View style={styles.header}>
+                      <Image source={param.image} style={styles.image} />
+                      <Text style={styles.headerTxt}>{param.title}</Text>
+                    </View>
+                  }>
+                  <Text style={styles.txt}>{param.body}</Text>
+                </DropDownItem>
+              );
+            })}
           <View style={styles.bottomView} />
         </ScrollView>
       </View>

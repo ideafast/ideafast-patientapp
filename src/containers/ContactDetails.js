@@ -54,27 +54,26 @@ const ContactDetails: () => React$Node = props => {
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
           <View style={styles.body}>
-            {state
-              ? state.map((param, i) => {
-                  return (
-                    <View key={i} style={styles.sectionContainer}>
-                      <Text style={styles.sectionTitle}>{param.title}</Text>
-                      <Text style={styles.sectionDescription}>
-                        <Text style={styles.highlight}>Person Name: </Text>
-                        {param.personName}
-                      </Text>
-                      <Text style={styles.sectionDescription}>
-                        <Text style={styles.highlight}>Center Name: </Text>
-                        {param.centerName}
-                      </Text>
-                      <Text style={styles.sectionDescription}>
-                        <Text style={styles.highlight}>Location: </Text>
-                        {param.location}
-                      </Text>
-                    </View>
-                  );
-                })
-              : null}
+            {state &&
+              state.map((param, i) => {
+                return (
+                  <View key={i} style={styles.sectionContainer}>
+                    <Text style={styles.sectionTitle}>{param.title}</Text>
+                    <Text style={styles.sectionDescription}>
+                      <Text style={styles.highlight}>Person Name: </Text>
+                      {param.personName}
+                    </Text>
+                    <Text style={styles.sectionDescription}>
+                      <Text style={styles.highlight}>Center Name: </Text>
+                      {param.centerName}
+                    </Text>
+                    <Text style={styles.sectionDescription}>
+                      <Text style={styles.highlight}>Location: </Text>
+                      {param.location}
+                    </Text>
+                  </View>
+                );
+              })}
           </View>
         </ScrollView>
       </SafeAreaView>
