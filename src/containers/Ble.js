@@ -15,6 +15,7 @@ import {
 } from 'react-native';
 import {connect} from 'react-redux';
 
+import BleItemRow from '../components/BleItemRow';
 import {mapDispatchToProps} from '../ducks/actions';
 import BleManager from '../util/BleManager';
 import BleManagerEmitter from '../util/BleManagerEmitter';
@@ -255,16 +256,9 @@ class Ble extends Component {
   }
 
   renderItem(item) {
-    const color = item.connected ? 'green' : '#fff';
     return (
-      <TouchableHighlight onPress={() => this.test(item)}>
-        <View style={[styles.row, {backgroundColor: color}]}>
-          <Text style={styles.name}>{item.name}</Text>
-          <Text style={styles.rssi}>RSSI: {item.rssi}</Text>
-          <Text style={styles.id}>{item.id}</Text>
-        </View>
-      </TouchableHighlight>
-    );
+      <BleItemRow {...item} testFn={this.test} />
+    )
   }
 
   render() {
@@ -317,28 +311,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f0f0f0',
     margin: 10,
-  },
-  row: {
-    margin: 10,
-  },
-  name: {
-    fontSize: 12,
-    textAlign: 'center',
-    color: '#333333',
-    padding: 10,
-  },
-  rssi: {
-    fontSize: 10,
-    textAlign: 'center',
-    color: '#333333',
-    padding: 2,
-  },
-  id: {
-    fontSize: 8,
-    textAlign: 'center',
-    color: '#333333',
-    padding: 2,
-    paddingBottom: 20,
   },
   NoPeripherals: {
     flex: 1,
