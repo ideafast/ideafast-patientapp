@@ -21,6 +21,50 @@ import BleManager from '../util/BleManager';
 import BleManagerEmitter from '../util/BleManagerEmitter';
 
 const Ble: () => React$Node = props => {
+  const [scanning, setScanning] = useState(false);
+  const [peripherals, setPeripherals] = useState(new Map());
+  const [appState, setAppState] = useState('');
+
+  useEffect(() => {
+
+  });
+
+  useEffect(() => {
+
+  });
+
+  const handleAppStateChange = nextAppState => {
+
+  };
+
+  const handleDisconnectedPeripheral = data => {
+
+  };
+
+  const handleUpdateValueForCharacteristic = data => {
+
+  };
+
+  const handleStopScan = () => {
+
+  };
+
+  const startScan = () => {
+
+  };
+
+  const retrieveConnected = () => {
+
+  };
+
+  const handleDiscoverPeripheral = peripheral => {
+
+  };
+
+  const test = peripheral => {
+
+  };
+
   const list = Array.from(peripherals.values());
   const btnScanTitle =
     'Scan Bluetooth (' + (scanning ? 'on' : 'off') + ')';
