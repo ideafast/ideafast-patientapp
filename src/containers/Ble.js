@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   StyleSheet,
   Text,
@@ -21,9 +21,38 @@ import BleManager from '../util/BleManager';
 import BleManagerEmitter from '../util/BleManagerEmitter';
 
 const Ble: () => React$Node = props => {
+  const list = Array.from(peripherals.values());
+  const btnScanTitle =
+    'Scan Bluetooth (' + (scanning ? 'on' : 'off') + ')';
+
   return (
-    <View style={styles.container}>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
+        <View style={styles.row}>
+          <Button title={btnScanTitle} onPress={() => startScan()} />
+        </View>
+
+        <View style={styles.row}>
+          <Button
+            title="Retrieve connected peripherals"
+            onPress={() => retrieveConnected()}
+          />
+        </View>
+
+        <ScrollView style={styles.scroll}>
+          {list.length === 0 && (
+            <View style={styles.NoPeripherals}>
+              <Text>No peripherals</Text>
+            </View>
+          )}
+          <FlatList
+            data={list}
+            renderItem={({item}) => {<BleItemRow {...item} testFn={test} />}}
+            keyExtractor={item => item.id}
+          />
+        </ScrollView>
+      </View>
+    </SafeAreaView>
   );
 };
 
