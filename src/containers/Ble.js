@@ -25,44 +25,158 @@ const Ble: () => React$Node = props => {
   const [peripherals, setPeripherals] = useState(new Map());
   const [appState, setAppState] = useState('');
 
-  useEffect(() => {
-
-  });
-
-  useEffect(() => {
-
-  });
-
-  const handleAppStateChange = nextAppState => {
-
-  };
+  let handlerDiscover;
+  let handlerStop;
+  let handlerDisconnect;
+  let handlerUpdate;
 
   const handleDisconnectedPeripheral = data => {
-
+    let newperipherals = peripherals;
+    let peripheral = newperipherals.get(data.peripheral);
+    if (peripheral) {
+      peripheral.connected = false;
+      peripherals.set(peripheral.id, peripheral);
+      setPeripherals(newperipherals);
+    }
+    console.log('Disconnected from ' + data.peripheral);
   };
 
   const handleUpdateValueForCharacteristic = data => {
-
+    console.log(
+      'Received data from ' +
+        data.peripheral +
+        ' characteristic ' +
+        data.characteristic,
+      data.value,
+    );
   };
 
   const handleStopScan = () => {
-
-  };
-
-  const startScan = () => {
-
-  };
-
-  const retrieveConnected = () => {
-
+    console.log('Scan is stopped');
+    setScanning(false);
   };
 
   const handleDiscoverPeripheral = peripheral => {
+    var newperipherals = peripherals;
+    console.log('Got ble peripheral', peripheral);
+    if (!peripheral.name) {
+      peripheral.name = 'NO NAME';
+    }
+    newperipherals.set(peripheral.id, peripheral);
+    setPeripherals(newperipherals);
+  };
 
+  // Component Did Mount
+  useEffect(() => {
+    AppState.addEventListener('change', this.handleAppStateChange);
+
+    BleManager.start({showAlert: false});
+
+    handlerDiscover = BleManagerEmitter.addListener(
+      'BleManagerDiscoverPeripheral',
+      handleDiscoverPeripheral,
+    );
+    handlerStop = BleManagerEmitter.addListener(
+      'BleManagerStopScan',
+      handleStopScan,
+    );
+    handlerDisconnect = BleManagerEmitter.addListener(
+      'BleManagerDisconnectPeripheral',
+      handleDisconnectedPeripheral,
+    );
+    handlerUpdate = BleManagerEmitter.addListener(
+      'BleManagerDidUpdateValueForCharacteristic',
+      handleUpdateValueForCharacteristic,
+    );
+
+    if (Platform.OS === 'android' && Platform.Version >= 23) {
+      PermissionsAndroid.check(
+        PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
+      ).then(result => {
+        if (result) {
+          console.log('Permission is OK');
+        } else {
+          PermissionsAndroid.request(
+            PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
+          ).then(requestResult => {
+            if (requestResult) {
+              console.log('User accept');
+            } else {
+              console.log('User refuse');
+            }
+          });
+        }
+      });
+    }
+  }, []);
+
+  // Component Will Unmount
+  useEffect(() => {
+    return () => {
+      handlerDiscover.remove();
+      handlerStop.remove();
+      handlerDisconnect.remove();
+      handlerUpdate.remove();
+    }
+  }, []);
+
+  const handleAppStateChange = nextAppState => {
+    if (
+      appState.match(/inactive|background/) &&
+      nextAppState === 'active'
+    ) {
+      console.log('App has come to the foreground!');
+      BleManager.getConnectedPeripherals([]).then(peripheralsArray => {
+        console.log('Connected peripherals: ' + peripheralsArray.length);
+      });
+    }
+    setAppState(nextAppState);
+  };
+
+  const startScan = () => {
+    if (!scanning) {
+      //this.setState({peripherals: new Map()});
+      BleManager.scan([], 3, true).then(results => {
+        console.log('Scanning...');
+        setScanning(true);
+      });
+    }
+  };
+
+  const retrieveConnected = () => {
+    BleManager.getConnectedPeripherals([]).then(results => {
+      if (results.length === 0) {
+        console.log('No connected peripherals');
+      }
+      console.log(results);
+      var newperipherals = peripherals;
+      for (var i = 0; i < results.length; i++) {
+        var peripheral = results[i];
+        peripheral.connected = true;
+        newperipherals.set(peripheral.id, peripheral);
+        setPeripherals(newperipherals);
+      }
+    });
   };
 
   const test = peripheral => {
-
+    if (peripheral) {
+      if (peripheral.connected) {
+        BleManager.disconnect(peripheral.id);
+      } else {
+        BleManager.connect(peripheral.id)
+          .then(() => {
+            let newperipherals = peripherals;
+            let p = peripherals.get(peripheral.id);
+            if (p) {
+              p.connected = true;
+              newperipherals.set(peripheral.id, p);
+              setPeripherals(newperipherals);
+            }
+            console.log('Connected to ' + peripheral.id);
+          });
+      }
+    }
   };
 
   const list = Array.from(peripherals.values());
