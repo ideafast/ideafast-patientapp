@@ -25,10 +25,10 @@ const Ble: () => React$Node = props => {
   const [peripherals, setPeripherals] = useState(new Map());
   const [appState, setAppState] = useState('');
 
-  let handlerDiscover;
-  let handlerStop;
-  let handlerDisconnect;
-  let handlerUpdate;
+  const [handlerDiscover, setHandlerDiscover] = useState(null);
+  const [handlerStop, setHandlerStop] = useState(null);
+  const [handlerDisconnect, setHandlerDisconnect] = useState(null);
+  const [handlerUpdate, setHandlerUpdate] = useState(null);
 
   const handleDisconnectedPeripheral = data => {
     let newperipherals = peripherals;
@@ -68,26 +68,26 @@ const Ble: () => React$Node = props => {
 
   // Component Did Mount
   useEffect(() => {
-    AppState.addEventListener('change', this.handleAppStateChange);
+    AppState.addEventListener('change', handleAppStateChange);
 
     BleManager.start({showAlert: false});
 
-    handlerDiscover = BleManagerEmitter.addListener(
+    setHandlerDiscover(BleManagerEmitter.addListener(
       'BleManagerDiscoverPeripheral',
       handleDiscoverPeripheral,
-    );
-    handlerStop = BleManagerEmitter.addListener(
+    ));
+    setHandlerStop(BleManagerEmitter.addListener(
       'BleManagerStopScan',
       handleStopScan,
-    );
-    handlerDisconnect = BleManagerEmitter.addListener(
+    ));
+    setHandlerDisconnect(BleManagerEmitter.addListener(
       'BleManagerDisconnectPeripheral',
       handleDisconnectedPeripheral,
-    );
-    handlerUpdate = BleManagerEmitter.addListener(
+    ));
+    setHandlerUpdate(BleManagerEmitter.addListener(
       'BleManagerDidUpdateValueForCharacteristic',
       handleUpdateValueForCharacteristic,
-    );
+    ));
 
     if (Platform.OS === 'android' && Platform.Version >= 23) {
       PermissionsAndroid.check(
@@ -117,6 +117,10 @@ const Ble: () => React$Node = props => {
       handlerStop.remove();
       handlerDisconnect.remove();
       handlerUpdate.remove();
+      setHandlerDiscover(null);
+      setHandlerStop(null);
+      setHandlerDisconnect(null);
+      setHandlerUpdate(null);
     }
   }, []);
 
