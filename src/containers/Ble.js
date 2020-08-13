@@ -3,7 +3,6 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight,
   Platform,
   PermissionsAndroid,
   ScrollView,
@@ -30,6 +29,31 @@ const Ble: () => React$Node = props => {
   const [handlerDisconnect, setHandlerDisconnect] = useState(null);
   const [handlerUpdate, setHandlerUpdate] = useState(null);
 
+  const handleAppStateChange = nextAppState => {
+    if (appState.match(/inactive|background/) && nextAppState === 'active') {
+      console.log('App has come to the foreground!');
+      BleManager.getConnectedPeripherals([]).then(peripheralsArray => {
+        console.log('Connected peripherals: ' + peripheralsArray.length);
+      });
+    }
+    setAppState(nextAppState);
+  };
+
+  const handleDiscoverPeripheral = peripheral => {
+    var newperipherals = peripherals;
+    console.log('Got ble peripheral', peripheral);
+    if (!peripheral.name) {
+      peripheral.name = 'NO NAME';
+    }
+    newperipherals.set(peripheral.id, peripheral);
+    setPeripherals(newperipherals);
+  };
+
+  const handleStopScan = () => {
+    console.log('Scan is stopped');
+    setScanning(false);
+  };
+
   const handleDisconnectedPeripheral = data => {
     let newperipherals = peripherals;
     let peripheral = newperipherals.get(data.peripheral);
@@ -51,43 +75,33 @@ const Ble: () => React$Node = props => {
     );
   };
 
-  const handleStopScan = () => {
-    console.log('Scan is stopped');
-    setScanning(false);
-  };
-
-  const handleDiscoverPeripheral = peripheral => {
-    var newperipherals = peripherals;
-    console.log('Got ble peripheral', peripheral);
-    if (!peripheral.name) {
-      peripheral.name = 'NO NAME';
-    }
-    newperipherals.set(peripheral.id, peripheral);
-    setPeripherals(newperipherals);
-  };
-
   // Component Did Mount
   useEffect(() => {
     AppState.addEventListener('change', handleAppStateChange);
 
     BleManager.start({showAlert: false});
 
-    setHandlerDiscover(BleManagerEmitter.addListener(
-      'BleManagerDiscoverPeripheral',
-      handleDiscoverPeripheral,
-    ));
-    setHandlerStop(BleManagerEmitter.addListener(
-      'BleManagerStopScan',
-      handleStopScan,
-    ));
-    setHandlerDisconnect(BleManagerEmitter.addListener(
-      'BleManagerDisconnectPeripheral',
-      handleDisconnectedPeripheral,
-    ));
-    setHandlerUpdate(BleManagerEmitter.addListener(
-      'BleManagerDidUpdateValueForCharacteristic',
-      handleUpdateValueForCharacteristic,
-    ));
+    setHandlerDiscover(
+      BleManagerEmitter.addListener(
+        'BleManagerDiscoverPeripheral',
+        handleDiscoverPeripheral,
+      ),
+    );
+    setHandlerStop(
+      BleManagerEmitter.addListener('BleManagerStopScan', handleStopScan),
+    );
+    setHandlerDisconnect(
+      BleManagerEmitter.addListener(
+        'BleManagerDisconnectPeripheral',
+        handleDisconnectedPeripheral,
+      ),
+    );
+    setHandlerUpdate(
+      BleManagerEmitter.addListener(
+        'BleManagerDidUpdateValueForCharacteristic',
+        handleUpdateValueForCharacteristic,
+      ),
+    );
 
     if (Platform.OS === 'android' && Platform.Version >= 23) {
       PermissionsAndroid.check(
@@ -108,6 +122,7 @@ const Ble: () => React$Node = props => {
         }
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Component Will Unmount
@@ -121,21 +136,9 @@ const Ble: () => React$Node = props => {
       setHandlerStop(null);
       setHandlerDisconnect(null);
       setHandlerUpdate(null);
-    }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const handleAppStateChange = nextAppState => {
-    if (
-      appState.match(/inactive|background/) &&
-      nextAppState === 'active'
-    ) {
-      console.log('App has come to the foreground!');
-      BleManager.getConnectedPeripherals([]).then(peripheralsArray => {
-        console.log('Connected peripherals: ' + peripheralsArray.length);
-      });
-    }
-    setAppState(nextAppState);
-  };
 
   const startScan = () => {
     if (!scanning) {
@@ -168,24 +171,22 @@ const Ble: () => React$Node = props => {
       if (peripheral.connected) {
         BleManager.disconnect(peripheral.id);
       } else {
-        BleManager.connect(peripheral.id)
-          .then(() => {
-            let newperipherals = peripherals;
-            let p = peripherals.get(peripheral.id);
-            if (p) {
-              p.connected = true;
-              newperipherals.set(peripheral.id, p);
-              setPeripherals(newperipherals);
-            }
-            console.log('Connected to ' + peripheral.id);
-          });
+        BleManager.connect(peripheral.id).then(() => {
+          let newperipherals = peripherals;
+          let p = peripherals.get(peripheral.id);
+          if (p) {
+            p.connected = true;
+            newperipherals.set(peripheral.id, p);
+            setPeripherals(newperipherals);
+          }
+          console.log('Connected to ' + peripheral.id);
+        });
       }
     }
   };
 
   const list = Array.from(peripherals.values());
-  const btnScanTitle =
-    'Scan Bluetooth (' + (scanning ? 'on' : 'off') + ')';
+  const btnScanTitle = 'Scan Bluetooth (' + (scanning ? 'on' : 'off') + ')';
 
   return (
     <SafeAreaView style={styles.container}>
@@ -209,7 +210,9 @@ const Ble: () => React$Node = props => {
           )}
           <FlatList
             data={list}
-            renderItem={({item}) => {<BleItemRow {...item} testFn={test} />}}
+            renderItem={({item}) => {
+              <BleItemRow {...item} testFn={test} />;
+            }}
             keyExtractor={item => item.id}
           />
         </ScrollView>

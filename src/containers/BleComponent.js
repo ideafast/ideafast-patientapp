@@ -282,7 +282,9 @@ class Ble extends Component {
             )}
             <FlatList
               data={list}
-              renderItem={({item}) => {<BleItemRow {...item} testFn={this.test} />}}
+              renderItem={({item}) => {
+                <BleItemRow {...item} testFn={this.test} />;
+              }}
               keyExtractor={item => item.id}
             />
           </ScrollView>
