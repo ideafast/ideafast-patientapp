@@ -40,7 +40,7 @@ const Ble: () => React$Node = props => {
   };
 
   const handleDiscoverPeripheral = peripheral => {
-    var newperipherals = peripherals;
+    let newperipherals = peripherals;
     console.log('Got ble peripheral', peripheral);
     if (!peripheral.name) {
       peripheral.name = 'NO NAME';
@@ -156,9 +156,9 @@ const Ble: () => React$Node = props => {
         console.log('No connected peripherals');
       }
       console.log(results);
-      var newperipherals = peripherals;
+      let newperipherals = peripherals;
       for (var i = 0; i < results.length; i++) {
-        var peripheral = results[i];
+        let peripheral = results[i];
         peripheral.connected = true;
         newperipherals.set(peripheral.id, peripheral);
         setPeripherals(newperipherals);
@@ -167,21 +167,19 @@ const Ble: () => React$Node = props => {
   };
 
   const test = peripheral => {
-    if (peripheral) {
-      if (peripheral.connected) {
-        BleManager.disconnect(peripheral.id);
-      } else {
-        BleManager.connect(peripheral.id).then(() => {
-          let newperipherals = peripherals;
-          let p = peripherals.get(peripheral.id);
-          if (p) {
-            p.connected = true;
-            newperipherals.set(peripheral.id, p);
-            setPeripherals(newperipherals);
-          }
-          console.log('Connected to ' + peripheral.id);
-        });
-      }
+    if (peripheral && peripheral.connected) {
+      BleManager.disconnect(peripheral.id);
+    } else {
+      BleManager.connect(peripheral.id).then(() => {
+        let newperipherals = peripherals;
+        let p = peripherals.get(peripheral.id);
+        if (p) {
+          p.connected = true;
+          newperipherals.set(peripheral.id, p);
+          setPeripherals(newperipherals);
+        }
+        console.log('Connected to ' + peripheral.id);
+      });
     }
   };
 
