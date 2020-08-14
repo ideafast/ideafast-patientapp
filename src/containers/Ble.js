@@ -183,8 +183,16 @@ const Ble: () => React$Node = props => {
     }
   };
 
+
   const list = Array.from(peripherals.values());
   const btnScanTitle = 'Scan Bluetooth (' + (scanning ? 'on' : 'off') + ')';
+
+  const renderItem = item => {
+    return (
+      <BleItemRow {...item} testFn={test} />
+    )
+  }
+
 
   return (
     <SafeAreaView style={styles.container}>
@@ -208,9 +216,7 @@ const Ble: () => React$Node = props => {
           )}
           <FlatList
             data={list}
-            renderItem={({item}) => {
-              <BleItemRow {...item} testFn={test} />;
-            }}
+            renderItem={({item}) => renderItem(item)}
             keyExtractor={item => item.id}
           />
         </ScrollView>

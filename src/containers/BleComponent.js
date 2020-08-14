@@ -255,6 +255,12 @@ class Ble extends Component {
     }
   }
 
+  renderItem(item) {
+    return (
+      <BleItemRow {...item} testFn={this.test} />
+    )
+  }
+
   render() {
     const list = Array.from(this.state.peripherals.values());
     const btnScanTitle =
@@ -282,9 +288,7 @@ class Ble extends Component {
             )}
             <FlatList
               data={list}
-              renderItem={({item}) => {
-                <BleItemRow {...item} testFn={this.test} />;
-              }}
+              renderItem={({item}) => this.renderItem(item)}
               keyExtractor={item => item.id}
             />
           </ScrollView>
