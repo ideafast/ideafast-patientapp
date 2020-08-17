@@ -11,7 +11,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {connect} from 'react-redux';
 
 import Verify from './Verify';
-// import Devices from './Devices';
+import Devices from './Devices';
 import Profile from './Profile';
 import Help from './Help';
 import FAQ from './FAQ';
@@ -40,19 +40,19 @@ const ProfileStack = () => (
   </StackNavigator>
 );
 
-// <StackScreen
-//   name="Devices"
-//   component={Devices}
-//   options={{
-//     title: 'Device Management',
-//     headerStyle: {
-//       backgroundColor: '#5533FF',
-//     },
-//     headerTintColor: '#fff',
-//   }}
-// />
 const DevicesStack = () => (
   <StackNavigator>
+    <StackScreen
+      name="Devices"
+      component={Devices}
+      options={{
+        title: 'Device Management',
+        headerStyle: {
+          backgroundColor: '#5533FF',
+        },
+        headerTintColor: '#fff',
+      }}
+    />
     <StackScreen
       name="Ble"
       component={Ble}

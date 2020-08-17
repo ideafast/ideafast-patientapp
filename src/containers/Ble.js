@@ -127,10 +127,18 @@ const Ble: () => React$Node = props => {
   // Component Will Unmount
   useEffect(() => {
     return () => {
-      handlerDiscover.remove();
-      handlerStop.remove();
-      handlerDisconnect.remove();
-      handlerUpdate.remove();
+      if (handlerDiscover) {
+        handlerDiscover.remove();
+      }
+      if (handlerStop) {
+        handlerStop.remove();
+      }
+      if (handlerDisconnect) {
+        handlerDisconnect.remove();
+      }
+      if (handlerUpdate) {
+        handlerUpdate.remove();
+      }
       setHandlerDiscover(null);
       setHandlerStop(null);
       setHandlerDisconnect(null);
