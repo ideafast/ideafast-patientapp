@@ -103,7 +103,6 @@ const Ble: () => React$Node = props => {
     );
 
     if (Platform.OS === 'android' && Platform.Version >= 23) {
-      const checkPermissions =
       PermissionsAndroid.check(
         PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
       ).then(result => {
@@ -180,16 +179,17 @@ const Ble: () => React$Node = props => {
   };
 
   const renderItem = item => {
-    return (
-      <BleItemRow {...item} testFn={test} />
-    )
-  }
+    return <BleItemRow {...item} testFn={test} />;
+  };
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
         <View style={styles.row}>
-          <Button title={'Scan Bluetooth (' + (scanning ? 'on' : 'off') + ')'} onPress={() => startScan()} />
+          <Button
+            title={'Scan Bluetooth (' + (scanning ? 'on' : 'off') + ')'}
+            onPress={() => startScan()}
+          />
         </View>
 
         <View style={styles.row}>
