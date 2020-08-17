@@ -29,12 +29,11 @@ const Ble: () => React$Node = props => {
   const [handlerDisconnect, setHandlerDisconnect] = useState(null);
   const [handlerUpdate, setHandlerUpdate] = useState(null);
 
-  const handleAppStateChange = nextAppState => {
+  const handleAppStateChange = async nextAppState => {
     if (appState.match(/inactive|background/) && nextAppState === 'active') {
       console.log('App has come to the foreground!');
-      BleManager.getConnectedPeripherals([]).then(peripheralsArray => {
-        console.log('Connected peripherals: ' + peripheralsArray.length);
-      });
+      const peripheralsArray = await BleManager.getConnectedPeripherals([]);
+      console.log('Connected peripherals: ' + peripheralsArray.length);
     }
     setAppState(nextAppState);
   };
@@ -104,6 +103,7 @@ const Ble: () => React$Node = props => {
     );
 
     if (Platform.OS === 'android' && Platform.Version >= 23) {
+      const checkPermissions =
       PermissionsAndroid.check(
         PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
       ).then(result => {
@@ -140,52 +140,44 @@ const Ble: () => React$Node = props => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const startScan = () => {
+  const startScan = async () => {
     if (!scanning) {
-      //this.setState({peripherals: new Map()});
-      BleManager.scan([], 3, true).then(results => {
-        console.log('Scanning...');
-        setScanning(true);
-      });
+      await BleManager.scan([], 3, true);
+      console.log('Scanning...');
+      setScanning(true);
     }
   };
 
-  const retrieveConnected = () => {
-    BleManager.getConnectedPeripherals([]).then(results => {
-      if (results.length === 0) {
-        console.log('No connected peripherals');
-      }
-      console.log(results);
-      let newperipherals = peripherals;
-      for (var i = 0; i < results.length; i++) {
-        let peripheral = results[i];
-        peripheral.connected = true;
-        newperipherals.set(peripheral.id, peripheral);
-        setPeripherals(newperipherals);
-      }
-    });
+  const retrieveConnected = async () => {
+    const results = await BleManager.getConnectedPeripherals([]);
+    if (results.length === 0) {
+      console.log('No connected peripherals');
+    }
+    console.log(results);
+    let newperipherals = peripherals;
+    for (let i = 0; i < results.length; i++) {
+      let peripheral = results[i];
+      peripheral.connected = true;
+      newperipherals.set(peripheral.id, peripheral);
+      setPeripherals(newperipherals);
+    }
   };
 
-  const test = peripheral => {
+  const test = async peripheral => {
     if (peripheral && peripheral.connected) {
       BleManager.disconnect(peripheral.id);
     } else {
-      BleManager.connect(peripheral.id).then(() => {
-        let newperipherals = peripherals;
-        let p = peripherals.get(peripheral.id);
-        if (p) {
-          p.connected = true;
-          newperipherals.set(peripheral.id, p);
-          setPeripherals(newperipherals);
-        }
-        console.log('Connected to ' + peripheral.id);
-      });
+      await BleManager.connect(peripheral.id);
+      let newperipherals = peripherals;
+      let p = peripherals.get(peripheral.id);
+      if (p) {
+        p.connected = true;
+        newperipherals.set(peripheral.id, p);
+        setPeripherals(newperipherals);
+      }
+      console.log('Connected to ' + peripheral.id);
     }
   };
-
-
-  const list = Array.from(peripherals.values());
-  const btnScanTitle = 'Scan Bluetooth (' + (scanning ? 'on' : 'off') + ')';
 
   const renderItem = item => {
     return (
@@ -193,12 +185,11 @@ const Ble: () => React$Node = props => {
     )
   }
 
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
         <View style={styles.row}>
-          <Button title={btnScanTitle} onPress={() => startScan()} />
+          <Button title={'Scan Bluetooth (' + (scanning ? 'on' : 'off') + ')'} onPress={() => startScan()} />
         </View>
 
         <View style={styles.row}>
@@ -209,13 +200,13 @@ const Ble: () => React$Node = props => {
         </View>
 
         <ScrollView style={styles.scroll}>
-          {list.length === 0 && (
+          {peripherals.size === 0 && (
             <View style={styles.NoPeripherals}>
               <Text>No peripherals</Text>
             </View>
           )}
           <FlatList
-            data={list}
+            data={Array.from(peripherals.values())}
             renderItem={({item}) => renderItem(item)}
             keyExtractor={item => item.id}
           />
