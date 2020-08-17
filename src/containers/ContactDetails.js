@@ -54,10 +54,9 @@ const ContactDetails: () => React$Node = props => {
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
           <View style={styles.body}>
-            {state &&
-              state.map((param, i) => {
-                return <ContactRow key={i} {...param} />;
-              })}
+            {state.map((param, i) => {
+              return <ContactRow key={i} {...param} />;
+            })}
           </View>
         </ScrollView>
       </SafeAreaView>

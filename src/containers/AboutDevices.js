@@ -66,7 +66,7 @@ const AboutDevices: () => React$Node = props => {
               return (
                 <DropDownItem
                   key={i}
-                  style={(styles.dropDownItem, styles.border)}
+                  style={styles.border}
                   contentVisible={false}
                   invisibleImage={IC_ARR_DOWN}
                   visibleImage={IC_ARR_UP}
