@@ -3,13 +3,7 @@
  * @flow strict-local
  */
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  StatusBar,
-} from 'react-native';
+import {SafeAreaView, StyleSheet, ScrollView, StatusBar} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
@@ -45,12 +39,10 @@ const Devices: () => React$Node = props => {
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
-          <View style={styles.body}>
-            {state &&
-              state.map((param, i) => {
-                return <DevicesRow key={i} {...param} />;
-              })}
-          </View>
+          {state &&
+            state.map((param, i) => {
+              return <DevicesRow key={i} {...param} />;
+            })}
         </ScrollView>
       </SafeAreaView>
     </>
