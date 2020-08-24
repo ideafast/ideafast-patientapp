@@ -108,19 +108,17 @@ const FAQ: () => React$Node = props => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 12,
+    marginTop: 5,
+    //paddingHorizontal: 20,
+    marginBottom: 10,
   },
   scroll: {
     alignSelf: 'stretch',
   },
   border: {
-    borderWidth: 1,
-    borderColor: 'gray',
-    //borderRadius: 22,
-    marginBottom: 10,
+    borderBottomColor: 'gray',
+    borderBottomWidth: 1,
+    marginBottom: 5,
   },
   header: {
     width: '100%',
@@ -129,16 +127,21 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     flexDirection: 'row',
     alignItems: 'center',
+    //marginTop: 40,
   },
   headerTxt: {
     fontSize: 20,
     fontWeight: '600',
     color: Colors.black,
+    //marginTop: 36,
+    alignItems: 'center',
   },
   txt: {
     fontSize: 18,
     fontWeight: '400',
     color: Colors.dark,
+    //marginTop: 40,
+    alignItems: 'center',
   },
   bottomView: {
     height: 96,
