@@ -25,7 +25,14 @@ const LoadingButton: () => React$Node = ({
     return <ActivityIndicator />;
   }
 
-  return <Button disabled={disabled} title={title} onPress={onButtonPressed} />;
+  return (
+    <Button
+      disabled={disabled}
+      title={title}
+      onPress={onButtonPressed}
+      color="#c71585"
+    />
+  );
 };
 
 export default LoadingButton;

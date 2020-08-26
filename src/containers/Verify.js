@@ -6,6 +6,7 @@ import React, {useState} from 'react';
 import {Image, ScrollView, StyleSheet, TextInput, View} from 'react-native';
 import {Text} from 'react-native-elements';
 import {connect} from 'react-redux';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 import LoadingButton from '../components/LoadingButton';
 
@@ -20,19 +21,19 @@ const Verify: () => React$Node = props => {
     <ScrollView style={styles.container}>
       <View style={styles.content}>
         <Image
-          source={require('../assets/idea-fast-logo.png')}
+          source={require('../assets/idea-fast-logo.svg')}
           style={styles.image}
         />
       </View>
-      <Text h4>Welcome to ideafast-patientapp.</Text>
-      <Text h4>Please enter your ID to begin.</Text>
+      <Text style={styles.sectionTitle}>Welcome to ideafast-patientapp.</Text>
+      <Text style={styles.sectionTitle}>Please enter your ID to begin.</Text>
       <TextInput
         style={styles.idInput}
         placeholder="User ID"
         onChangeText={text => setUserID(text)}
       />
       <LoadingButton
-        title="Log In"
+        title="Verify"
         disabled={!userID}
         onPress={verify}
         willUnmountOnSuccess
@@ -46,14 +47,12 @@ const styles = StyleSheet.create({
     flex: 1,
     marginVertical: 50,
     marginHorizontal: 60,
-    //padding: 24,
   },
   content: {
     height: 160,
     marginTop: 10,
     marginVertical: 40,
     marginHorizontal: 60,
-    //width: 160,
   },
   image: {
     width: 240,
@@ -61,9 +60,15 @@ const styles = StyleSheet.create({
   },
   idInput: {
     height: 40,
-    borderColor: 'gray',
+    borderColor: 'purple',
     borderWidth: 1,
     marginVertical: 10,
+  },
+  sectionTitle: {
+    fontSize: 18,
+    textAlign: 'center',
+    fontWeight: "bold",
+    fontFamily: 'AbrilFatface-Regular',
   },
 });
 
