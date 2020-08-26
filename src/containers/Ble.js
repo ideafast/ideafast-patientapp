@@ -5,7 +5,6 @@ import {
   View,
   Platform,
   PermissionsAndroid,
-  ScrollView,
   AppState,
   FlatList,
   Dimensions,
@@ -207,18 +206,19 @@ const Ble: () => React$Node = props => {
           />
         </View>
 
-        <ScrollView style={styles.scroll}>
-          {peripherals.size === 0 && (
-            <View style={styles.NoPeripherals}>
-              <Text>No peripherals</Text>
-            </View>
-          )}
-          <FlatList
-            data={Array.from(peripherals.values())}
-            renderItem={({item}) => renderItem(item)}
-            keyExtractor={item => item.id}
-          />
-        </ScrollView>
+        <FlatList
+          style={styles.scroll}
+          ListHeaderComponent={
+            peripherals.size === 0 && (
+              <View style={styles.NoPeripherals}>
+                <Text>No peripherals</Text>
+              </View>
+            )
+          }
+          data={Array.from(peripherals.values())}
+          renderItem={({item}) => renderItem(item)}
+          keyExtractor={item => item.id}
+        />
       </View>
     </SafeAreaView>
   );
