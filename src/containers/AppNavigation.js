@@ -17,6 +17,7 @@ import Help from './Help';
 import FAQ from './FAQ';
 import ContactDetails from './ContactDetails';
 import AboutDevices from './AboutDevices';
+import Ble from './Ble';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
@@ -46,6 +47,17 @@ const DevicesStack = () => (
       component={Devices}
       options={{
         title: 'Device Management',
+        headerStyle: {
+          backgroundColor: '#5533FF',
+        },
+        headerTintColor: '#fff',
+      }}
+    />
+    <StackScreen
+      name="Ble"
+      component={Ble}
+      options={{
+        title: 'Bluetooth scanner',
         headerStyle: {
           backgroundColor: '#5533FF',
         },
@@ -108,6 +120,7 @@ const AppNavigation = props => {
   if (!props.userID) {
     return <Verify />;
   }
+
   return (
     <TabNavigator
       initialRouteName="Devices"
@@ -140,6 +153,7 @@ const AppNavigation = props => {
           ),
         }}
       />
+
       <TabScreen
         name="Profile"
         component={ProfileStack}
