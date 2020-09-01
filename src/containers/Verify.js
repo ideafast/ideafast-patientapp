@@ -6,7 +6,6 @@ import React, {useState} from 'react';
 import {Image, ScrollView, StyleSheet, TextInput, View} from 'react-native';
 import {Text} from 'react-native-elements';
 import {connect} from 'react-redux';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 import LoadingButton from '../components/LoadingButton';
 
@@ -67,7 +66,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 18,
     textAlign: 'center',
-    fontWeight: "bold",
+    fontWeight: 'bold',
     fontFamily: 'AbrilFatface-Regular',
   },
 });
