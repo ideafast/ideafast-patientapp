@@ -80,25 +80,24 @@ const FAQ: () => React$Node = props => {
     <>
       <View style={styles.container}>
         <ScrollView style={styles.scroll}>
-          {state.contents
-            ? state.contents.map((param, i) => {
-                return (
-                  <DropDownItem
-                    key={i}
-                    style={(styles.dropDownItem, styles.border)}
-                    contentVisible={false}
-                    invisibleImage={IC_ARR_DOWN}
-                    visibleImage={IC_ARR_UP}
-                    header={
-                      <View style={styles.header}>
-                        <Text style={styles.headerTxt}>{param.title}</Text>
-                      </View>
-                    }>
-                    <Text style={styles.txt}>{param.body}</Text>
-                  </DropDownItem>
-                );
-              })
-            : null}
+          {state.contents &&
+            state.contents.map((param, i) => {
+              return (
+                <DropDownItem
+                  key={i}
+                  style={styles.border}
+                  contentVisible={false}
+                  invisibleImage={IC_ARR_DOWN}
+                  visibleImage={IC_ARR_UP}
+                  header={
+                    <View style={styles.header}>
+                      <Text style={styles.headerTxt}>{param.title}</Text>
+                    </View>
+                  }>
+                  <Text style={styles.txt}>{param.body}</Text>
+                </DropDownItem>
+              );
+            })}
           <View style={styles.bottomView} />
         </ScrollView>
       </View>
@@ -111,7 +110,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 12,
+    marginTop: 5,
   },
   scroll: {
     alignSelf: 'stretch',
@@ -141,7 +140,7 @@ const styles = StyleSheet.create({
     color: Colors.dark,
   },
   bottomView: {
-    height: 96,
+    //height: 96,
   },
 });
 
