@@ -20,7 +20,7 @@ const Verify: () => React$Node = props => {
     <ScrollView style={styles.container}>
       <View style={styles.content}>
         <Image
-          source={require('../assets/idea-fast-logo.svg')}
+          source={require('../assets/idea-fast-logo.png')}
           style={styles.image}
         />
       </View>
