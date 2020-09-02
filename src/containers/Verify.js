@@ -55,8 +55,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 60,
   },
   image: {
-    width: 240,
-    height: 160,
+    width: 230,
+    height: 190,
   },
   idInput: {
     height: 40,
