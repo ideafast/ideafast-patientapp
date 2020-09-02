@@ -24,7 +24,7 @@ const Verify: () => React$Node = props => {
           style={styles.image}
         />
       </View>
-      <Text style={styles.sectionTitle}>Welcome to ideafast-patientapp.</Text>
+      <Text style={styles.sectionTitle}>Welcome to IDEA-FAST HubApp.</Text>
       <Text style={styles.sectionTitle}>Please enter your ID to begin.</Text>
       <TextInput
         style={styles.idInput}
@@ -67,7 +67,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
     fontWeight: 'bold',
-    fontFamily: 'AbrilFatface-Regular',
   },
 });
 
