@@ -3,7 +3,8 @@
  * @flow strict-local
  */
 import React, {useState} from 'react';
-import {Image, ScrollView, StyleSheet, TextInput, View} from 'react-native';
+import {ScrollView, StyleSheet, TextInput, View} from 'react-native';
+import Image from 'react-native-remote-svg';
 import {Text} from 'react-native-elements';
 import {connect} from 'react-redux';
 
@@ -20,7 +21,7 @@ const Verify: () => React$Node = props => {
     <ScrollView style={styles.container}>
       <View style={styles.content}>
         <Image
-          source={require('../assets/idea-fast-logo.png')}
+          source={require('../assets/Idea-Fast.svg')}
           style={styles.image}
         />
       </View>
