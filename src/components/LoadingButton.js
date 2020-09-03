@@ -3,7 +3,8 @@
  * @flow strict-local
  */
 import React, {useState} from 'react';
-import {ActivityIndicator, Button} from 'react-native';
+import {ActivityIndicator, Button, StyleSheet, View} from 'react-native';
+import {Colors} from '../styles/Colors';
 
 const LoadingButton: () => React$Node = ({
   disabled,
@@ -30,9 +31,10 @@ const LoadingButton: () => React$Node = ({
       disabled={disabled}
       title={title}
       onPress={onButtonPressed}
-      color="#c71585"
+      style={{borderColor: Colors.primary}}
     />
   );
 };
+
 
 export default LoadingButton;

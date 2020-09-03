@@ -9,6 +9,7 @@ import {Text} from 'react-native-elements';
 import {connect} from 'react-redux';
 
 import LoadingButton from '../components/LoadingButton';
+import {Colors} from '../styles/Colors';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
@@ -60,7 +61,7 @@ const styles = StyleSheet.create({
   },
   idInput: {
     height: 40,
-    borderColor: 'purple',
+    borderColor: Colors.primary,
     borderWidth: 1,
     marginVertical: 10,
   },
