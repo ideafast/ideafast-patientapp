@@ -4,7 +4,8 @@
  */
 import React, {useState} from 'react';
 import {ScrollView, StyleSheet, TextInput, View} from 'react-native';
-import Image from 'react-native-remote-svg';
+import Logo from '../assets/logo.svg';
+//import Image from 'react-native-svg';
 import {Text} from 'react-native-elements';
 import {connect} from 'react-redux';
 
@@ -21,10 +22,7 @@ const Verify: () => React$Node = props => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.content}>
-        <Image
-          source={require('../assets/Idea-Fast.svg')}
-          style={styles.image}
-        />
+        <Logo width={250} height={160} />
       </View>
       <Text style={styles.sectionTitle}>Welcome to IDEA-FAST HubApp.</Text>
       <Text style={styles.sectionTitle}>Please enter your ID to begin.</Text>
@@ -50,14 +48,16 @@ const styles = StyleSheet.create({
     marginHorizontal: 60,
   },
   content: {
-    height: 160,
+    height: 140,
     marginTop: 10,
     marginVertical: 40,
     marginHorizontal: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   image: {
-    width: 230,
-    height: 190,
+    width: 10,
+    height: 10,
   },
   idInput: {
     height: 40,
