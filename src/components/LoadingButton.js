@@ -31,7 +31,7 @@ const LoadingButton: () => React$Node = ({
       disabled={disabled}
       title={title}
       onPress={onButtonPressed}
-      style={{color: Colors.primary}}
+      color={Colors.primary}
     />
   );
 };
