@@ -48,16 +48,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 60,
   },
   content: {
-    height: 140,
     marginTop: 10,
-    marginVertical: 40,
+    marginVertical: 20,
     marginHorizontal: 60,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  image: {
-    width: 10,
-    height: 10,
   },
   idInput: {
     height: 40,
