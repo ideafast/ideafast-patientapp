@@ -11,6 +11,7 @@ import {connect} from 'react-redux';
 
 import LoadingButton from '../components/LoadingButton';
 import {Colors} from '../styles/Colors';
+import {Fonts} from '../styles/Typography';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
@@ -61,9 +62,9 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   sectionTitle: {
-    fontSize: 18,
+    fontSize: Fonts.titleSize,
+    fontWeight: Fonts.bold,
     textAlign: 'center',
-    fontWeight: 'bold',
   },
 });
 
