@@ -5,7 +5,6 @@
 import React, {useState} from 'react';
 import {ScrollView, StyleSheet, TextInput, View} from 'react-native';
 import Logo from '../assets/logo.svg';
-//import Image from 'react-native-svg';
 import {Text} from 'react-native-elements';
 import {connect} from 'react-redux';
 
