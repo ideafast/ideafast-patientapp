@@ -3,7 +3,7 @@
  * @flow strict-local
  */
 import React, {useState} from 'react';
-import {ScrollView, StyleSheet, TextInput, View} from 'react-native';
+import {KeyboardAvoidingView, StyleSheet, TextInput, View} from 'react-native';
 import Logo from '../assets/logo.svg';
 import {Text} from 'react-native-elements';
 import {connect} from 'react-redux';
@@ -20,7 +20,7 @@ const Verify: () => React$Node = props => {
   const verify = async () => props.verifyUserID(userID);
 
   return (
-    <ScrollView style={styles.container}>
+    <KeyboardAvoidingView behavior="padding" style={styles.container}>
       <View style={styles.content}>
         <Logo width={250} height={160} />
       </View>
@@ -37,7 +37,7 @@ const Verify: () => React$Node = props => {
         onPress={verify}
         willUnmountOnSuccess
       />
-    </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 
