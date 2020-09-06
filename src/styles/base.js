@@ -1,24 +1,24 @@
-export const colors = {
+export const Colors = {
   primary: '#c71585',
   white: '#ffffff',
   black: '#000000',
 };
 
-export const padding = {
+export const Padding = {
   sm: 10,
   md: 20,
   lg: 50,
   xl: 60,
 };
 
-export const margin = {
+export const Margin = {
   sm: 10,
   md: 20,
   lg: 30,
   xl: 40,
 };
 
-export const fonts = {
+export const Fonts = {
   sm: 12,
   md: 18,
   lg: 28,

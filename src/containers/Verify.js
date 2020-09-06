@@ -9,7 +9,7 @@ import {Text} from 'react-native-elements';
 import {connect} from 'react-redux';
 
 import LoadingButton from '../components/LoadingButton';
-import {colors, fonts, margin, padding} from '../styles/base';
+import {Colors, Fonts, Margin, Padding} from '../styles/base';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
@@ -43,24 +43,24 @@ const Verify: () => React$Node = props => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingVertical: padding.lg,
-    paddingHorizontal: padding.xl,
+    paddingVertical: Padding.lg,
+    paddingHorizontal: Padding.xl,
   },
   content: {
-    paddingVertical: padding.md,
-    paddingHorizontal: padding.xl,
+    paddingVertical: Padding.md,
+    paddingHorizontal: Padding.xl,
     justifyContent: 'center',
     alignItems: 'center',
   },
   idInput: {
     height: 40,
     borderWidth: 1,
-    borderColor: colors.primary,
-    marginVertical: margin.sm,
+    borderColor: Colors.primary,
+    marginVertical: Margin.sm,
   },
   sectionTitle: {
-    fontSize: fonts.md,
-    fontWeight: fonts.bold,
+    fontSize: Fonts.md,
+    fontWeight: Fonts.bold,
     textAlign: 'center',
   },
 });
