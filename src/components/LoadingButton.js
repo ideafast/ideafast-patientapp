@@ -4,7 +4,7 @@
  */
 import React, {useState} from 'react';
 import {ActivityIndicator, Button} from 'react-native';
-import {Colors} from '../styles/base';
+import {Colors} from '../styles';
 
 const LoadingButton: () => React$Node = ({
   disabled,

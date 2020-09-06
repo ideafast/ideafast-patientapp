@@ -9,7 +9,7 @@ import {Text} from 'react-native-elements';
 import {connect} from 'react-redux';
 
 import LoadingButton from '../components/LoadingButton';
-import {Colors, Fonts, Margin, Padding} from '../styles/base';
+import {Typography, Spacing, Colors} from '../styles';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
@@ -43,12 +43,11 @@ const Verify: () => React$Node = props => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingVertical: Padding.lg,
-    paddingHorizontal: Padding.xl,
+    paddingVertical: Spacing.SCALE_24,
+    paddingHorizontal: Spacing.SCALE_28,
   },
   content: {
-    paddingVertical: Padding.md,
-    paddingHorizontal: Padding.xl,
+    paddingVertical: Spacing.SCALE_18,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -56,11 +55,11 @@ const styles = StyleSheet.create({
     height: 40,
     borderWidth: 1,
     borderColor: Colors.primary,
-    marginVertical: Margin.sm,
+    marginVertical: Spacing.SCALE_12,
   },
   sectionTitle: {
-    fontSize: Fonts.md,
-    fontWeight: Fonts.bold,
+    fontSize: Typography.FONT_SIZE_20,
+    fontWeight: Typography.FONT_WEIGHT_BOLD,
     textAlign: 'center',
   },
 });
