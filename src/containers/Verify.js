@@ -21,7 +21,7 @@ const Verify: () => React$Node = props => {
   return (
     <KeyboardAvoidingView behavior="padding" style={styles.container}>
       <View style={styles.logo}>
-        <Logo width="100%" height="50%" />
+        <Logo width="100%" height="100%" />
       </View>
       <Text style={styles.text}>Welcome to IDEA-FAST HubApp.</Text>
       <Text style={styles.text}>Please enter your ID to begin.</Text>
@@ -43,13 +43,14 @@ const Verify: () => React$Node = props => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingVertical: Spacing.SCALE_16,
+    paddingVertical: Spacing.SCALE_36,
     paddingHorizontal: Spacing.SCALE_42,
   },
   logo: {
-    paddingVertical: Spacing.SCALE_8,
+    paddingVertical: Spacing.SCALE_18,
     justifyContent: 'center',
     alignItems: 'center',
+    maxHeight: 200,
   },
   input: {
     height: 40,
