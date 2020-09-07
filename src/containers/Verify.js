@@ -20,13 +20,13 @@ const Verify: () => React$Node = props => {
 
   return (
     <KeyboardAvoidingView behavior="padding" style={styles.container}>
-      <View style={styles.content}>
+      <View style={styles.logo}>
         <Logo width={250} height={160} />
       </View>
-      <Text style={styles.sectionTitle}>Welcome to IDEA-FAST HubApp.</Text>
-      <Text style={styles.sectionTitle}>Please enter your ID to begin.</Text>
+      <Text style={styles.text}>Welcome to IDEA-FAST HubApp.</Text>
+      <Text style={styles.text}>Please enter your ID to begin.</Text>
       <TextInput
-        style={styles.idInput}
+        style={styles.input}
         placeholder="User ID"
         onChangeText={text => setUserID(text)}
       />
@@ -46,18 +46,18 @@ const styles = StyleSheet.create({
     paddingVertical: Spacing.SCALE_30,
     paddingHorizontal: Spacing.SCALE_42,
   },
-  content: {
+  logo: {
     paddingVertical: Spacing.SCALE_18,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  idInput: {
+  input: {
     height: 40,
     borderWidth: 1,
     borderColor: Colors.primary,
     marginVertical: Spacing.SCALE_16,
   },
-  sectionTitle: {
+  text: {
     fontSize: Typography.FONT_SIZE_18,
     fontWeight: Typography.FONT_WEIGHT_BOLD,
     textAlign: 'center',
