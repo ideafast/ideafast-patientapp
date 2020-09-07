@@ -3,11 +3,13 @@
  * @flow strict-local
  */
 import React, {useState} from 'react';
-import {Image, ScrollView, StyleSheet, TextInput, View} from 'react-native';
+import {KeyboardAvoidingView, StyleSheet, TextInput, View} from 'react-native';
+import Logo from '../assets/logo.svg';
 import {Text} from 'react-native-elements';
 import {connect} from 'react-redux';
 
 import LoadingButton from '../components/LoadingButton';
+import {Typography, Spacing, Colors} from '../styles';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
@@ -17,53 +19,49 @@ const Verify: () => React$Node = props => {
   const verify = async () => props.verifyUserID(userID);
 
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.content}>
-        <Image
-          source={require('../assets/idea-fast-logo.png')}
-          style={styles.image}
-        />
+    <KeyboardAvoidingView behavior="padding" style={styles.container}>
+      <View style={styles.logo}>
+        <Logo width="100%" height="100%" />
       </View>
-      <Text h4>Welcome to ideafast-patientapp.</Text>
-      <Text h4>Please enter your ID to begin.</Text>
+      <Text style={styles.text}>Welcome to IDEA-FAST HubApp.</Text>
+      <Text style={styles.text}>Please enter your ID to begin.</Text>
       <TextInput
-        style={styles.idInput}
+        style={styles.input}
         placeholder="User ID"
         onChangeText={text => setUserID(text)}
       />
       <LoadingButton
-        title="Log In"
+        title="Verify"
         disabled={!userID}
         onPress={verify}
         willUnmountOnSuccess
       />
-    </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginVertical: 50,
-    marginHorizontal: 60,
-    //padding: 24,
+    paddingVertical: Spacing.SCALE_36,
+    paddingHorizontal: Spacing.SCALE_42,
   },
-  content: {
-    height: 160,
-    marginTop: 10,
-    marginVertical: 40,
-    marginHorizontal: 60,
-    //width: 160,
+  logo: {
+    paddingVertical: Spacing.SCALE_18,
+    justifyContent: 'center',
+    alignItems: 'center',
+    maxHeight: 200,
   },
-  image: {
-    width: 240,
-    height: 160,
-  },
-  idInput: {
+  input: {
     height: 40,
-    borderColor: 'gray',
     borderWidth: 1,
-    marginVertical: 10,
+    borderColor: Colors.PRIMARY,
+    marginVertical: Spacing.SCALE_16,
+  },
+  text: {
+    fontSize: Typography.FONT_SIZE_20,
+    fontWeight: Typography.FONT_WEIGHT_BOLD,
+    textAlign: 'center',
   },
 });
 

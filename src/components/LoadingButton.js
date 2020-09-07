@@ -4,6 +4,7 @@
  */
 import React, {useState} from 'react';
 import {ActivityIndicator, Button} from 'react-native';
+import {Colors} from '../styles';
 
 const LoadingButton: () => React$Node = ({
   disabled,
@@ -25,7 +26,14 @@ const LoadingButton: () => React$Node = ({
     return <ActivityIndicator />;
   }
 
-  return <Button disabled={disabled} title={title} onPress={onButtonPressed} />;
+  return (
+    <Button
+      disabled={disabled}
+      title={title}
+      onPress={onButtonPressed}
+      color={Colors.PRIMARY}
+    />
+  );
 };
 
 export default LoadingButton;
