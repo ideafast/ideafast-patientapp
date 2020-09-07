@@ -43,8 +43,8 @@ const Verify: () => React$Node = props => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingVertical: Spacing.SCALE_24,
-    paddingHorizontal: Spacing.SCALE_28,
+    paddingVertical: Spacing.SCALE_30,
+    paddingHorizontal: Spacing.SCALE_42,
   },
   content: {
     paddingVertical: Spacing.SCALE_18,
@@ -55,10 +55,10 @@ const styles = StyleSheet.create({
     height: 40,
     borderWidth: 1,
     borderColor: Colors.primary,
-    marginVertical: Spacing.SCALE_12,
+    marginVertical: Spacing.SCALE_16,
   },
   sectionTitle: {
-    fontSize: Typography.FONT_SIZE_20,
+    fontSize: Typography.FONT_SIZE_18,
     fontWeight: Typography.FONT_WEIGHT_BOLD,
     textAlign: 'center',
   },
