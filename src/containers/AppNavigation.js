@@ -4,7 +4,6 @@
  */
 import 'react-native-gesture-handler';
 import React from 'react';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -14,27 +13,25 @@ import Verify from './Verify';
 import Devices from './Devices';
 import Profile from './Profile';
 import Help from './Help';
-import FAQ from './FAQ';
-import ContactDetails from './ContactDetails';
-import AboutDevices from './AboutDevices';
 import Ble from './Ble';
 
 import {mapDispatchToProps} from '../ducks/actions';
+import {Colors, Typography} from '../styles';
 
 const {Navigator: TabNavigator, Screen: TabScreen} = createBottomTabNavigator();
 const {Navigator: StackNavigator, Screen: StackScreen} = createStackNavigator();
 
-const ProfileStack = () => (
+const ContributionsStack = () => (
   <StackNavigator>
     <StackScreen
-      name="Profile"
-      component={Profile}
+      name="Contributions"
+      component={Devices}
       options={{
-        title: 'Profile',
+        title: 'Contributions',
         headerStyle: {
-          backgroundColor: '#5533FF',
+          backgroundColor: Colors.PRIMARY,
         },
-        headerTintColor: '#fff',
+        headerTintColor: Colors.WHITE,
       }}
     />
   </StackNavigator>
@@ -44,13 +41,13 @@ const DevicesStack = () => (
   <StackNavigator>
     <StackScreen
       name="Devices"
-      component={Devices}
+      component={Help}
       options={{
-        title: 'Device Management',
+        title: 'Devices',
         headerStyle: {
-          backgroundColor: '#5533FF',
+          backgroundColor: Colors.PRIMARY,
         },
-        headerTintColor: '#fff',
+        headerTintColor: Colors.WHITE,
       }}
     />
     <StackScreen
@@ -59,58 +56,25 @@ const DevicesStack = () => (
       options={{
         title: 'Bluetooth scanner',
         headerStyle: {
-          backgroundColor: '#5533FF',
+          backgroundColor: Colors.PRIMARY,
         },
-        headerTintColor: '#fff',
+        headerTintColor: Colors.WHITE,
       }}
     />
   </StackNavigator>
 );
 
-const HelpStack = () => (
+const SupportStack = () => (
   <StackNavigator>
     <StackScreen
-      name="Help"
-      component={Help}
+      name="Support"
+      component={Profile}
       options={{
-        title: 'Help',
+        title: 'Support',
         headerStyle: {
-          backgroundColor: '#5533FF',
+          backgroundColor: Colors.PRIMARY,
         },
-        headerTintColor: '#fff',
-      }}
-    />
-    <StackScreen
-      name="FAQ"
-      component={FAQ}
-      options={{
-        title: 'FAQ',
-        headerStyle: {
-          backgroundColor: '#5533FF',
-        },
-        headerTintColor: '#fff',
-      }}
-    />
-    <StackScreen
-      name="AboutDevices"
-      component={AboutDevices}
-      options={{
-        title: 'About Devices',
-        headerStyle: {
-          backgroundColor: '#5533FF',
-        },
-        headerTintColor: '#fff',
-      }}
-    />
-    <StackScreen
-      name="ContactDetails"
-      component={ContactDetails}
-      options={{
-        title: 'Study Center Contact Details',
-        headerStyle: {
-          backgroundColor: '#5533FF',
-        },
-        headerTintColor: '#fff',
+        headerTintColor: Colors.WHITE,
       }}
     />
   </StackNavigator>
@@ -123,44 +87,39 @@ const AppNavigation = props => {
 
   return (
     <TabNavigator
-      initialRouteName="Devices"
+      initialRouteName="Contributions"
       tabBarOptions={{
-        activeTintColor: '#FFFFFF',
-        style: {backgroundColor: '#5533FF'},
-        labelStyle: {fontSize: 13},
+        activeTintColor: Colors.WHITE,
+        style: {backgroundColor: Colors.PRIMARY},
+        labelStyle: {fontSize: Typography.FONT_SIZE_16},
       }}>
+      <TabScreen
+        name="Contributions"
+        component={ContributionsStack}
+        options={{
+          tabBarLabel: 'Contributions',
+          tabBarIcon: ({color, size}) => (
+            <FontAwesome name="pie-chart" color={color} size={size} />
+          ),
+        }}
+      />
       <TabScreen
         name="Devices"
         component={DevicesStack}
         options={{
           tabBarLabel: 'Devices',
           tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons
-              name="bluetooth-audio"
-              color={color}
-              size={size}
-            />
+            <FontAwesome name="bluetooth-b" color={color} size={size} />
           ),
         }}
       />
       <TabScreen
-        name="Help"
-        component={HelpStack}
+        name="Support"
+        component={SupportStack}
         options={{
-          tabBarLabel: 'Help',
+          tabBarLabel: 'Support',
           tabBarIcon: ({color, size}) => (
-            <FontAwesome name="question-circle" color={color} size={size} />
-          ),
-        }}
-      />
-
-      <TabScreen
-        name="Profile"
-        component={ProfileStack}
-        options={{
-          tabBarLabel: 'Profile',
-          tabBarIcon: ({color, size}) => (
-            <FontAwesome name="user-circle" color={color} size={size} />
+            <FontAwesome name="question-circle-o" color={color} size={size} />
           ),
         }}
       />
