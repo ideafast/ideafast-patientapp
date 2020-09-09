@@ -1,7 +1,7 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import {Colors} from '../styles';
 import React from 'react';
-import Help from '../containers/Help';
+import Devices from '../containers/Devices';
 import Ble from '../containers/Ble';
 
 export const {
@@ -13,7 +13,7 @@ export const DevicesStack = () => (
   <StackNavigator>
     <StackScreen
       name="Devices"
-      component={Help}
+      component={Devices}
       options={{
         title: 'Devices',
         headerStyle: {
