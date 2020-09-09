@@ -5,7 +5,7 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Text} from 'react-native-elements';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {Colors, Typography, Spacing} from '../styles';
 import {connect} from 'react-redux';
 
 import {mapDispatchToProps} from '../ducks/actions';
@@ -14,8 +14,8 @@ const Contributions: () => React$Node = props => {
   return (
     <View style={styles.view}>
       <View style={styles.header}>
-        <Text h4 style={styles.headerTxt}>
-          This is a place holder for contributions
+        <Text style={styles.headerTxt}>
+          This is a place holder for contributions.
         </Text>
       </View>
     </View>
@@ -29,15 +29,15 @@ const styles = StyleSheet.create({
   },
   header: {
     width: '100%',
-    paddingVertical: 8,
-    paddingHorizontal: 1,
+    paddingVertical: Spacing.SCALE_8,
+    //paddingHorizontal: Spacing.SCALE_8,
     flexWrap: 'wrap',
     flexDirection: 'row',
     alignItems: 'center',
   },
   headerTxt: {
-    fontSize: 30,
-    fontWeight: '600',
+    fontSize: Typography.FONT_SIZE_20,
+    fontWeight: Typography.FONT_WEIGHT_BOLD,
     color: Colors.black,
   },
 });
