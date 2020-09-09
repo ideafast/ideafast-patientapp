@@ -5,7 +5,7 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Text} from 'react-native-elements';
-import {Colors, Typography, Spacing} from '../styles';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {connect} from 'react-redux';
 
 import {mapDispatchToProps} from '../ducks/actions';
@@ -14,8 +14,8 @@ const Settings: () => React$Node = props => {
   return (
     <View style={styles.view}>
       <View style={styles.header}>
-        <Text style={styles.headerTxt}>
-          This is a place holder for settings.
+        <Text h4 style={styles.headerTxt}>
+          Connecting your device
         </Text>
       </View>
     </View>
@@ -29,16 +29,23 @@ const styles = StyleSheet.create({
   },
   header: {
     width: '100%',
-    paddingVertical: Spacing.SCALE_8,
-    //paddingHorizontal: Spacing.SCALE_8,
+    paddingVertical: 8,
+    paddingHorizontal: 1,
     flexWrap: 'wrap',
     flexDirection: 'row',
     alignItems: 'center',
+    //margin:10,
   },
   headerTxt: {
-    fontSize: Typography.FONT_SIZE_20,
-    fontWeight: Typography.FONT_WEIGHT_BOLD,
+    fontSize: 30,
+    fontWeight: '600',
     color: Colors.black,
+  },
+  txt: {
+    fontSize: 20,
+    fontWeight: '400',
+    color: Colors.dark,
+    margin: 10,
   },
 });
 
