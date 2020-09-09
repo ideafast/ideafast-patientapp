@@ -4,7 +4,6 @@
  */
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import ActionButton from 'react-native-action-button';
 import {Text} from 'react-native-elements';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {connect} from 'react-redux';
@@ -19,17 +18,6 @@ const Devices: () => React$Node = props => {
           Connecting your device
         </Text>
       </View>
-      <Text style={styles.txt}>
-        Tap the "+" button below to connect to all the devices you have.
-      </Text>
-      <Text style={styles.txt}>
-        If you would like more information about each device, tap the "Help"
-        button in the menu below.
-      </Text>
-      <ActionButton
-        buttonColor="#5533FF"
-        onPress={() => props.navigation.navigate('Ble')}
-      />
     </View>
   );
 };
