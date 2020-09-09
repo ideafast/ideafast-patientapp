@@ -1,5 +1,5 @@
 import {createStackNavigator} from '@react-navigation/stack';
-import {Colors, Typography} from '../styles';
+import {Colors, Typography, Spacing} from '../styles';
 import React from 'react';
 import Devices from '../containers/Devices';
 import Ble from '../containers/Ble';
@@ -26,6 +26,7 @@ export const DevicesStack = props => (
             name="plus"
             color={Colors.WHITE}
             size={Typography.FONT_SIZE_30}
+            style={{marginRight: Spacing.SCALE_16}}
             onPress={() => props.navigation.navigate('Ble')}
           />
         ),
