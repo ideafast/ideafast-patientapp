@@ -5,7 +5,7 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {connect} from 'react-redux';
-import Profile from './Profile';
+import Profile from '../components/Profile';
 import Languages from '../components/Languages';
 
 import {mapDispatchToProps} from '../ducks/actions';
