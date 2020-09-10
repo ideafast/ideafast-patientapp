@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {Colors, Spacing, Typography} from '../styles';
 
 import {mapDispatchToProps} from '../ducks/actions';
-import {RadioButton} from 'react-native-paper';
+import {RadioGroup, RadioButton} from 'react-native-flexi-radio-button';
 
 const Languages: () => React$Node = props => {
   const [value, setValue] = React.useState('English');
@@ -12,25 +12,20 @@ const Languages: () => React$Node = props => {
     <View style={styles.container}>
       <Text style={styles.text}>Application Language</Text>
       <View style={styles.border}>
-        <RadioButton.Group
+        <RadioGroup
           onValueChange={valueText => setValue(valueText)}
-          value={value}>
-          <RadioButton.Item
-            label="English"
-            value="English"
-            color={Colors.PRIMARY}
-          />
-          <RadioButton.Item
-            label="Dutch"
-            value="Dutch"
-            color={Colors.PRIMARY}
-          />
-          <RadioButton.Item
-            label="German"
-            value="German"
-            color={Colors.PRIMARY}
-          />
-        </RadioButton.Group>
+          value={value}
+          selectedIndex={0}>
+          <RadioButton value="English" color={Colors.PRIMARY}>
+            <Text>English</Text>
+          </RadioButton>
+          <RadioButton value="Dutch" color={Colors.PRIMARY}>
+            <Text>Dutch</Text>
+          </RadioButton>
+          <RadioButton value="German" color={Colors.PRIMARY}>
+            <Text>German</Text>
+          </RadioButton>
+        </RadioGroup>
       </View>
     </View>
   );
@@ -50,6 +45,7 @@ const styles = StyleSheet.create({
     fontSize: Typography.FONT_SIZE_18,
     fontWeight: Typography.FONT_WEIGHT_BOLD,
     color: Colors.black,
+    marginBottom: Spacing.SCALE_8,
   },
   border: {
     borderBottomWidth: 2,
