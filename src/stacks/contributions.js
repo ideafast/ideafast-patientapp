@@ -4,7 +4,7 @@ import React from 'react';
 import Contributions from '../containers/Contributions';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Settings from '../containers/Settings';
-import Dropdownmenu from '../containers/DropdownMenu';
+import Dropdownmenu from '../components/DropdownMenu';
 
 export const {
   Navigator: StackNavigator,
