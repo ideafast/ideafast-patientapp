@@ -1,19 +1,14 @@
-/**
- * @format
- * @flow strict-local
- */
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {Text} from 'react-native-elements';
+import {Text, View, StyleSheet} from 'react-native';
 import {connect} from 'react-redux';
-import {Colors, Typography, Spacing} from '../styles';
+import {Colors, Spacing, Typography} from '../styles';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
-const Profile: () => React$Node = props => {
+const Languages: () => React$Node = props => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>User ID</Text>
+      <Text style={styles.text}>Application Language</Text>
       <View style={styles.border}>
         <Text style={styles.idNumber} underlineColorAndroid="transparent">
           {props.userID}
@@ -25,6 +20,7 @@ const Profile: () => React$Node = props => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     padding: 5,
   },
   idNumber: {
@@ -45,9 +41,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => state;
 
-const ProfileContainer = connect(
+const LanguagesContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Profile);
+)(Languages);
 
-export default ProfileContainer;
+export default LanguagesContainer;

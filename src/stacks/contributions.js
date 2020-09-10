@@ -32,7 +32,7 @@ export const ContributionsStack = props => (
             color={Colors.WHITE}
             size={Typography.FONT_SIZE_30}
             style={{marginRight: Spacing.SCALE_16}}
-            onPress={() => props.navigation.navigate('Dropdownmenu')}
+            onPress={() => props.navigation.navigate('Settings')}
           />
         ),
         headerLeft: () => <Dropdownmenu />,
