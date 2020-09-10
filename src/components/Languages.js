@@ -15,7 +15,8 @@ const Languages: () => React$Node = props => {
         <RadioGroup
           onValueChange={valueText => setValue(valueText)}
           value={value}
-          selectedIndex={0}>
+          selectedIndex={0}
+          color={Colors.BLACK}>
           <RadioButton value="English" color={Colors.PRIMARY}>
             <Text>English</Text>
           </RadioButton>
