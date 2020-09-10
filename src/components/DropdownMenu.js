@@ -7,17 +7,12 @@ import {Spacing, Colors} from '../styles';
 import {mapDispatchToProps} from '../ducks/actions';
 
 const DropDownMenu: () => React$Node = props => {
-  const OPTIONS = [
-    { id: 1, option: '3 Days' }, 
-    { id: 2, option: '3 Months'}, 
-    { id: 3, option: '1 Week'}, 
-    { id: 4, option: '1 Day'},
-    { id: 5, option: 'All' }];
+  const filters = ['3 Days', '3 Months', '1 Week', '1 Day', 'All'];
 
   const [option, setOption] = useState("");
 
   return (
-    <View style={styles.container}>
+    <View>
       <Picker
         selectedValue={{option}}
         style={styles.picker}
@@ -25,12 +20,11 @@ const DropDownMenu: () => React$Node = props => {
         onValueChange={(itemValue, itemIndex) => setOption(itemValue)}
       >
         {
-          OPTIONS.map((option, index) => {
+          filters.map((filter, item) => {
             return (
               <Picker.Item 
-                label={option.option} 
-                value={option.id}
-                key={index}
+                label={filter} 
+                value={filter}
               />
             );
           })}
