@@ -1,38 +1,51 @@
-import React from 'react';
-import DropdownMenu from 'react-native-dropdown-menu';
-import {View, StyleSheet} from 'react-native';
+import React, {useState} from 'react';
 import {connect} from 'react-redux';
-import {Colors, Spacing} from '../styles';
+import {View, StyleSheet, Picker} from 'react-native';
+
+import {Spacing, Colors} from '../styles';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
 const DropDownMenu: () => React$Node = props => {
-  const data = [['3 Days', '3 Months', '1 Week', '1 Day', 'All']];
+  const OPTIONS = [
+    { id: 1, option: '3 Days' }, 
+    { id: 2, option: '3 Months'}, 
+    { id: 3, option: '1 Week'}, 
+    { id: 4, option: '1 Day'},
+    { id: 5, option: 'All' }];
+
+  const [option, setOption] = useState("");
+
   return (
-    <View style={styles.content}>
-      <View />
-      <DropdownMenu
-        style={styles.dropDown}
-        bgColor={Colors.PRIMARY}
-        tintColor={Colors.BLACK}
-        activityTintColor={Colors.PRIMARY}
-        handler={(selection, row) => {
-          data[selection][row];
-        }}
-        data={data}
-      />
+    <View style={styles.container}>
+      <Picker
+        selectedValue={{option}}
+        style={styles.picker}
+        mode="dropdown"
+        onValueChange={(itemValue, itemIndex) => setOption(itemValue)}
+      >
+        {
+          OPTIONS.map((option, index) => {
+            return (
+              <Picker.Item 
+                label={option.option} 
+                value={option.id}
+                key={index}
+              />
+            );
+          })}
+      </Picker>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  content: {
-    flex: 1,
+  picker: {
+    color: Colors.WHITE,
+    minWidth: 120,
+    height: 50,
     marginLeft: Spacing.SCALE_8,
     padding: Spacing.SCALE_4,
-  },
-  dropDown: {
-    flex: 1,
   },
 });
 
@@ -43,4 +56,4 @@ const DropDownMenuContainer = connect(
   mapDispatchToProps,
 )(DropDownMenu);
 
-export default DropDownMenuContainer;
+export default DropDownMenu;
