@@ -4,15 +4,33 @@ import {connect} from 'react-redux';
 import {Colors, Spacing, Typography} from '../styles';
 
 import {mapDispatchToProps} from '../ducks/actions';
+import {RadioButton} from 'react-native-paper';
 
 const Languages: () => React$Node = props => {
+  const [value, setValue] = React.useState('English');
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Application Language</Text>
       <View style={styles.border}>
-        <Text style={styles.idNumber} underlineColorAndroid="transparent">
-          {props.userID}
-        </Text>
+        <RadioButton.Group
+          onValueChange={valueText => setValue(valueText)}
+          value={value}>
+          <RadioButton.Item
+            label="English"
+            value="English"
+            color={Colors.PRIMARY}
+          />
+          <RadioButton.Item
+            label="Dutch"
+            value="Dutch"
+            color={Colors.PRIMARY}
+          />
+          <RadioButton.Item
+            label="German"
+            value="German"
+            color={Colors.PRIMARY}
+          />
+        </RadioButton.Group>
       </View>
     </View>
   );
