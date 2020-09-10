@@ -10,7 +10,7 @@ const Languages: () => React$Node = props => {
   const [value, setValue] = React.useState('English');
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Application Language</Text>
+      <Text style={styles.text}>Application Languages</Text>
       <View style={styles.border}>
         <RadioGroup
           onValueChange={valueText => setValue(valueText)}
