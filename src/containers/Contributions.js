@@ -15,7 +15,7 @@ const Contributions: () => React$Node = props => {
     <View style={styles.view}>
       <View style={styles.header}>
         <Text style={styles.headerTxt}>
-          This is a place holder for contributions.
+          This is a container for contributions.
         </Text>
       </View>
     </View>
