@@ -7,6 +7,8 @@ import {mapDispatchToProps} from '../ducks/actions';
 import {RadioGroup, RadioButton} from 'react-native-flexi-radio-button';
 
 const Languages: () => React$Node = props => {
+  const options = ['English', 'Dutch', 'German'];
+
   const [value, setValue] = React.useState('English');
   return (
     <View style={styles.container}>
@@ -17,15 +19,13 @@ const Languages: () => React$Node = props => {
           value={value}
           selectedIndex={0}
           color={Colors.BLACK}>
-          <RadioButton value="English" color={Colors.PRIMARY}>
-            <Text>English</Text>
-          </RadioButton>
-          <RadioButton value="Dutch" color={Colors.PRIMARY}>
-            <Text>Dutch</Text>
-          </RadioButton>
-          <RadioButton value="German" color={Colors.PRIMARY}>
-            <Text>German</Text>
-          </RadioButton>
+          {options.map((param, index) => {
+            return (
+              <RadioButton value={param} key={index} color={Colors.PRIMARY}>
+                <Text>{param}</Text>
+              </RadioButton>
+            );
+          })}
         </RadioGroup>
       </View>
     </View>
