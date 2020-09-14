@@ -12,9 +12,9 @@ import {mapDispatchToProps} from '../ducks/actions';
 
 const Profile: () => React$Node = props => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>User ID</Text>
-      <View style={styles.border}>
+    <View style={styles.border}>
+      <View style={styles.container}>
+        <Text style={styles.text}>User ID</Text>
         <Text style={styles.idNumber} underlineColorAndroid="transparent">
           {props.userID}
         </Text>

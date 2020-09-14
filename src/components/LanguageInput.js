@@ -20,7 +20,7 @@ const LanguageInput: () => React$Node = props => {
   //const [value, setValue] = React.useState('English');
 
   return (
-    <View style={styles.centeredView}>
+    <View style={styles.border}>
       <Modal
         animationType="slide"
         transparent={true}
@@ -79,17 +79,18 @@ const LanguageInput: () => React$Node = props => {
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 22,
+    //justifyContent: 'center',
+    //alignItems: 'center',
+    //marginTop: 22,
+    padding: 5,
   },
   modalView: {
-    margin: 20,
+    margin: 100,
     backgroundColor: 'white',
     borderRadius: 20,
     padding: 35,
     alignItems: 'center',
-    //shadowColor: '#000',
+    shadowColor: Colors.WHITE,
     shadowOffset: {
       width: 0,
       height: 2,
@@ -118,6 +119,12 @@ const styles = StyleSheet.create({
     borderColor: Colors.PRIMARY,
     marginVertical: Spacing.SCALE_8,
     fontSize: Typography.FONT_SIZE_18,
+    padding: 2,
+  },
+  border: {
+    borderBottomWidth: 2,
+    borderColor: Colors.PRIMARY,
+    padding: 5,
   },
 });
 
