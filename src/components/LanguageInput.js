@@ -99,14 +99,14 @@ const LanguageInput: () => React$Node = props => {
 const styles = StyleSheet.create({
   content: {
     flex: 1,
-    padding: 5,
+    padding: Spacing.SCALE_4,
   },
   modalView: {
-    margin: 100,
-    backgroundColor: 'white',
+    margin: Spacing.SCALE_90,
+    alignContent: 'flex-start',
+    backgroundColor: Colors.WHITE,
     borderRadius: 20,
-    padding: 35,
-    //alignItems: 'center',
+    padding: Spacing.SCALE_24,
     shadowColor: Colors.WHITE,
     shadowOffset: {
       width: 0,
@@ -117,39 +117,37 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   openButton: {
-    borderRadius: 20,
+    borderRadius: Spacing.SCALE_18,
   },
   textStyle: {
     color: Colors.BLACK,
-    fontWeight: 'bold',
-    marginBottom: 10,
+    fontWeight: Typography.FONT_WEIGHT_BOLD,
+    marginBottom: Spacing.SCALE_8,
     fontSize: Typography.FONT_SIZE_16,
   },
   modalText: {
-    marginBottom: 15,
+    marginBottom: Spacing.SCALE_8,
   },
   input: {
     marginVertical: Spacing.SCALE_8,
     fontSize: Typography.FONT_SIZE_18,
-    padding: 2,
+    padding: Spacing.SCALE_4,
     color: Colors.PRIMARY,
   },
   border: {
     borderBottomWidth: 2,
     borderColor: Colors.PRIMARY,
-    padding: 5,
+    padding: Spacing.SCALE_4,
   },
   text: {
     fontSize: Typography.FONT_SIZE_18,
     fontWeight: Typography.FONT_WEIGHT_BOLD,
     color: Colors.black,
-    marginBottom: Spacing.SCALE_8,
+    marginBottom: Spacing.SCALE_4,
   },
   cancel: {
-    marginLeft: 50,
-    backgroundColor: 'white',
-    borderRadius: 20,
-    padding: 5,
+    backgroundColor: Colors.WHITE,
+    padding: Spacing.SCALE_4,
     shadowColor: Colors.WHITE,
   },
   cancelText: {
