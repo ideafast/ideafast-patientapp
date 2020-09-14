@@ -62,15 +62,17 @@ const LanguageInput: () => React$Node = props => {
         </View>
       </Modal>
 
+      <View>
+        <Text style={styles.text}>Application Languages</Text>
+      </View>
+
       <TouchableHighlight
         style={styles.openButton}
         underlayColor={Colors.PRIMARY}
         onPress={() => {
           setModalVisible(true);
         }}>
-        <Text style={styles.idNumber} underlineColorAndroid="transparent">
-          {lang}
-        </Text>
+        <Text style={styles.input}>{lang}</Text>
       </TouchableHighlight>
     </View>
   );
@@ -115,16 +117,23 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     textAlign: 'center',
   },
-  idNumber: {
-    borderColor: Colors.PRIMARY,
+  input: {
+    //borderColor: Colors.PRIMARY,
     marginVertical: Spacing.SCALE_8,
     fontSize: Typography.FONT_SIZE_18,
     padding: 2,
+    color: Colors.PRIMARY,
   },
   border: {
     borderBottomWidth: 2,
     borderColor: Colors.PRIMARY,
     padding: 5,
+  },
+  text: {
+    fontSize: Typography.FONT_SIZE_18,
+    fontWeight: Typography.FONT_WEIGHT_BOLD,
+    color: Colors.black,
+    marginBottom: Spacing.SCALE_8,
   },
 });
 
