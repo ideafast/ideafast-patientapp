@@ -34,6 +34,7 @@ const LanguageInput: () => React$Node = props => {
 
             <TouchableHighlight
               style={{...styles.openButton}}
+              underlayColor={Colors.WHITE}
               onPress={() => {
                 setLang('Dutch');
                 setModalVisible(!modalVisible);
@@ -43,6 +44,7 @@ const LanguageInput: () => React$Node = props => {
 
             <TouchableHighlight
               style={{...styles.openButton}}
+              underlayColor={Colors.WHITE}
               onPress={() => {
                 setLang('English');
                 setModalVisible(!modalVisible);
@@ -52,6 +54,7 @@ const LanguageInput: () => React$Node = props => {
 
             <TouchableHighlight
               style={{...styles.openButton}}
+              underlayColor={Colors.WHITE}
               onPress={() => {
                 setLang('German');
                 setModalVisible(!modalVisible);
@@ -68,7 +71,7 @@ const LanguageInput: () => React$Node = props => {
 
       <TouchableHighlight
         style={styles.openButton}
-        underlayColor={Colors.PRIMARY}
+        underlayColor={Colors.WHITESMOKE}
         onPress={() => {
           setModalVisible(true);
         }}>
@@ -81,9 +84,6 @@ const LanguageInput: () => React$Node = props => {
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
-    //justifyContent: 'center',
-    //alignItems: 'center',
-    //marginTop: 22,
     padding: 5,
   },
   modalView: {
@@ -102,10 +102,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   openButton: {
-    //backgroundColor: 'white',
     borderRadius: 20,
-    padding: 0,
-    //elevation: 2,
   },
   textStyle: {
     color: Colors.PRIMARY,
@@ -118,7 +115,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   input: {
-    //borderColor: Colors.PRIMARY,
     marginVertical: Spacing.SCALE_8,
     fontSize: Typography.FONT_SIZE_18,
     padding: 2,
