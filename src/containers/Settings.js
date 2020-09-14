@@ -7,6 +7,7 @@ import {StyleSheet, View} from 'react-native';
 import {connect} from 'react-redux';
 import Profile from '../components/Profile';
 import Languages from '../components/Languages';
+import LanguageInput from '../components/LanguageInput';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
@@ -15,6 +16,7 @@ const Settings: () => React$Node = props => {
     <View style={styles.view}>
       <Profile />
       <Languages />
+      <LanguageInput />
     </View>
   );
 };

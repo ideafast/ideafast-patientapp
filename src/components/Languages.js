@@ -37,11 +37,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 5,
   },
-  idNumber: {
-    borderColor: Colors.WHITE,
-    marginVertical: Spacing.SCALE_8,
-    fontSize: Typography.FONT_SIZE_18,
-  },
   text: {
     fontSize: Typography.FONT_SIZE_18,
     fontWeight: Typography.FONT_WEIGHT_BOLD,
