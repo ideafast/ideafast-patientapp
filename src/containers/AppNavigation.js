@@ -26,6 +26,7 @@ const AppNavigation = props => {
       initialRouteName="Contributions"
       tabBarOptions={{
         activeTintColor: Colors.WHITE,
+        inactiveTintColor: Colors.WHITE_INACTIVE,
         style: {backgroundColor: Colors.PRIMARY},
         labelStyle: {fontSize: Typography.FONT_SIZE_16},
       }}>
