@@ -9,7 +9,6 @@ import {connect} from 'react-redux';
 import {Colors, Typography, Spacing} from '../styles';
 
 import {mapDispatchToProps} from '../ducks/actions';
-import {SCALE_4} from '../styles/spacing';
 
 const Profile: () => React$Node = props => {
   return (
@@ -26,7 +25,7 @@ const Profile: () => React$Node = props => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: SCALE_4,
+    padding: Spacing.SCALE_4,
   },
   idNumber: {
     borderColor: Colors.WHITE,
