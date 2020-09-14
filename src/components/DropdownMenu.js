@@ -1,11 +1,8 @@
 import React, {useState} from 'react';
-import {connect} from 'react-redux';
 import {StyleSheet} from 'react-native';
 import {Picker} from 'react-native';
 
 import {Spacing, Colors} from '../styles';
-
-import {mapDispatchToProps} from '../ducks/actions';
 
 const DropDownMenu: () => React$Node = props => {
   const options = ['3 Days', '3 Months', '1 Week', '1 Day', 'All'];
@@ -35,11 +32,4 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = state => state;
-
-const DropDownMenuContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(DropDownMenu);
-
-export default DropDownMenuContainer;
+export default DropDownMenu;
