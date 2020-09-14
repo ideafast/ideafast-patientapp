@@ -5,24 +5,36 @@ import {
   StyleSheet,
   Text,
   TouchableHighlight,
+  TouchableOpacity,
   View,
 } from 'react-native';
 
-//import Languages from './Languages';
 import {connect} from 'react-redux';
-//import {RadioGroup, RadioButton} from 'react-native-flexi-radio-button';
 import {mapDispatchToProps} from '../ducks/actions';
 import {Colors, Typography, Spacing} from '../styles';
 
 const LanguageInput: () => React$Node = props => {
+  const languages = [
+    {
+      code: 'en',
+      name: 'English',
+    },
+    {
+      code: 'de',
+      name: 'German',
+    },
+    {
+      code: 'nl',
+      name: 'Dutch',
+    },
+  ];
+
   const [modalVisible, setModalVisible] = useState(false);
-  const [lang, setLang] = useState('English');
-  //const [value, setValue] = React.useState('English');
+  const [lang, setLang] = useState(languages[0].code);
 
   return (
     <View style={styles.border}>
       <Modal
-        animationType="slide"
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
@@ -34,37 +46,33 @@ const LanguageInput: () => React$Node = props => {
         }}>
         <View style={styles.content}>
           <View style={styles.modalView}>
-            <Text style={styles.textStyle}>Choose Language</Text>
+            <Text style={styles.title}>Choose Language</Text>
 
-            <TouchableHighlight
-              style={styles.openButton}
-              underlayColor={Colors.WHITE}
-              onPress={() => {
-                setLang('English');
-                setModalVisible(!modalVisible);
-              }}>
-              <Text style={styles.modalText}>English</Text>
-            </TouchableHighlight>
-
-            <TouchableHighlight
-              style={styles.openButton}
-              underlayColor={Colors.WHITE}
-              onPress={() => {
-                setLang('Dutch');
-                setModalVisible(!modalVisible);
-              }}>
-              <Text style={styles.modalText}>Dutch</Text>
-            </TouchableHighlight>
-
-            <TouchableHighlight
-              style={styles.openButton}
-              underlayColor={Colors.WHITE}
-              onPress={() => {
-                setLang('German');
-                setModalVisible(!modalVisible);
-              }}>
-              <Text style={styles.modalText}>German</Text>
-            </TouchableHighlight>
+            {languages.map((item, index) => {
+              return (
+                <TouchableHighlight
+                  key={index}
+                  underlayColor={Colors.WHITE}
+                  onPress={() => {
+                    setLang(item.code);
+                    setModalVisible(!modalVisible);
+                  }}>
+                  <View style={styles.row}>
+                    <Text style={styles.langName}>{item.name}</Text>
+                    <TouchableOpacity
+                      onPress={() => {
+                        setLang(item.code);
+                        setModalVisible(!modalVisible);
+                      }}
+                      style={styles.circle}>
+                      {lang === item.code && (
+                        <View style={styles.checkedCircle} />
+                      )}
+                    </TouchableOpacity>
+                  </View>
+                </TouchableHighlight>
+              );
+            })}
 
             <View style={styles.cancel}>
               <TouchableHighlight
@@ -90,7 +98,9 @@ const LanguageInput: () => React$Node = props => {
         onPress={() => {
           setModalVisible(true);
         }}>
-        <Text style={styles.input}>{lang}</Text>
+        <Text style={styles.input}>
+          {languages.filter(i => i.code === lang)[0].name}
+        </Text>
       </TouchableHighlight>
     </View>
   );
@@ -116,16 +126,36 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
   },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  circle: {
+    height: Spacing.SCALE_16,
+    width: Spacing.SCALE_16,
+    borderRadius: Spacing.SCALE_8,
+    borderWidth: 1,
+    borderColor: Colors.PRIMARY,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  checkedCircle: {
+    width: Spacing.SCALE_16,
+    height: Spacing.SCALE_16,
+    borderRadius: Spacing.SCALE_8,
+    backgroundColor: Colors.PRIMARY,
+  },
   openButton: {
     borderRadius: Spacing.SCALE_18,
   },
-  textStyle: {
+  title: {
     color: Colors.BLACK,
     fontWeight: Typography.FONT_WEIGHT_BOLD,
     marginBottom: Spacing.SCALE_8,
     fontSize: Typography.FONT_SIZE_16,
   },
-  modalText: {
+  langName: {
     marginBottom: Spacing.SCALE_8,
   },
   input: {
