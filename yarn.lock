@@ -5806,11 +5806,6 @@ react-native-elements@^2.0.0:
     react-native-ratings "^6.5.0"
     react-native-status-bar-height "^2.2.0"
 
-react-native-flexi-radio-button@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/react-native-flexi-radio-button/-/react-native-flexi-radio-button-0.2.2.tgz#a0180393c531ba3477722c6e42a31ceb1c11623b"
-  integrity sha1-oBgDk8UxujR3cixuQqMc6xwRYjs=
-
 react-native-gesture-handler:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.6.1.tgz#678e2dce250ed66e93af409759be22cd6375dd17"
