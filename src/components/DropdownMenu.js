@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {StyleSheet} from 'react-native';
-import {Picker} from 'react-native';
+import {Picker} from '@react-native-community/picker';
 
 import {Spacing, Colors} from '../styles';
 
