@@ -4,7 +4,7 @@ import {Modal, StyleSheet, Text, TouchableHighlight, View} from 'react-native';
 import {Colors, Typography, Spacing} from '../styles';
 
 const SharedModal: () => React$Node = ({
-  content,
+  children,
   title,
   isVisible,
   onPress,
@@ -15,7 +15,7 @@ const SharedModal: () => React$Node = ({
         <View style={styles.modal}>
           <Text style={styles.title}>{title}</Text>
 
-          {content}
+          {children}
 
           <TouchableHighlight
             style={styles.cancel}
