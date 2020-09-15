@@ -27,7 +27,6 @@
     "react-native-config": "^1.3.2",
     "react-native-elements": "^2.0.0",
     "react-native-gesture-handler": "^1.6.1",
-    "react-native-material-dropdown": "^0.11.1",
     "react-native-safe-area-context": "^1.0.0",
     "react-native-screens": "^2.7.0",
     "react-native-svg": "^12.1.0",
