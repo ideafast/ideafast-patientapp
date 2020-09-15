@@ -3,7 +3,7 @@ import {Colors, Typography, Spacing} from '../styles';
 import React from 'react';
 import Devices from '../containers/Devices';
 import Ble from '../containers/Ble';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 
 export const {
   Navigator: StackNavigator,
@@ -24,7 +24,7 @@ export const DevicesStack = props => (
       options={{
         title: 'Devices',
         headerRight: () => (
-          <MaterialCommunityIcons
+          <SimpleLineIcons
             name="plus"
             color={Colors.WHITE}
             size={Typography.FONT_SIZE_30}
