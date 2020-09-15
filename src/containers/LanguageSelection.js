@@ -45,7 +45,7 @@ const LanguageSelection: () => React$Node = props => {
   return (
     <View>
       <SharedModal
-        content={languageButtons}
+        children={languageButtons}
         title={'Choose Language'}
         isVisible={modalVisible}
         onPress={showhideModal}

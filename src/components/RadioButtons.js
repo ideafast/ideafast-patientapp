@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 
-import {Colors, Spacing} from '../styles';
+import {Colors, Spacing, Typography} from '../styles';
 
 const RadioButtons: () => React$Node = ({options, active, onPress}) => {
   return (
@@ -56,6 +56,8 @@ const styles = StyleSheet.create({
   },
   language: {
     marginBottom: Spacing.SCALE_8,
+    marginLeft: Spacing.SCALE_8,
+    fontSize: Typography.FONT_SIZE_18,
   },
 });
 

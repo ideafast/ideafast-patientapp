@@ -4,7 +4,7 @@ import {Modal, StyleSheet, Text, TouchableHighlight, View} from 'react-native';
 import {Colors, Typography, Spacing} from '../styles';
 
 const SharedModal: () => React$Node = ({
-  content,
+  children,
   title,
   isVisible,
   onPress,
@@ -15,12 +15,9 @@ const SharedModal: () => React$Node = ({
         <View style={styles.modal}>
           <Text style={styles.title}>{title}</Text>
 
-          {content}
+          {children}
 
-          <TouchableHighlight
-            style={styles.cancel}
-            underlayColor={Colors.WHITE}
-            onPress={onPress}>
+          <TouchableHighlight underlayColor={Colors.WHITE} onPress={onPress}>
             <Text style={styles.cancelText}>CANCEL</Text>
           </TouchableHighlight>
         </View>
@@ -32,35 +29,28 @@ const SharedModal: () => React$Node = ({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: Spacing.SCALE_4,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: Colors.WHITE_INACTIVE,
   },
   modal: {
-    margin: Spacing.SCALE_90,
+    padding: Spacing.SCALE_16,
     backgroundColor: Colors.WHITE,
-    borderRadius: 20,
-    padding: Spacing.SCALE_24,
-    shadowColor: Colors.WHITE,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
+    borderWidth: 0.25,
+    borderColor: Colors.PRIMARY,
+    width: '90%',
   },
   title: {
     color: Colors.BLACK,
     fontWeight: Typography.FONT_WEIGHT_BOLD,
+    fontSize: Typography.FONT_SIZE_30,
     marginBottom: Spacing.SCALE_8,
-    fontSize: Typography.FONT_SIZE_16,
-  },
-  cancel: {
-    backgroundColor: Colors.WHITE,
-    padding: Spacing.SCALE_4,
-    shadowColor: Colors.WHITE,
   },
   cancelText: {
-    fontSize: Typography.FONT_SIZE_14,
+    fontSize: Typography.FONT_SIZE_18,
     fontWeight: Typography.FONT_WEIGHT_BOLD,
     color: Colors.PRIMARY,
-    marginBottom: Spacing.SCALE_8,
+    margin: Spacing.SCALE_8,
     textAlign: 'right',
   },
 });
