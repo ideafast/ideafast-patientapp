@@ -11,16 +11,18 @@ export const {
 } = createStackNavigator();
 
 export const DevicesStack = props => (
-  <StackNavigator>
+  <StackNavigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: Colors.PRIMARY,
+      },
+      headerTintColor: Colors.WHITE,
+    }}>
     <StackScreen
       name="Devices"
       component={Devices}
       options={{
         title: 'Devices',
-        headerStyle: {
-          backgroundColor: Colors.PRIMARY,
-        },
-        headerTintColor: Colors.WHITE,
         headerRight: () => (
           <MaterialCommunityIcons
             name="plus"
@@ -37,10 +39,6 @@ export const DevicesStack = props => (
       component={Ble}
       options={{
         title: 'Bluetooth scanner',
-        headerStyle: {
-          backgroundColor: Colors.PRIMARY,
-        },
-        headerTintColor: Colors.WHITE,
       }}
     />
   </StackNavigator>

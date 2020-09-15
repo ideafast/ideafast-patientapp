@@ -12,20 +12,22 @@ export const {
 } = createStackNavigator();
 
 export const ContributionsStack = props => (
-  <StackNavigator>
+  <StackNavigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: Colors.PRIMARY,
+      },
+      headerTintColor: Colors.WHITE,
+    }}>
     <StackScreen
       name="Contributions"
       component={Contributions}
       options={{
         title: 'Contributions',
-        headerStyle: {
-          backgroundColor: Colors.PRIMARY,
-        },
         headerTitleStyle: {
           textAlign: 'center',
           alignSelf: 'center',
         },
-        headerTintColor: Colors.WHITE,
         headerRight: () => (
           <SimpleLineIcons
             name="settings"
@@ -41,24 +43,12 @@ export const ContributionsStack = props => (
     <StackScreen
       name="Settings"
       component={Settings}
-      options={{
-        title: 'Settings',
-        headerStyle: {
-          backgroundColor: Colors.PRIMARY,
-        },
-        headerTintColor: Colors.WHITE,
-      }}
+      options={{title: 'Settings'}}
     />
     <StackScreen
       name="Dropdownmenu"
       component={Dropdownmenu}
-      options={{
-        title: 'Drop Down',
-        headerStyle: {
-          backgroundColor: Colors.PRIMARY,
-        },
-        headerTintColor: Colors.WHITE,
-      }}
+      options={{title: 'Drop Down'}}
     />
   </StackNavigator>
 );

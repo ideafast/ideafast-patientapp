@@ -9,16 +9,18 @@ export const {
 } = createStackNavigator();
 
 export const SupportStack = () => (
-  <StackNavigator>
+  <StackNavigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: Colors.PRIMARY,
+      },
+      headerTintColor: Colors.WHITE,
+    }}>
     <StackScreen
       name="Support"
       component={Support}
       options={{
         title: 'Tap a device to learn more',
-        headerStyle: {
-          backgroundColor: Colors.PRIMARY,
-        },
-        headerTintColor: Colors.WHITE,
       }}
     />
   </StackNavigator>
