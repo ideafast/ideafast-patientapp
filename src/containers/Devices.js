@@ -5,7 +5,7 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Text} from 'react-native-elements';
-import {Colors, Typography, Spacing} from '../styles';
+import {Colors, Typography} from '../styles';
 import {connect} from 'react-redux';
 
 import {mapDispatchToProps} from '../ducks/actions';
@@ -13,9 +13,7 @@ import {mapDispatchToProps} from '../ducks/actions';
 const Devices: () => React$Node = props => {
   return (
     <View style={styles.view}>
-      <View>
-        <Text style={styles.text}>This is a container for devices.</Text>
-      </View>
+      <Text style={styles.text}>This is a container for devices.</Text>
     </View>
   );
 };
