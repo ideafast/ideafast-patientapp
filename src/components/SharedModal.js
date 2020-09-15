@@ -1,5 +1,13 @@
 import React from 'react';
-import {Modal, StyleSheet, Text, TouchableHighlight, View} from 'react-native';
+
+import {
+  Modal,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  View,
+  TouchableOpacity,
+} from 'react-native';
 
 import {Colors, Typography, Spacing} from '../styles';
 
@@ -11,7 +19,7 @@ const SharedModal: () => React$Node = ({
 }) => {
   return (
     <Modal transparent={true} visible={isVisible}>
-      <View style={styles.container}>
+      <TouchableOpacity style={styles.container} onPress={onPress}>
         <View style={styles.modal}>
           <Text style={styles.title}>{title}</Text>
 
@@ -21,7 +29,7 @@ const SharedModal: () => React$Node = ({
             <Text style={styles.cancelText}>CANCEL</Text>
           </TouchableHighlight>
         </View>
-      </View>
+      </TouchableOpacity>
     </Modal>
   );
 };
