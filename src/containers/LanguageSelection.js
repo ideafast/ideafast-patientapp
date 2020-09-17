@@ -52,7 +52,7 @@ const LanguageSelection: () => React$Node = props => {
       />
       <SettingsRow
         title={'Application Languages'}
-        content={activeLanguage}
+        children={activeLanguage}
         onPress={showhideModal}
       />
     </View>

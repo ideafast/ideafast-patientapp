@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, TouchableHighlight, View} from 'react-native';
 import {Colors, Typography, Spacing} from '../styles';
 
-const SettingsRow: () => React$Node = ({title, content, onPress = null}) => {
+const SettingsRow: () => React$Node = ({title, children, onPress = null}) => {
   return (
     <View style={styles.container}>
       <View>
@@ -10,7 +10,7 @@ const SettingsRow: () => React$Node = ({title, content, onPress = null}) => {
       </View>
 
       <TouchableHighlight underlayColor={Colors.WHITESMOKE} onPress={onPress}>
-        <Text style={styles.content}>{content}</Text>
+        <Text style={styles.children}>{children}</Text>
       </TouchableHighlight>
     </View>
   );
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     fontWeight: Typography.FONT_WEIGHT_BOLD,
     fontSize: Typography.FONT_SIZE_16,
   },
-  content: {
+  children: {
     fontSize: Typography.FONT_SIZE_18,
     padding: Spacing.SCALE_4,
     color: Colors.PRIMARY,

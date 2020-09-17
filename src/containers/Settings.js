@@ -13,7 +13,7 @@ import {mapDispatchToProps} from '../ducks/actions';
 const Settings: () => React$Node = props => {
   return (
     <View>
-      <SettingsRow title={'User ID'} content={props.userID} />
+      <SettingsRow title={'User ID'} children={props.userID} />
       <LanguageSelection />
     </View>
   );
