@@ -40,7 +40,7 @@ const LanguageSelection: () => React$Node = props => {
     <RadioButtons options={languages} active={lang} onPress={setLanguage} />
   );
 
-  let activeLanguage = languages.filter(l => l.code === lang)[0].name;
+  const activeLanguage = languages.filter(l => l.code === lang)[0].name;
 
   return (
     <View>
