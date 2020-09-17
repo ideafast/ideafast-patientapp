@@ -1,5 +1,5 @@
 import {createStackNavigator} from '@react-navigation/stack';
-import {Colors, Typography, Spacing} from '../styles';
+import {Colors, Typography, Spacing, stack} from '../styles';
 import React from 'react';
 import Contributions from '../containers/Contributions';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
@@ -24,10 +24,7 @@ export const ContributionsStack = props => (
       component={Contributions}
       options={{
         title: 'Contributions',
-        headerTitleStyle: {
-          textAlign: 'center',
-          alignSelf: 'center',
-        },
+        headerTitleStyle: stack.headerTitleStyle,
         headerRight: () => (
           <SimpleLineIcons
             name="settings"
