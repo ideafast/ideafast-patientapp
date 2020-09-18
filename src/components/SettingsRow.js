@@ -4,31 +4,31 @@ import {Colors, Typography, Spacing} from '../styles';
 
 const SettingsRow: () => React$Node = ({title, children, onPress = null}) => {
   return (
-    <View style={styles.container}>
+    <TouchableHighlight
+      underlayColor={Colors.BORDER}
+      style={styles.container}
+      onPress={onPress}>
       <View>
         <Text style={styles.title}>{title}</Text>
-      </View>
-
-      <TouchableHighlight underlayColor={Colors.WHITESMOKE} onPress={onPress}>
         <Text style={styles.children}>{children}</Text>
-      </TouchableHighlight>
-    </View>
+      </View>
+    </TouchableHighlight>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    borderBottomWidth: 2,
-    borderColor: Colors.PRIMARY,
+    borderBottomWidth: Typography.BORDER_WIDTH,
+    borderColor: Colors.GREY,
     padding: Spacing.SCALE_8,
   },
   title: {
     color: Colors.BLACK,
     fontWeight: Typography.FONT_WEIGHT_BOLD,
-    fontSize: Typography.FONT_SIZE_16,
+    fontSize: Typography.FONT_SIZE_18,
   },
   children: {
-    fontSize: Typography.FONT_SIZE_18,
+    fontSize: Typography.FONT_SIZE_16,
     padding: Spacing.SCALE_4,
     color: Colors.PRIMARY,
   },

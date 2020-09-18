@@ -39,13 +39,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: Colors.WHITE_INACTIVE,
+    backgroundColor: Colors.MODAL,
   },
   modal: {
     padding: Spacing.SCALE_16,
     backgroundColor: Colors.WHITE,
     borderWidth: 0.25,
-    borderColor: Colors.PRIMARY,
+    borderColor: Colors.BORDER,
     width: '90%',
   },
   title: {
