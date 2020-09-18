@@ -1,5 +1,5 @@
 import {createStackNavigator} from '@react-navigation/stack';
-import {Colors, Typography, Spacing} from '../styles';
+import {Colors, Typography, Spacing, Stack} from '../styles';
 import React from 'react';
 import Devices from '../containers/Devices';
 import Ble from '../containers/Ble';
@@ -11,13 +11,7 @@ export const {
 } = createStackNavigator();
 
 export const DevicesStack = props => (
-  <StackNavigator
-    screenOptions={{
-      headerStyle: {
-        backgroundColor: Colors.PRIMARY,
-      },
-      headerTintColor: Colors.WHITE,
-    }}>
+  <StackNavigator screenOptions={Stack.headerStyle}>
     <StackScreen
       name="Devices"
       component={Devices}

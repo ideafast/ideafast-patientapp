@@ -12,13 +12,7 @@ export const {
 } = createStackNavigator();
 
 export const ContributionsStack = props => (
-  <StackNavigator
-    screenOptions={{
-      headerStyle: {
-        backgroundColor: Colors.PRIMARY,
-      },
-      headerTintColor: Colors.WHITE,
-    }}>
+  <StackNavigator screenOptions={Stack.headerStyle}>
     <StackScreen
       name="Contributions"
       component={Contributions}

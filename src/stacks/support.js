@@ -1,5 +1,5 @@
 import {createStackNavigator} from '@react-navigation/stack';
-import {Colors} from '../styles';
+import {Stack} from '../styles';
 import React from 'react';
 import Support from '../containers/Support';
 
@@ -9,13 +9,7 @@ export const {
 } = createStackNavigator();
 
 export const SupportStack = () => (
-  <StackNavigator
-    screenOptions={{
-      headerStyle: {
-        backgroundColor: Colors.PRIMARY,
-      },
-      headerTintColor: Colors.WHITE,
-    }}>
+  <StackNavigator screenOptions={Stack.headerStyle}>
     <StackScreen
       name="Support"
       component={Support}
