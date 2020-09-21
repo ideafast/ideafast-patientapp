@@ -10,10 +10,10 @@ import {connect} from 'react-redux';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
-const Devices: () => React$Node = props => {
+const Contributions: () => React$Node = props => {
   return (
     <View style={styles.view}>
-      <Text style={styles.text}>This is a container for devices.</Text>
+      <Text style={styles.text}>This is a container for contributions.</Text>
     </View>
   );
 };
@@ -32,9 +32,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => state;
 
-const DevicesContainer = connect(
+const ContributionsContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Devices);
+)(Contributions);
 
-export default DevicesContainer;
+export default ContributionsContainer;

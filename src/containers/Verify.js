@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: Spacing.SCALE_42,
   },
   logo: {
-    paddingVertical: Spacing.SCALE_18,
+    paddingVertical: Spacing.SCALE_16,
     justifyContent: 'center',
     alignItems: 'center',
     maxHeight: 200,
