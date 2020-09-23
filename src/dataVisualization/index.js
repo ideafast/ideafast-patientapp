@@ -1,3 +1,3 @@
-import * as Data from './DataVolume';
+import * as DataPie from './DataVolume';
 
-export {Data};
+export {DataPie};
