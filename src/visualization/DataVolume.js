@@ -9,7 +9,7 @@ import {Colors, Typography, Spacing} from '../styles';
 import {connect} from 'react-redux';
 import {VictoryPie} from 'victory-native';
 import {Svg} from 'react-native-svg';
-import {Data} from '../dataVisualization';
+import {DataPie} from '../dataVisualization';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
@@ -24,9 +24,9 @@ const DataVolume: () => React$Node = props => {
           height={230}
           innerRadius={35}
           labelPosition={({index}) => 'centroid'}
-          padAngle={({datum}) => 2}
-          data={Data.data}
-          colorScale={Data.colors}
+          padAngle={({datum}) => 1}
+          data={DataPie.data}
+          colorScale={DataPie.colors}
         />
       </Svg>
     </View>
