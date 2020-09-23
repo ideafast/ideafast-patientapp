@@ -4,16 +4,21 @@
  */
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {Text} from 'react-native-elements';
-import {Colors, Typography} from '../styles';
 import {connect} from 'react-redux';
+import DataVolume from '../visualization/DataVolume';
+import DataQuality from '../visualization/DataQuality';
+import CheckedBoxes from '../visualization/CheckedBoxes';
+import ContributionsMenu from '../visualization/ContributionsMenu';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
 const Contributions: () => React$Node = props => {
   return (
     <View style={styles.view}>
-      <Text style={styles.text}>This is a container for contributions.</Text>
+      <CheckedBoxes />
+      <DataVolume />
+      <DataQuality />
+      <ContributionsMenu />
     </View>
   );
 };
@@ -21,12 +26,6 @@ const Contributions: () => React$Node = props => {
 const styles = StyleSheet.create({
   view: {
     flex: 1,
-    padding: 24,
-  },
-  text: {
-    fontSize: Typography.FONT_SIZE_20,
-    fontWeight: Typography.FONT_WEIGHT_BOLD,
-    color: Colors.black,
   },
 });
 
