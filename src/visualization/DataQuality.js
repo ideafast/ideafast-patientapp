@@ -6,6 +6,7 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Text} from 'react-native-elements';
 import {Colors, Typography, Spacing} from '../styles';
+import {DataChart} from '../dataVisualization';
 import {connect} from 'react-redux';
 import {VictoryGroup, VictoryBar, VictoryChart} from 'victory-native';
 
@@ -19,7 +20,7 @@ const DataQuality: () => React$Node = props => {
         <VictoryChart width={300} height={220}>
           <VictoryGroup
             offset={35}
-            colorScale={['#5ba5ce', '#fe234f', '#595a5e', '#219ca3', '#d1fcff']}
+            colorScale={DataChart.colors}
             style={{
               data: {
                 fillOpacity: 0.6,
@@ -27,13 +28,11 @@ const DataQuality: () => React$Node = props => {
                 strokeWidth: 1,
               },
             }}>
-            <VictoryBar data={[{x: '11/07/20 to 13/07/20 (3 days)', y: 1}]} />
-            <VictoryBar data={[{x: '11/07/20 to 13/07/20 (3 days)', y: 0.8}]} />
-            <VictoryBar
-              data={[{x: '11/07/20 to 13/07/20 (3 days)', y: 0.75}]}
-            />
-            <VictoryBar data={[{x: '11/07/20 to 13/07/20 (3 days)', y: 1}]} />
-            <VictoryBar data={[{x: '11/07/20 to 13/07/20 (3 days)', y: 0.2}]} />
+            <VictoryBar data={DataChart.column1} />
+            <VictoryBar data={DataChart.column2} />
+            <VictoryBar data={DataChart.column3} />
+            <VictoryBar data={DataChart.column4} />
+            <VictoryBar data={DataChart.column5} />
           </VictoryGroup>
         </VictoryChart>
       </View>
