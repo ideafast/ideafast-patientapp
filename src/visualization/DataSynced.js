@@ -21,7 +21,6 @@ const DataSynced: () => React$Node = props => {
 const styles = StyleSheet.create({
   view: {
     flex: 1,
-    //padding: 4,
     borderBottomWidth: Typography.BORDER_WIDTH,
     borderColor: Colors.GREY,
   },
