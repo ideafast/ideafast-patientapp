@@ -6,7 +6,7 @@ import {Colors, Spacing} from '../../styles';
 import {connect} from 'react-redux';
 import {mapDispatchToProps} from '../../ducks/actions';
 
-import AllContent from './docs';
+import AllContent from '../../i18n/docs';
 
 const SupportDoc: () => React$Node = props => {
   const [content, setContent] = useState('');
