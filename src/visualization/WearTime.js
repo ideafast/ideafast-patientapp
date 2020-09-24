@@ -7,6 +7,7 @@ import {StyleSheet, View} from 'react-native';
 import {Text} from 'react-native-elements';
 import {Colors, Typography, Spacing} from '../styles';
 import {connect} from 'react-redux';
+import Logo from '../assets/logo.svg';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
@@ -23,8 +24,9 @@ const WearTime: () => React$Node = props => {
 
 const styles = StyleSheet.create({
   view: {
-    flex: 1,
+    //flex: 1,
     padding: 4,
+    //flexDirection: 'row',
   },
   title: {
     fontSize: Typography.FONT_SIZE_16,
@@ -35,7 +37,7 @@ const styles = StyleSheet.create({
   },
   borderBar: {
     marginTop: Spacing.SCALE_16,
-    //paddingVertical: Spacing.SCALE_36,
+    paddingVertical: Spacing.SCALE_16,
     //paddingHorizontal: 34,
     borderWidth: 1,
     borderColor: Colors.WHITE,
@@ -50,6 +52,13 @@ const styles = StyleSheet.create({
     color: Colors.BLACK,
     marginLeft: Spacing.SCALE_42,
     marginBottom: Spacing.SCALE_8,
+  },
+  star: {
+    //paddingVertical: Spacing.SCALE_16,
+    //flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    //maxHeight: 200,
   },
 });
 

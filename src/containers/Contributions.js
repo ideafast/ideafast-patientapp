@@ -7,6 +7,7 @@ import {StyleSheet, View} from 'react-native';
 import {connect} from 'react-redux';
 import DataVolume from '../visualization/DataVolume';
 import WearTime from '../visualization/WearTime';
+import DataSynced from '../visualization/DataSynced';
 import CheckedBoxes from '../visualization/CheckedBoxes';
 import ContributionsMenu from '../visualization/ContributionsMenu';
 
@@ -18,6 +19,7 @@ const Contributions: () => React$Node = props => {
       <CheckedBoxes />
       <DataVolume />
       <WearTime />
+      <DataSynced />
       <ContributionsMenu />
     </View>
   );
