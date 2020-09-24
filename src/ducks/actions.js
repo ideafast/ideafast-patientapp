@@ -5,6 +5,7 @@ import * as actiontypes from './actiontypes';
 
 export const mapDispatchToProps = dispatch => ({
   verifyUserID: userID => dispatch(verifyUserID(userID)),
+  setUserLang: userLang => dispatch(setUserLang(userLang)),
 });
 
 const verifyUserID = userID => async dispatch => {
@@ -19,4 +20,9 @@ const verifyUserID = userID => async dispatch => {
 const setUserID = userID => ({
   type: actiontypes.SET_USERID,
   userID,
+});
+
+const setUserLang = userLang => ({
+  type: actiontypes.SET_USERLANG,
+  userLang,
 });

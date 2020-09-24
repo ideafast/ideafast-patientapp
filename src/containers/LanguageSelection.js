@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View} from 'react-native';
 import {connect} from 'react-redux';
 
@@ -23,7 +23,7 @@ const LanguageSelection: () => React$Node = props => {
     },
   ];
 
-  const [lang, setLang] = useState(languages[0].code);
+  const [userLang, setUserLang] = useState(props.userLang);
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -32,15 +32,19 @@ const LanguageSelection: () => React$Node = props => {
   };
 
   const setLanguage = language => {
-    setLang(language.code);
+    props.setUserLang(language.code);
     showhideModal();
   };
 
   const languageButtons = (
-    <RadioButtons options={languages} active={lang} onPress={setLanguage} />
+    <RadioButtons options={languages} active={userLang} onPress={setLanguage} />
   );
 
-  const activeLanguage = languages.filter(l => l.code === lang)[0].name;
+  useEffect(() => {
+    setUserLang(props.userLang);
+  }, [props.userLang]);
+
+  const activeLanguage = languages.filter(l => l.code === userLang)[0].name;
 
   return (
     <View>

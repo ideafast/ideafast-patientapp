@@ -1,1 +1,4 @@
-export default {userID: null};
+export default {
+  userID: null,
+  userLang: 'en', // TODO: @Zen update with i18n
+};
