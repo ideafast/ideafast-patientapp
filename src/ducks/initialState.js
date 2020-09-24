@@ -1,4 +1,4 @@
-const defaultImage = require('../assets/device-icons/default.png');
+const defaultImage = require('../assets/devices/default.png');
 
 const DEVICES = [
   {id: 0, name: 'Axivity', image: defaultImage},
