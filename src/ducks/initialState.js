@@ -14,8 +14,24 @@ const DEVICES = [
   {id: 10, name: 'ZKOne YOLI', image: defaultImage},
 ];
 
+const SUPPORTED_LANGUAGES = [
+  {
+    code: 'en',
+    name: 'English',
+  },
+  {
+    code: 'de',
+    name: 'German',
+  },
+  {
+    code: 'nl',
+    name: 'Dutch',
+  },
+];
+
 export default {
   userID: null,
   userLang: 'en',
+  languages: SUPPORTED_LANGUAGES,
   devices: DEVICES,
 };

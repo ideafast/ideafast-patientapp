@@ -12,7 +12,7 @@ const SupportDoc: () => React$Node = props => {
   const [content, setContent] = useState('');
 
   useEffect(() => {
-    let device = props.route.params.device;
+    const device = props.route.params.device;
     setContent(AllContent[device.id][props.userLang]);
 
     props.navigation.setOptions({

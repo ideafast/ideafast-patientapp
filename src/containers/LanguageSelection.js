@@ -8,21 +8,6 @@ import SharedModal from '../components/SharedModal';
 import SettingsRow from '../components/SettingsRow';
 
 const LanguageSelection: () => React$Node = props => {
-  const languages = [
-    {
-      code: 'en',
-      name: 'English',
-    },
-    {
-      code: 'de',
-      name: 'German',
-    },
-    {
-      code: 'nl',
-      name: 'Dutch',
-    },
-  ];
-
   const [userLang, setUserLang] = useState(props.userLang);
 
   const [modalVisible, setModalVisible] = useState(false);
@@ -37,14 +22,18 @@ const LanguageSelection: () => React$Node = props => {
   };
 
   const languageButtons = (
-    <RadioButtons options={languages} active={userLang} onPress={setLanguage} />
+    <RadioButtons
+      options={props.languages}
+      active={userLang}
+      onPress={setLanguage}
+    />
   );
 
   useEffect(() => {
     setUserLang(props.userLang);
   }, [props.userLang]);
 
-  const activeLanguage = languages.filter(l => l.code === userLang)[0].name;
+  const activeLanguage = props.languages.find(l => l.code === userLang).name;
 
   return (
     <View>
