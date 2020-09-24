@@ -11,7 +11,7 @@ const DeviceRowSimple: () => React$Node = ({image, name, onPress = null}) => {
       style={styles.row}
       onPress={onPress}>
       <View style={styles.container}>
-        <Image style={styles.image} source={image} />
+        <Image style={styles.image} source={image} resizeMode={'center'} />
         <View style={styles.titleContainer}>
           <Text style={styles.title}>{name}</Text>
         </View>
