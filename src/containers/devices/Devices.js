@@ -4,28 +4,25 @@
  */
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
+import {Colors, Spacing} from '../../styles';
+import {ScrollView} from 'react-native-gesture-handler';
 
 import {connect} from 'react-redux';
 import {mapDispatchToProps} from '../../ducks/actions';
 
-import {ScrollView} from 'react-native-gesture-handler';
-import {Colors, Spacing} from '../../styles';
+import DeviceRowItem from '../../components/devices/DeviceRowItem';
 
-import DeviceRowSupport from '../../components/devices/DeviceRowSupport';
-
-const Support: () => React$Node = props => {
+const Devices: () => React$Node = props => {
   return (
     <View style={styles.view}>
       <ScrollView style={styles.container}>
         {props.devices.map(device => {
           return (
-            <DeviceRowSupport
+            <DeviceRowItem
               key={device.id}
               name={device.name}
               image={device.image}
-              onPress={() => {
-                props.navigation.navigate('SupportDoc', {device: device});
-              }}
+              status="Updated N seconds ago"
             />
           );
         })}
@@ -47,9 +44,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => state;
 
-const SupportContainer = connect(
+const DevicesContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Support);
+)(Devices);
 
-export default SupportContainer;
+export default DevicesContainer;
