@@ -1,7 +1,8 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import {Stack} from '../styles';
 import React from 'react';
-import Support from '../containers/Support';
+import Support from '../containers/support/Support';
+import SupportDoc from '../containers/support/SupportDoc';
 
 export const {
   Navigator: StackNavigator,
@@ -17,5 +18,6 @@ export const SupportStack = () => (
         title: 'Tap a device to learn more',
       }}
     />
+    <StackScreen name="SupportDoc" component={SupportDoc} />
   </StackNavigator>
 );
