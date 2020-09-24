@@ -13,7 +13,6 @@ const SupportDoc: () => React$Node = props => {
 
   useEffect(() => {
     let device = props.route.params.device;
-    // TOOD: @Zen -> the lookup based on language needs to with i18n support
     setContent(AllContent[device.id][props.userLang]);
 
     props.navigation.setOptions({

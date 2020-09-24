@@ -16,6 +16,6 @@ const DEVICES = [
 
 export default {
   userID: null,
-  userLang: 'en', // TODO: @Zen update with i18n
+  userLang: 'en',
   devices: DEVICES,
 };
