@@ -27,7 +27,7 @@ const Verify: () => React$Node = props => {
       <Text style={styles.text}>Please enter your ID to begin.</Text>
       <TextInput
         style={styles.input}
-        placeholder="User ID"
+        placeholder="Verification Token"
         onChangeText={text => setUserID(text)}
       />
       <LoadingButton

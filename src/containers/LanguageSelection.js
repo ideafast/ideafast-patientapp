@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View} from 'react-native';
 import {connect} from 'react-redux';
 
@@ -8,22 +8,7 @@ import SharedModal from '../components/SharedModal';
 import SettingsRow from '../components/SettingsRow';
 
 const LanguageSelection: () => React$Node = props => {
-  const languages = [
-    {
-      code: 'en',
-      name: 'English',
-    },
-    {
-      code: 'de',
-      name: 'German',
-    },
-    {
-      code: 'nl',
-      name: 'Dutch',
-    },
-  ];
-
-  const [lang, setLang] = useState(languages[0].code);
+  const [userLang, setUserLang] = useState(props.userLang);
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -32,15 +17,23 @@ const LanguageSelection: () => React$Node = props => {
   };
 
   const setLanguage = language => {
-    setLang(language.code);
+    props.setUserLang(language.code);
     showhideModal();
   };
 
   const languageButtons = (
-    <RadioButtons options={languages} active={lang} onPress={setLanguage} />
+    <RadioButtons
+      options={props.languages}
+      active={userLang}
+      onPress={setLanguage}
+    />
   );
 
-  const activeLanguage = languages.filter(l => l.code === lang)[0].name;
+  useEffect(() => {
+    setUserLang(props.userLang);
+  }, [props.userLang]);
+
+  const activeLanguage = props.languages.find(l => l.code === userLang).name;
 
   return (
     <View>
