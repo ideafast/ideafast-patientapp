@@ -15,8 +15,9 @@ const WearTime: () => React$Node = props => {
   return (
     <View style={styles.view}>
       <Text style={styles.title}>Progress</Text>
-      <View style={styles.borderBar}>
+      <View style={[styles.borderBar, styles.parent]}>
         <Text style={styles.text}>Wear Time</Text>
+        <Logo style={styles.star} height={50} width={50} position="absolute" />
       </View>
     </View>
   );
@@ -27,6 +28,9 @@ const styles = StyleSheet.create({
     //flex: 1,
     padding: 4,
     //flexDirection: 'row',
+    textAlign: 'right',
+    //flexDirection: 'row',
+    //flexWrap: "wrap",
   },
   title: {
     fontSize: Typography.FONT_SIZE_16,
@@ -37,7 +41,7 @@ const styles = StyleSheet.create({
   },
   borderBar: {
     marginTop: Spacing.SCALE_16,
-    paddingVertical: Spacing.SCALE_16,
+    paddingVertical: Spacing.SCALE_24,
     //paddingHorizontal: 34,
     borderWidth: 1,
     borderColor: Colors.WHITE,
@@ -47,18 +51,32 @@ const styles = StyleSheet.create({
     //alignItems: 'center',
   },
   text: {
-    fontSize: Typography.FONT_SIZE_16,
+    fontSize: Typography.FONT_SIZE_20,
     fontWeight: Typography.FONT_WEIGHT_BOLD,
     color: Colors.BLACK,
-    marginLeft: Spacing.SCALE_42,
-    marginBottom: Spacing.SCALE_8,
+    //marginLeft: Spacing.SCALE_42,
+    //marginBottom: Spacing.SCALE_8,
+    position: 'absolute',
+    //textAlign: 'center',
+    flexWrap: 'wrap',
+    alignSelf: 'center',
+    //flexDirection: 'row',
+    //flex: 1,
   },
   star: {
     //paddingVertical: Spacing.SCALE_16,
     //flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+    //justifyContent: 'center',
+    //alignItems: 'center',
+    //borderRadius: 70,
+    marginLeft: Spacing.SCALE_8,
+    position: 'absolute',
     //maxHeight: 200,
+  },
+  parent: {
+    //flexDirection: 'row',
+    //backgroundColor: 'white',
+    //textAlign: 'right',
   },
 });
 
