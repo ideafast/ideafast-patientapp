@@ -39,19 +39,22 @@ const CheckedBoxes: () => React$Node = props => {
           );
         })}
       </View>
-      <Text>Is CheckBox selected: {isSelected ? 'yes' : 'no'}</Text>
+      <Text style={styles.checkboxContainer}>
+        Is CheckBox selected: {isSelected ? 'yes' : 'no'}
+      </Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
+    padding: 0,
     borderBottomWidth: Typography.BORDER_WIDTH,
     borderColor: Colors.GREY,
   },
   checkboxContainer: {
     flexDirection: 'row',
+    alignSelf: 'center',
   },
   checkbox: {
     alignSelf: 'center',
