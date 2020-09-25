@@ -15,20 +15,36 @@ const ContributionsMenu: () => React$Node = props => {
   return (
     <View style={styles.view}>
       <Text style={styles.title}>Contributions</Text>
+      <View style={styles.contributions}>
+        <View style={styles.borderBar}>
+          <Text style={styles.text}>7</Text>
+          <Logo
+            style={styles.star}
+            height={50}
+            width={50}
+            position="absolute"
+          />
+        </View>
 
-      <View style={styles.borderBar}>
-        <Text style={styles.text}>7</Text>
-        <Logo style={styles.star} height={50} width={50} position="absolute" />
-      </View>
+        <View style={styles.borderBar}>
+          <Text style={styles.text}>97</Text>
+          <Logo
+            style={styles.star}
+            height={50}
+            width={50}
+            position="absolute"
+          />
+        </View>
 
-      <View style={styles.borderBar}>
-        <Text style={styles.text}>97</Text>
-        <Logo style={styles.star} height={50} width={50} position="absolute" />
-      </View>
-
-      <View style={styles.borderBar}>
-        <Text style={styles.text}>4/5</Text>
-        <Logo style={styles.star} height={50} width={50} position="absolute" />
+        <View style={styles.borderBar}>
+          <Text style={styles.text}>4/5</Text>
+          <Logo
+            style={styles.star}
+            height={50}
+            width={50}
+            position="absolute"
+          />
+        </View>
       </View>
     </View>
   );
@@ -37,7 +53,7 @@ const ContributionsMenu: () => React$Node = props => {
 const styles = StyleSheet.create({
   view: {
     padding: 4,
-    textAlign: 'right',
+    //textAlign: 'right',
   },
   title: {
     fontSize: Typography.FONT_SIZE_16,
@@ -52,8 +68,10 @@ const styles = StyleSheet.create({
     //paddingHorizontal: 34,
     borderWidth: 1,
     borderColor: Colors.WHITE,
-    marginRight: Spacing.SCALE_250,
-    marginLeft: Spacing.SCALE_16,
+    //marginRight: Spacing.SCALE_16,
+    marginLeft: Spacing.SCALE_8,
+    width: 120,
+    height: 10,
   },
   text: {
     fontSize: Typography.FONT_SIZE_16,
@@ -63,14 +81,14 @@ const styles = StyleSheet.create({
     position: 'absolute',
     flexWrap: 'wrap',
     alignSelf: 'center',
+    justifyContent: 'space-between',
   },
   star: {
     marginLeft: Spacing.SCALE_8,
     position: 'absolute',
   },
-  parent: {
-    //flexDirection: 'row',
-    //flex: 1,
+  contributions: {
+    flexDirection: 'row',
   },
 });
 
