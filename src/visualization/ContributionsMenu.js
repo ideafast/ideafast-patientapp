@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     marginTop: Spacing.SCALE_16,
     paddingVertical: Spacing.SCALE_24,
     borderWidth: 1,
-    borderColor: Colors.WHITE,
+    borderColor: Colors.WHITESMOKE,
     marginLeft: Spacing.SCALE_8,
     width: 120,
     height: 10,
