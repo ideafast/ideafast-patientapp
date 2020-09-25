@@ -16,7 +16,8 @@ const DataSync: () => React$Node = props => {
     <View style={styles.view}>
       <View style={[styles.borderBar, styles.parent]}>
         <Text style={styles.text}>Data Sync</Text>
-        <Logo style={styles.star} height={50} width={50} position="absolute" />
+        <Logo style={styles.cloud} height={50} width={50} position="absolute" />
+        <Logo style={styles.chart} height={50} width={50} position="absolute" />
       </View>
     </View>
   );
@@ -49,11 +50,20 @@ const styles = StyleSheet.create({
     color: Colors.BLACK,
     position: 'absolute',
     flexWrap: 'wrap',
-    alignSelf: 'center',
+    marginLeft: Spacing.SCALE_90,
+    //alignSelf: 'center',
   },
-  star: {
+  cloud: {
     marginLeft: Spacing.SCALE_8,
     position: 'absolute',
+  },
+  chart: {
+    marginRight: Spacing.SCALE_90,
+    position: 'absolute',
+    //justifyContent: 'flex-end',
+    flexDirection: 'row',
+    alignSelf: 'flex-end',
+    alignItems: 'flex-end',
   },
 });
 
