@@ -18,7 +18,7 @@ const WearTime: () => React$Node = props => {
       <Text style={styles.title}>Progress</Text>
       <View style={[styles.borderBar, styles.parent]}>
         <Text style={styles.text}>Wear Time</Text>
-        <Star style={styles.star} height={40} width={50} position="absolute" />
+        <Star style={styles.star} height={50} width={50} position="absolute" />
         <Logo style={styles.chart} height={50} width={50} position="absolute" />
       </View>
     </View>
