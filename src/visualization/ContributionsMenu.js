@@ -7,7 +7,9 @@ import {StyleSheet, View} from 'react-native';
 import {Text} from 'react-native-elements';
 import {Colors, Typography, Spacing} from '../styles';
 import {connect} from 'react-redux';
-import Logo from '../assets/logo.svg';
+import Medal from '../assets/medal.svg';
+import MedalNum from '../assets/medalNum.svg';
+import Robat from '../assets/robat.svg';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
@@ -15,15 +17,15 @@ const ContributionsMenu: () => React$Node = props => {
   const state = [
     {
       text: '7',
-      logo: Logo,
+      logo: MedalNum,
     },
     {
       text: '97',
-      logo: Logo,
+      logo: Medal,
     },
     {
       text: '4/5',
-      logo: Logo,
+      logo: Robat,
     },
   ];
 
@@ -37,8 +39,8 @@ const ContributionsMenu: () => React$Node = props => {
               <Text style={styles.text}>{param.text}</Text>
               <param.logo
                 style={styles.star}
-                height={50}
-                width={50}
+                height={60}
+                width={60}
                 position="absolute"
               />
             </View>
