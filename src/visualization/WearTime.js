@@ -8,6 +8,7 @@ import {Text} from 'react-native-elements';
 import {Colors, Typography, Spacing} from '../styles';
 import {connect} from 'react-redux';
 import Logo from '../assets/logo.svg';
+import Star from '../assets/star.svg';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
@@ -17,7 +18,7 @@ const WearTime: () => React$Node = props => {
       <Text style={styles.title}>Progress</Text>
       <View style={[styles.borderBar, styles.parent]}>
         <Text style={styles.text}>Wear Time</Text>
-        <Logo style={styles.star} height={50} width={50} position="absolute" />
+        <Star style={styles.star} height={40} width={50} position="absolute" />
         <Logo style={styles.chart} height={50} width={50} position="absolute" />
       </View>
     </View>

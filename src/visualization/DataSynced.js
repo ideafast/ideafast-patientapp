@@ -8,6 +8,7 @@ import {Text} from 'react-native-elements';
 import {Colors, Typography, Spacing} from '../styles';
 import {connect} from 'react-redux';
 import Logo from '../assets/logo.svg';
+import Cloud from '../assets/cloud.svg';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
@@ -16,7 +17,12 @@ const DataSync: () => React$Node = props => {
     <View style={styles.view}>
       <View style={[styles.borderBar, styles.parent]}>
         <Text style={styles.text}>Data Sync</Text>
-        <Logo style={styles.cloud} height={50} width={50} position="absolute" />
+        <Cloud
+          style={styles.cloud}
+          height={50}
+          width={50}
+          position="absolute"
+        />
         <Logo style={styles.chart} height={50} width={50} position="absolute" />
       </View>
     </View>
