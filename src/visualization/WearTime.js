@@ -25,12 +25,8 @@ const WearTime: () => React$Node = props => {
 
 const styles = StyleSheet.create({
   view: {
-    //flex: 1,
     padding: 4,
-    //flexDirection: 'row',
     textAlign: 'right',
-    //flexDirection: 'row',
-    //flexWrap: "wrap",
   },
   title: {
     fontSize: Typography.FONT_SIZE_16,
@@ -47,36 +43,18 @@ const styles = StyleSheet.create({
     borderColor: Colors.WHITE,
     marginRight: Spacing.SCALE_16,
     marginLeft: Spacing.SCALE_16,
-    //paddingHorizontal: 18,
-    //alignItems: 'center',
   },
   text: {
     fontSize: Typography.FONT_SIZE_20,
     fontWeight: Typography.FONT_WEIGHT_BOLD,
     color: Colors.BLACK,
-    //marginLeft: Spacing.SCALE_42,
-    //marginBottom: Spacing.SCALE_8,
     position: 'absolute',
-    //textAlign: 'center',
     flexWrap: 'wrap',
     alignSelf: 'center',
-    //flexDirection: 'row',
-    //flex: 1,
   },
   star: {
-    //paddingVertical: Spacing.SCALE_16,
-    //flexDirection: 'row',
-    //justifyContent: 'center',
-    //alignItems: 'center',
-    //borderRadius: 70,
     marginLeft: Spacing.SCALE_8,
     position: 'absolute',
-    //maxHeight: 200,
-  },
-  parent: {
-    //flexDirection: 'row',
-    //backgroundColor: 'white',
-    //textAlign: 'right',
   },
 });
 
