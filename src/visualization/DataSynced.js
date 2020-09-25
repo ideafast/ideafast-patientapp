@@ -7,14 +7,16 @@ import {StyleSheet, View} from 'react-native';
 import {Text} from 'react-native-elements';
 import {Colors, Typography, Spacing} from '../styles';
 import {connect} from 'react-redux';
+import Logo from '../assets/logo.svg';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
-const DataSynced: () => React$Node = props => {
+const DataSync: () => React$Node = props => {
   return (
     <View style={styles.view}>
-      <View style={styles.borderBar}>
-        <Text style={styles.text}>Data Synced</Text>
+      <View style={[styles.borderBar, styles.parent]}>
+        <Text style={styles.text}>Data Sync</Text>
+        <Logo style={styles.star} height={50} width={50} position="absolute" />
       </View>
     </View>
   );
@@ -23,6 +25,7 @@ const DataSynced: () => React$Node = props => {
 const styles = StyleSheet.create({
   view: {
     padding: 4,
+    textAlign: 'right',
   },
   title: {
     fontSize: Typography.FONT_SIZE_16,
@@ -33,29 +36,32 @@ const styles = StyleSheet.create({
   },
   borderBar: {
     marginTop: Spacing.SCALE_16,
-    paddingVertical: Spacing.SCALE_16,
+    paddingVertical: Spacing.SCALE_24,
     //paddingHorizontal: 34,
     borderWidth: 1,
     borderColor: Colors.WHITE,
     marginRight: Spacing.SCALE_16,
     marginLeft: Spacing.SCALE_16,
-    //paddingHorizontal: 18,
-    //alignItems: 'center',
   },
   text: {
-    fontSize: Typography.FONT_SIZE_16,
+    fontSize: Typography.FONT_SIZE_20,
     fontWeight: Typography.FONT_WEIGHT_BOLD,
     color: Colors.BLACK,
-    marginLeft: Spacing.SCALE_42,
-    marginBottom: Spacing.SCALE_8,
+    position: 'absolute',
+    flexWrap: 'wrap',
+    alignSelf: 'center',
+  },
+  star: {
+    marginLeft: Spacing.SCALE_8,
+    position: 'absolute',
   },
 });
 
 const mapStateToProps = state => state;
 
-const DataSyncedContainer = connect(
+const DataSyncContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(DataSynced);
+)(DataSync);
 
-export default DataSyncedContainer;
+export default DataSyncContainer;
