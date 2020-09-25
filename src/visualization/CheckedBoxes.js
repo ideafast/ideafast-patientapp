@@ -2,33 +2,62 @@
  * @format
  * @flow strict-local
  */
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Text} from 'react-native-elements';
+import CheckBox from '@react-native-community/checkbox';
 import {Colors, Typography, Spacing} from '../styles';
 import {connect} from 'react-redux';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
 const CheckedBoxes: () => React$Node = props => {
+  const state = {
+    checkedId: -1,
+    checkboxes: [
+      {id: 'dreem', title: 'Dreem'},
+      {id: 'ax6', title: 'Ax6'},
+      {id: 'byteflies', title: 'Byteflies'},
+      {id: 'thinkFast', title: 'ThinkFast'},
+    ],
+  };
+  const [isSelected, setSelection] = useState(false);
+
   return (
-    <View style={styles.view}>
-      <Text style={styles.text}>Checked boxes</Text>
+    <View style={styles.container}>
+      <View style={styles.checkboxContainer}>
+        {state.checkboxes.map((param, i) => {
+          return (
+            <View style={styles.checkboxContainer} key={i}>
+              <CheckBox
+                value={isSelected}
+                onValueChange={newValue => setSelection(newValue)}
+                style={styles.checkbox}
+              />
+              <Text style={styles.label}>{param.title}</Text>
+            </View>
+          );
+        })}
+      </View>
+      <Text>Is CheckBox selected: {isSelected ? 'yes' : 'no'}</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  view: {
-    padding: Spacing.SCALE_8,
+  container: {
+    padding: 10,
     borderBottomWidth: Typography.BORDER_WIDTH,
     borderColor: Colors.GREY,
   },
-  text: {
-    fontSize: Typography.FONT_SIZE_20,
-    fontWeight: Typography.FONT_WEIGHT_BOLD,
-    color: Colors.black,
-    marginTop: Spacing.SCALE_4,
+  checkboxContainer: {
+    flexDirection: 'row',
+  },
+  checkbox: {
+    alignSelf: 'center',
+  },
+  label: {
+    margin: Spacing.SCALE_4,
   },
 });
 

@@ -33,7 +33,7 @@ const ContributionsMenu: () => React$Node = props => {
       <View style={styles.contributions}>
         {state.map((param, i) => {
           return (
-            <View style={styles.borderBar}>
+            <View style={styles.borderBar} key={i}>
               <Text style={styles.text}>{param.text}</Text>
               <param.logo
                 style={styles.star}
