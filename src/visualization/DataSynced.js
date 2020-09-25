@@ -26,7 +26,7 @@ const DataSync: () => React$Node = props => {
 const styles = StyleSheet.create({
   view: {
     padding: 4,
-    textAlign: 'right',
+    //textAlign: 'right',
   },
   title: {
     fontSize: Typography.FONT_SIZE_16,
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     paddingVertical: Spacing.SCALE_24,
     //paddingHorizontal: 34,
     borderWidth: 1,
-    borderColor: Colors.WHITE,
+    borderColor: Colors.WHITESMOKE,
     marginRight: Spacing.SCALE_16,
     marginLeft: Spacing.SCALE_16,
   },
