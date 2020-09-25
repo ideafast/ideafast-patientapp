@@ -17,18 +17,20 @@ const DataVolume: () => React$Node = props => {
   return (
     <View style={styles.view}>
       <Text style={styles.title}>Data Volume</Text>
-      <Svg>
-        <VictoryPie
-          standalone={false}
-          width={400}
-          height={230}
-          innerRadius={35}
-          labelPosition={({index}) => 'centroid'}
-          padAngle={({datum}) => 1}
-          data={DataPie.data}
-          colorScale={DataPie.colors}
-        />
-      </Svg>
+      <View style={styles.victoryPie}>
+        <Svg>
+          <VictoryPie
+            standalone={false}
+            width={400}
+            height={200}
+            innerRadius={25}
+            labelPosition={({index}) => 'centroid'}
+            padAngle={({datum}) => 1}
+            data={DataPie.data}
+            colorScale={DataPie.colors}
+          />
+        </Svg>
+      </View>
     </View>
   );
 };
@@ -36,7 +38,7 @@ const DataVolume: () => React$Node = props => {
 const styles = StyleSheet.create({
   view: {
     flex: 1,
-    padding: 4,
+    padding: 2,
     borderBottomWidth: Typography.BORDER_WIDTH,
     borderColor: Colors.GREY,
   },
@@ -46,6 +48,10 @@ const styles = StyleSheet.create({
     color: Colors.BLACK,
     marginLeft: Spacing.SCALE_8,
     marginTop: Spacing.SCALE_8,
+  },
+  victoryPie: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
