@@ -15,10 +15,11 @@ const CheckedBoxes: () => React$Node = props => {
   const state = {
     checkedId: -1,
     checkboxes: [
-      {id: 'dreem', title: 'Dreem'},
-      {id: 'ax6', title: 'Ax6'},
-      {id: 'byteflies', title: 'Byteflies'},
-      {id: 'thinkFast', title: 'ThinkFast'},
+      {id: 'dreem', title: 'Dreem', color: {}},
+      {id: 'ax6', title: 'Ax6', color: {}},
+      {id: 'byteflies', title: 'Byteflies', color: {}},
+      {id: 'everion', title: 'Everion', color: {}},
+      {id: 'thinkFast', title: 'ThinkFast', color: {}},
     ],
   };
   const [isSelected, setSelection] = useState(false);
@@ -30,8 +31,9 @@ const CheckedBoxes: () => React$Node = props => {
           return (
             <View style={styles.checkboxContainer} key={i}>
               <CheckBox
+                tintColors={{true: '#F15927', false: 'black'}}
                 value={isSelected}
-                onValueChange={newValue => setSelection(newValue)}
+                onValueChange={setSelection}
                 style={styles.checkbox}
               />
               <Text style={styles.label}>{param.title}</Text>
@@ -61,6 +63,9 @@ const styles = StyleSheet.create({
   },
   label: {
     margin: Spacing.SCALE_4,
+    fontSize: Typography.FONT_SIZE_12,
+    alignSelf: 'center',
+    //fontWeight: Typography.FONT_WEIGHT_BOLD,
   },
 });
 
