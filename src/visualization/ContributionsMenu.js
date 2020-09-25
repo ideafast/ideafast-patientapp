@@ -12,39 +12,38 @@ import Logo from '../assets/logo.svg';
 import {mapDispatchToProps} from '../ducks/actions';
 
 const ContributionsMenu: () => React$Node = props => {
+  const state = [
+    {
+      text: '7',
+      logo: Logo,
+    },
+    {
+      text: '97',
+      logo: Logo,
+    },
+    {
+      text: '4/5',
+      logo: Logo,
+    },
+  ];
+
   return (
     <View style={styles.view}>
       <Text style={styles.title}>Contributions</Text>
       <View style={styles.contributions}>
-        <View style={styles.borderBar}>
-          <Text style={styles.text}>7</Text>
-          <Logo
-            style={styles.star}
-            height={50}
-            width={50}
-            position="absolute"
-          />
-        </View>
-
-        <View style={styles.borderBar}>
-          <Text style={styles.text}>97</Text>
-          <Logo
-            style={styles.star}
-            height={50}
-            width={50}
-            position="absolute"
-          />
-        </View>
-
-        <View style={styles.borderBar}>
-          <Text style={styles.text}>4/5</Text>
-          <Logo
-            style={styles.star}
-            height={50}
-            width={50}
-            position="absolute"
-          />
-        </View>
+        {state.map((param, i) => {
+          return (
+            <View style={styles.borderBar}>
+              <Text style={styles.text}>{param.text}</Text>
+              <param.logo
+                style={styles.star}
+                height={50}
+                width={50}
+                position="absolute"
+              />
+            </View>
+          );
+        })}
       </View>
     </View>
   );
