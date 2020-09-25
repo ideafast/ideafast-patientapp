@@ -65,7 +65,6 @@ const styles = StyleSheet.create({
     margin: Spacing.SCALE_4,
     fontSize: Typography.FONT_SIZE_12,
     alignSelf: 'center',
-    //fontWeight: Typography.FONT_WEIGHT_BOLD,
   },
 });
 
