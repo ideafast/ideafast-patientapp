@@ -1,0 +1,8 @@
+{
+  "SectionName"        :"Apparaten",
+  "Text"               :"Dit is een container voor apparaten."
+  "BluetoothScanner"   :"Bluetooth-scanner",
+  "ScanBluetoothOff"   :"Scan bluetooth (Uit)",
+  "ScanBluetoothOn"    :"Scan bluetooth (Aan)",
+  "RetrievePeripherals":"Ophalen aangesloten randapparatuur"
+}
