@@ -1,0 +1,12 @@
+{
+  "SectionName" : "Beiträge",
+  "Text"        : "Dies ist ein Container für Beiträge.",
+  "DateAll"     : "Alle",
+  "DateDay"     : "1 Tag",
+  "DateWeek"    : "1 Woche",
+  "DateMonth"   : "3 Monate",
+  "Date3Days"   : "3 Tage",
+  "Settings"    : "Die Einstellungen",
+  "SettingsUser": "Nutzer(-in) ID",
+  "SettingsLang": "Anwendungssprache"
+}

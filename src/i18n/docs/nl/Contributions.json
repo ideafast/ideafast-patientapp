@@ -1,0 +1,12 @@
+{
+  "SectionName" : "Bijdragen",
+  "Text"        : "Dit is een container voor bijdragen.",
+  "DateAll"     : "Alle",
+  "DateDay"     : "1 dag",
+  "DateWeek"    : "1 week",
+  "DateMonth"   : "3 maanden",
+  "Date3Days"   : "3 dagen",
+  "Settings"    : "Instellingen",
+  "SettingsUser": "Gebruiker ID",
+  "SettingsLang": "Toepassingstaal"
+}
