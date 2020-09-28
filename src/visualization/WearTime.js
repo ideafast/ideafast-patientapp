@@ -7,8 +7,8 @@ import {StyleSheet, View} from 'react-native';
 import {Text} from 'react-native-elements';
 import {Colors, Typography, Spacing} from '../styles';
 import {connect} from 'react-redux';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Logo from '../assets/logo.svg';
-import Star from '../assets/star.svg';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
@@ -18,7 +18,12 @@ const WearTime: () => React$Node = props => {
       <Text style={styles.title}>Progress</Text>
       <View style={[styles.borderBar, styles.parent]}>
         <Text style={styles.text}>Wear Time</Text>
-        <Star style={styles.star} height={50} width={50} position="absolute" />
+        <FontAwesome5
+          name="star"
+          color={Colors.ORANGE}
+          size={Typography.FONT_SIZE_30}
+          style={styles.star}
+        />
         <Logo style={styles.chart} height={50} width={50} position="absolute" />
       </View>
     </View>
@@ -39,7 +44,7 @@ const styles = StyleSheet.create({
   },
   borderBar: {
     marginTop: Spacing.SCALE_16,
-    paddingVertical: Spacing.SCALE_24,
+    paddingVertical: Spacing.SCALE_8,
     //paddingHorizontal: 34,
     borderWidth: 1,
     borderColor: Colors.WHITESMOKE,
@@ -57,7 +62,7 @@ const styles = StyleSheet.create({
   },
   star: {
     marginLeft: Spacing.SCALE_8,
-    position: 'absolute',
+    //position: 'absolute',
   },
   chart: {
     marginRight: Spacing.SCALE_90,

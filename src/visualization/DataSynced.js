@@ -7,8 +7,8 @@ import {StyleSheet, View} from 'react-native';
 import {Text} from 'react-native-elements';
 import {Colors, Typography, Spacing} from '../styles';
 import {connect} from 'react-redux';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Logo from '../assets/logo.svg';
-import Cloud from '../assets/cloud.svg';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
@@ -17,11 +17,11 @@ const DataSync: () => React$Node = props => {
     <View style={styles.view}>
       <View style={[styles.borderBar, styles.parent]}>
         <Text style={styles.text}>Data Sync</Text>
-        <Cloud
+        <FontAwesome5
+          name="cloud"
+          color={Colors.BLUE}
+          size={Typography.FONT_SIZE_30}
           style={styles.cloud}
-          height={50}
-          width={50}
-          position="absolute"
         />
         <Logo style={styles.chart} height={50} width={50} position="absolute" />
       </View>
@@ -32,7 +32,6 @@ const DataSync: () => React$Node = props => {
 const styles = StyleSheet.create({
   view: {
     padding: 4,
-    //textAlign: 'right',
   },
   title: {
     fontSize: Typography.FONT_SIZE_16,
@@ -43,8 +42,8 @@ const styles = StyleSheet.create({
   },
   borderBar: {
     marginTop: Spacing.SCALE_16,
-    paddingVertical: Spacing.SCALE_24,
-    //paddingHorizontal: 34,
+    paddingVertical: Spacing.SCALE_8,
+    //paddingHorizontal: Spacing.SCALE_16,
     borderWidth: 1,
     borderColor: Colors.WHITESMOKE,
     marginRight: Spacing.SCALE_16,
@@ -61,7 +60,6 @@ const styles = StyleSheet.create({
   },
   cloud: {
     marginLeft: Spacing.SCALE_8,
-    position: 'absolute',
   },
   chart: {
     marginRight: Spacing.SCALE_90,

@@ -39,7 +39,7 @@ const ContributionsMenu: () => React$Node = props => {
                 name={param.logo}
                 color={Colors.ORANGE}
                 size={Typography.FONT_SIZE_30}
-                style={styles.star}
+                style={styles.logo}
               />
             </View>
           );
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'space-between',
   },
-  star: {
+  logo: {
     marginLeft: Spacing.SCALE_8,
     position: 'absolute',
   },
