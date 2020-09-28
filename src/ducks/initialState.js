@@ -10,7 +10,7 @@ const DEVICES = [
     image: defaultImage,
     color: Colors.DEVICES.BYTEFLIES,
   },
-  {id: 2, name: 'Dreem', image: defaultImage, color: Colors.DEVICES.Dreem},
+  {id: 2, name: 'Dreem', image: defaultImage, color: Colors.DEVICES.DREEM},
   {id: 3, name: 'eBedSensor', image: defaultImage, color: Colors.DEVICES.null},
   {id: 4, name: 'Everion', image: defaultImage, color: Colors.DEVICES.EVERION},
   {
