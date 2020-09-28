@@ -6,8 +6,11 @@ export const WHITESMOKE = '#f5f5f5';
 export const GREY = '#BEBEBE';
 export const MODAL = 'rgba(102, 102, 102, 0.75)';
 export const BORDER = '#E3E2E3';
-export const DREEM = '#fe234f';
-export const AX6 = '#595a5e';
-export const BYTEFLIES = '#5ba5ce';
-export const EVERION = '#d1fcff';
-export const THINKFAST = '#219ca3';
+
+export const DEVICES = {
+  DREEM: '#fe234f',
+  AX6: '#595a5e',
+  BYTEFLIES: '#5ba5ce',
+  EVERION: '#d1fcff',
+  THINKFAST: '#219ca3',
+};

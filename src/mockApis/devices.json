@@ -26,14 +26,14 @@
         "end":"2020-04-24T04:00:00.111Z",
         "sessions": [
           {
-            "size": 2000000,
+            "size": 5,
             "duration": 50400,
             "quality": 0.65,
             "startDate": "2020-04-23T22:25:43.511Z",
             "endDate": "2020-04-24T08:00:01.511Z"
           },
           {
-            "size": 240000,
+            "size": 15,
             "duration": 120,
             "quality": 0.38,
             "startDate": "2020-04-24T12:25:43.511Z",
@@ -69,21 +69,21 @@
         "end":"2020-04-25T04:00:00.111Z",
         "sessions": [
           {
-            "size": 1000000,
+            "size": 10,
             "duration": 1080,
             "quality": 0.65,
             "startDate": "2020-04-23T22:25:43.511Z",
             "endDate": "2020-04-24T08:00:01.511Z"
           },
           {
-            "size": 120000000,
+            "size": 20,
             "duration": 120,
             "quality": 0.88,
             "startDate": "2020-04-24T12:25:43.511Z",
             "endDate": "2020-04-24T14:09:01.511Z"
           },
           {
-            "size": 600000000,
+            "size": 30,
             "duration": 540,
             "quality": 0.35,
             "startDate": "2020-04-24T23:00:00.000Z",

@@ -9,11 +9,26 @@ import {Colors, Typography, Spacing} from '../styles';
 import {connect} from 'react-redux';
 import {VictoryPie} from 'victory-native';
 import {Svg} from 'react-native-svg';
-import {DataPie} from '../dataVisualization';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
 const DataVolume: () => React$Node = props => {
+  //const metrics = props.devices.map(device => device.metrics);
+
+  //const device = metrics.map(s => s.reduce((a, b) => a + b));
+  //console.log(device);
+
+  const deviceSizes = props.deviceMetrics.map(d =>
+    d.metrics.sessions.map(s => s.size).reduce((a, b) => a + b),
+  );
+  //console.log(metrics[1]);
+  //const size = metrics.map(session => session);
+  //.reduce((a, b) => a + b);
+  //console.log(metrics.map(s => s.map(d => d.size)));
+  //const size = metrics.map(s => s.map(d => d.size));
+  //console.log(metrics.map(s => s.map(d => d.size)));
+  //console.log(props.size);
+
   return (
     <View style={styles.view}>
       <Text style={styles.title}>Data Volume</Text>
@@ -26,8 +41,8 @@ const DataVolume: () => React$Node = props => {
             innerRadius={25}
             labelPosition={({index}) => 'centroid'}
             padAngle={({datum}) => 1}
-            data={DataPie.data}
-            colorScale={DataPie.colors}
+            data={deviceSizes}
+            colorScale={props.devices.map(d => d.color)}
           />
         </Svg>
       </View>

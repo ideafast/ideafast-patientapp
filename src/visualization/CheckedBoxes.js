@@ -15,11 +15,11 @@ const CheckedBoxes: () => React$Node = props => {
   const state = {
     checkedId: -1,
     checkboxes: [
-      {id: 'dreem', title: 'Dreem', color: Colors.DREEM},
-      {id: 'ax6', title: 'Ax6', color: Colors.AX6},
-      {id: 'byteflies', title: 'Byteflies', color: Colors.BYTEFLIES},
-      {id: 'everion', title: 'Everion', color: Colors.EVERION},
-      {id: 'thinkFast', title: 'ThinkFast', color: Colors.THINKFAST},
+      {id: 'dreem', title: 'Dreem', color: Colors.DEVICES.DREEM},
+      {id: 'ax6', title: 'Ax6', color: Colors.DEVICES.AX6},
+      {id: 'byteflies', title: 'Byteflies', color: Colors.DEVICES.BYTEFLIES},
+      {id: 'everion', title: 'Everion', color: Colors.DEVICES.EVERION},
+      {id: 'thinkFast', title: 'ThinkFast', color: Colors.DEVICES.THINKFAST},
     ],
   };
   const [isSelected, setSelection] = useState(false);
