@@ -13,21 +13,9 @@ import {Svg} from 'react-native-svg';
 import {mapDispatchToProps} from '../ducks/actions';
 
 const DataVolume: () => React$Node = props => {
-  //const metrics = props.devices.map(device => device.metrics);
-
-  //const device = metrics.map(s => s.reduce((a, b) => a + b));
-  //console.log(device);
-
   const deviceSizes = props.deviceMetrics.map(d =>
     d.metrics.sessions.map(s => s.size).reduce((a, b) => a + b),
   );
-  //console.log(metrics[1]);
-  //const size = metrics.map(session => session);
-  //.reduce((a, b) => a + b);
-  //console.log(metrics.map(s => s.map(d => d.size)));
-  //const size = metrics.map(s => s.map(d => d.size));
-  //console.log(metrics.map(s => s.map(d => d.size)));
-  //console.log(props.size);
 
   return (
     <View style={[styles.view, styles.border]}>
@@ -55,34 +43,19 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: Spacing.SCALE_8,
     justifyContent: 'center',
-    //alignItems: 'center',
-    //marginTop: Spacing.SCALE_8,
-    //paddingHorizontal: Spacing.SCALE_42,
-    //flexDirection: 'row',
   },
   border: {
-    //paddingHorizontal: Spacing.SCALE_24,
-    //paddingVertical: Spacing.SCALE_4,
-    //paddingEnd: 160,
-    //padding:8,
     borderWidth: 1,
     borderColor: Colors.GREY,
-    //marginRight: Spacing.SCALE_16,
-    //marginLeft: Spacing.SCALE_16,
   },
   title: {
     fontSize: Typography.FONT_SIZE_16,
     fontWeight: Typography.FONT_WEIGHT_BOLD,
     color: Colors.BLACK,
-    //marginLeft: Spacing.SCALE_8,
-    //marginTop: Spacing.SCALE_16,
-    //paddingBottom: Spacing.SCALE_16,
   },
   victoryPie: {
     justifyContent: 'center',
     alignItems: 'center',
-    //marginBottom: Spacing.SCALE_16,
-    //paddingBottom: Spacing.SCALE_42,
   },
 });
 
