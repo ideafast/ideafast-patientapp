@@ -51,8 +51,8 @@ const CheckedBoxes: () => React$Node = props => {
 const styles = StyleSheet.create({
   container: {
     padding: 0,
-    borderBottomWidth: Typography.BORDER_WIDTH,
-    borderColor: Colors.GREY,
+    //borderBottomWidth: Typography.BORDER_WIDTH,
+    //borderColor: Colors.GREY,
   },
   checkboxContainer: {
     flexDirection: 'row',

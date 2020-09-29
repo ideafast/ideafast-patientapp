@@ -8,14 +8,14 @@ import {Text} from 'react-native-elements';
 import {Colors, Typography, Spacing} from '../styles';
 import {connect} from 'react-redux';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import Logo from '../assets/logo.svg';
+import Progress from '../visualization/Progress';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
 const DataSync: () => React$Node = props => {
   return (
     <View style={styles.view}>
-      <View style={[styles.borderBar, styles.parent]}>
+      <View style={styles.borderBar}>
         <Text style={styles.text}>Data Sync</Text>
         <FontAwesome5
           name="cloud"
@@ -23,7 +23,7 @@ const DataSync: () => React$Node = props => {
           size={Typography.FONT_SIZE_30}
           style={styles.cloud}
         />
-        <Logo style={styles.chart} height={50} width={50} position="absolute" />
+        <Progress />
       </View>
     </View>
   );
@@ -32,6 +32,7 @@ const DataSync: () => React$Node = props => {
 const styles = StyleSheet.create({
   view: {
     padding: 4,
+    //flex: 1,
   },
   title: {
     fontSize: Typography.FONT_SIZE_16,
@@ -39,11 +40,12 @@ const styles = StyleSheet.create({
     color: Colors.BLACK,
     marginLeft: Spacing.SCALE_8,
     marginTop: Spacing.SCALE_8,
+    //marginBottom: Spacing.SCALE_24,
   },
   borderBar: {
-    marginTop: Spacing.SCALE_16,
-    paddingVertical: Spacing.SCALE_8,
-    //paddingHorizontal: Spacing.SCALE_16,
+    //marginTop: Spacing.SCALE_42,
+    //paddingVertical: Spacing.SCALE_8,
+    //paddingHorizontal: Spacing.SCALE_8,
     borderWidth: 1,
     borderColor: Colors.WHITESMOKE,
     marginRight: Spacing.SCALE_16,
@@ -53,8 +55,8 @@ const styles = StyleSheet.create({
     fontSize: Typography.FONT_SIZE_20,
     fontWeight: Typography.FONT_WEIGHT_BOLD,
     color: Colors.BLACK,
-    position: 'absolute',
-    flexWrap: 'wrap',
+    //position: 'absolute',
+    //flexWrap: 'wrap',
     marginLeft: Spacing.SCALE_90,
     //alignSelf: 'center',
   },
@@ -62,12 +64,13 @@ const styles = StyleSheet.create({
     marginLeft: Spacing.SCALE_8,
   },
   chart: {
-    marginRight: Spacing.SCALE_90,
-    position: 'absolute',
+    //marginRight: Spacing.SCALE_90,
+    //position: 'absolute',
     //justifyContent: 'flex-end',
-    flexDirection: 'row',
-    alignSelf: 'flex-end',
-    alignItems: 'flex-end',
+    //flexDirection: 'row',
+    //alignSelf: 'flex-end',
+    //alignItems: 'flex-end',
+    //flexDirection: 'row',
   },
 });
 
