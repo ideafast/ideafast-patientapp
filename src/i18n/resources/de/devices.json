@@ -1,0 +1,10 @@
+{
+  "title": "Geräte",
+  "text" : "Dies ist ein Container für Geräte.",
+  "bluetooth": {
+    "scanner": "Bluetooth-Scanner",
+    "bluetoothOff": "BLUETOOTH SCANNEN (AUS)",
+    "bluetoothOn": "BLUETOOTH SCANNEN (EIN)",
+    "peripherals": "Angeschlossene Peripheriegeräte abrufen",
+  }
+}

@@ -1,8 +1,0 @@
-{
-  "SectionName"        : "Geräte",
-  "Text"               : "Dies ist ein Container für Geräte.",
-  "BluetoothScanner"   : "Bluetooth-Scanner",
-  "ScanBluetoothOFF"   : "BLUETOOTH SCANNEN (AUS)",
-  "ScanBluetoothON"    : "BLUETOOTH SCANNEN (EIN)",
-  "RetrievePeripherals": "Angeschlossene Peripheriegeräte abrufen"
-}

@@ -1,8 +1,0 @@
-{
-  "SectionName"        : "Devices",
-  "Text"               : "This is a container for devices.",
-  "BluetoothScanner"   : "Bluetooth scanner",
-  "ScanBluetoothOFF"   : "SCAN BLUETOOTH (OFF)",
-  "ScanBluetoothON"    : "SCAN BLUETOOTH (ON)",
-  "RetrievePeripherals": "RETRIEVE CONNECTED PERIPHERALS"
-}

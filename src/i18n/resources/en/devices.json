@@ -1,0 +1,10 @@
+{
+  "title": "Devices",
+  "text" : "This is a container for devices.",
+  "bluetooth": {
+    "scanner": "Bluetooth scanner",
+    "bluetoothOff": "SCAN BLUETOOTH (OFF)",
+    "bluetoothOn": "SCAN BLUETOOTH (ON)",
+    "peripherals": "RETRIEVE CONNECTED PERIPHERALS"
+  }
+}

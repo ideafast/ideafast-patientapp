@@ -1,0 +1,10 @@
+{
+  "title": "Apparaten",
+  "text" : "Dit is een container voor apparaten.",
+  "bluetooth": {
+    "scanner": "Bluetooth-scanner",
+    "bluetoothOff": "Scan bluetooth (Uit)",
+    "bluetoothOn": "Scan bluetooth (Aan)",
+    "peripherals": "Ophalen aangesloten randapparatuur",
+  }
+}

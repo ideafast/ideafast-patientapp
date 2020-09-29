@@ -1,0 +1,16 @@
+{
+  "title" : "Contributions",
+  "text"  : "This is a container for contributions.",
+  "picker": {
+    "all": "All",
+    "day": "1 Day",
+    "week": "1 Week",
+    "month": "3 Months",
+    "days": "3 Days"
+  },
+  "settings": {
+    "title": "Settings",
+    "user": "User ID",
+    "lang": "Application Language"
+  }
+}

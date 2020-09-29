@@ -1,18 +1,18 @@
-import ContributionsDE from './de/Contributions.json';
-import ContributionsEN from './en/Contributions.json';
-import ContributionsNL from './nl/Contributions.json';
+import ContributionsDE from './de/contributions.json';
+import ContributionsEN from './en/contributions.json';
+import ContributionsNL from './nl/contributions.json';
 
-import DevicesDE from './de/Devices.json';
-import DevicesEN from './en/Devices.json';
-import DevicesNL from './nl/Devices.json';
+import DevicesDE from './de/devices.json';
+import DevicesEN from './en/devices.json';
+import DevicesNL from './nl/devices.json';
 
-import LoginDE from './de/LogIn.json';
-import LoginEN from './en/LogIn.json';
-import LoginNL from './nl/LogIn.json';
+import LoginDE from './de/verify.json';
+import LoginEN from './en/verify.json';
+import LoginNL from './nl/verify.json';
 
-import SupportDE from './de/Support.json';
-import SupportEN from './en/Support.json';
-import SupportNL from './nl/Support.json';
+import SupportDE from './de/support.json';
+import SupportEN from './en/support.json';
+import SupportNL from './nl/support.json';
 
 export default {
   contributionsContainer: {
