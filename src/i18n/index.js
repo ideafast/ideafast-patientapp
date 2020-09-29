@@ -1,24 +1,22 @@
 import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
 
+import ContributionsDE from './resources/de/Contributions.json';
+import ContributionsEN from './resources/en/Contributions.json';
+import ContributionsNL from './resources/nl/Contributions.json';
+
 i18n.use(initReactI18next).init({
   lng: 'en',
   fallbackLng: 'en',
   resources: {
     en: {
-      common: {
-        title: 'This is a container for contributions.',
-      },
+      contributions: ContributionsEN,
     },
     nl: {
-      common: {
-        title: 'Dit is een container voor bijdragen.',
-      },
+      contributions: ContributionsNL,
     },
     de: {
-      common: {
-        title: 'Dies ist ein Container für Beiträge.',
-      },
+      contributions: ContributionsDE,
     },
   },
 });

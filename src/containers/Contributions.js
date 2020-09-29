@@ -12,10 +12,10 @@ import {connect} from 'react-redux';
 import {mapDispatchToProps} from '../ducks/actions';
 
 const Contributions: () => React$Node = props => {
-  const {t, i18n} = useTranslation('common');
+  const {t, i18n} = useTranslation('contributions');
   return (
     <View style={styles.view}>
-      <Text style={styles.text}>{t('title')}</Text>
+      <Text style={styles.text}>{t('Text')}</Text>
     </View>
   );
 };
