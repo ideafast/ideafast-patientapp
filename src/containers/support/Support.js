@@ -9,7 +9,7 @@ import {connect} from 'react-redux';
 import {mapDispatchToProps} from '../../ducks/actions';
 
 import {ScrollView} from 'react-native-gesture-handler';
-import {Colors, Spacing} from '../../styles';
+import {Spacing} from '../../styles';
 
 import DeviceRowSupport from '../../components/devices/DeviceRowSupport';
 
@@ -37,7 +37,6 @@ const Support: () => React$Node = props => {
 const styles = StyleSheet.create({
   view: {
     flex: 1,
-    backgroundColor: Colors.WHITESMOKE,
   },
   container: {
     marginTop: Spacing.SCALE_16,

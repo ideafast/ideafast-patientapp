@@ -28,7 +28,7 @@ const DeviceRow: () => React$Node = ({
             {isError && (
               <FontAwesome
                 style={styles.error}
-                size={15}
+                size={Typography.FONT_SIZE_18}
                 name="exclamation-circle"
               />
             )}
@@ -36,7 +36,7 @@ const DeviceRow: () => React$Node = ({
           </View>
           <Text style={styles.subtitle}>{status}</Text>
         </View>
-        <View style={[styles.actions]}>{children}</View>
+        <View style={styles.actions}>{children}</View>
       </View>
     </TouchableHighlight>
   );
