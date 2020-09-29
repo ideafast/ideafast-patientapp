@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {View} from 'react-native';
 import {connect} from 'react-redux';
+import i18n from 'i18next';
 
 import {mapDispatchToProps} from '../ducks/actions';
 import RadioButtons from '../components/RadioButtons';
@@ -18,6 +19,7 @@ const LanguageSelection: () => React$Node = props => {
 
   const setLanguage = language => {
     props.setUserLang(language.code);
+    i18n.changeLanguage(language.code);
     showhideModal();
   };
 
