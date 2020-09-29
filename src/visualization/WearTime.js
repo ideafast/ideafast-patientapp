@@ -33,19 +33,15 @@ const WearTime: () => React$Node = props => {
 const styles = StyleSheet.create({
   view: {
     padding: 4,
-    //flex: 1,
   },
   title: {
     fontSize: Typography.FONT_SIZE_16,
     fontWeight: Typography.FONT_WEIGHT_BOLD,
     color: Colors.BLACK,
     marginLeft: Spacing.SCALE_8,
-    //marginTop: Spacing.SCALE_4,
     marginBottom: Spacing.SCALE_8,
   },
   borderBar: {
-    //marginTop: Spacing.SCALE_42,
-    //paddingVertical: Spacing.SCALE_8,
     paddingHorizontal: Spacing.SCALE_8,
     borderWidth: 1,
     borderColor: Colors.WHITESMOKE,
@@ -56,22 +52,10 @@ const styles = StyleSheet.create({
     fontSize: Typography.FONT_SIZE_20,
     fontWeight: Typography.FONT_WEIGHT_BOLD,
     color: Colors.BLACK,
-    //position: 'absolute',
-    //flexWrap: 'wrap',
     marginLeft: Spacing.SCALE_90,
-    //alignSelf: 'center',
   },
   cloud: {
     marginLeft: Spacing.SCALE_8,
-  },
-  chart: {
-    //marginRight: Spacing.SCALE_90,
-    //position: 'absolute',
-    //justifyContent: 'flex-end',
-    //flexDirection: 'row',
-    //alignSelf: 'flex-end',
-    //alignItems: 'flex-end',
-    //flexDirection: 'row',
   },
 });
 
