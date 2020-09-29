@@ -39,10 +39,10 @@ const styles = StyleSheet.create({
     fontWeight: Typography.FONT_WEIGHT_BOLD,
     color: Colors.BLACK,
     marginLeft: Spacing.SCALE_8,
-    marginBottom: Spacing.SCALE_8,
+    marginTop: Spacing.SCALE_8,
   },
   borderBar: {
-    paddingHorizontal: Spacing.SCALE_8,
+    //paddingHorizontal: Spacing.SCALE_8,
     borderWidth: 1,
     borderColor: Colors.WHITESMOKE,
     marginRight: Spacing.SCALE_16,
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     color: Colors.BLACK,
     marginLeft: Spacing.SCALE_90,
   },
-  cloud: {
+  star: {
     marginLeft: Spacing.SCALE_8,
   },
 });
