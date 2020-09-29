@@ -18,7 +18,7 @@ const Progress: () => React$Node = props => {
         horizontal
         offset={10}
         height={150}
-        width={150}
+        width={190}
         colorScale={DataProgress.colors}
         style={{
           data: {
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     marginLeft: Spacing.SCALE_8,
   },
   chart: {
-    marginRight: Spacing.SCALE_200,
+    marginRight: Spacing.SCALE_150,
     justifyContent: 'flex-end',
     //flexDirection: 'row',
     //alignSelf: 'flex-end',
