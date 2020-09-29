@@ -7,9 +7,12 @@ import {mapDispatchToProps} from '../ducks/actions';
 import RadioButtons from '../components/RadioButtons';
 import SharedModal from '../components/SharedModal';
 import SettingsRow from '../components/SettingsRow';
+import {useTranslation} from 'react-i18next';
 
 const LanguageSelection: () => React$Node = props => {
   const [userLang, setUserLang] = useState(props.userLang);
+
+  const {t, i18n} = useTranslation('contributions');
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -41,12 +44,12 @@ const LanguageSelection: () => React$Node = props => {
     <View>
       <SharedModal
         children={languageButtons}
-        title={'Choose Language'}
+        title={t('settings.choose')}
         isVisible={modalVisible}
         onPress={showhideModal}
       />
       <SettingsRow
-        title={'Application Language'}
+        title={t('settings.lang')}
         children={activeLanguage}
         onPress={showhideModal}
       />
