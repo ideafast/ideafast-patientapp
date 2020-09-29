@@ -16,7 +16,7 @@ const WearTime: () => React$Node = props => {
   return (
     <View style={styles.view}>
       <Text style={styles.title}>Progress</Text>
-      <View style={[styles.borderBar, styles.parent]}>
+      <View style={styles.borderBar}>
         <Text style={styles.text}>Wear Time</Text>
         <FontAwesome5
           name="star"

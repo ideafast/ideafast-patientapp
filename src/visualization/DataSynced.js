@@ -33,13 +33,6 @@ const styles = StyleSheet.create({
   view: {
     padding: 4,
   },
-  title: {
-    fontSize: Typography.FONT_SIZE_16,
-    fontWeight: Typography.FONT_WEIGHT_BOLD,
-    color: Colors.BLACK,
-    marginLeft: Spacing.SCALE_8,
-    marginTop: Spacing.SCALE_8,
-  },
   borderBar: {
     borderWidth: 1,
     borderColor: Colors.WHITESMOKE,
