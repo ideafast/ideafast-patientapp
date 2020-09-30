@@ -1,7 +1,5 @@
-import Config from 'react-native-config';
-const {API_URL} = Config;
-
 import * as actiontypes from './actiontypes';
+import {API} from '../api';
 
 export const mapDispatchToProps = dispatch => ({
   verifyUserID: userID => dispatch(verifyUserID(userID)),
@@ -9,12 +7,12 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 const verifyUserID = userID => async dispatch => {
-  const response = await fetch(`${API_URL}/verify`, {
-    method: 'post',
-    body: JSON.stringify({userID}),
-  });
-  const verificationJSON = await response.json();
-  await dispatch(setUserID(verificationJSON.participant.id));
+  const {data, meta} = await API.verifyUser(userID);
+  if (meta.success) {
+    await dispatch(setUserID(data.participant.id));
+  } else {
+    // TODO: currently only works for success case
+  }
 };
 
 const setUserID = userID => ({
