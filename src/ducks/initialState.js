@@ -1,54 +1,17 @@
 const defaultImage = require('../assets/devices/default.png');
-import device_metrics from '../mockApis/devices.json';
-import {Colors} from '../styles';
 
 const DEVICES = [
-  {id: 0, name: 'Axivity', image: defaultImage, color: Colors.DEVICES.AX6},
-  {
-    id: 1,
-    name: 'Byteflies',
-    image: defaultImage,
-    color: Colors.DEVICES.BYTEFLIES,
-  },
-  {id: 2, name: 'Dreem', image: defaultImage, color: Colors.DEVICES.DREEM},
-  {id: 3, name: 'eBedSensor', image: defaultImage, color: Colors.DEVICES.null},
-  {id: 4, name: 'Everion', image: defaultImage, color: Colors.DEVICES.EVERION},
-  {
-    id: 5,
-    name: 'Move Monitor',
-    image: defaultImage,
-    color: Colors.DEVICES.null,
-  },
-  {
-    id: 6,
-    name: 'Samsung Smartphone',
-    image: defaultImage,
-    color: Colors.DEVICES.null,
-  },
-  {
-    id: 7,
-    name: 'Stress Monitor',
-    image: defaultImage,
-    color: Colors.DEVICES.null,
-  },
-  {
-    id: 8,
-    name: 'Think Fast',
-    image: defaultImage,
-    color: Colors.DEVICES.THINKFAST,
-  },
-  {
-    id: 9,
-    name: 'Vital Patch',
-    image: defaultImage,
-    color: Colors.DEVICES.null,
-  },
-  {
-    id: 10,
-    name: 'ZKOne YOLI',
-    image: defaultImage,
-    color: Colors.DEVICES.null,
-  },
+  {id: 0, name: 'Axivity', image: defaultImage},
+  {id: 1, name: 'Byteflies', image: defaultImage},
+  {id: 2, name: 'Dreem', image: defaultImage},
+  {id: 3, name: 'eBedSensor', image: defaultImage},
+  {id: 4, name: 'Everion', image: defaultImage},
+  {id: 5, name: 'Move Monitor', image: defaultImage},
+  {id: 6, name: 'Samsung Smartphone', image: defaultImage},
+  {id: 7, name: 'Stress Monitor', image: defaultImage},
+  {id: 8, name: 'Think Fast', image: defaultImage},
+  {id: 9, name: 'Vital Patch', image: defaultImage},
+  {id: 10, name: 'ZKOne YOLI', image: defaultImage},
 ];
 
 const SUPPORTED_LANGUAGES = [
@@ -71,5 +34,4 @@ export default {
   userLang: 'en',
   languages: SUPPORTED_LANGUAGES,
   devices: DEVICES,
-  deviceMetrics: device_metrics,
 };
