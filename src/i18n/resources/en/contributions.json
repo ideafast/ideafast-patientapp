@@ -11,6 +11,7 @@
   "settings": {
     "title": "Settings",
     "user": "User ID",
-    "lang": "Application Language"
+    "lang": "Application Language",
+    "choose": "Choose language"
   }
 }
