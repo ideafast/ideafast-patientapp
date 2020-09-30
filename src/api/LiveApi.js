@@ -7,11 +7,11 @@ export default class LiveApi extends ApiInterface {
       const url = `${this.endpoint}/${resource}`;
       const options = {method: method, body: JSON.stringify(body)};
 
-      let response = await fetch(url, options);
+      const response = await fetch(url, options);
 
       const isSuccessfulResponse = [200, 201, 204].includes(response.status);
 
-      let payload = await response.json();
+      const payload = await response.json();
 
       return this.makeEnvelope(
         isSuccessfulResponse,

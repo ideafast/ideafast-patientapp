@@ -9,6 +9,6 @@ const isMockApi = MOCK_API === 'true';
 const ApiType = isMockApi ? MockApi : LiveApi;
 
 // Create an instance of the API for global use
-let API = new ApiType(API_URL);
+const API = new ApiType(API_URL);
 
 export {API};
