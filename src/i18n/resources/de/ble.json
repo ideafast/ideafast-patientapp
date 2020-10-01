@@ -1,0 +1,20 @@
+{
+  "foreground" : "App ist in den Vordergrund getreten!",
+  "connectedPer" : "Angeschlossene Peripheriegeräte: ",
+  "blePer" : "Habe ble Peripherie",
+  "ScanStop" : "Der Scan wird gestoppt",
+  "disconnect": "Getrennt von ",
+  "dataReceived": "Empfangene Daten von ",
+  "characteristic" : "Merkmal",
+  "permission": "Erlaubnis ist in Ordnung",
+  "userA" : "Benutzer akzeptieren",
+  "userR" : "Benutzer ablehnen",
+  "scanning" : "Scannen ...",
+  "noPer" : "Keine angeschlossenen Peripheriegeräte",
+  "connect" : "Verbunden mit ",
+  "scanner": "Bluetooth-Scanner",
+  "bluetooth": "Bluetooth scannen (",
+  "on" : "on",
+  "off" : "aus",
+  "peripherals": "Verbundene Peripheriegeräte abrufen"
+}

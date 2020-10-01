@@ -25,6 +25,10 @@ import LanguagesDE from './resources/de/languages.json';
 import LanguagesEN from './resources/en/languages.json';
 import LanguagesNL from './resources/nl/languages.json';
 
+import BleDE from './resources/de/ble.json';
+import BleEN from './resources/en/ble.json';
+import BleNL from './resources/nl/ble.json';
+
 i18n.use(initReactI18next).init({
   lng: 'en',
   fallbackLng: 'en',
@@ -36,6 +40,7 @@ i18n.use(initReactI18next).init({
       support: SupportEN,
       nav: NavigationEN,
       languages: LanguagesEN,
+      ble: BleEN,
     },
     nl: {
       contributions: ContributionsNL,
@@ -44,6 +49,7 @@ i18n.use(initReactI18next).init({
       support: SupportNL,
       nav: NavigationNL,
       languages: LanguagesNL,
+      ble: BleNL,
     },
     de: {
       contributions: ContributionsDE,
@@ -52,6 +58,7 @@ i18n.use(initReactI18next).init({
       support: SupportDE,
       nav: NavigationDE,
       languages: LanguagesDE,
+      ble: BleDE,
     },
   },
 });
