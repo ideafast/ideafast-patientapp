@@ -2,7 +2,7 @@
  * @format
  * @flow strict-local
  */
-import React from 'react';
+import React, {useEffect} from 'react';
 import {StyleSheet, View, SafeAreaView, Button} from 'react-native';
 import {Colors, Spacing} from '../../styles';
 import {FlatList} from 'react-native-gesture-handler';
@@ -10,12 +10,17 @@ import {FlatList} from 'react-native-gesture-handler';
 import {connect} from 'react-redux';
 import {mapDispatchToProps} from '../../ducks/actions';
 
-import DeviceRowItem from '../../components/devices/DeviceRowItem';
+import DeviceRowItem from '../../components/devices/DeviceList';
 import DeviceIcons from '../../components/devices/DeviceIcons';
 
 import {FormatBytes, LastUploadTime} from '../../util/General';
 
 const Devices: () => React$Node = props => {
+  useEffect(() => {
+    const fetchDevices = async () => await props.getDevices();
+    fetchDevices();
+  }, [props]);
+
   const errorByCode = code => props.deviceErrors[code][props.userLang];
   const hasError = device => !!device.status.error;
 

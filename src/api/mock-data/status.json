@@ -2,9 +2,17 @@
   "uuid": "yyyxxx12668888",
   "name": "dreem",
   "status": {
-    "device": {
-      "battery": 72,
-      "isBleOn": true
+    "hardware": {
+      "features": {
+        "ble": false,
+        "wifi": false,
+        "wired": true
+      },
+      "connection": {
+        "battery": 0,
+        "ble": null,
+        "wifi": null
+      }
     },
     "data": {
       "isOnDevice": true,
@@ -12,7 +20,8 @@
       "isUploading": false,
       "startRecorded": "2020-04-23T18:25:43.511Z",
       "endRecorded": "2020-04-26T18:25:43.511Z",
-      "lastUploaded": "2020-04-29T18:25:43.511Z"
-    }
+      "lastUploaded": "2020-09-20T18:25:43.511Z"
+    },
+    "error": null
   }
 }
