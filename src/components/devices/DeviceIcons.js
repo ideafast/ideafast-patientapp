@@ -1,46 +1,39 @@
 import React from 'react';
-import {StyleSheet, View, Button, Text} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {Colors, Typography, Spacing} from '../../styles';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const DeviceIcons: () => React$Node = ({status}) => {
   const chooseIcon = icon => (
-    <MaterialIcon
-      style={styles.icon}
-      size={Typography.FONT_SIZE_18}
-      name={icon}
-    />
+    <MaterialIcon key={icon} style={styles.icon} name={icon} />
   );
 
-  const setStatusIcons = status => {
-    // TODO: this should be renamed to hardware in the API, e.g. device.status.hardware ?
-    const children = [];
+  // TODO: check locally if the device is connected to BLE?
+  // const isDeviceConnectedToBLE = uuid => true;
+  // TODO: push a notification to the user
+  const pushNotfication = message => true;
+
+  /* eslint-disable no-shadow */
+  const iconsForStatus = status => {
+    const icons = [];
 
     if (status.hasBLE) {
-      // TODO: check locally if the device is connected to BLE?
-      // NEED_TO_KNOW: device.status.hardware.ble.uuid
-      const isConnectedToBLELocally = true;
-      const isConnectedToBLE = isConnectedToBLELocally
-        ? 'bluetooth'
-        : 'bluetooth-off';
-      // TODO: if they are disconnected, then send push notfication
-      children.push(chooseIcon(isConnectedToBLE));
+      const isBLEOn = true;
+      const isConnectedToBLE = isBLEOn ? 'bluetooth' : 'bluetooth-off';
+      // TODO: need to determine if this is witin the wear-time period
+      if (!isBLEOn) {
+        pushNotfication('');
+      }
+      icons.push(chooseIcon(isConnectedToBLE));
     }
 
     if (status.battery) {
       const batteryStatus =
         status.battery === 100 ? 'battery' : `battery-${status.battery}`;
-      // TODO: do we reall care if it is charging? Probably: no, but if yes:
-      // batteryStatus = status.isCharging ? 'battery-charging' : batteryStatus;
-      // const hasBattery = chooseIcon(isConnectedToBLE)
-      // TODO: do we want to change color based on status, i.e. if < 30%?
-      children.push(chooseIcon(batteryStatus));
+      icons.push(chooseIcon(batteryStatus));
     }
 
-    // TODO: for McRoberts + AX6 we could infer a charge-time, e.g. if the server knows
-    // the wear-time and when the device was discharged, we can show the battery.
-    // However, this might confuse patients.
-    if (status.battery === null && status.hasWallCharging) {
+    if (status.hasWallCharging) {
       // && device.status?.device.isOnline
       // TODO: we need to push an error here if wallCharging is false
       // TODO: should rename 'isOnline' to 'isCharging'?
@@ -48,20 +41,20 @@ const DeviceIcons: () => React$Node = ({status}) => {
       const isWiredConnected = status.isOnline
         ? 'power-plug-outline'
         : 'power-plug-off-outline';
-      children.push(chooseIcon(isWiredConnected));
+      icons.push(chooseIcon(isWiredConnected));
     }
 
-    // TODO: display another icon if device.status.device?.isWiFiOn, e.g. it is charging?
     if (status.hasWiFi) {
       // TODO: rename isWiFiOn -> isWiFiEnabled
-      const wifiIcon = status.isWiFiOn ? 'wifi' : 'wifi-off';
-      children.push(chooseIcon(wifiIcon));
+      const wifiIcon =
+        status.isWiFiOn && !status.hasWallCharging ? 'wifi' : 'wifi-off';
+      icons.push(chooseIcon(wifiIcon));
     }
 
-    return children;
+    return icons;
   };
 
-  return setStatusIcons(status);
+  return iconsForStatus(status);
 };
 
 const styles = StyleSheet.create({

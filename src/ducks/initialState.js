@@ -19,7 +19,7 @@ const DEVICES = [
         endRecorded: null,
         lastUploaded: null,
       },
-      errors: [],
+      error: null,
     },
   },
   {
@@ -45,7 +45,7 @@ const DEVICES = [
         endRecorded: '2020-04-26T18:25:43.511Z',
         lastUploaded: '2020-04-29T18:25:43.511Z',
       },
-      errors: [],
+      error: null,
     },
   },
   {
@@ -70,7 +70,7 @@ const DEVICES = [
         endRecorded: '2020-04-26T18:25:43.511Z',
         lastUploaded: '2020-09-20T18:25:43.511Z',
       },
-      errors: ['WIFI_OFFLINE'],
+      error: 'WIFI_OFFLINE',
     },
   },
   {
@@ -95,7 +95,7 @@ const DEVICES = [
         endRecorded: '2020-04-26T18:25:43.511Z',
         lastUploaded: '2020-04-29T18:25:43.511Z',
       },
-      errors: [],
+      error: null,
     },
   },
   {
@@ -117,7 +117,7 @@ const DEVICES = [
         endRecorded: '2020-04-26T18:25:43.511Z',
         lastUploaded: '2020-04-29T18:25:43.511Z',
       },
-      errors: ['BLE_DISCONNECTED'],
+      error: 'BLE_DISCONNECTED',
     },
   },
   {
@@ -139,7 +139,7 @@ const DEVICES = [
         endRecorded: '2020-04-26T18:25:43.511Z',
         lastUploaded: '2020-04-29T18:25:43.511Z',
       },
-      errors: [],
+      error: null,
     },
   },
   {
@@ -148,10 +148,15 @@ const DEVICES = [
     image: defaultImage,
     status: {
       device: {
-        battery: null,
+        // TODO: this is good to give the patient an overview
+        // of the connection on their smartphone!
+        battery: 80,
         isBleOn: false,
-        hasBLE: false,
-        isOnline: false,
+        hasBLE: true,
+        hasWiFi: true,
+        isWiFiOn: false,
+        hasWallCharging: true,
+        isOnline: true,
       },
       data: {
         isOnDevice: true,
@@ -161,7 +166,7 @@ const DEVICES = [
         endRecorded: '2020-04-26T18:25:43.511Z',
         lastUploaded: '2020-04-29T18:25:43.511Z',
       },
-      errors: [],
+      error: null,
     },
   },
   {
@@ -183,7 +188,7 @@ const DEVICES = [
         endRecorded: '2020-04-26T18:25:43.511Z',
         lastUploaded: '2020-04-29T18:25:43.511Z',
       },
-      errors: [],
+      error: null,
     },
   },
   {
@@ -205,7 +210,7 @@ const DEVICES = [
         endRecorded: '2020-04-26T18:25:43.511Z',
         lastUploaded: '2020-04-29T18:25:43.511Z',
       },
-      errors: ['SURVEY_INCOMPLETE'],
+      error: 'SURVEY_INCOMPLETE',
     },
   },
   {
@@ -227,7 +232,7 @@ const DEVICES = [
         endRecorded: '2020-04-26T18:25:43.511Z',
         lastUploaded: '2020-04-29T18:25:43.511Z',
       },
-      errors: [],
+      error: null,
     },
   },
   {
@@ -253,7 +258,7 @@ const DEVICES = [
         endRecorded: null,
         lastUploaded: null,
       },
-      errors: [],
+      error: null,
     },
   },
 ];

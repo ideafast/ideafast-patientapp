@@ -17,20 +17,21 @@ import {FormatBytes, LastUploadTime} from '../../util/General';
 
 const Devices: () => React$Node = props => {
   const errorByCode = code => props.deviceErrors[code][props.userLang];
-  const errorMessage = code => errorByCode(code).message;
-  const errorAction = code => errorByCode(code).action;
-  const hasError = device => device.status.errors.length > 0;
+  const hasError = device => !!device.status.error;
 
   const setSyncStatus = device => {
     const filesize = device.status.data.size;
-    // TODO: does errors need to be a list?
-    const errorCode = device.status.errors[0];
+    const errorCode = device.status.error;
+    const errorMessage = code => errorByCode(code).message;
 
     if (!device.status.data.isOnDevice) {
-      // TODO: null is default for Axivity, McRoberts; display wear time instead?
-      return hasError(device)
-        ? errorMessage(errorCode)
-        : 'No data uploaded yet.';
+      // Note: Axivity, eBedSensor, & McRoberts data transfer is at end
+      const isDeviceExcluded = [0, 3, 5].includes(device.id);
+      // Not sure if this is needed. Could be removed?
+      const message = isDeviceExcluded
+        ? 'Data will be uploaded when device returned'
+        : 'No data uploaded yet';
+      return hasError(device) ? errorMessage(errorCode) : message;
     }
 
     const lastUploaded = device.status.data.lastUploaded;
@@ -43,12 +44,23 @@ const Devices: () => React$Node = props => {
 
   const renderDeviceIcons = device => {
     if (hasError(device)) {
-      const actionText = errorAction(device.status.errors[0]);
-      // TODO: navigate to support depending on click?
-      return <Button title={actionText} color={Colors.PRIMARY} />;
+      const actionText = errorByCode(device.status.error).action;
+
+      return (
+        <Button
+          title={actionText}
+          color={Colors.PRIMARY}
+          // TODO: navigate to appropriate SupportDoc#Header
+          // could be achieved by navigating to SupportDoc, passing in a pointer (navToHeader?)
+          // and then using that in useEffect to navigate to the heading in markdown?
+          // therefore each error in deviceErrors should have one navToHeader property?
+          // onPress={() => {}}
+        />
+      );
     }
 
-    return <DeviceIcons status={device.status.device} />;
+    // TODO: rename device.status.device -> device.status.hardware ?
+    return <DeviceIcons key={device.id} status={device.status.device} />;
   };
 
   const renderItem = ({item: device}) => (
@@ -70,7 +82,7 @@ const Devices: () => React$Node = props => {
         <FlatList
           data={props.devices.sort(compareByError)}
           renderItem={renderItem}
-          keyExtractor={device => device.id}
+          keyExtractor={device => device.name}
         />
       </SafeAreaView>
     </View>
