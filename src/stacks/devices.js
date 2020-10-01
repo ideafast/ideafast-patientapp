@@ -12,7 +12,7 @@ export const {
 } = createStackNavigator();
 
 export const DevicesStack = props => {
-  const {t, i18n} = useTranslation('devices');
+  const {t, i18n} = useTranslation('devices', 'ble');
   return (
     <StackNavigator screenOptions={Stack.headerStyle}>
       <StackScreen
@@ -35,7 +35,7 @@ export const DevicesStack = props => {
         name="Ble"
         component={Ble}
         options={{
-          title: t('bluetooth.scanner'),
+          title: t('ble:scanner'),
         }}
       />
     </StackNavigator>
