@@ -21,6 +21,10 @@ import NavigationDE from './resources/de/nav.json';
 import NavigationEN from './resources/en/nav.json';
 import NavigationNL from './resources/nl/nav.json';
 
+import LanguagesDE from './resources/de/languages.json';
+import LanguagesEN from './resources/en/languages.json';
+import LanguagesNL from './resources/nl/languages.json';
+
 i18n.use(initReactI18next).init({
   lng: 'en',
   fallbackLng: 'en',
@@ -31,6 +35,7 @@ i18n.use(initReactI18next).init({
       login: LoginEN,
       support: SupportEN,
       nav: NavigationEN,
+      languages: LanguagesEN,
     },
     nl: {
       contributions: ContributionsNL,
@@ -38,6 +43,7 @@ i18n.use(initReactI18next).init({
       login: LoginNL,
       support: SupportNL,
       nav: NavigationNL,
+      languages: LanguagesNL,
     },
     de: {
       contributions: ContributionsDE,
@@ -45,6 +51,7 @@ i18n.use(initReactI18next).init({
       login: LoginDE,
       support: SupportDE,
       nav: NavigationDE,
+      languages: LanguagesDE,
     },
   },
 });
