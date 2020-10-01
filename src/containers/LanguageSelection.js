@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {View} from 'react-native';
 import {connect} from 'react-redux';
-import i18n from 'i18next';
 
 import {mapDispatchToProps} from '../ducks/actions';
 import RadioButtons from '../components/RadioButtons';
@@ -12,9 +11,24 @@ import {useTranslation} from 'react-i18next';
 const LanguageSelection: () => React$Node = props => {
   const [userLang, setUserLang] = useState(props.userLang);
 
-  const {t, i18n} = useTranslation('contributions');
+  const {t, i18n} = useTranslation('contributions', 'languages');
 
   const [modalVisible, setModalVisible] = useState(false);
+
+  let langTranslation = [
+    {
+      code: 'en',
+      name: t('languages:english'),
+    },
+    {
+      code: 'de',
+      name: t('languages:german'),
+    },
+    {
+      code: 'nl',
+      name: t('languages:dutch'),
+    },
+  ];
 
   const showhideModal = () => {
     setModalVisible(!modalVisible);
@@ -28,7 +42,7 @@ const LanguageSelection: () => React$Node = props => {
 
   const languageButtons = (
     <RadioButtons
-      options={props.languages}
+      options={langTranslation}
       active={userLang}
       onPress={setLanguage}
     />
@@ -38,7 +52,7 @@ const LanguageSelection: () => React$Node = props => {
     setUserLang(props.userLang);
   }, [props.userLang]);
 
-  const activeLanguage = props.languages.find(l => l.code === userLang).name;
+  const activeLanguage = langTranslation.find(l => l.code === userLang).name;
 
   return (
     <View>
