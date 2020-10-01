@@ -7,6 +7,7 @@ import React from 'react';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {connect} from 'react-redux';
+import {useTranslation} from 'react-i18next';
 
 import Verify from './Verify';
 
@@ -17,6 +18,8 @@ import {Contributions, Devices, Support} from '../stacks';
 const {Navigator: TabNavigator, Screen: TabScreen} = createBottomTabNavigator();
 
 const AppNavigation = props => {
+  const {t, i18n} = useTranslation('nav');
+
   if (!props.userID) {
     return <Verify />;
   }
@@ -34,7 +37,7 @@ const AppNavigation = props => {
         name="Contributions"
         component={Contributions.ContributionsStack}
         options={{
-          tabBarLabel: 'Contributions',
+          tabBarLabel: t('contributions'),
           tabBarIcon: ({color, size}) => (
             <FontAwesome name="pie-chart" color={color} size={size} />
           ),
@@ -44,7 +47,7 @@ const AppNavigation = props => {
         name="Devices"
         component={Devices.DevicesStack}
         options={{
-          tabBarLabel: 'Devices',
+          tabBarLabel: t('devices'),
           tabBarIcon: ({color, size}) => (
             <FontAwesome name="bluetooth-b" color={color} size={size} />
           ),
@@ -54,7 +57,7 @@ const AppNavigation = props => {
         name="Support"
         component={Support.SupportStack}
         options={{
-          tabBarLabel: 'Support',
+          tabBarLabel: t('support'),
           tabBarIcon: ({color, size}) => (
             <FontAwesome name="question-circle-o" color={color} size={size} />
           ),
