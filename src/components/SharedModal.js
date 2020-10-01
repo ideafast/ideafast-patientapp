@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 
 import {Colors, Typography, Spacing} from '../styles';
+import {useTranslation} from 'react-i18next';
 
 const SharedModal: () => React$Node = ({
   children,
@@ -17,6 +18,7 @@ const SharedModal: () => React$Node = ({
   isVisible,
   onPress,
 }) => {
+  const {t, i18n} = useTranslation('language');
   return (
     <Modal transparent={true} visible={isVisible}>
       <TouchableOpacity style={styles.container} onPress={onPress}>
@@ -26,7 +28,7 @@ const SharedModal: () => React$Node = ({
           {children}
 
           <TouchableHighlight underlayColor={Colors.WHITE} onPress={onPress}>
-            <Text style={styles.cancelText}>CANCEL</Text>
+            <Text style={styles.cancelText}>{t('cancel')}</Text>
           </TouchableHighlight>
         </View>
       </TouchableOpacity>
