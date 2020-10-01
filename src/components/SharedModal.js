@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {useTranslation} from 'react-i18next';
 import {
   Modal,
   StyleSheet,
@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 
 import {Colors, Typography, Spacing} from '../styles';
-import {useTranslation} from 'react-i18next';
 
 const SharedModal: () => React$Node = ({
   children,
@@ -18,7 +17,7 @@ const SharedModal: () => React$Node = ({
   isVisible,
   onPress,
 }) => {
-  const {t, i18n} = useTranslation('language');
+  const {t} = useTranslation('languages');
   return (
     <Modal transparent={true} visible={isVisible}>
       <TouchableOpacity style={styles.container} onPress={onPress}>

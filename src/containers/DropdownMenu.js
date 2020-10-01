@@ -6,7 +6,7 @@ import {useTranslation} from 'react-i18next';
 import {Spacing, Colors} from '../styles';
 
 const DropDownMenu: () => React$Node = props => {
-  const {t, i18n} = useTranslation('contributions');
+  const {t} = useTranslation('contributions');
 
   const options = [
     t('picker.days'),

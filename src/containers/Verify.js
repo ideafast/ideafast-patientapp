@@ -15,7 +15,7 @@ import {mapDispatchToProps} from '../ducks/actions';
 import {useTranslation} from 'react-i18next';
 
 const Verify: () => React$Node = props => {
-  const {t, i18n} = useTranslation('verify');
+  const {t} = useTranslation('verify');
 
   const [userID, setUserID] = useState('');
 

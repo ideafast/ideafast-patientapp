@@ -12,10 +12,10 @@ import {useTranslation} from 'react-i18next';
 import {mapDispatchToProps} from '../ducks/actions';
 
 const Devices: () => React$Node = props => {
-  const {t, i18n} = useTranslation('devices');
+  const {t} = useTranslation('devices');
   return (
     <View style={styles.view}>
-      <Text style={styles.text}>t{'text'}</Text>
+      <Text style={styles.text}>{t('text')}</Text>
     </View>
   );
 };

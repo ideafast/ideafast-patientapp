@@ -12,7 +12,7 @@ export const {
 } = createStackNavigator();
 
 export const DevicesStack = props => {
-  const {t, i18n} = useTranslation('devices', 'ble');
+  const {t} = useTranslation('devices', 'ble');
   return (
     <StackNavigator screenOptions={Stack.headerStyle}>
       <StackScreen

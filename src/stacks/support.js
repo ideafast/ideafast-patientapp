@@ -11,7 +11,7 @@ export const {
 } = createStackNavigator();
 
 export const SupportStack = () => {
-  const {t, i18n} = useTranslation('support');
+  const {t} = useTranslation('support');
   return (
     <StackNavigator screenOptions={Stack.headerStyle}>
       <StackScreen

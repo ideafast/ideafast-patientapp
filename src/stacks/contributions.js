@@ -12,7 +12,7 @@ export const {
 } = createStackNavigator();
 
 export const ContributionsStack = props => {
-  const {t, i18n} = useTranslation('contributions');
+  const {t} = useTranslation('contributions');
   return (
     <StackNavigator screenOptions={Stack.headerStyle}>
       <StackScreen

@@ -7,11 +7,12 @@ import RadioButtons from '../components/RadioButtons';
 import SharedModal from '../components/SharedModal';
 import SettingsRow from '../components/SettingsRow';
 import {useTranslation} from 'react-i18next';
+import i18n from 'i18next';
 
 const LanguageSelection: () => React$Node = props => {
   const [userLang, setUserLang] = useState(props.userLang);
 
-  const {t, i18n} = useTranslation('contributions', 'languages');
+  const {t} = useTranslation('contributions', 'languages');
 
   const [modalVisible, setModalVisible] = useState(false);
 

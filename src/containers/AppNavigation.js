@@ -18,7 +18,7 @@ import {Contributions, Devices, Support} from '../stacks';
 const {Navigator: TabNavigator, Screen: TabScreen} = createBottomTabNavigator();
 
 const AppNavigation = props => {
-  const {t, i18n} = useTranslation('nav');
+  const {t} = useTranslation('nav');
 
   if (!props.userID) {
     return <Verify />;

@@ -20,7 +20,7 @@ import BleManagerEmitter from '../util/BleManagerEmitter';
 import {useTranslation} from 'react-i18next';
 
 const Ble: () => React$Node = props => {
-  const {t, i18n} = useTranslation('ble');
+  const {t} = useTranslation('ble');
   const [scanning, setScanning] = useState(false);
   const [peripherals, setPeripherals] = useState(new Map());
   const [appState, setAppState] = useState('');
