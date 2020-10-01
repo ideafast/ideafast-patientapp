@@ -29,6 +29,10 @@ import BleDE from './resources/de/ble.json';
 import BleEN from './resources/en/ble.json';
 import BleNL from './resources/nl/ble.json';
 
+import VerifyDE from './resources/de/verify.json';
+import VerifyEN from './resources/en/verify.json';
+import VerifyNL from './resources/nl/verify.json';
+
 i18n.use(initReactI18next).init({
   lng: 'en',
   fallbackLng: 'en',
@@ -41,6 +45,7 @@ i18n.use(initReactI18next).init({
       nav: NavigationEN,
       languages: LanguagesEN,
       ble: BleEN,
+      verify: VerifyEN,
     },
     nl: {
       contributions: ContributionsNL,
@@ -50,6 +55,7 @@ i18n.use(initReactI18next).init({
       nav: NavigationNL,
       languages: LanguagesNL,
       ble: BleNL,
+      verify: VerifyNL,
     },
     de: {
       contributions: ContributionsDE,
@@ -59,6 +65,7 @@ i18n.use(initReactI18next).init({
       nav: NavigationDE,
       languages: LanguagesDE,
       ble: BleDE,
+      verify: VerifyDE,
     },
   },
 });

@@ -1,6 +1,5 @@
 {
-  "welcome":{
-    "title": "Welcome to IDEA-FAST HubApp.",
-    "id": "Please enter your ID to begin."
-  }
+  "title": "Welkom bij IDEA-FAST HubApp.",
+  "id": "Voer uw ID in om te beginnen.",
+  "verify": "Verifieer"
 }
