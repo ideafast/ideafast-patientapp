@@ -1,5 +1,6 @@
 {
   "title": "Willkommen bei der IDEA-FAST HubApp.",
   "id": "Bitte geben Sie Ihre ID ein, um zu beginnen.",
-  "verify": "Überprüfen"
+  "verify": "Überprüfen",
+  "token" : "Bestätigungstoken"
 }
