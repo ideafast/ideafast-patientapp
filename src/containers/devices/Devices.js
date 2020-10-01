@@ -59,8 +59,7 @@ const Devices: () => React$Node = props => {
       );
     }
 
-    // TODO: rename device.status.device -> device.status.hardware ?
-    return <DeviceIcons key={device.id} status={device.status.device} />;
+    return <DeviceIcons key={device.id} status={device.status.hardware} />;
   };
 
   const renderItem = ({item: device}) => (

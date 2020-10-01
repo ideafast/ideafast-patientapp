@@ -6,10 +6,17 @@ const DEVICES = [
     name: 'Axivity',
     image: defaultImage,
     status: {
-      device: {
-        battery: null,
-        isBleOn: false,
-        hasBLE: false,
+      hardware: {
+        features: {
+          ble: false,
+          wifi: false,
+          wired: false,
+        },
+        connection: {
+          battery: null,
+          ble: null,
+          wifi: null,
+        },
       },
       data: {
         isOnDevice: false, // NOTE: this indicates that no data is on server, which is OKAY for some elements
@@ -27,15 +34,17 @@ const DEVICES = [
     name: 'Byteflies',
     image: defaultImage,
     status: {
-      device: {
-        // note these were added to inform UI changes
-        battery: null,
-        isBleOn: false,
-        hasBLE: false,
-        hasWiFi: true,
-        isWiFiOn: true,
-        hasWallCharging: true,
-        isOnline: true,
+      hardware: {
+        features: {
+          ble: false,
+          wifi: true,
+          wired: true,
+        },
+        connection: {
+          battery: null,
+          ble: null,
+          wifi: false,
+        },
       },
       data: {
         isOnDevice: true,
@@ -53,14 +62,17 @@ const DEVICES = [
     name: 'Dreem',
     image: defaultImage,
     status: {
-      device: {
-        battery: 20,
-        isBleOn: true,
-        hasBLE: true,
-        hasWiFi: true,
-        isWiFiOn: false,
-        hasWallCharging: true,
-        isOnline: true,
+      hardware: {
+        features: {
+          ble: true,
+          wifi: true,
+          wired: false,
+        },
+        connection: {
+          battery: 20,
+          ble: true,
+          wifi: true,
+        },
       },
       data: {
         isOnDevice: true,
@@ -78,14 +90,17 @@ const DEVICES = [
     name: 'eBedSensor',
     image: defaultImage,
     status: {
-      device: {
-        battery: null,
-        isBleOn: null,
-        hasBLE: null,
-        hasWiFi: null,
-        isWiFiOn: null,
-        hasWallCharging: true,
-        isOnline: true,
+      hardware: {
+        features: {
+          ble: false,
+          wifi: false,
+          wired: true,
+        },
+        connection: {
+          battery: null,
+          ble: null,
+          wifi: null,
+        },
       },
       data: {
         isOnDevice: false,
@@ -103,11 +118,19 @@ const DEVICES = [
     name: 'Everion',
     image: defaultImage,
     status: {
-      device: {
-        battery: null,
-        isBleOn: false,
-        hasBLE: true,
-        isOnline: false,
+      hardware: {
+        features: {
+          ble: true,
+          wifi: true,
+          wired: false,
+        },
+        connection: {
+          battery: 40,
+          ble: {
+            uuid: '',
+          },
+          wifi: true,
+        },
       },
       data: {
         isOnDevice: true,
@@ -125,11 +148,17 @@ const DEVICES = [
     name: 'Move Monitor',
     image: defaultImage,
     status: {
-      device: {
-        battery: null,
-        isBleOn: false,
-        hasBLE: false,
-        isOnline: false,
+      hardware: {
+        features: {
+          ble: false,
+          wifi: false,
+          wired: false,
+        },
+        connection: {
+          battery: null,
+          ble: null,
+          wifi: null,
+        },
       },
       data: {
         isOnDevice: true,
@@ -147,16 +176,19 @@ const DEVICES = [
     name: 'Samsung Smartphone',
     image: defaultImage,
     status: {
-      device: {
-        // TODO: this is good to give the patient an overview
-        // of the connection on their smartphone!
-        battery: 80,
-        isBleOn: false,
-        hasBLE: true,
-        hasWiFi: true,
-        isWiFiOn: false,
-        hasWallCharging: true,
-        isOnline: true,
+      hardware: {
+        features: {
+          ble: true,
+          wifi: true,
+          wired: false,
+        },
+        connection: {
+          battery: 80,
+          ble: {
+            uuid: null,
+          },
+          wifi: true,
+        },
       },
       data: {
         isOnDevice: true,
@@ -174,11 +206,17 @@ const DEVICES = [
     name: 'Stress Monitor',
     image: defaultImage,
     status: {
-      device: {
-        battery: null,
-        isBleOn: false,
-        hasBLE: false,
-        isOnline: false,
+      hardware: {
+        features: {
+          ble: false,
+          wifi: true,
+          wired: false,
+        },
+        connection: {
+          battery: null,
+          ble: null,
+          wifi: true,
+        },
       },
       data: {
         isOnDevice: true,
@@ -196,11 +234,17 @@ const DEVICES = [
     name: 'Think Fast',
     image: defaultImage,
     status: {
-      device: {
-        battery: null,
-        isBleOn: false,
-        hasBLE: false,
-        isOnline: false,
+      hardware: {
+        features: {
+          ble: false,
+          wifi: true,
+          wired: false,
+        },
+        connection: {
+          battery: null,
+          ble: null,
+          wifi: true,
+        },
       },
       data: {
         isOnDevice: true,
@@ -218,11 +262,19 @@ const DEVICES = [
     name: 'Vital Patch',
     image: defaultImage,
     status: {
-      device: {
-        battery: 40,
-        isBleOn: true,
-        hasBLE: true,
-        isOnline: false,
+      hardware: {
+        features: {
+          ble: true,
+          wifi: true,
+          wired: false,
+        },
+        connection: {
+          battery: 40,
+          ble: {
+            uuid: 'u0101010',
+          },
+          wifi: true,
+        },
       },
       data: {
         isOnDevice: true,
@@ -240,14 +292,17 @@ const DEVICES = [
     name: 'ZKOne YOLI',
     image: defaultImage,
     status: {
-      device: {
-        battery: null,
-        isBleOn: null,
-        hasBLE: null,
-        hasWiFi: null,
-        isWiFiOn: null,
-        hasWallCharging: true,
-        isOnline: true,
+      hardware: {
+        features: {
+          ble: false,
+          wifi: true,
+          wired: true,
+        },
+        connection: {
+          battery: null,
+          ble: null,
+          wifi: true,
+        },
       },
       data: {
         isOnDevice: false,
