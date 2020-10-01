@@ -15,7 +15,7 @@ const DEVICES = [
 ];
 
 export default {
-  userID: 1,
+  userID: null,
   userLang: 'en',
   devices: DEVICES,
 };
