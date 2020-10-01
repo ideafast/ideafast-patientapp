@@ -1,6 +1,6 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import {Stack} from '../styles';
-import React, {useEffect} from 'react';
+import React from 'react';
 import Support from '../containers/support/Support';
 import SupportDoc from '../containers/support/SupportDoc';
 import {useTranslation} from 'react-i18next';
