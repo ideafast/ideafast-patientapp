@@ -17,6 +17,10 @@ import SupportDE from './resources/de/support.json';
 import SupportEN from './resources/en/support.json';
 import SupportNL from './resources/nl/support.json';
 
+import NavigationDE from './resources/de/nav.json';
+import NavigationEN from './resources/en/nav.json';
+import NavigationNL from './resources/nl/nav.json';
+
 i18n.use(initReactI18next).init({
   lng: 'en',
   fallbackLng: 'en',
@@ -26,18 +30,21 @@ i18n.use(initReactI18next).init({
       devices: DevicesEN,
       login: LoginEN,
       support: SupportEN,
+      nav: NavigationEN,
     },
     nl: {
       contributions: ContributionsNL,
       devices: DevicesNL,
       login: LoginNL,
       support: SupportNL,
+      nav: NavigationNL,
     },
     de: {
       contributions: ContributionsDE,
       devices: DevicesDE,
       login: LoginDE,
       support: SupportDE,
+      nav: NavigationDE,
     },
   },
 });
