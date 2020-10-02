@@ -12,9 +12,15 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {mapDispatchToProps} from '../ducks/actions';
 
 const ContributionsMenu: () => React$Node = props => {
+  const devicedays = props.deviceMetrics
+    .map(d => d.metrics.days)
+    .reduce((a, b) => a + b);
+
   const state = [
     {
-      text: '7',
+      text: props.deviceMetrics
+        .map(d => d.metrics.days)
+        .reduce((a, b) => a + b),
       logo: 'award',
     },
     {
