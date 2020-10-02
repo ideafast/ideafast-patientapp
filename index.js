@@ -10,7 +10,4 @@ import {name as appName} from './app.json';
 // Setup Mock/Live API depending on Config
 // Might cause an error, since api should be called before app initialization
 import './src/api/';
-
-
-
 AppRegistry.registerComponent(appName, () => App);
