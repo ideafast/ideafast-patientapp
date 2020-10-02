@@ -26,7 +26,7 @@ const DeviceList: () => React$Node = props => {
 
     if (!device.status.data.isOnDevice) {
       // Note: Axivity, eBedSensor, & McRoberts data transfer is at end
-      const isDeviceExcluded = [0, 3, 5].includes(device.id);
+      const isDeviceExcluded = ['AX6', 'BED', 'MMM'].includes(device.id);
       // Not sure if this is needed. Could be removed?
       const message = isDeviceExcluded
         ? 'Data will be uploaded when device returned'
