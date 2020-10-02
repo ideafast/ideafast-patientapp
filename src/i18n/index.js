@@ -1,5 +1,6 @@
 import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
+import {NativeModules, Platform} from 'react-native';
 
 import ContributionsDE from './resources/de/contributions.json';
 import ContributionsEN from './resources/en/contributions.json';
@@ -33,8 +34,15 @@ import VerifyDE from './resources/de/verify.json';
 import VerifyEN from './resources/en/verify.json';
 import VerifyNL from './resources/nl/verify.json';
 
+const locale =
+  Platform.OS === 'ios'
+    ? NativeModules.SettingsManager.settings.AppleLocale
+    : NativeModules.I18nManager.localeIdentifier;
+
+i18n.locale = locale;
+
 i18n.use(initReactI18next).init({
-  lng: 'en',
+  lng: locale.substring(0, 2),
   fallbackLng: 'en',
   resources: {
     en: {
