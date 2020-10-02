@@ -12,29 +12,49 @@ import {connect} from 'react-redux';
 import {mapDispatchToProps} from '../ducks/actions';
 
 const CheckedBoxes: () => React$Node = props => {
-  const [isSelected, setSelection] = useState(false);
+  const farzaneh = props.devices;
+  const [devices, setDevices] = useState([...farzaneh]);
 
+  const handleChange = (value, index) => {
+    console.log('*****************event', value);
+    let changeCheckBox = devices.find(item => item.id === index);
+    console.log('9999999changeCheckBox', changeCheckBox);
+    let newChange = {...changeCheckBox, isSelected: value};
+    console.log('newChange', newChange);
+    let newData = devices.slice();
+    newData[index] = newChange;
+    console.log('New Data', newData);
+
+    setDevices(newData);
+  };
+
+  console.log('&&&&&&&&&&&&devices', devices);
+  console.log(
+    '********************** map***********',
+    devices.slice(0, 5).map((param, i) => {
+      console.log(param);
+    }),
+  );
   return (
     <View style={styles.container}>
       <View style={styles.checkboxContainer}>
-        {props.devices.slice(0, 5).map((param, i) => {
-          return (
-            <View style={styles.checkboxContainer} key={param.id}>
-              <CheckBox
-                tintColors={{true: param.color, false: 'black'}}
-                value={isSelected}
-                onValueChange={setSelection}
-                style={styles.checkbox}
-                //onPress={() => setSelection === param.setSelection}
-              />
-              <Text style={styles.label}>{param.name}</Text>
-            </View>
-          );
-        })}
+        {devices &&
+          devices.slice(0, 5).map((param, i) => {
+            return (
+              <View style={styles.checkboxContainer} key={param.id}>
+                <CheckBox
+                  tintColors={{true: param.color, false: 'black'}}
+                  value={param.isSelected}
+                  //onValueChange={setSelection}
+                  style={styles.checkbox}
+                  onValueChange={value => handleChange(value, i)}
+                  //onPress={() => setSelection === param.setSelection}
+                />
+                <Text style={styles.label}>{param.name}</Text>
+              </View>
+            );
+          })}
       </View>
-      <Text style={styles.checkboxContainer}>
-        Is CheckBox selected: {isSelected ? 'yes' : 'no'}
-      </Text>
     </View>
   );
 };

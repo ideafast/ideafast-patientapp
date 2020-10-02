@@ -28,13 +28,12 @@ const ContributionsMenu: () => React$Node = props => {
           100000000 +
         ' GB',
       logo: 'medal',
-      shadow: 'Total Date',
+      shadow: 'Total Data',
     },
     {
-      text:
-        props.deviceMetrics.map(d => d.name).reduce((a, b) => a + b) / 10000,
+      text: props.deviceMetrics.map(d => d.name).length,
       logo: 'robot',
-      shadow: 'device Worn',
+      shadow: 'devices Worn',
     },
   ];
 
@@ -92,7 +91,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   shadow: {
-    fontSize: Typography.FONT_SIZE_12,
+    fontSize: Typography.FONT_SIZE_10,
     //fontWeight: Typography.FONT_WEIGHT_BOLD,
     color: Colors.BLACK,
     paddingLeft: Spacing.SCALE_42,
