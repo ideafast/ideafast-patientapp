@@ -12,24 +12,29 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {mapDispatchToProps} from '../ducks/actions';
 
 const ContributionsMenu: () => React$Node = props => {
-  const devicedays = props.deviceMetrics
-    .map(d => d.metrics.days)
-    .reduce((a, b) => a + b);
-
   const state = [
     {
       text: props.deviceMetrics
         .map(d => d.metrics.days)
         .reduce((a, b) => a + b),
       logo: 'award',
+      shadow: 'Day Streak',
     },
     {
-      text: '97',
+      text:
+        props.deviceMetrics
+          .map(d => d.status.data.size)
+          .reduce((a, b) => a + b) /
+          100000000 +
+        ' GB',
       logo: 'medal',
+      shadow: 'Total Date',
     },
     {
-      text: '4/5',
+      text:
+        props.deviceMetrics.map(d => d.name).reduce((a, b) => a + b) / 10000,
       logo: 'robot',
+      shadow: 'device Worn',
     },
   ];
 
@@ -41,6 +46,7 @@ const ContributionsMenu: () => React$Node = props => {
           return (
             <View style={styles.borderBar} key={i}>
               <Text style={styles.text}>{param.text}</Text>
+              <Text style={styles.shadow}>{param.shadow}</Text>
               <FontAwesome5
                 name={param.logo}
                 color={Colors.ORANGE}
@@ -81,6 +87,16 @@ const styles = StyleSheet.create({
     color: Colors.BLACK,
     paddingLeft: Spacing.SCALE_42,
     position: 'absolute',
+    flexWrap: 'wrap',
+    alignSelf: 'center',
+    justifyContent: 'space-between',
+  },
+  shadow: {
+    fontSize: Typography.FONT_SIZE_12,
+    //fontWeight: Typography.FONT_WEIGHT_BOLD,
+    color: Colors.BLACK,
+    paddingLeft: Spacing.SCALE_42,
+    //position: 'absolute',
     flexWrap: 'wrap',
     alignSelf: 'center',
     justifyContent: 'space-between',
