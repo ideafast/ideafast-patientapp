@@ -44,12 +44,12 @@ const DataVolume: () => React$Node = props => {
     <View style={[styles.view, styles.border]}>
       <Text style={styles.title}>Data Volume</Text>
       <View style={styles.victoryPie}>
-        <Svg>
+        <Svg width="80%" height="80%" viewBox="0 0 360 300">
           <VictoryPie
             standalone={false}
-            width={350}
-            height={190}
-            innerRadius={15}
+            width={360}
+            height={300}
+            innerRadius={65}
             labelPosition={({index}) => 'centroid'}
             labels={chart}
             padAngle={({datum}) => 2}
@@ -57,11 +57,20 @@ const DataVolume: () => React$Node = props => {
             colorScale={colorScale}
           />
         </Svg>
-        <FontAwesome5
-          name="circle"
-          color={Colors.BLACK}
-          size={Typography.FONT_SIZE_16}
-        />
+        <View style={styles.circle}>
+          <FontAwesome5
+            name="circle"
+            color={Colors.BLACK}
+            size={Typography.FONT_SIZE_16}
+            style={styles.circle}
+          />
+          <FontAwesome5
+            name="circle"
+            color={Colors.BLACK}
+            size={Typography.FONT_SIZE_16}
+            style={styles.circle}
+          />
+        </View>
       </View>
     </View>
   );
@@ -94,12 +103,18 @@ const styles = StyleSheet.create({
   victoryPie: {
     justifyContent: 'center',
     alignItems: 'center',
+    maxHeight: 300,
   },
   circle: {
     //marginLeft: Spacing.SCALE_8,
     //position: 'absolute',
     justifyContent: 'center',
     alignItems: 'center',
+    flexDirection: 'row',
+    //flexWrap: 'wrap',
+    // margin: Spacing.SCALE_8,
+    marginLeft: Spacing.SCALE_8,
+    marginRight: Spacing.SCALE_8,
   },
 });
 
