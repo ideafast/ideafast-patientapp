@@ -2,13 +2,14 @@
  * @format
  * @flow strict-local
  */
-import React, {useState} from 'react';
+import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Text} from 'react-native-elements';
 import {Colors, Typography, Spacing} from '../styles';
 import {connect} from 'react-redux';
 import {VictoryPie} from 'victory-native';
 import {Svg} from 'react-native-svg';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
@@ -56,6 +57,11 @@ const DataVolume: () => React$Node = props => {
             colorScale={colorScale}
           />
         </Svg>
+        <FontAwesome5
+          name="circle"
+          color={Colors.BLACK}
+          size={Typography.FONT_SIZE_16}
+        />
       </View>
     </View>
   );
