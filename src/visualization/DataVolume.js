@@ -2,7 +2,7 @@
  * @format
  * @flow strict-local
  */
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Text} from 'react-native-elements';
 import {Colors, Typography, Spacing} from '../styles';
@@ -13,9 +13,29 @@ import {Svg} from 'react-native-svg';
 import {mapDispatchToProps} from '../ducks/actions';
 
 const DataVolume: () => React$Node = props => {
-  const deviceSizes = props.deviceMetrics.map(d =>
-    d.metrics.sessions.map(s => s.size).reduce((a, b) => a + b),
+  const chart = [];
+  console.log('*****************props', props.selectedCheckBox);
+  //const deviceSizes = props.deviceMetrics.map(d =>
+  //  d.metrics.sessions.map(s => s.size).reduce((a, b) => a + b),
+  //);
+  //const filter = deviceSizes.filter(
+  //  item => item.name === props.selectedCheckBox,
+  //);
+
+  let filterData = props.deviceMetrics.find(
+    item => item.name.toLowerCase() === props.selectedCheckBox.toLowerCase(),
   );
+  console.log('*****filterdata', filterData);
+
+  if (filterData) {
+    console.log('hiiiiiiiiiiiiiiiiiiii');
+    console.log('*********** khar', filterData.metrics.sessions);
+  }
+  const deviceSizes = filterData
+    ? filterData.metrics.sessions.map(s => s.size).reduce((a, b) => a + b)
+    : 0;
+  console.log('*****deviceizes', deviceSizes);
+  chart.push(deviceSizes);
 
   const colorScale = props.devices.map(d => d.color);
 
@@ -30,9 +50,9 @@ const DataVolume: () => React$Node = props => {
             height={190}
             innerRadius={15}
             labelPosition={({index}) => 'centroid'}
-            labels={deviceSizes}
+            labels={chart}
             padAngle={({datum}) => 2}
-            data={deviceSizes}
+            data={chart}
             colorScale={colorScale}
           />
         </Svg>

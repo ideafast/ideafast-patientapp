@@ -16,25 +16,13 @@ const CheckedBoxes: () => React$Node = props => {
   const [devices, setDevices] = useState([...farzaneh]);
 
   const handleChange = (value, index) => {
-    console.log('*****************event', value);
     let changeCheckBox = devices.find(item => item.id === index);
-    console.log('9999999changeCheckBox', changeCheckBox);
     let newChange = {...changeCheckBox, isSelected: value};
-    console.log('newChange', newChange);
     let newData = devices.slice();
     newData[index] = newChange;
-    console.log('New Data', newData);
-
     setDevices(newData);
+    props.handleSelectCheckBox(changeCheckBox.name);
   };
-
-  console.log('&&&&&&&&&&&&devices', devices);
-  console.log(
-    '********************** map***********',
-    devices.slice(0, 5).map((param, i) => {
-      console.log(param);
-    }),
-  );
   return (
     <View style={styles.container}>
       <View style={styles.checkboxContainer}>

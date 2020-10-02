@@ -2,7 +2,7 @@
  * @format
  * @flow strict-local
  */
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {connect} from 'react-redux';
 import DataVolume from '../visualization/DataVolume';
@@ -15,10 +15,15 @@ import ContributionsMenu from '../visualization/ContributionsMenu';
 import {mapDispatchToProps} from '../ducks/actions';
 
 const Contributions: () => React$Node = props => {
+  const [selectedCheckBox, setSelectedCheckBox] = useState('');
+  const handleSelectCheckBox = item => {
+    console.log('item**********************', item);
+    setSelectedCheckBox(item);
+  };
   return (
     <View style={styles.view}>
-      <CheckedBoxes />
-      <DataVolume />
+      <CheckedBoxes handleSelectCheckBox={item => handleSelectCheckBox(item)} />
+      <DataVolume selectedCheckBox={selectedCheckBox} />
       <WearTime />
       <DataSynced />
       <ContributionsMenu />
