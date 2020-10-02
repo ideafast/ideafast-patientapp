@@ -10,7 +10,7 @@ import {FlatList} from 'react-native-gesture-handler';
 import {connect} from 'react-redux';
 import {mapDispatchToProps} from '../../ducks/actions';
 
-import DeviceRowItem from '../../components/devices/DeviceList';
+import DeviceRowItem from '../../components/devices/DeviceRowItem';
 import DeviceIcons from '../../components/devices/DeviceIcons';
 
 import {FormatBytes, LastUploadTime} from '../../util/General';
