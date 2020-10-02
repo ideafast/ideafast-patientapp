@@ -17,6 +17,8 @@ const DataVolume: () => React$Node = props => {
     d.metrics.sessions.map(s => s.size).reduce((a, b) => a + b),
   );
 
+  const colorScale = props.devices.map(d => d.color);
+
   return (
     <View style={[styles.view, styles.border]}>
       <Text style={styles.title}>Data Volume</Text>
@@ -31,7 +33,7 @@ const DataVolume: () => React$Node = props => {
             labels={deviceSizes}
             padAngle={({datum}) => 2}
             data={deviceSizes}
-            colorScale={props.devices.map(d => d.color)}
+            colorScale={colorScale}
           />
         </Svg>
       </View>
