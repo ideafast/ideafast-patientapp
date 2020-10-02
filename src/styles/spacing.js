@@ -10,3 +10,4 @@ export const SCALE_24 = scaleSize(24);
 export const SCALE_16 = scaleSize(16);
 export const SCALE_8 = scaleSize(8);
 export const SCALE_4 = scaleSize(4);
+export const SCALE_1 = scaleSize(1);

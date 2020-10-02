@@ -28,6 +28,7 @@ const DataVolume: () => React$Node = props => {
             height={190}
             innerRadius={15}
             labelPosition={({index}) => 'centroid'}
+            labels={deviceSizes}
             padAngle={({datum}) => 2}
             data={deviceSizes}
             colorScale={props.devices.map(d => d.color)}
@@ -53,7 +54,22 @@ const styles = StyleSheet.create({
     fontWeight: Typography.FONT_WEIGHT_BOLD,
     color: Colors.BLACK,
   },
+  text: {
+    fontSize: Typography.FONT_SIZE_12,
+    //fontWeight: Typography.FONT_WEIGHT_BOLD,
+    color: Colors.BLACK,
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
+    //marginLeft: Spacing.SCALE_90,
+  },
   victoryPie: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  circle: {
+    //marginLeft: Spacing.SCALE_8,
+    //position: 'absolute',
     justifyContent: 'center',
     alignItems: 'center',
   },

@@ -3,21 +3,53 @@ import device_metrics from '../api/mock-data/devices.json';
 import {Colors} from '../styles';
 
 const DEVICES = [
-  {id: 0, name: 'Axivity', image: defaultImage, color: Colors.DEVICES.AX6},
+  {
+    id: 0,
+    name: 'Axivity',
+    image: defaultImage,
+    color: Colors.DEVICES.AX6,
+    setSelection0: false,
+    isSelected0: false,
+  },
   {
     id: 1,
     name: 'Byteflies',
     image: defaultImage,
     color: Colors.DEVICES.BYTEFLIES,
+    setSelection1: false,
+    isSelected1: false,
   },
-  {id: 2, name: 'Dreem', image: defaultImage, color: Colors.DEVICES.DREEM},
-  {id: 3, name: 'eBedSensor', image: defaultImage, color: Colors.DEVICES.null},
-  {id: 4, name: 'Everion', image: defaultImage, color: Colors.DEVICES.EVERION},
+  {
+    id: 2,
+    name: 'Dreem',
+    image: defaultImage,
+    color: Colors.DEVICES.DREEM,
+    setSelection2: false,
+    isSelected2: false,
+  },
+  {
+    id: 3,
+    name: 'Think Fast',
+    image: defaultImage,
+    color: Colors.DEVICES.THINKFAST,
+    setSelection3: false,
+    isSelected3: false,
+  },
+  {
+    id: 4,
+    name: 'Everion',
+    image: defaultImage,
+    color: Colors.DEVICES.EVERION,
+    setSelection4: false,
+    isSelected4: false,
+  },
   {
     id: 5,
     name: 'Move Monitor',
     image: defaultImage,
     color: Colors.DEVICES.null,
+    setSelection5: false,
+    isSelected5: false,
   },
   {
     id: 6,
@@ -31,12 +63,7 @@ const DEVICES = [
     image: defaultImage,
     color: Colors.DEVICES.null,
   },
-  {
-    id: 8,
-    name: 'Think Fast',
-    image: defaultImage,
-    color: Colors.DEVICES.THINKFAST,
-  },
+  {id: 8, name: 'eBedSensor', image: defaultImage, color: Colors.DEVICES.null},
   {
     id: 9,
     name: 'Vital Patch',

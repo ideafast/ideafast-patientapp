@@ -6,37 +6,28 @@ import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Text} from 'react-native-elements';
 import CheckBox from '@react-native-community/checkbox';
-import {Colors, Typography, Spacing} from '../styles';
+import {Typography, Spacing} from '../styles';
 import {connect} from 'react-redux';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
 const CheckedBoxes: () => React$Node = props => {
-  const state = {
-    checkedId: -1,
-    checkboxes: [
-      {id: 'dreem', title: 'Dreem', color: Colors.DEVICES.DREEM},
-      {id: 'ax6', title: 'Ax6', color: Colors.DEVICES.AX6},
-      {id: 'byteflies', title: 'Byteflies', color: Colors.DEVICES.BYTEFLIES},
-      {id: 'everion', title: 'Everion', color: Colors.DEVICES.EVERION},
-      {id: 'thinkFast', title: 'ThinkFast', color: Colors.DEVICES.THINKFAST},
-    ],
-  };
   const [isSelected, setSelection] = useState(false);
 
   return (
     <View style={styles.container}>
       <View style={styles.checkboxContainer}>
-        {state.checkboxes.map((param, i) => {
+        {props.devices.slice(0, 5).map((param, i) => {
           return (
-            <View style={styles.checkboxContainer} key={i}>
+            <View style={styles.checkboxContainer} key={param.id}>
               <CheckBox
                 tintColors={{true: param.color, false: 'black'}}
                 value={isSelected}
                 onValueChange={setSelection}
                 style={styles.checkbox}
+                //onPress={() => setSelection === param.setSelection}
               />
-              <Text style={styles.label}>{param.title}</Text>
+              <Text style={styles.label}>{param.name}</Text>
             </View>
           );
         })}
@@ -62,7 +53,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   label: {
-    margin: Spacing.SCALE_4,
+    margin: Spacing.SCALE_1,
     fontSize: Typography.FONT_SIZE_12,
     alignSelf: 'center',
   },
