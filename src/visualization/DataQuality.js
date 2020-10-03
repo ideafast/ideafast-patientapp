@@ -19,23 +19,20 @@ const DataQuality: () => React$Node = props => {
         elem.name.toLowerCase() === name.toLowerCase() && value,
     ),
   );
-  let maxData = filterData.find(
+  let maxDays = filterData.find(
     days =>
       days.metrics.days ===
       Math.max.apply(Math, filterData.map(item => item.metrics.days)),
   );
-  console.log('****************max data', maxData);
 
   const deviceQuality = filterData.map(d => [
     {
-      x: `${moment(maxData.metrics.start).format('YYYY-MM-DD')}  to ${moment(
-        maxData.metrics.end,
-      ).format('YYYY-MM-DD')} (${maxData.metrics.days} days)`,
+      x: `${moment(maxDays.metrics.start).format('YYYY-MM-DD')}  to ${moment(
+        maxDays.metrics.end,
+      ).format('YYYY-MM-DD')} (${maxDays.metrics.days} days)`,
       y: d.metrics.sessions.map(s => s.quality).reduce((a, b) => a + b),
     },
   ]);
-
-  console.log('*********DataQuality', deviceQuality);
 
   const colorScale = props.devices
     .filter(elem =>
