@@ -4,7 +4,7 @@ import React from 'react';
 import Contributions from '../containers/Contributions';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Settings from '../containers/Settings';
-import Dropdownmenu from '../containers/DropdownMenu';
+//import Dropdownmenu from '../containers/DropdownMenu';
 import DataQuality from '../visualization/DataQuality';
 import DataVolume from '../visualization/DataVolume';
 
@@ -20,7 +20,7 @@ export const ContributionsStack = props => (
       component={Contributions}
       options={{
         title: 'Contributions',
-        headerTitleStyle: Stack.headerTitleStyle,
+        //headerTitleStyle: Stack.headerTitleStyle,
         headerRight: () => (
           <SimpleLineIcons
             name="settings"
@@ -30,7 +30,7 @@ export const ContributionsStack = props => (
             onPress={() => props.navigation.navigate('Settings')}
           />
         ),
-        headerLeft: () => <Dropdownmenu />,
+        //headerLeft: () => <Dropdownmenu />,
       }}
     />
     <StackScreen
