@@ -4,14 +4,17 @@
  */
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {Colors, Typography, Spacing} from '../styles';
+import {Spacing} from '../styles';
 import {DataProgress} from '../dataVisualization';
 import {connect} from 'react-redux';
 import {VictoryGroup, VictoryBar} from 'victory-native';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
-const Progress: () => React$Node = props => {
+const ProgressSyncd: () => React$Node = props => {
+  //const deviceSizes = props.deviceMetrics.map(d =>
+  //  d.metrics.sessions.map(s => s.size).reduce((a, b) => a + b),
+
   return (
     <View style={[styles.chart, styles.view]}>
       <VictoryGroup
@@ -19,6 +22,8 @@ const Progress: () => React$Node = props => {
         offset={10}
         height={150}
         width={190}
+        //height="100%"
+        //width="100%"
         colorScale={DataProgress.colors}
         style={{
           data: {
@@ -43,12 +48,6 @@ const styles = StyleSheet.create({
     padding: Spacing.SCALE_16,
     flexDirection: 'row-reverse',
   },
-  title: {
-    fontSize: Typography.FONT_SIZE_16,
-    fontWeight: Typography.FONT_WEIGHT_BOLD,
-    color: Colors.BLACK,
-    marginLeft: Spacing.SCALE_8,
-  },
   chart: {
     marginRight: Spacing.SCALE_150,
     justifyContent: 'flex-end',
@@ -57,14 +56,17 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     paddingTop: Spacing.SCALE_16,
     paddingBottom: Spacing.SCALE_4,
+    //width: '100%',
+    //height: '100%',
+    maxHeight: 300,
   },
 });
 
 const mapStateToProps = state => state;
 
-const ProgressContainer = connect(
+const ProgressSyncdContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Progress);
+)(ProgressSyncd);
 
-export default ProgressContainer;
+export default ProgressSyncdContainer;

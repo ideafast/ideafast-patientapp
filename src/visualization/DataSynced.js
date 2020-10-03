@@ -8,7 +8,7 @@ import {Text} from 'react-native-elements';
 import {Colors, Typography, Spacing} from '../styles';
 import {connect} from 'react-redux';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import Progress from '../visualization/Progress';
+import ProgressSyncd from './ProgressSyncd';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
@@ -23,7 +23,7 @@ const DataSync: () => React$Node = props => {
           size={Typography.FONT_SIZE_30}
           style={styles.cloud}
         />
-        <Progress />
+        <ProgressSyncd />
       </View>
     </View>
   );

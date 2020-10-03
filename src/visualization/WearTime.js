@@ -8,7 +8,7 @@ import {Text} from 'react-native-elements';
 import {Colors, Typography, Spacing} from '../styles';
 import {connect} from 'react-redux';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import Progress from '../visualization/Progress';
+import ProgressTime from './ProgressTime';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
@@ -24,7 +24,7 @@ const WearTime: () => React$Node = props => {
           size={Typography.FONT_SIZE_30}
           style={styles.star}
         />
-        <Progress />
+        <ProgressTime />
       </View>
     </View>
   );
@@ -33,6 +33,7 @@ const WearTime: () => React$Node = props => {
 const styles = StyleSheet.create({
   view: {
     padding: 4,
+    //flexDirection: 'row',
   },
   title: {
     fontSize: Typography.FONT_SIZE_16,
