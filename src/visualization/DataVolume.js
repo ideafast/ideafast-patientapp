@@ -21,20 +21,10 @@ const DataVolume: () => React$Node = props => {
     ),
   );
 
-  console.log('*****filterdata', filterData);
-
   const deviceSizes = filterData.map(d =>
     d.metrics.sessions.map(s => s.size).reduce((a, b) => a + b),
   );
-  console.log('deviceSizes', deviceSizes);
-  console.log(
-    props.devices.filter(elem =>
-      props.selectedCheckBox.find(
-        ({name, value}) =>
-          elem.name.toLowerCase() === name.toLowerCase() && value,
-      ),
-    ),
-  );
+
   const colorScale = props.devices
     .filter(elem =>
       filterData.find(

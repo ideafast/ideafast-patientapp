@@ -12,8 +12,8 @@ import {connect} from 'react-redux';
 import {mapDispatchToProps} from '../ducks/actions';
 
 const CheckedBoxes: () => React$Node = props => {
-  const farzaneh = props.devices;
-  const [devices, setDevices] = useState([...farzaneh]);
+  const device = props.devices;
+  const [devices, setDevices] = useState([...device]);
 
   const handleChange = (value, index) => {
     let changeCheckBox = devices.find(item => item.id === index);
@@ -33,10 +33,8 @@ const CheckedBoxes: () => React$Node = props => {
                 <CheckBox
                   tintColors={{true: param.color, false: 'black'}}
                   value={param.isSelected}
-                  //onValueChange={setSelection}
                   style={styles.checkbox}
                   onValueChange={value => handleChange(value, i)}
-                  //onPress={() => setSelection === param.setSelection}
                 />
                 <Text style={styles.label}>{param.name}</Text>
               </View>

@@ -25,9 +25,8 @@ const Contributions: () => React$Node = props => {
       newData = [...newData, item];
     }
     setSelectedCheckBox(newData);
-    console.log('************newData', newData);
   };
-  console.log('************selectedCheckBox', selectedCheckBox);
+
   return (
     <View style={styles.view}>
       <CheckedBoxes handleSelectCheckBox={item => handleSelectCheckBox(item)} />
