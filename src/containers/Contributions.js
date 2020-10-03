@@ -15,11 +15,19 @@ import ContributionsMenu from '../visualization/ContributionsMenu';
 import {mapDispatchToProps} from '../ducks/actions';
 
 const Contributions: () => React$Node = props => {
-  const [selectedCheckBox, setSelectedCheckBox] = useState('');
+  const [selectedCheckBox, setSelectedCheckBox] = useState([]);
   const handleSelectCheckBox = item => {
-    console.log('item**********************', item);
-    setSelectedCheckBox(item);
+    let newData = selectedCheckBox.slice();
+    let index = newData.findIndex(data => data.name === item.name);
+    if (index !== -1) {
+      newData[index] = item;
+    } else {
+      newData = [...newData, item];
+    }
+    setSelectedCheckBox(newData);
+    console.log('************newData', newData);
   };
+  console.log('************selectedCheckBox', selectedCheckBox);
   return (
     <View style={styles.view}>
       <CheckedBoxes handleSelectCheckBox={item => handleSelectCheckBox(item)} />

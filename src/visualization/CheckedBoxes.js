@@ -21,7 +21,7 @@ const CheckedBoxes: () => React$Node = props => {
     let newData = devices.slice();
     newData[index] = newChange;
     setDevices(newData);
-    props.handleSelectCheckBox(changeCheckBox.name);
+    props.handleSelectCheckBox({name: changeCheckBox.name, value});
   };
   return (
     <View style={styles.container}>

@@ -14,31 +14,34 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {mapDispatchToProps} from '../ducks/actions';
 
 const DataVolume: () => React$Node = props => {
-  const chart = [];
-  console.log('*****************props', props.selectedCheckBox);
-  //const deviceSizes = props.deviceMetrics.map(d =>
-  //  d.metrics.sessions.map(s => s.size).reduce((a, b) => a + b),
-  //);
-  //const filter = deviceSizes.filter(
-  //  item => item.name === props.selectedCheckBox,
-  //)
-
-  let filterData = props.deviceMetrics.find(
-    item => item.name.toLowerCase() === props.selectedCheckBox.toLowerCase(),
+  let filterData = props.deviceMetrics.filter(elem =>
+    props.selectedCheckBox.find(
+      ({name, value}) =>
+        elem.name.toLowerCase() === name.toLowerCase() && value,
+    ),
   );
+
   console.log('*****filterdata', filterData);
 
-  if (filterData) {
-    console.log('hiiiiiiiiiiiiiiiiiiii');
-    console.log('*********** khar', filterData.metrics.sessions);
-  }
-  const deviceSizes = filterData
-    ? filterData.metrics.sessions.map(s => s.size).reduce((a, b) => a + b)
-    : 0;
-  console.log('*****deviceizes', deviceSizes);
-  chart.push(deviceSizes);
-
-  const colorScale = props.devices.map(d => d.color);
+  const deviceSizes = filterData.map(d =>
+    d.metrics.sessions.map(s => s.size).reduce((a, b) => a + b),
+  );
+  console.log('deviceSizes', deviceSizes);
+  console.log(
+    props.devices.filter(elem =>
+      props.selectedCheckBox.find(
+        ({name, value}) =>
+          elem.name.toLowerCase() === name.toLowerCase() && value,
+      ),
+    ),
+  );
+  const colorScale = props.devices
+    .filter(elem =>
+      filterData.find(
+        ({name}) => elem.name.toLowerCase() === name.toLowerCase(),
+      ),
+    )
+    .map(item => item.color);
 
   return (
     <View style={[styles.view, styles.border]}>
@@ -51,7 +54,7 @@ const DataVolume: () => React$Node = props => {
             height={300}
             innerRadius={65}
             labelPosition={({index}) => 'centroid'}
-            labels={chart}
+            labels={deviceSizes}
             labelComponent={
               <VictoryLabel
                 dy={0}
@@ -59,7 +62,7 @@ const DataVolume: () => React$Node = props => {
               />
             }
             padAngle={({datum}) => 2}
-            data={chart}
+            data={deviceSizes}
             colorScale={colorScale}
           />
         </Svg>
