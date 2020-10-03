@@ -6,13 +6,38 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Text} from 'react-native-elements';
 import {Colors, Typography, Spacing} from '../styles';
-import {DataChart} from '../dataVisualization';
 import {connect} from 'react-redux';
 import {VictoryGroup, VictoryBar, VictoryChart} from 'victory-native';
+import moment from 'moment';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
 const DataQuality: () => React$Node = props => {
+  let filterData = props.deviceMetrics.filter(elem =>
+    props.selectedCheckBox.find(
+      ({name, value}) =>
+        elem.name.toLowerCase() === name.toLowerCase() && value,
+    ),
+  );
+
+  const deviceQuality = filterData.map(d => [
+    {
+      x: `${moment(d.metrics.start).format('YYYY-MM-DD')}  to ${moment(
+        d.metrics.end,
+      ).format('YYYY-MM-DD')} (${d.metrics.days} days)`,
+      y: d.metrics.sessions.map(s => s.quality).reduce((a, b) => a + b),
+    },
+  ]);
+
+  console.log('*********DataQuality', deviceQuality);
+
+  const colorScale = props.devices
+    .filter(elem =>
+      filterData.find(
+        ({name}) => elem.name.toLowerCase() === name.toLowerCase(),
+      ),
+    )
+    .map(item => item.color);
   return (
     <View style={styles.view}>
       <Text style={styles.title}>Data Quality</Text>
@@ -20,26 +45,23 @@ const DataQuality: () => React$Node = props => {
         <VictoryChart width={300} height={220}>
           <VictoryGroup
             offset={35}
-            colorScale={DataChart.colors}
+            colorScale={colorScale}
             style={{
               data: {
-                fillOpacity: 0.6,
+                fillOpacity: 0.8,
                 stroke: 'black',
                 strokeWidth: 1,
               },
             }}>
-            <VictoryBar data={DataChart.column1} />
-            <VictoryBar data={DataChart.column2} />
-            <VictoryBar data={DataChart.column3} />
-            <VictoryBar data={DataChart.column4} />
-            <VictoryBar data={DataChart.column5} />
+            {deviceQuality.map((param, i) => {
+              return <VictoryBar data={param} key={i} />;
+            })}
           </VictoryGroup>
         </VictoryChart>
       </View>
     </View>
   );
 };
-
 const styles = StyleSheet.create({
   view: {
     flex: 1,

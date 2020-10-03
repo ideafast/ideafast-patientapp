@@ -5,7 +5,7 @@
 import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {connect} from 'react-redux';
-import DataVolume from '../visualization/DataVolume';
+import DataQuality from '../visualization/DataQuality';
 import WearTime from '../visualization/WearTime';
 import {Colors} from '../styles';
 import DataSynced from '../visualization/DataSynced';
@@ -30,7 +30,7 @@ const Contributions: () => React$Node = props => {
   return (
     <View style={styles.view}>
       <CheckedBoxes handleSelectCheckBox={item => handleSelectCheckBox(item)} />
-      <DataVolume selectedCheckBox={selectedCheckBox} />
+      <DataQuality selectedCheckBox={selectedCheckBox} />
       <WearTime />
       <DataSynced />
       <ContributionsMenu />
