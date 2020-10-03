@@ -18,7 +18,7 @@ const Contributions: () => React$Node = props => {
   const [selectedCheckBox, setSelectedCheckBox] = useState([]);
   const handleSelectCheckBox = item => {
     let newData = selectedCheckBox.slice();
-    let index = newData.findIndex(data => data.name === item.name);
+    const index = newData.findIndex(data => data.name === item.name);
     if (index !== -1) {
       newData[index] = item;
     } else {

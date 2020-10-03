@@ -13,13 +13,13 @@ import moment from 'moment';
 import {mapDispatchToProps} from '../ducks/actions';
 
 const DataQuality: () => React$Node = props => {
-  let filterData = props.deviceMetrics.filter(elem =>
+  const filterData = props.deviceMetrics.filter(elem =>
     props.selectedCheckBox.find(
       ({name, value}) =>
         elem.name.toLowerCase() === name.toLowerCase() && value,
     ),
   );
-  let maxDays = filterData.find(
+  const maxDays = filterData.find(
     days =>
       days.metrics.days ===
       Math.max.apply(Math, filterData.map(item => item.metrics.days)),
