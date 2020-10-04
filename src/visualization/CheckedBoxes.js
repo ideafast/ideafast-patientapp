@@ -16,9 +16,9 @@ const CheckedBoxes: () => React$Node = props => {
   const [devices, setDevices] = useState([...device]);
 
   const handleChange = (value, index) => {
-    let changeCheckBox = devices.find(item => item.id === index);
-    let newChange = {...changeCheckBox, isSelected: value};
-    let newData = devices.slice();
+    const changeCheckBox = devices.find(item => item.id === index);
+    const newChange = {...changeCheckBox, isSelected: value};
+    const newData = devices.slice();
     newData[index] = newChange;
     setDevices(newData);
     props.handleSelectCheckBox({name: changeCheckBox.name, value});
@@ -47,9 +47,7 @@ const CheckedBoxes: () => React$Node = props => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 0,
-    //borderBottomWidth: Typography.BORDER_WIDTH,
-    //borderColor: Colors.GREY,
+    padding: Spacing.SCALE_1,
   },
   checkboxContainer: {
     flexDirection: 'row',
@@ -67,9 +65,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => state;
 
-const CheckedBoxesContainer = connect(
+const CheckedBoxesComponent = connect(
   mapStateToProps,
   mapDispatchToProps,
 )(CheckedBoxes);
 
-export default CheckedBoxesContainer;
+export default CheckedBoxesComponent;
