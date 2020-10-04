@@ -12,7 +12,7 @@
             "isBleOn": false
           },
           "data": {
-            "isOnDevice": true,
+            "isOnDevice": false,
             "size": 100000000,
             "isUploading": false,
             "startRecorded": "2020-04-23T18:25:43.511Z",

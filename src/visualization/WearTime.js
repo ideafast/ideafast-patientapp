@@ -9,22 +9,23 @@ import {Colors, Typography, Spacing} from '../styles';
 import {connect} from 'react-redux';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import ProgressTime from './ProgressTime';
+//import CheckedBoxes from '../visualization/CheckedBoxes';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
-const WearTime: () => React$Node = props => {
+const WearTime: () => React$Node = ({title, icon, color, selectedCheckBox}) => {
   return (
     <View style={styles.view}>
       <Text style={styles.title}>Progress</Text>
       <View style={styles.borderBar}>
-        <Text style={styles.text}>Wear Time</Text>
+        <Text style={styles.text}>{title}</Text>
         <FontAwesome5
-          name="star"
-          color={Colors.ORANGE}
+          name={icon}
+          color={color}
           size={Typography.FONT_SIZE_30}
           style={styles.star}
         />
-        <ProgressTime />
+        <ProgressTime selectedCheckBox={selectedCheckBox} title={title} />
       </View>
     </View>
   );

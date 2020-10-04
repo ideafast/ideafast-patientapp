@@ -8,7 +8,6 @@ import {connect} from 'react-redux';
 import DataVolume from '../visualization/DataVolume';
 import WearTime from '../visualization/WearTime';
 import {Colors} from '../styles';
-import DataSynced from '../visualization/DataSynced';
 import CheckedBoxes from '../visualization/CheckedBoxes';
 import ContributionsMenu from '../visualization/ContributionsMenu';
 
@@ -31,8 +30,18 @@ const Contributions: () => React$Node = props => {
     <View style={styles.view}>
       <CheckedBoxes handleSelectCheckBox={item => handleSelectCheckBox(item)} />
       <DataVolume selectedCheckBox={selectedCheckBox} />
-      <WearTime />
-      <DataSynced />
+      <WearTime
+        title="Wear Time"
+        icon="star"
+        color={Colors.ORANGE}
+        selectedCheckBox={selectedCheckBox}
+      />
+      <WearTime
+        title="Data Synced"
+        icon="cloud"
+        color={Colors.BLUE}
+        selectedCheckBox={selectedCheckBox}
+      />
       <ContributionsMenu />
     </View>
   );
