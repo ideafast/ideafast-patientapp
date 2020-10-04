@@ -9,7 +9,6 @@ import {Colors, Typography, Spacing} from '../styles';
 import {connect} from 'react-redux';
 import {VictoryPie, VictoryLabel} from 'victory-native';
 import {Svg} from 'react-native-svg';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
@@ -56,20 +55,6 @@ const DataVolume: () => React$Node = props => {
             colorScale={colorScale}
           />
         </Svg>
-        <View style={styles.circle}>
-          <FontAwesome5
-            name="circle"
-            color={Colors.BLACK}
-            size={Typography.FONT_SIZE_16}
-            style={styles.circle}
-          />
-          <FontAwesome5
-            name="circle"
-            color={Colors.BLACK}
-            size={Typography.FONT_SIZE_16}
-            style={styles.circle}
-          />
-        </View>
       </View>
     </View>
   );
@@ -82,8 +67,8 @@ const styles = StyleSheet.create({
     paddingBottom: 60,
   },
   border: {
-    borderWidth: 1,
-    borderColor: Colors.GREY,
+    //borderWidth: 1,
+    //borderColor: Colors.GREY,
   },
   title: {
     fontSize: Typography.FONT_SIZE_16,

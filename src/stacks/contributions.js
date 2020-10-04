@@ -5,8 +5,6 @@ import Contributions from '../containers/Contributions';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Settings from '../containers/Settings';
 //import Dropdownmenu from '../containers/DropdownMenu';
-import DataQuality from '../visualization/DataQuality';
-import DataVolume from '../visualization/DataVolume';
 
 export const {
   Navigator: StackNavigator,
@@ -37,16 +35,6 @@ export const ContributionsStack = props => (
       name="Settings"
       component={Settings}
       options={{title: 'Settings'}}
-    />
-    <StackScreen
-      name="DataQuality"
-      component={DataQuality}
-      options={{title: 'Data Quality'}}
-    />
-    <StackScreen
-      name="DataVolume"
-      component={DataVolume}
-      options={{title: 'Data Volume'}}
     />
   </StackNavigator>
 );

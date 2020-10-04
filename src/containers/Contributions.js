@@ -5,8 +5,8 @@
 import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {connect} from 'react-redux';
-import DataVolume from '../visualization/DataVolume';
-import WearTime from '../visualization/WearTime';
+import Circle from '../visualization/Circle';
+import WearSync from '../visualization/WearSync';
 import {Colors} from '../styles';
 import CheckedBoxes from '../visualization/CheckedBoxes';
 import ContributionsMenu from '../visualization/ContributionsMenu';
@@ -29,15 +29,16 @@ const Contributions: () => React$Node = props => {
   return (
     <View style={styles.view}>
       <CheckedBoxes handleSelectCheckBox={item => handleSelectCheckBox(item)} />
-      <DataVolume selectedCheckBox={selectedCheckBox} />
-      <WearTime
-        title="Wear Time"
+      <Circle selectedCheckBox={selectedCheckBox} />
+      <WearSync
+        title="Progress"
+        text="Wear Time"
         icon="star"
         color={Colors.ORANGE}
         selectedCheckBox={selectedCheckBox}
       />
-      <WearTime
-        title="Data Synced"
+      <WearSync
+        text="Data Synced"
         icon="cloud"
         color={Colors.BLUE}
         selectedCheckBox={selectedCheckBox}

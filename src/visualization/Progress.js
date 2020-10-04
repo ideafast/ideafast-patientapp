@@ -5,10 +5,8 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Spacing} from '../styles';
-//import {DataProgress} from '../dataVisualization';
 import {connect} from 'react-redux';
 import {VictoryGroup, VictoryBar} from 'victory-native';
-//import moment from 'moment';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
@@ -21,7 +19,7 @@ const ProgressTime: () => React$Node = props => {
   );
   let a = 97;
   const progress =
-    props.title === 'Wear Time'
+    props.text === 'Wear Time'
       ? filterData.map((d, i) => [
           {
             x: String.fromCharCode(a + i),
@@ -34,10 +32,9 @@ const ProgressTime: () => React$Node = props => {
             y: d.status.data.isOnDevice ? 1 : 0,
           },
         ]);
-  console.log('progress', progress);
 
   const colorScale =
-    props.title === 'Wear Time'
+    props.text === 'Wear Time'
       ? props.devices
           .filter(elem =>
             filterData.find(

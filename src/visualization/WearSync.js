@@ -8,17 +8,18 @@ import {Text} from 'react-native-elements';
 import {Colors, Typography, Spacing} from '../styles';
 import {connect} from 'react-redux';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import ProgressTime from './ProgressTime';
+import ProgressTime from './Progress';
 //import CheckedBoxes from '../visualization/CheckedBoxes';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
-const WearTime: () => React$Node = ({
-  title,
+const WearSync: () => React$Node = ({
+  text,
   icon,
   color,
   selectedCheckBox,
   deviceMetrics,
+  title,
 }) => {
   const filterData = deviceMetrics.filter(elem =>
     selectedCheckBox.find(
@@ -27,11 +28,11 @@ const WearTime: () => React$Node = ({
     ),
   );
 
-  let totalDevices = deviceMetrics.length;
-  let countDevice = filterData.length;
-  let syncData = deviceMetrics.filter(d => d.status.data.isOnDevice).length;
+  const totalDevices = deviceMetrics.length;
+  const countDevice = filterData.length;
+  const syncData = deviceMetrics.filter(d => d.status.data.isOnDevice).length;
 
-  let messageSync =
+  const messageSync =
     syncData === totalDevices ? (
       'All Data is synced'
     ) : (
@@ -39,16 +40,16 @@ const WearTime: () => React$Node = ({
         {syncData}/{totalDevices} is synced
       </Text>
     );
-  let message =
-    title === 'Wear Time'
+  const message =
+    text === 'Wear Time'
       ? `days for ${countDevice}/${totalDevices} devices`
       : messageSync;
   //console.log(message);
   return (
     <View style={styles.view}>
-      <Text style={styles.title}>Progress</Text>
+      <Text style={styles.title}>{title}</Text>
       <View style={styles.borderBar}>
-        <Text style={styles.text}>{title}</Text>
+        <Text style={styles.text}>{text}</Text>
         <FontAwesome5
           name={icon}
           color={color}
@@ -56,7 +57,11 @@ const WearTime: () => React$Node = ({
           style={styles.star}
         />
         <Text style={styles.shadow}>{message}</Text>
-        <ProgressTime selectedCheckBox={selectedCheckBox} title={title} />
+        <ProgressTime
+          selectedCheckBox={selectedCheckBox}
+          text={text}
+          title={title}
+        />
       </View>
     </View>
   );
@@ -106,9 +111,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => state;
 
-const WearTimeContainer = connect(
+const WearSyncContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(WearTime);
+)(WearSync);
 
-export default WearTimeContainer;
+export default WearSyncContainer;
