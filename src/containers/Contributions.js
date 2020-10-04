@@ -3,11 +3,11 @@
  * @flow strict-local
  */
 import React, {useState} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 import {connect} from 'react-redux';
 import Circle from '../visualization/Circle';
 import WearSync from '../visualization/WearSync';
-import {Colors} from '../styles';
+import {Colors, Spacing, Typography} from '../styles';
 import CheckedBoxes from '../visualization/CheckedBoxes';
 import ContributionsMenu from '../visualization/ContributionsMenu';
 
@@ -30,8 +30,10 @@ const Contributions: () => React$Node = props => {
     <View style={styles.view}>
       <CheckedBoxes handleSelectCheckBox={item => handleSelectCheckBox(item)} />
       <Circle selectedCheckBox={selectedCheckBox} />
+
+      <Text style={styles.title}>Progress</Text>
+
       <WearSync
-        title="Progress"
         text="Wear Time"
         icon="star"
         color={Colors.ORANGE}
@@ -52,6 +54,12 @@ const styles = StyleSheet.create({
   view: {
     flex: 1,
     backgroundColor: Colors.WHITE,
+  },
+  title: {
+    fontSize: Typography.FONT_SIZE_16,
+    fontWeight: Typography.FONT_WEIGHT_BOLD,
+    color: Colors.BLACK,
+    marginLeft: Spacing.SCALE_8,
   },
 });
 

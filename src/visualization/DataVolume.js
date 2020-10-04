@@ -33,7 +33,7 @@ const DataVolume: () => React$Node = props => {
     .map(item => item.color);
 
   return (
-    <View style={[styles.view, styles.border]}>
+    <View style={[styles.view]}>
       <Text style={styles.title}>Data Volume</Text>
       <View style={styles.victoryPie}>
         <Svg width="100%" height="100%" viewBox="0 0 360 300">
@@ -62,13 +62,7 @@ const DataVolume: () => React$Node = props => {
 
 const styles = StyleSheet.create({
   view: {
-    height: 180,
-    padding: Spacing.SCALE_8,
-    paddingBottom: 60,
-  },
-  border: {
-    //borderWidth: 1,
-    //borderColor: Colors.GREY,
+    overflow: 'hidden',
   },
   title: {
     fontSize: Typography.FONT_SIZE_16,
@@ -83,7 +77,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   victoryPie: {
-    justifyContent: 'center',
+    height: 130,
     alignItems: 'center',
   },
   circle: {

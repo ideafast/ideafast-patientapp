@@ -63,6 +63,7 @@ const ContributionsMenu: () => React$Node = props => {
 const styles = StyleSheet.create({
   view: {
     padding: 4,
+    flex: 1,
   },
   title: {
     fontSize: Typography.FONT_SIZE_16,

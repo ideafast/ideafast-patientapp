@@ -5,7 +5,7 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Text} from 'react-native-elements';
-import {Colors, Typography, Spacing} from '../styles';
+import {Colors, Typography} from '../styles';
 import {connect} from 'react-redux';
 import {VictoryGroup, VictoryBar, VictoryChart} from 'victory-native';
 import moment from 'moment';
@@ -45,7 +45,10 @@ const DataQuality: () => React$Node = props => {
     <View style={styles.view}>
       <Text style={styles.title}>Data Quality</Text>
       <View style={styles.victoryChart}>
-        <VictoryChart width={230} height={180}>
+        <VictoryChart
+          width={350}
+          height={130}
+          padding={{top: 20, bottom: 30, right: 50, left: 50}}>
           <VictoryGroup
             offset={35}
             colorScale={colorScale}
@@ -67,18 +70,15 @@ const DataQuality: () => React$Node = props => {
 };
 const styles = StyleSheet.create({
   view: {
-    flex: 1,
-    padding: Spacing.SCALE_8,
+    overflow: 'hidden',
   },
   title: {
     fontSize: Typography.FONT_SIZE_16,
     fontWeight: Typography.FONT_WEIGHT_BOLD,
     color: Colors.BLACK,
-    //marginLeft: Spacing.SCALE_8,
-    //marginTop: Spacing.SCALE_8,
   },
   victoryChart: {
-    justifyContent: 'center',
+    height: 130,
     alignItems: 'center',
   },
 });

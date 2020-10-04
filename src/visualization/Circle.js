@@ -21,26 +21,27 @@ const Circle: () => React$Node = props => {
         {!dataVolume && (
           <DataQuality selectedCheckBox={props.selectedCheckBox} />
         )}
-        <TouchableOpacity
-          //style={styles.circle}
-          onPress={() => setDataVolume(true)}>
-          <FontAwesome5
-            name="circle"
-            color={Colors.BLACK}
-            size={Typography.FONT_SIZE_16}
-            //style={styles.circle}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          //style={styles.circle}
-          onPress={() => setDataVolume(false)}>
-          <FontAwesome5
-            name="circle"
-            color={Colors.BLACK}
-            size={Typography.FONT_SIZE_16}
-            //style={styles.circle}
-          />
-        </TouchableOpacity>
+
+        <View style={styles.content}>
+          <TouchableOpacity
+            style={styles.circle}
+            onPress={() => setDataVolume(true)}>
+            <FontAwesome5
+              name="circle"
+              color={Colors.GREY}
+              size={Typography.FONT_SIZE_12}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.circle}
+            onPress={() => setDataVolume(false)}>
+            <FontAwesome5
+              name="circle"
+              color={Colors.GREY}
+              size={Typography.FONT_SIZE_12}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -48,20 +49,19 @@ const Circle: () => React$Node = props => {
 
 const styles = StyleSheet.create({
   view: {
-    height: 150,
     padding: Spacing.SCALE_8,
-    paddingBottom: 60,
-    //flexDirection: 'row',
   },
   border: {
     borderWidth: 1,
-    borderColor: Colors.GREY,
+    borderColor: Colors.WHITESMOKE,
+  },
+  content: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: Spacing.SCALE_8,
   },
   circle: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-    margin: Spacing.SCALE_8,
+    marginHorizontal: Spacing.SCALE_8,
   },
 });
 

@@ -76,13 +76,9 @@ const styles = StyleSheet.create({
   chart: {
     marginRight: Spacing.SCALE_150,
     justifyContent: 'flex-end',
-    //flexDirection: 'row',
-    //alignSelf: 'flex-end',
     alignItems: 'flex-end',
     paddingTop: Spacing.SCALE_16,
     paddingBottom: Spacing.SCALE_4,
-    //width: '100%',
-    //height: '100%',
     maxHeight: 300,
   },
 });
