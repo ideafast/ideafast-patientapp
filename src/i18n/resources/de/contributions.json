@@ -1,0 +1,17 @@
+{
+  "title" : "Beiträge",
+  "text"  : "Dies ist ein Container für Beiträge.",
+  "picker": {
+    "all": "Alle",
+    "day": "1 Tag",
+    "week": "1 Woche",
+    "month": "3 Monate",
+    "days": "3 Tage"
+  },
+  "settings": {
+    "title": "Die Einstellungen",
+    "user": "Nutzer(-in) ID",
+    "lang": "Anwendungssprache",
+    "choose": "Sprache wählen"
+  }
+}

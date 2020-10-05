@@ -1,0 +1,20 @@
+{
+  "foreground" : "App is op de voorgrond gekomen!",
+  "connectedPer" : "Aangesloten randapparatuur: ",
+  "blePer" : "Ik heb ble randapparatuur",
+  "ScanStop" : "Het scannen is gestopt",
+  "disconnect": "Verbroken van ",
+  "dataReceived": "Gegevens ontvangen van ",
+  "characteristic" : "karakteristiek",
+  "permission": "Toestemming is oké",
+  "userA" : "Gebruiker accepteren",
+  "userR" : "Gebruiker weigeren",
+  "scanning" : "Scannen ...",
+  "noPer" : "Geen aangesloten randapparatuur",
+  "connect" : "Verbonden met ",
+  "scanner": "Bluetooth-scanner",
+  "bluetooth": "Scan Bluetooth (",
+  "on" : "on",
+  "off" : "off",
+  "peripherals": "Haal aangesloten randapparatuur op"
+}

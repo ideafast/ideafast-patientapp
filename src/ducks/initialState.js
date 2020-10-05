@@ -1,3 +1,5 @@
+import i18n from 'i18next';
+
 const defaultImage = require('../assets/devices/default.png');
 
 const DEVICES = [
@@ -14,24 +16,8 @@ const DEVICES = [
   {id: 10, name: 'ZKOne YOLI', image: defaultImage},
 ];
 
-const SUPPORTED_LANGUAGES = [
-  {
-    code: 'en',
-    name: 'English',
-  },
-  {
-    code: 'de',
-    name: 'German',
-  },
-  {
-    code: 'nl',
-    name: 'Dutch',
-  },
-];
-
 export default {
   userID: null,
-  userLang: 'en',
-  languages: SUPPORTED_LANGUAGES,
+  userLang: i18n.language,
   devices: DEVICES,
 };

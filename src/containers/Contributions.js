@@ -3,6 +3,7 @@
  * @flow strict-local
  */
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import {StyleSheet, View} from 'react-native';
 import {Text} from 'react-native-elements';
 import {Colors, Typography} from '../styles';
@@ -11,9 +12,10 @@ import {connect} from 'react-redux';
 import {mapDispatchToProps} from '../ducks/actions';
 
 const Contributions: () => React$Node = props => {
+  const {t} = useTranslation('contributions');
   return (
     <View style={styles.view}>
-      <Text style={styles.text}>This is a container for contributions.</Text>
+      <Text style={styles.text}>{t('text')}</Text>
     </View>
   );
 };
