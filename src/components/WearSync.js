@@ -13,7 +13,7 @@ import ProgressTime from '../containers/visualization/Progress';
 import {mapDispatchToProps} from '../ducks/actions';
 
 const WearSync: () => React$Node = ({
-  text,
+  title,
   icon,
   color,
   selectedCheckBox,
@@ -39,14 +39,14 @@ const WearSync: () => React$Node = ({
       </Text>
     );
   const message =
-    text === 'Wear Time'
+    title === 'Wear Time'
       ? `days for ${countDevice}/${totalDevices} devices`
       : messageSync;
 
   return (
     <View style={styles.view}>
       <View style={styles.borderBar}>
-        <Text style={styles.text}>{text}</Text>
+        <Text style={styles.text}>{title}</Text>
         <FontAwesome5
           name={icon}
           color={color}
@@ -54,7 +54,7 @@ const WearSync: () => React$Node = ({
           style={styles.star}
         />
         <Text style={styles.shadow}>{message}</Text>
-        <ProgressTime selectedCheckBox={selectedCheckBox} text={text} />
+        <ProgressTime selectedCheckBox={selectedCheckBox} title={title} />
       </View>
     </View>
   );

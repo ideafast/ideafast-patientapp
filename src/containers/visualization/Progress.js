@@ -19,7 +19,7 @@ const ProgressTime: () => React$Node = props => {
   );
   let a = 97;
   const progress =
-    props.text === 'Wear Time'
+    props.title === 'Wear Time'
       ? filterData.map((d, i) => [
           {
             x: String.fromCharCode(a + i),
@@ -34,7 +34,7 @@ const ProgressTime: () => React$Node = props => {
         ]);
 
   const colorScale =
-    props.text === 'Wear Time'
+    props.title === 'Wear Time'
       ? props.devices
           .filter(elem =>
             filterData.find(

@@ -34,13 +34,13 @@ const Contributions: () => React$Node = props => {
       <Text style={styles.title}>Progress</Text>
 
       <WearSync
-        text="Wear Time"
+        title="Wear Time"
         icon="star"
         color={Colors.ORANGE}
         selectedCheckBox={selectedCheckBox}
       />
       <WearSync
-        text="Data Synced"
+        title="Data Synced"
         icon="cloud"
         color={Colors.BLUE}
         selectedCheckBox={selectedCheckBox}
