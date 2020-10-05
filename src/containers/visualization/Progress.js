@@ -4,11 +4,11 @@
  */
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {Spacing} from '../styles';
+import {Spacing} from '../../styles';
 import {connect} from 'react-redux';
 import {VictoryGroup, VictoryBar} from 'victory-native';
 
-import {mapDispatchToProps} from '../ducks/actions';
+import {mapDispatchToProps} from '../../ducks/actions';
 
 const ProgressTime: () => React$Node = props => {
   const filterData = props.deviceMetrics.filter(elem =>

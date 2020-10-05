@@ -5,12 +5,12 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Text} from 'react-native-elements';
-import {Colors, Typography, Spacing} from '../styles';
+import {Colors, Typography, Spacing} from '../../styles';
 import {connect} from 'react-redux';
 import {VictoryPie, VictoryLabel} from 'victory-native';
 import {Svg} from 'react-native-svg';
 
-import {mapDispatchToProps} from '../ducks/actions';
+import {mapDispatchToProps} from '../../ducks/actions';
 
 const DataVolume: () => React$Node = props => {
   const filterData = props.deviceMetrics.filter(elem =>

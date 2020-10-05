@@ -6,10 +6,10 @@ import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Text} from 'react-native-elements';
 import CheckBox from '@react-native-community/checkbox';
-import {Typography, Spacing} from '../styles';
+import {Typography, Spacing} from '../../styles';
 import {connect} from 'react-redux';
 
-import {mapDispatchToProps} from '../ducks/actions';
+import {mapDispatchToProps} from '../../ducks/actions';
 
 const CheckedBoxes: () => React$Node = props => {
   const device = props.devices;

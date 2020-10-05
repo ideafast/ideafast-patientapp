@@ -4,12 +4,12 @@
  */
 import React, {useState} from 'react';
 import {StyleSheet, View, TouchableOpacity} from 'react-native';
-import {Colors, Typography, Spacing} from '../styles';
+import {Colors, Typography, Spacing} from '../../styles';
 import {connect} from 'react-redux';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import DataQuality from './DataQuality';
 import DataVolume from './DataVolume';
-import {mapDispatchToProps} from '../ducks/actions';
+import {mapDispatchToProps} from '../../ducks/actions';
 
 const Circle: () => React$Node = props => {
   const [dataVolume, setDataVolume] = useState(true);

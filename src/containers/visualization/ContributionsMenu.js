@@ -5,11 +5,11 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Text} from 'react-native-elements';
-import {Colors, Typography, Spacing} from '../styles';
+import {Colors, Typography, Spacing} from '../../styles';
 import {connect} from 'react-redux';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-import {mapDispatchToProps} from '../ducks/actions';
+import {mapDispatchToProps} from '../../ducks/actions';
 
 const ContributionsMenu: () => React$Node = props => {
   const state = [

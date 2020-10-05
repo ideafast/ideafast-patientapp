@@ -5,11 +5,11 @@
 import React, {useState} from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {connect} from 'react-redux';
-import Circle from '../visualization/Circle';
-import WearSync from '../visualization/WearSync';
+import Circle from '../containers/visualization/Circle';
+import WearSync from '../components/WearSync';
 import {Colors, Spacing, Typography} from '../styles';
-import CheckedBoxes from '../visualization/CheckedBoxes';
-import ContributionsMenu from '../visualization/ContributionsMenu';
+import CheckedBoxes from './visualization/CheckedBoxes';
+import ContributionsMenu from '../containers/visualization/ContributionsMenu';
 
 import {mapDispatchToProps} from '../ducks/actions';
 

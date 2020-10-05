@@ -8,8 +8,7 @@ import {Text} from 'react-native-elements';
 import {Colors, Typography, Spacing} from '../styles';
 import {connect} from 'react-redux';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import ProgressTime from './Progress';
-//import CheckedBoxes from '../visualization/CheckedBoxes';
+import ProgressTime from '../containers/visualization/Progress';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
@@ -99,9 +98,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => state;
 
-const WearSyncContainer = connect(
+const WearSyncComponents = connect(
   mapStateToProps,
   mapDispatchToProps,
 )(WearSync);
 
-export default WearSyncContainer;
+export default WearSyncComponents;
