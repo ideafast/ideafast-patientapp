@@ -4,22 +4,35 @@
  */
 import React, {useState} from 'react';
 import {StyleSheet, View, TouchableOpacity} from 'react-native';
-import {Colors, Typography, Spacing} from '../../styles';
+import {Colors, Typography, Spacing} from '../styles';
 import {connect} from 'react-redux';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import DataQuality from './DataQuality';
-import DataVolume from './DataVolume';
-import {mapDispatchToProps} from '../../ducks/actions';
+import DataQuality from '../containers/contributions/DataQuality';
+import DataVolume from '../containers/contributions/DataVolume';
+import {mapDispatchToProps} from '../ducks/actions';
 
-const Circle: () => React$Node = props => {
+const DataCharts: () => React$Node = ({
+  activeDevices,
+  filterData,
+  colorScale,
+}) => {
   const [dataVolume, setDataVolume] = useState(true);
 
   return (
     <View style={[styles.view, styles.border]}>
       <View style={styles.circle}>
-        {dataVolume && <DataVolume selectedCheckBox={props.selectedCheckBox} />}
-        {!dataVolume && (
-          <DataQuality selectedCheckBox={props.selectedCheckBox} />
+        {dataVolume ? (
+          <DataVolume
+            activeDevices={activeDevices}
+            filterData={filterData}
+            colorScale={colorScale}
+          />
+        ) : (
+          <DataQuality
+            activeDevices={activeDevices}
+            filterData={filterData}
+            colorScale={colorScale}
+          />
         )}
 
         <View style={styles.content}>
@@ -67,9 +80,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => state;
 
-const CircleContainer = connect(
+const DataChartsContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Circle);
+)(DataCharts);
 
-export default CircleContainer;
+export default DataChartsContainer;

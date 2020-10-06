@@ -3,35 +3,40 @@
  * @flow strict-local
  */
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {Text} from 'react-native-elements';
+import {StyleSheet, View, Text} from 'react-native';
 import {Colors, Typography, Spacing} from '../../styles';
 import {connect} from 'react-redux';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import {FormatBytes} from '../../util/General';
 
 import {mapDispatchToProps} from '../../ducks/actions';
 
 const ContributionsMenu: () => React$Node = props => {
-  const state = [
+  const deviceDays = props.deviceMetrics.reduce(
+    (result, item) => result + item.metrics.days,
+    0,
+  );
+
+  const deviceSizes = FormatBytes(
+    props.deviceMetrics.reduce(
+      (result, item) => result + item.status.data.size,
+      0,
+    ),
+  );
+  const totalDevices = props.deviceMetrics.length;
+  const items = [
     {
-      text: props.deviceMetrics
-        .map(d => d.metrics.days)
-        .reduce((a, b) => a + b),
+      text: deviceDays,
       logo: 'award',
       shadow: 'Day Streak',
     },
     {
-      text:
-        props.deviceMetrics
-          .map(d => d.status.data.size)
-          .reduce((a, b) => a + b) /
-          100000000 +
-        ' GB',
+      text: deviceSizes,
       logo: 'medal',
       shadow: 'Total Data',
     },
     {
-      text: props.deviceMetrics.map(d => d.name).length,
+      text: totalDevices,
       logo: 'robot',
       shadow: 'devices Worn',
     },
@@ -41,7 +46,7 @@ const ContributionsMenu: () => React$Node = props => {
     <View style={styles.view}>
       <Text style={styles.title}>Contributions</Text>
       <View style={styles.contributions}>
-        {state.map((param, i) => {
+        {items.map((param, i) => {
           return (
             <View style={styles.borderBar} key={i}>
               <Text style={styles.text}>{param.text}</Text>
@@ -62,8 +67,8 @@ const ContributionsMenu: () => React$Node = props => {
 
 const styles = StyleSheet.create({
   view: {
-    padding: 4,
-    flex: 1,
+    padding: Spacing.SCALE_1,
+    //flex: 1,
   },
   title: {
     fontSize: Typography.FONT_SIZE_16,
@@ -93,10 +98,8 @@ const styles = StyleSheet.create({
   },
   shadow: {
     fontSize: Typography.FONT_SIZE_10,
-    //fontWeight: Typography.FONT_WEIGHT_BOLD,
     color: Colors.BLACK,
     paddingLeft: Spacing.SCALE_42,
-    //position: 'absolute',
     flexWrap: 'wrap',
     alignSelf: 'center',
     justifyContent: 'space-between',

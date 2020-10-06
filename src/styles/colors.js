@@ -16,4 +16,8 @@ export const DEVICES = {
   BYTEFLIES: '#5ba5ce',
   EVERION: '#d1fcff',
   THINKFAST: '#219ca3',
+  STRESSMONITOR: '#90ee90',
+  EBEDSENSOR: '#0000ff',
+  VITALPATCH: '#000080',
+  ZKONEYOLI: '#9acd32',
 };

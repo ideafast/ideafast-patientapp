@@ -3,9 +3,14 @@
  * @flow strict-local
  */
 import React, {useState} from 'react';
-import {KeyboardAvoidingView, StyleSheet, TextInput, View} from 'react-native';
+import {
+  KeyboardAvoidingView,
+  StyleSheet,
+  TextInput,
+  View,
+  Text,
+} from 'react-native';
 import Logo from '../assets/logo.svg';
-import {Text} from 'react-native-elements';
 import {connect} from 'react-redux';
 
 import LoadingButton from '../components/LoadingButton';

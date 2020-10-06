@@ -3,8 +3,7 @@
  * @flow strict-local
  */
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {Text} from 'react-native-elements';
+import {StyleSheet, View, Text} from 'react-native';
 import {Colors, Typography, Spacing} from '../../styles';
 import {connect} from 'react-redux';
 import {VictoryPie, VictoryLabel} from 'victory-native';
@@ -12,25 +11,10 @@ import {Svg} from 'react-native-svg';
 
 import {mapDispatchToProps} from '../../ducks/actions';
 
-const DataVolume: () => React$Node = props => {
-  const filterData = props.deviceMetrics.filter(elem =>
-    props.selectedCheckBox.find(
-      ({name, value}) =>
-        elem.name.toLowerCase() === name.toLowerCase() && value,
-    ),
-  );
-
+const DataVolume: () => React$Node = ({filterData, colorScale}) => {
   const deviceSizes = filterData.map(d =>
-    d.metrics.sessions.map(s => s.size).reduce((a, b) => a + b),
+    d.metrics.sessions.reduce((result, item) => result + item.size, 0),
   );
-
-  const colorScale = props.devices
-    .filter(elem =>
-      filterData.find(
-        ({name}) => elem.name.toLowerCase() === name.toLowerCase(),
-      ),
-    )
-    .map(item => item.color);
 
   return (
     <View style={[styles.view]}>

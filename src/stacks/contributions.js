@@ -4,7 +4,7 @@ import React from 'react';
 import Contributions from '../containers/Contributions';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Settings from '../containers/Settings';
-//import Dropdownmenu from '../containers/DropdownMenu';
+// import Dropdownmenu from '../containers/contributions/DropdownMenu';
 
 export const {
   Navigator: StackNavigator,
@@ -36,5 +36,6 @@ export const ContributionsStack = props => (
       component={Settings}
       options={{title: 'Settings'}}
     />
+    {/* <StackScreen name="DropDown" component={Dropdownmenu} /> */}
   </StackNavigator>
 );

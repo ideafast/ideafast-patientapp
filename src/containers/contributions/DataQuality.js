@@ -3,8 +3,7 @@
  * @flow strict-local
  */
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {Text} from 'react-native-elements';
+import {StyleSheet, View, Text} from 'react-native';
 import {Colors, Typography} from '../../styles';
 import {connect} from 'react-redux';
 import {VictoryGroup, VictoryBar, VictoryChart} from 'victory-native';
@@ -12,13 +11,7 @@ import moment from 'moment';
 
 import {mapDispatchToProps} from '../../ducks/actions';
 
-const DataQuality: () => React$Node = props => {
-  const filterData = props.deviceMetrics.filter(elem =>
-    props.selectedCheckBox.find(
-      ({name, value}) =>
-        elem.name.toLowerCase() === name.toLowerCase() && value,
-    ),
-  );
+const DataQuality: () => React$Node = ({filterData, colorScale}) => {
   const maxDays = filterData.find(
     days =>
       days.metrics.days ===
@@ -30,17 +23,10 @@ const DataQuality: () => React$Node = props => {
       x: `${moment(maxDays.metrics.start).format('YYYY-MM-DD')}  to ${moment(
         maxDays.metrics.end,
       ).format('YYYY-MM-DD')} (${maxDays.metrics.days} days)`,
-      y: d.metrics.sessions.map(s => s.quality).reduce((a, b) => a + b),
+      y: d.metrics.sessions.reduce((result, item) => result + item.quality, 0),
     },
   ]);
 
-  const colorScale = props.devices
-    .filter(elem =>
-      filterData.find(
-        ({name}) => elem.name.toLowerCase() === name.toLowerCase(),
-      ),
-    )
-    .map(item => item.color);
   return (
     <View style={styles.view}>
       <Text style={styles.title}>Data Quality</Text>

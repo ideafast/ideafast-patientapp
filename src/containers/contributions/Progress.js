@@ -10,40 +10,7 @@ import {VictoryGroup, VictoryBar} from 'victory-native';
 
 import {mapDispatchToProps} from '../../ducks/actions';
 
-const ProgressTime: () => React$Node = props => {
-  const filterData = props.deviceMetrics.filter(elem =>
-    props.selectedCheckBox.find(
-      ({name, value}) =>
-        elem.name.toLowerCase() === name.toLowerCase() && value,
-    ),
-  );
-  let a = 97;
-  const progress =
-    props.title === 'Wear Time'
-      ? filterData.map((d, i) => [
-          {
-            x: String.fromCharCode(a + i),
-            y: d.metrics.days,
-          },
-        ])
-      : props.deviceMetrics.map((d, i) => [
-          {
-            x: String.fromCharCode(a + i),
-            y: d.status.data.isOnDevice ? 1 : 0,
-          },
-        ]);
-
-  const colorScale =
-    props.title === 'Wear Time'
-      ? props.devices
-          .filter(elem =>
-            filterData.find(
-              ({name}) => elem.name.toLowerCase() === name.toLowerCase(),
-            ),
-          )
-          .map(item => item.color)
-      : props.devices.map(item => item.color);
-
+const Progress: () => React$Node = ({colorScale, progress}) => {
   return (
     <View style={[styles.chart, styles.view]}>
       <VictoryGroup
@@ -85,9 +52,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => state;
 
-const ProgressTimeContainer = connect(
+const ProgressContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(ProgressTime);
+)(Progress);
 
-export default ProgressTimeContainer;
+export default ProgressContainer;

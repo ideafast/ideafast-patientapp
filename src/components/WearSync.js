@@ -3,12 +3,11 @@
  * @flow strict-local
  */
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {Text} from 'react-native-elements';
+import {StyleSheet, View, Text} from 'react-native';
 import {Colors, Typography, Spacing} from '../styles';
 import {connect} from 'react-redux';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import ProgressTime from '../containers/visualization/Progress';
+import Progress from '../containers/contributions/Progress';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
@@ -16,33 +15,10 @@ const WearSync: () => React$Node = ({
   title,
   icon,
   color,
-  selectedCheckBox,
-  deviceMetrics,
+  progress,
+  message,
+  colorScale,
 }) => {
-  const filterData = deviceMetrics.filter(elem =>
-    selectedCheckBox.find(
-      ({name, value}) =>
-        elem.name.toLowerCase() === name.toLowerCase() && value,
-    ),
-  );
-
-  const totalDevices = deviceMetrics.length;
-  const countDevice = filterData.length;
-  const syncData = deviceMetrics.filter(d => d.status.data.isOnDevice).length;
-
-  const messageSync =
-    syncData === totalDevices ? (
-      'All Data is synced'
-    ) : (
-      <Text style={styles.warning}>
-        {syncData}/{totalDevices} is synced
-      </Text>
-    );
-  const message =
-    title === 'Wear Time'
-      ? `days for ${countDevice}/${totalDevices} devices`
-      : messageSync;
-
   return (
     <View style={styles.view}>
       <View style={styles.borderBar}>
@@ -54,7 +30,7 @@ const WearSync: () => React$Node = ({
           style={styles.star}
         />
         <Text style={styles.shadow}>{message}</Text>
-        <ProgressTime selectedCheckBox={selectedCheckBox} title={title} />
+        <Progress progress={progress} colorScale={colorScale} />
       </View>
     </View>
   );
@@ -64,12 +40,13 @@ const styles = StyleSheet.create({
   view: {
     flex: 1,
     padding: Spacing.SCALE_4,
-    flexDirection: 'row',
+    //flexDirection: 'row',
   },
   title: {
     fontSize: Typography.FONT_SIZE_16,
     fontWeight: Typography.FONT_WEIGHT_BOLD,
     color: Colors.BLACK,
+    flex: 1,
   },
   borderBar: {
     borderWidth: 1,
@@ -80,11 +57,14 @@ const styles = StyleSheet.create({
     fontWeight: Typography.FONT_WEIGHT_BOLD,
     color: Colors.BLACK,
     marginLeft: Spacing.SCALE_90,
+    flexDirection: 'row',
+    //flex: 1,
   },
   shadow: {
     fontSize: Typography.FONT_SIZE_12,
     color: Colors.BLACK,
     marginLeft: Spacing.SCALE_90,
+    //flexDirection: 'row',
   },
   warning: {
     fontSize: Typography.FONT_SIZE_12,
@@ -93,6 +73,7 @@ const styles = StyleSheet.create({
   },
   star: {
     marginLeft: Spacing.SCALE_8,
+    flexDirection: 'row',
   },
 });
 

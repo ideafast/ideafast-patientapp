@@ -5,45 +5,55 @@
 import React, {useState} from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {connect} from 'react-redux';
-import Circle from '../containers/visualization/Circle';
-import WearSync from '../components/WearSync';
+import DataCharts from '../components/DataCharts';
+import DataProgress from './contributions/DataProgress';
 import {Colors, Spacing, Typography} from '../styles';
-import CheckedBoxes from './visualization/CheckedBoxes';
-import ContributionsMenu from '../containers/visualization/ContributionsMenu';
+import DeviceCheckBoxes from '../containers/contributions/DeviceCheckBoxes';
+import ContributionsMenu from './contributions/ContributionsMenu';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
 const Contributions: () => React$Node = props => {
-  const [selectedCheckBox, setSelectedCheckBox] = useState([]);
-  const handleSelectCheckBox = item => {
-    let newData = selectedCheckBox.slice();
-    const index = newData.findIndex(data => data.name === item.name);
-    if (index !== -1) {
-      newData[index] = item;
-    } else {
-      newData = [...newData, item];
-    }
-    setSelectedCheckBox(newData);
+  const [activeDevices, setActiveDevices] = useState(props.devices);
+  const [filterData, setFilterData] = useState(props.deviceMetrics);
+
+  const onCheckboxSelected = device => {
+    const selectedDevices = activeDevices.includes(device)
+      ? activeDevices.filter(d => d.id !== device.id)
+      : [...activeDevices, device];
+    const resultMetrixs = [];
+    selectedDevices.forEach(itemDevice => {
+      const data = props.deviceMetrics.find(elem => elem.id === itemDevice.id);
+      if (data) {
+        resultMetrixs.push(data);
+      }
+    });
+    setActiveDevices(selectedDevices);
+    setFilterData(resultMetrixs);
   };
+
+  const colorScale = activeDevices
+    .filter(elem => filterData.find(({id}) => elem.id === id))
+    .map(item => item.color);
 
   return (
     <View style={styles.view}>
-      <CheckedBoxes handleSelectCheckBox={item => handleSelectCheckBox(item)} />
-      <Circle selectedCheckBox={selectedCheckBox} />
-
-      <Text style={styles.title}>Progress</Text>
-
-      <WearSync
-        title="Wear Time"
-        icon="star"
-        color={Colors.ORANGE}
-        selectedCheckBox={selectedCheckBox}
+      <DeviceCheckBoxes
+        devices={props.devices}
+        activeDevices={activeDevices}
+        onPress={onCheckboxSelected}
       />
-      <WearSync
-        title="Data Synced"
-        icon="cloud"
-        color={Colors.BLUE}
-        selectedCheckBox={selectedCheckBox}
+      <DataCharts
+        activeDevices={activeDevices}
+        filterData={filterData}
+        colorScale={colorScale}
+      />
+      <Text style={styles.title}>Progress</Text>
+      <DataProgress
+        activeDevices={activeDevices}
+        filterData={filterData}
+        totalDevices={props.deviceMetrics.length}
+        colorScale={colorScale}
       />
       <ContributionsMenu />
     </View>
