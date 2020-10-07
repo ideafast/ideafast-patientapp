@@ -27,7 +27,7 @@ const DataProgress: () => React$Node = ({
 
   const messageWear = `days for ${countDevice}/${totalDevices} devices`;
 
-  let a = 97;
+  const a = 97;
   const progressWear = filterData.map((d, i) => [
     {
       x: String.fromCharCode(a + i),
@@ -40,28 +40,38 @@ const DataProgress: () => React$Node = ({
       y: 1,
     },
   ]);
+  const items = [
+    {
+      title: 'Wear Time',
+      icon: 'star',
+      color: Colors.ORANGE,
+      message: messageWear,
+      progrss: progressWear,
+    },
+    {
+      title: 'Data Synced',
+      icon: 'cloud',
+      color: Colors.BLUE,
+      message: messageSync,
+      progrss: progressSync,
+    },
+  ];
   return (
     <View style={styles.view}>
-      <View style={styles.view}>
-        <WearSync
-          title="Wear Time"
-          icon="star"
-          color={Colors.ORANGE}
-          colorScale={colorScale}
-          message={messageWear}
-          progress={progressWear}
-        />
-      </View>
-      <View style={styles.view}>
-        <WearSync
-          title="Data Synced"
-          icon="cloud"
-          color={Colors.BLUE}
-          colorScale={colorScale}
-          message={messageSync}
-          progress={progressSync}
-        />
-      </View>
+      {items.map((param, i) => {
+        return (
+          <View style={styles.view} key={i}>
+            <WearSync
+              title={param.title}
+              icon={param.icon}
+              color={param.color}
+              colorScale={colorScale}
+              message={param.message}
+              progress={param.progrss}
+            />
+          </View>
+        );
+      })}
     </View>
   );
 };

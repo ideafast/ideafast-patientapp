@@ -9,7 +9,7 @@ import {connect} from 'react-redux';
 import DataQuality from '../containers/contributions/DataQuality';
 import DataVolume from '../containers/contributions/DataVolume';
 import {mapDispatchToProps} from '../ducks/actions';
-import Circles from '../components/Circles';
+import Circles from './Circles';
 
 const DataCharts: () => React$Node = ({
   activeDevices,
@@ -60,9 +60,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => state;
 
-const DataChartsContainer = connect(
+const DataChartsComponents = connect(
   mapStateToProps,
   mapDispatchToProps,
 )(DataCharts);
 
-export default DataChartsContainer;
+export default DataChartsComponents;

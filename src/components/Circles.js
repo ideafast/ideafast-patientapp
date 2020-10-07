@@ -10,26 +10,30 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {mapDispatchToProps} from '../ducks/actions';
 
 const Circles: () => React$Node = ({setDataVolume}) => {
+  const items = [
+    {
+      onPress: () => setDataVolume(true),
+    },
+    {
+      onPress: () => setDataVolume(false),
+    },
+  ];
   return (
     <View style={styles.content}>
-      <TouchableOpacity
-        style={styles.circle}
-        onPress={() => setDataVolume(true)}>
-        <FontAwesome5
-          name="circle"
-          color={Colors.GREY}
-          size={Typography.FONT_SIZE_12}
-        />
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.circle}
-        onPress={() => setDataVolume(false)}>
-        <FontAwesome5
-          name="circle"
-          color={Colors.GREY}
-          size={Typography.FONT_SIZE_12}
-        />
-      </TouchableOpacity>
+      {items.map((param, i) => {
+        return (
+          <TouchableOpacity
+            key={i}
+            style={styles.circle}
+            onPress={param.onPress}>
+            <FontAwesome5
+              name="circle"
+              color={Colors.GREY}
+              size={Typography.FONT_SIZE_12}
+            />
+          </TouchableOpacity>
+        );
+      })}
     </View>
   );
 };
@@ -54,9 +58,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => state;
 
-const CirclesContainer = connect(
+const CirclesComponents = connect(
   mapStateToProps,
   mapDispatchToProps,
 )(Circles);
 
-export default CirclesContainer;
+export default CirclesComponents;

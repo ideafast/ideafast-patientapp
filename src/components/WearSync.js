@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.WHITESMOKE,
     flexDirection: 'row',
+    paddingVertical: Spacing.SCALE_8,
   },
   text: {
     fontSize: Typography.FONT_SIZE_20,
