@@ -44,6 +44,7 @@ i18n.locale = locale;
 i18n.use(initReactI18next).init({
   lng: locale.substring(0, 2),
   fallbackLng: 'en',
+  supportedLngs: ['en', 'de', 'nl'],
   resources: {
     en: {
       contributions: ContributionsEN,
