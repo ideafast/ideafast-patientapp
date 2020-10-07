@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
     fontWeight: Typography.FONT_WEIGHT_BOLD,
     color: Colors.BLACK,
     marginLeft: Spacing.SCALE_8,
+    paddingVertical: Spacing.SCALE_4,
   },
 });
 

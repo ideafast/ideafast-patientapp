@@ -31,7 +31,8 @@ const Checkbox: () => React$Node = ({
 const styles = StyleSheet.create({
   checkbox: {
     flexDirection: 'row',
-    margin: Spacing.SCALE_4,
+    //margin: Spacing.SCALE_4,
+    paddingVertical: Spacing.SCALE_4,
   },
   box: {
     height: Spacing.SCALE_16,

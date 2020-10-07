@@ -21,16 +21,20 @@ const WearSync: () => React$Node = ({
 }) => {
   return (
     <View style={styles.view}>
-      <View style={styles.borderBar}>
-        <Text style={styles.text}>{title}</Text>
+      <View style={[styles.borderBar, styles.star]}>
         <FontAwesome5
           name={icon}
           color={color}
           size={Typography.FONT_SIZE_30}
           style={styles.star}
         />
-        <Text style={styles.shadow}>{message}</Text>
-        <Progress progress={progress} colorScale={colorScale} />
+        <View style={styles.shadow}>
+          <Text style={styles.text}>{title}</Text>
+          <Text style={styles.shadow}>{message}</Text>
+        </View>
+        <View>
+          <Progress progress={progress} colorScale={colorScale} />
+        </View>
       </View>
     </View>
   );
@@ -38,42 +42,37 @@ const WearSync: () => React$Node = ({
 
 const styles = StyleSheet.create({
   view: {
-    flex: 1,
-    padding: Spacing.SCALE_4,
-    //flexDirection: 'row',
+    flexDirection: 'row',
   },
   title: {
     fontSize: Typography.FONT_SIZE_16,
     fontWeight: Typography.FONT_WEIGHT_BOLD,
     color: Colors.BLACK,
-    flex: 1,
   },
   borderBar: {
     borderWidth: 1,
     borderColor: Colors.WHITESMOKE,
+    flexDirection: 'row',
   },
   text: {
     fontSize: Typography.FONT_SIZE_20,
     fontWeight: Typography.FONT_WEIGHT_BOLD,
     color: Colors.BLACK,
-    marginLeft: Spacing.SCALE_90,
-    flexDirection: 'row',
-    //flex: 1,
+    marginLeft: Spacing.SCALE_16,
   },
   shadow: {
     fontSize: Typography.FONT_SIZE_12,
     color: Colors.BLACK,
-    marginLeft: Spacing.SCALE_90,
-    //flexDirection: 'row',
+    marginLeft: Spacing.SCALE_16,
   },
   warning: {
     fontSize: Typography.FONT_SIZE_12,
     color: Colors.RED,
-    marginLeft: Spacing.SCALE_90,
+    marginLeft: Spacing.SCALE_16,
   },
   star: {
     marginLeft: Spacing.SCALE_8,
-    flexDirection: 'row',
+    marginVertical: Spacing.SCALE_8,
   },
 });
 

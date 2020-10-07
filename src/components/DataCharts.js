@@ -3,13 +3,13 @@
  * @flow strict-local
  */
 import React, {useState} from 'react';
-import {StyleSheet, View, TouchableOpacity} from 'react-native';
-import {Colors, Typography, Spacing} from '../styles';
+import {StyleSheet, View} from 'react-native';
+import {Colors, Spacing} from '../styles';
 import {connect} from 'react-redux';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import DataQuality from '../containers/contributions/DataQuality';
 import DataVolume from '../containers/contributions/DataVolume';
 import {mapDispatchToProps} from '../ducks/actions';
+import Circles from '../components/Circles';
 
 const DataCharts: () => React$Node = ({
   activeDevices,
@@ -35,26 +35,7 @@ const DataCharts: () => React$Node = ({
           />
         )}
 
-        <View style={styles.content}>
-          <TouchableOpacity
-            style={styles.circle}
-            onPress={() => setDataVolume(true)}>
-            <FontAwesome5
-              name="circle"
-              color={Colors.GREY}
-              size={Typography.FONT_SIZE_12}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.circle}
-            onPress={() => setDataVolume(false)}>
-            <FontAwesome5
-              name="circle"
-              color={Colors.GREY}
-              size={Typography.FONT_SIZE_12}
-            />
-          </TouchableOpacity>
-        </View>
+        <Circles setDataVolume={setDataVolume} />
       </View>
     </View>
   );
@@ -62,7 +43,7 @@ const DataCharts: () => React$Node = ({
 
 const styles = StyleSheet.create({
   view: {
-    padding: Spacing.SCALE_8,
+    paddingVertical: Spacing.SCALE_4,
   },
   border: {
     borderWidth: 1,
@@ -71,7 +52,6 @@ const styles = StyleSheet.create({
   content: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: Spacing.SCALE_8,
   },
   circle: {
     marginHorizontal: Spacing.SCALE_8,
