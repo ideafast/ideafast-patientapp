@@ -66,11 +66,6 @@ const styles = StyleSheet.create({
     color: Colors.BLACK,
     marginLeft: Spacing.SCALE_16,
   },
-  warning: {
-    fontSize: Typography.FONT_SIZE_12,
-    color: Colors.RED,
-    marginLeft: Spacing.SCALE_16,
-  },
   star: {
     marginLeft: Spacing.SCALE_8,
     marginVertical: Spacing.SCALE_8,

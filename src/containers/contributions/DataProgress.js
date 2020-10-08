@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
-import {Colors} from '../../styles';
+import {Colors, Typography, Spacing} from '../../styles';
 import {connect} from 'react-redux';
 import WearSync from '../../components/WearSync';
 
@@ -20,7 +20,7 @@ const DataProgress: () => React$Node = ({
     countDevice === totalDevices ? (
       'All Data is synced'
     ) : (
-      <Text style={styles.warning}>
+      <Text style={styles.message}>
         {countDevice}/{totalDevices} is synced
       </Text>
     );
@@ -79,6 +79,11 @@ const DataProgress: () => React$Node = ({
 const styles = StyleSheet.create({
   view: {
     flex: 1,
+  },
+  message: {
+    fontSize: Typography.FONT_SIZE_12,
+    color: Colors.RED,
+    marginLeft: Spacing.SCALE_16,
   },
 });
 
