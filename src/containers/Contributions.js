@@ -55,7 +55,7 @@ const Contributions: () => React$Node = props => {
         totalDevices={props.deviceMetrics.length}
         colorScale={colorScale}
       />
-      <ContributionsMenu />
+      <ContributionsMenu filterData={filterData} />
     </View>
   );
 };
