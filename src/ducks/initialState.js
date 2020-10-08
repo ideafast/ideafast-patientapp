@@ -2,13 +2,7 @@ import i18n from 'i18next';
 
 const defaultImage = require('../assets/devices/default.png');
 // Added a function since ./__test__/ducks/reducer-test.js failed to run i18n.languages.INCLUDES
-const userLang = () => {
-  try {
-    return i18n.languages.includes(i18n.language) ? i18n.language : 'en';
-  } catch (err) {
-    return 'en';
-  }
-};
+const userLang = i18n.languages?.includes(i18n.language) ? i18n.language : 'en';
 
 const DEVICES = [
   {id: 0, name: 'Axivity', image: defaultImage},
