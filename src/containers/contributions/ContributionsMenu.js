@@ -33,7 +33,7 @@ const ContributionsMenu: () => React$Node = ({filterData}) => {
       <Text style={Typography.HEADER}>Contributions</Text>
       <View style={styles.container}>
         {items.map(item => {
-          return <ContributionItem {...item} />;
+          return <ContributionItem key={item.icon} {...item} />;
         })}
       </View>
     </View>
@@ -42,11 +42,10 @@ const ContributionsMenu: () => React$Node = ({filterData}) => {
 
 const styles = StyleSheet.create({
   view: {
-    flex: 1,
     margin: Spacing.SCALE_8,
   },
   container: {
-    margin: Spacing.SCALE_4,
+    marginTop: Spacing.SCALE_8,
     flexDirection: 'row',
     justifyContent: 'space-around',
   },

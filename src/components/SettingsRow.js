@@ -6,7 +6,7 @@ const SettingsRow: () => React$Node = ({title, children, onPress = null}) => {
   return (
     <TouchableHighlight
       underlayColor={Colors.BORDER}
-      style={styles.container}
+      style={[styles.container, Typography.BORDER]}
       onPress={onPress}>
       <View>
         <Text style={styles.title}>{title}</Text>
@@ -18,8 +18,6 @@ const SettingsRow: () => React$Node = ({title, children, onPress = null}) => {
 
 const styles = StyleSheet.create({
   container: {
-    borderBottomWidth: Typography.BORDER_WIDTH,
-    borderColor: Colors.GREY,
     padding: Spacing.SCALE_8,
   },
   title: {

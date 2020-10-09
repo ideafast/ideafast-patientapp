@@ -9,7 +9,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 const ContributionItem: () => React$Node = ({icon, title, subtitle}) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, Typography.BORDER]}>
       <FontAwesome5
         name={icon}
         color={Colors.ORANGE}
@@ -26,18 +26,16 @@ const ContributionItem: () => React$Node = ({icon, title, subtitle}) => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: Spacing.SCALE_4,
-    borderWidth: 1,
     flexDirection: 'row',
-    borderColor: Colors.BORDER,
+    padding: Spacing.SCALE_4,
   },
   icon: {
     padding: Spacing.SCALE_4,
   },
   content: {
+    flexDirection: 'column',
     paddingLeft: Spacing.SCALE_4,
     paddingRight: Spacing.SCALE_4,
-    flexDirection: 'column',
   },
   centerText: {
     alignSelf: 'center',
