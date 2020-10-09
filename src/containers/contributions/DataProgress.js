@@ -8,11 +8,11 @@ import {Colors, Typography, Spacing} from '../../styles';
 import WearSync from '../../components/WearSync';
 
 const DataProgress: () => React$Node = ({
-  filterData,
+  filteredData,
   totalDevices,
   colorScale,
 }) => {
-  const countDevice = filterData.length;
+  const countDevice = filteredData.length;
   const isSyncError = countDevice === totalDevices;
 
   const makeData = (x, y) => ({x: x, y: y});
@@ -20,14 +20,14 @@ const DataProgress: () => React$Node = ({
   // TODO: calculate days worn?
   const daysWorn = 3;
   const messageWear = `${daysWorn} days for ${countDevice}/${totalDevices} devices`;
-  const progressWear = filterData.map(d => [makeData(d.id, d.metrics.days)]);
+  const progressWear = filteredData.map(d => [makeData(d.id, d.metrics.days)]);
 
   const messageSync = isSyncError
     ? 'All Data is synced'
     : `${totalDevices - countDevice} device needs synced`;
 
   // TODO: Why is the Y always 1? What should it be?
-  const progressSync = filterData.map(d => [makeData(d.id, 1)]);
+  const progressSync = filteredData.map(d => [makeData(d.id, 1)]);
 
   const items = [
     {

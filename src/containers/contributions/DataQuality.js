@@ -7,16 +7,16 @@ import {StyleSheet, View, Text} from 'react-native';
 import {Typography} from '../../styles';
 import {VictoryGroup, VictoryBar, VictoryChart} from 'victory-native';
 
-const DataQuality: () => React$Node = ({filterData, colorScale}) => {
-  const maxDays = filterData.find(
+const DataQuality: () => React$Node = ({filteredData, colorScale}) => {
+  const maxDays = filteredData.find(
     days =>
       days.metrics.days ===
-      Math.max.apply(Math, filterData.map(item => item.metrics.days)),
+      Math.max.apply(Math, filteredData.map(item => item.metrics.days)),
   );
 
   const formatDate = iso => new Date(iso).toISOString().split('T')[0];
 
-  const deviceQuality = filterData.map(d => [
+  const deviceQuality = filteredData.map(d => [
     {
       x: `${formatDate(maxDays.metrics.start)} to ${formatDate(
         maxDays.metrics.end,

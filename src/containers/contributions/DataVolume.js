@@ -9,8 +9,8 @@ import {VictoryPie, VictoryLabel} from 'victory-native';
 import {Svg} from 'react-native-svg';
 import {FormatBytes} from '../../util/General';
 
-const DataVolume: () => React$Node = ({filterData, colorScale}) => {
-  const deviceSizes = filterData.map(d =>
+const DataVolume: () => React$Node = ({filteredData, colorScale}) => {
+  const deviceSizes = filteredData.map(d =>
     d.metrics.sessions.reduce((result, item) => result + item.size, 0),
   );
 
@@ -20,10 +20,10 @@ const DataVolume: () => React$Node = ({filterData, colorScale}) => {
     <View style={styles.view}>
       <Text style={Typography.TITLE}>Data Volume</Text>
       <View style={styles.victoryPie}>
-        <Svg width="100%" height="100%" viewBox="0 0 360 300">
+        <Svg width="100%" height="100%" viewBox="0 0 400 300">
           <VictoryPie
             // TODO: this should be an adapative height
-            width={360}
+            width={400}
             height={300}
             innerRadius={65}
             labelPosition={() => 'centroid'}
@@ -35,7 +35,7 @@ const DataVolume: () => React$Node = ({filterData, colorScale}) => {
             labelComponent={
               <VictoryLabel
                 dy={0}
-                style={{fontSize: Typography.FONT_SIZE_20}}
+                style={{fontSize: Typography.FONT_SIZE_30}}
               />
             }
           />

@@ -15,27 +15,16 @@ import ContributionsMenu from './contributions/ContributionsMenu';
 import {mapDispatchToProps} from '../ducks/actions';
 
 const Contributions: () => React$Node = props => {
-  // TODO: these must be filtered based on user ...
-  const devices = props.devices.filter(d => d.id !== 'SMP');
-  const [activeDevices, setActiveDevices] = useState(devices);
-  // TODO: abstract this out to hit one endpoint (/devices/)
-  const propDeviceMetrics = props.deviceMetrics.filter(d => d.id !== 'SMP');
+  // TODO: pull from /devices/ API to populate userDevices
 
-  const [filterData, setFilterData] = useState(propDeviceMetrics);
+  const devices = props.userDevices.filter(d => d.id !== 'SMP');
+  const [activeDevices, setActiveDevices] = useState(devices);
 
   const onCheckboxSelected = device => {
     const selectedDevices = activeDevices.includes(device)
       ? activeDevices.filter(d => d.id !== device.id)
       : [...activeDevices, device];
-    const resultMetrixs = [];
-    selectedDevices.forEach(itemDevice => {
-      const data = props.deviceMetrics.find(elem => elem.id === itemDevice.id);
-      if (data) {
-        resultMetrixs.push(data);
-      }
-    });
     setActiveDevices(selectedDevices);
-    setFilterData(resultMetrixs);
   };
 
   const colorScale = activeDevices.map(d => d.color);
@@ -48,18 +37,13 @@ const Contributions: () => React$Node = props => {
           activeDevices={activeDevices}
           onPress={onCheckboxSelected}
         />
-        <DataCharts
-          // activeDevices={activeDevices}
-          filterData={filterData}
-          colorScale={colorScale}
-        />
+        <DataCharts filteredData={activeDevices} colorScale={colorScale} />
         <DataProgress
-          activeDevices={activeDevices}
-          filterData={filterData}
+          filteredData={activeDevices}
           totalDevices={devices.length}
           colorScale={colorScale}
         />
-        <ContributionsMenu filterData={filterData} />
+        <ContributionsMenu filteredData={devices} />
       </ScrollView>
     </View>
   );

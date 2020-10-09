@@ -8,17 +8,20 @@ import {Typography, Spacing} from '../../styles';
 import {FormatBytes} from '../../util/General';
 import ContributionItem from '../../components/contributions/ContributionItem';
 
-const ContributionsMenu: () => React$Node = ({filterData}) => {
-  const deviceDays = filterData.reduce(
+const ContributionsMenu: () => React$Node = ({filteredData}) => {
+  const deviceDays = filteredData.reduce(
     (result, item) => result + item.metrics.days,
     0,
   );
 
   const deviceSizes = FormatBytes(
-    filterData.reduce((result, device) => result + device.status.data.size, 0),
+    filteredData.reduce(
+      (result, device) => result + device.status.data.size,
+      0,
+    ),
   );
 
-  const totalDevices = filterData.length;
+  const totalDevices = filteredData.length;
 
   const makeItem = (icon, title, subtitle) => ({icon, title, subtitle});
 

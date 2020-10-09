@@ -1,8 +1,9 @@
 const defaultImage = require('../assets/devices/default.png');
-import device_metrics from '../api/mock-data/devices.json';
+// TODO: remove when API integration implemented
+import mock_devices from '../api/mock-data/devices.json';
 import {Colors} from '../styles';
 
-const DEVICES = [
+let DEVICES = [
   {
     id: 'AX6',
     name: 'Axivity',
@@ -13,7 +14,7 @@ const DEVICES = [
     id: 'BTF',
     name: 'Byteflies',
     image: defaultImage,
-    color: Colors.DEVICES.BYTEFLIES,
+    color: Colors.DEVICES.BTF,
   },
   {
     id: 'DRM',
@@ -86,10 +87,19 @@ const SUPPORTED_LANGUAGES = [
   },
 ];
 
+// TODO: remove when API integration implemented
+const userDevices = DEVICES.map(deviceLocal => {
+  // Find the remote object for this device based on unique key (ID)
+  const deviceRemote = mock_devices.find(d => d.id === deviceLocal.id);
+  // Merge objects: as we will ship icons, deviceLocal comes second
+  // as its properties are used if both objects have the same key, e.g. image.
+  return {...deviceLocal, ...deviceRemote};
+});
+
 export default {
   userID: null,
   userLang: 'en',
   languages: SUPPORTED_LANGUAGES,
   devices: DEVICES,
-  deviceMetrics: device_metrics,
+  userDevices,
 };
