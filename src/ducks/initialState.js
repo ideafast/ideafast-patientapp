@@ -1,3 +1,5 @@
+import i18n from 'i18next';
+
 const defaultImage = require('../assets/devices/default.png');
 // TODO: remove when API integration implemented
 import mock_devices from '../api/mock-data/devices.json';
@@ -72,21 +74,6 @@ let DEVICES = [
   },
 ];
 
-const SUPPORTED_LANGUAGES = [
-  {
-    code: 'en',
-    name: 'English',
-  },
-  {
-    code: 'de',
-    name: 'German',
-  },
-  {
-    code: 'nl',
-    name: 'Dutch',
-  },
-];
-
 // TODO: remove when API integration implemented
 const userDevices = DEVICES.map(deviceLocal => {
   // Find the remote object for this device based on unique key (ID)
@@ -98,8 +85,7 @@ const userDevices = DEVICES.map(deviceLocal => {
 
 export default {
   userID: null,
-  userLang: 'en',
-  languages: SUPPORTED_LANGUAGES,
+  userLang: i18n.language,
   devices: DEVICES,
   userDevices,
 };

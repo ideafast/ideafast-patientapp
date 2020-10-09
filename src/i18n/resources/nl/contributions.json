@@ -1,0 +1,17 @@
+{
+  "title" : "Bijdragen",
+  "text"  : "Dit is een container voor bijdragen.",
+  "picker": {
+    "all": "Alle",
+    "day": "1 dag",
+    "week": "1 week",
+    "month": "3 maanden",
+    "days": "3 dagen"
+  },
+  "settings": {
+    "title": "Instellingen",
+    "user": "Gebruiker ID",
+    "lang": "Toepassingstaal",
+    "choose": "Kies een taal"
+  }
+}

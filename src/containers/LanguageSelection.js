@@ -6,11 +6,30 @@ import {mapDispatchToProps} from '../ducks/actions';
 import RadioButtons from '../components/RadioButtons';
 import SharedModal from '../components/SharedModal';
 import SettingsRow from '../components/SettingsRow';
+import {useTranslation} from 'react-i18next';
+import i18n from 'i18next';
 
 const LanguageSelection: () => React$Node = props => {
   const [userLang, setUserLang] = useState(props.userLang);
 
+  const {t} = useTranslation('contributions', 'languages');
+
   const [modalVisible, setModalVisible] = useState(false);
+
+  let langTranslation = [
+    {
+      code: 'en',
+      name: t('languages:english'),
+    },
+    {
+      code: 'de',
+      name: t('languages:german'),
+    },
+    {
+      code: 'nl',
+      name: t('languages:dutch'),
+    },
+  ];
 
   const showhideModal = () => {
     setModalVisible(!modalVisible);
@@ -18,12 +37,13 @@ const LanguageSelection: () => React$Node = props => {
 
   const setLanguage = language => {
     props.setUserLang(language.code);
+    i18n.changeLanguage(language.code);
     showhideModal();
   };
 
   const languageButtons = (
     <RadioButtons
-      options={props.languages}
+      options={langTranslation}
       active={userLang}
       onPress={setLanguage}
     />
@@ -33,18 +53,18 @@ const LanguageSelection: () => React$Node = props => {
     setUserLang(props.userLang);
   }, [props.userLang]);
 
-  const activeLanguage = props.languages.find(l => l.code === userLang).name;
+  const activeLanguage = langTranslation.find(l => l.code === userLang).name;
 
   return (
     <View>
       <SharedModal
         children={languageButtons}
-        title={'Choose Language'}
+        title={t('settings.choose')}
         isVisible={modalVisible}
         onPress={showhideModal}
       />
       <SettingsRow
-        title={'Application Language'}
+        title={t('settings.lang')}
         children={activeLanguage}
         onPress={showhideModal}
       />

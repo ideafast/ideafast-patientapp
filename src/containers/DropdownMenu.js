@@ -1,16 +1,19 @@
 import React, {useState} from 'react';
 import {StyleSheet} from 'react-native';
-import {Picker} from 'react-native';
+import {Picker} from '@react-native-community/picker';
+import {useTranslation} from 'react-i18next';
 
 import {Spacing, Colors} from '../styles';
 
 const DropDownMenu: () => React$Node = props => {
+  const {t} = useTranslation('contributions');
+
   const options = [
-    {lable: '3 Days', value: 3},
-    {lable: '3 Months', value: 30},
-    {lable: '1 Week', value: 7},
-    {lable: '1 Day', value: 1},
-    {lable: 'All', value: ''},
+    t('picker.days'),
+    t('picker.month'),
+    t('picker.week'),
+    t('picker.day'),
+    t('picker.all'),
   ];
 
   const optionItem = options.map((item, index) => (

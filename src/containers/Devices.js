@@ -6,13 +6,15 @@ import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {Colors, Typography} from '../styles';
 import {connect} from 'react-redux';
+import {useTranslation} from 'react-i18next';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
 const Devices: () => React$Node = props => {
+  const {t} = useTranslation('devices');
   return (
     <View style={styles.view}>
-      <Text style={styles.text}>This is a container for devices.</Text>
+      <Text style={styles.text}>{t('text')}</Text>
     </View>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {useTranslation} from 'react-i18next';
 import {
   Modal,
   StyleSheet,
@@ -17,6 +17,7 @@ const SharedModal: () => React$Node = ({
   isVisible,
   onPress,
 }) => {
+  const {t} = useTranslation('languages');
   return (
     <Modal transparent={true} visible={isVisible}>
       <TouchableOpacity style={styles.container} onPress={onPress}>
@@ -26,7 +27,7 @@ const SharedModal: () => React$Node = ({
           {children}
 
           <TouchableHighlight underlayColor={Colors.WHITE} onPress={onPress}>
-            <Text style={styles.cancelText}>CANCEL</Text>
+            <Text style={styles.cancelText}>{t('cancel')}</Text>
           </TouchableHighlight>
         </View>
       </TouchableOpacity>

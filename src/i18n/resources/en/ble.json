@@ -1,0 +1,20 @@
+{
+  "foreground" : "App has come to the foreground!",
+  "connectedPer" : "Connected peripherals: ",
+  "blePer" : "Got ble peripheral",
+  "ScanStop" : "Scan is stopped",
+  "disconnect": "Disconnected from ",
+  "dataReceived": "Received data from ",
+  "characteristic" : "characteristic",
+  "permission": "Permission is OK",
+  "userA" : "User accept",
+  "userR" : "User refuse",
+  "scanning" : "Scanning...",
+  "noPer" : "No connected peripherals",
+  "connect" : "Connected to ",
+  "scanner": "Bluetooth scanner",
+  "bluetooth": "Scan Bluetooth (",
+  "on" : "on",
+  "off" : "off",
+  "peripherals": "Retrieve connected peripherals"
+}
