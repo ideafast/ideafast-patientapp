@@ -52,7 +52,7 @@ const DataProgress: () => React$Node = ({
       <View style={styles.container}>
         {items.map((item, index) => {
           // TODO: rename this component
-          return <WearSync {...item} key={index} colorScale={colorScale} />;
+          return <WearSync {...item} key={index} />;
         })}
       </View>
     </View>

@@ -14,7 +14,6 @@ const WearSync: () => React$Node = ({
   title,
   subtitle,
   data,
-  colorScale,
   isError = false,
 }) => {
   const error = isError ? Colors.WARNING : Colors.BLACK;
@@ -27,7 +26,7 @@ const WearSync: () => React$Node = ({
           {subtitle}
         </Text>
       </View>
-      <Progress data={data} colorScale={colorScale} />
+      <Progress data={data} />
     </View>
   );
 };

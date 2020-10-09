@@ -6,7 +6,7 @@ import React from 'react';
 import {VictoryGroup, VictoryBar} from 'victory-native';
 import {DEVICES} from '../../styles/colors';
 
-const Progress: () => React$Node = ({colorScale, data}) => {
+const Progress: () => React$Node = ({data}) => {
   return (
     <VictoryGroup
       horizontal
@@ -17,7 +17,7 @@ const Progress: () => React$Node = ({colorScale, data}) => {
       <VictoryBar
         style={{
           data: {
-            fillOpacity: 0.75,
+            fillOpacity: 0.7,
             fill: ({datum}) => DEVICES[datum.x],
           },
         }}
