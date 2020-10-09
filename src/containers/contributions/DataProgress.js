@@ -20,13 +20,13 @@ const DataProgress: () => React$Node = ({
   // Note: this is hard-coded for now, but will be the days from the date filter
   const daysWorn = 3;
   const messageWear = `${daysWorn} days for ${countDevice}/${totalDevices} devices`;
-  const progressWear = filteredData.map(d => [makeData(d.id, d.metrics.days)]);
+  const progressWear = filteredData.map(d => makeData(d.id, d.metrics.days));
 
   const messageSync = isSyncError
     ? 'All Data is synced'
     : `${totalDevices - countDevice} device needs synced`;
 
-  const progressSync = filteredData.map(d => [makeData(d.id, 1)]);
+  const progressSync = filteredData.map(d => makeData(d.id, 1));
 
   const items = [
     {

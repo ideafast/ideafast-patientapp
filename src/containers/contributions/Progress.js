@@ -4,25 +4,26 @@
  */
 import React from 'react';
 import {VictoryGroup, VictoryBar} from 'victory-native';
+import {DEVICES} from '../../styles/colors';
 
 const Progress: () => React$Node = ({colorScale, data}) => {
   return (
     <VictoryGroup
       horizontal
-      offset={8}
       // TODO: make this adaptive rather than hard-coded values
-      height={40}
-      width={115}
-      style={{
-        data: {
-          fillOpacity: 0.7,
-        },
-      }}
-      padding={{top: 0, right: 0, bottom: 0, left: 0}}
-      colorScale={colorScale}>
-      {data.map((item, id) => {
-        return <VictoryBar key={id} data={item} barWidth={4} />;
-      })}
+      height={50}
+      width={120}
+      padding={{top: 0, right: 0, bottom: 0, left: 0}}>
+      <VictoryBar
+        style={{
+          data: {
+            fillOpacity: 0.75,
+            fill: ({datum}) => DEVICES[datum.x],
+          },
+        }}
+        data={data}
+        barWidth={2.5}
+      />
     </VictoryGroup>
   );
 };

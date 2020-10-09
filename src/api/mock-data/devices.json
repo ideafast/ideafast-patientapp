@@ -361,7 +361,7 @@
       "error":null
     },
     "metrics":{
-      "days":2,
+      "days":3,
       "start":"2020-04-23T22:25:43.511Z",
       "end":"2020-04-24T04:00:00.111Z",
       "sessions":[
@@ -510,7 +510,7 @@
       "error":null
     },
     "metrics":{
-      "days":2,
+      "days":5,
       "start":"2020-04-23T22:25:43.511Z",
       "end":"2020-04-24T04:00:00.111Z",
       "sessions":[
