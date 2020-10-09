@@ -20,8 +20,8 @@ const Progress: () => React$Node = ({colorScale, data}) => {
       }}
       padding={{top: 0, right: 0, bottom: 0, left: 0}}
       colorScale={colorScale}>
-      {data.map(item => {
-        return <VictoryBar key={item.x} data={item} barWidth={4} />;
+      {data.map((item, id) => {
+        return <VictoryBar key={id} data={item} barWidth={4} />;
       })}
     </VictoryGroup>
   );
