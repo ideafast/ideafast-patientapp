@@ -3,19 +3,25 @@
  * @flow strict-local
  */
 import React, {useState} from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View} from 'react-native';
+import {ScrollView} from 'react-native-gesture-handler';
 import {connect} from 'react-redux';
 import DataCharts from '../components/DataCharts';
 import DataProgress from './contributions/DataProgress';
-import {Colors, Spacing, Typography} from '../styles';
+import {Colors} from '../styles';
 import DeviceCheckBoxes from '../containers/contributions/DeviceCheckBoxes';
 import ContributionsMenu from './contributions/ContributionsMenu';
 
 import {mapDispatchToProps} from '../ducks/actions';
 
 const Contributions: () => React$Node = props => {
-  const [activeDevices, setActiveDevices] = useState(props.devices);
-  const [filterData, setFilterData] = useState(props.deviceMetrics);
+  // TODO: these must be filtered based on user ...
+  const devices = props.devices.filter(d => d.id !== 'SMP');
+  const [activeDevices, setActiveDevices] = useState(devices);
+  // TODO: abstract this out to hit one endpoint (/devices/)
+  const propDeviceMetrics = props.deviceMetrics.filter(d => d.id !== 'SMP');
+
+  const [filterData, setFilterData] = useState(propDeviceMetrics);
 
   const onCheckboxSelected = device => {
     const selectedDevices = activeDevices.includes(device)
@@ -32,30 +38,29 @@ const Contributions: () => React$Node = props => {
     setFilterData(resultMetrixs);
   };
 
-  const colorScale = activeDevices
-    .filter(elem => filterData.find(({id}) => elem.id === id))
-    .map(item => item.color);
+  const colorScale = activeDevices.map(d => d.color);
 
   return (
     <View style={styles.view}>
-      <DeviceCheckBoxes
-        devices={props.devices}
-        activeDevices={activeDevices}
-        onPress={onCheckboxSelected}
-      />
-      <DataCharts
-        activeDevices={activeDevices}
-        filterData={filterData}
-        colorScale={colorScale}
-      />
-      <Text style={styles.title}>Progress</Text>
-      <DataProgress
-        activeDevices={activeDevices}
-        filterData={filterData}
-        totalDevices={props.deviceMetrics.length}
-        colorScale={colorScale}
-      />
-      <ContributionsMenu filterData={filterData} />
+      <ScrollView style={styles.container}>
+        <DeviceCheckBoxes
+          devices={devices}
+          activeDevices={activeDevices}
+          onPress={onCheckboxSelected}
+        />
+        <DataCharts
+          // activeDevices={activeDevices}
+          filterData={filterData}
+          colorScale={colorScale}
+        />
+        <DataProgress
+          activeDevices={activeDevices}
+          filterData={filterData}
+          totalDevices={devices.length}
+          colorScale={colorScale}
+        />
+        <ContributionsMenu filterData={filterData} />
+      </ScrollView>
     </View>
   );
 };
@@ -64,13 +69,6 @@ const styles = StyleSheet.create({
   view: {
     flex: 1,
     backgroundColor: Colors.WHITE,
-  },
-  title: {
-    fontSize: Typography.FONT_SIZE_16,
-    fontWeight: Typography.FONT_WEIGHT_BOLD,
-    color: Colors.BLACK,
-    marginLeft: Spacing.SCALE_8,
-    paddingVertical: Spacing.SCALE_4,
   },
 });
 

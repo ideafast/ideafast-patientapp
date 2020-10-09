@@ -11,13 +11,15 @@ export const MODAL = 'rgba(102, 102, 102, 0.75)';
 export const BORDER = '#E3E2E3';
 
 export const DEVICES = {
-  DREEM: '#fe234f',
-  AX6: '#595a5e',
-  BYTEFLIES: '#5ba5ce',
-  EVERION: '#d1fcff',
-  THINKFAST: '#219ca3',
-  STRESSMONITOR: '#90ee90',
-  EBEDSENSOR: '#0000ff',
-  VITALPATCH: '#000080',
-  ZKONEYOLI: '#9acd32',
+  AX6: '#595A5E',
+  BTF: '#5BA5CE',
+  DRM: '#FA234F',
+  TFA: '#219CA3',
+  BVN: '#D1FCFF',
+  MMM: '#94C93D',
+  SMP: '#2A3C3F',
+  TMA: '#90EE90',
+  BED: '#0000FF',
+  VTP: '#002D96',
+  YSM: '#9ACD32',
 };
