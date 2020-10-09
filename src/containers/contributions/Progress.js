@@ -3,58 +3,28 @@
  * @flow strict-local
  */
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {Spacing} from '../../styles';
-import {connect} from 'react-redux';
 import {VictoryGroup, VictoryBar} from 'victory-native';
 
-import {mapDispatchToProps} from '../../ducks/actions';
-
-const Progress: () => React$Node = ({colorScale, progress}) => {
+const Progress: () => React$Node = ({colorScale, data}) => {
   return (
-    <View style={[styles.view]}>
-      <View style={styles.chart}>
-        <VictoryGroup
-          horizontal
-          offset={10}
-          height={130}
-          width={190}
-          colorScale={colorScale}
-          style={{
-            data: {
-              fillOpacity: 0.7,
-              stroke: 'black',
-              strokeWidth: 0,
-            },
-          }}>
-          {progress.map((item, id) => {
-            return <VictoryBar key={id} data={item} />;
-          })}
-        </VictoryGroup>
-      </View>
-    </View>
+    <VictoryGroup
+      horizontal
+      offset={8}
+      // TODO: make this adaptive rather than hard-coded values
+      height={40}
+      width={115}
+      style={{
+        data: {
+          fillOpacity: 0.7,
+        },
+      }}
+      padding={{top: 0, right: 0, bottom: 0, left: 0}}
+      colorScale={colorScale}>
+      {data.map(item => {
+        return <VictoryBar key={item.x} data={item} barWidth={4} />;
+      })}
+    </VictoryGroup>
   );
 };
 
-const styles = StyleSheet.create({
-  view: {
-    flex: 1,
-    flexDirection: 'row-reverse',
-  },
-  chart: {
-    flexDirection: 'row',
-    marginVertical: Spacing.SCALE_42,
-    alignItems: 'flex-end',
-    paddingTop: Spacing.SCALE_24,
-    paddingBottom: Spacing.SCALE_4,
-  },
-});
-
-const mapStateToProps = state => state;
-
-const ProgressContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Progress);
-
-export default ProgressContainer;
+export default Progress;

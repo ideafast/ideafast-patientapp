@@ -5,10 +5,7 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {Colors, Typography, Spacing} from '../../styles';
-import {connect} from 'react-redux';
 import WearSync from '../../components/WearSync';
-
-import {mapDispatchToProps} from '../../ducks/actions';
 
 const DataProgress: () => React$Node = ({
   filterData,
@@ -16,82 +13,61 @@ const DataProgress: () => React$Node = ({
   colorScale,
 }) => {
   const countDevice = filterData.length;
-  const messageSync =
-    countDevice === totalDevices ? (
-      'All Data is synced'
-    ) : (
-      <Text style={styles.message}>
-        {countDevice}/{totalDevices} is synced
-      </Text>
-    );
+  const isSyncError = countDevice === totalDevices;
 
-  const messageWear = `days for ${countDevice}/${totalDevices} devices`;
+  const makeData = (x, y) => ({x: x, y: y});
 
-  const a = 97;
-  const progressWear = filterData.map((d, i) => [
-    {
-      x: String.fromCharCode(a + i),
-      y: d.metrics.days,
-    },
-  ]);
-  const progressSync = filterData.map((d, i) => [
-    {
-      x: String.fromCharCode(a + i),
-      y: 1,
-    },
-  ]);
+  // TODO: calculate days worn?
+  const daysWorn = 3;
+  const messageWear = `${daysWorn} days for ${countDevice}/${totalDevices} devices`;
+  const progressWear = filterData.map(d => [makeData(d.id, d.metrics.days)]);
+
+  const messageSync = isSyncError
+    ? 'All Data is synced'
+    : `${totalDevices - countDevice} device needs synced`;
+
+  // TODO: Why is the Y always 1? What should it be?
+  const progressSync = filterData.map(d => [makeData(d.id, 1)]);
+
   const items = [
     {
-      title: 'Wear Time',
       icon: 'star',
       color: Colors.ORANGE,
-      message: messageWear,
-      progrss: progressWear,
+      title: 'Wear Time',
+      subtitle: messageWear,
+      data: progressWear,
     },
     {
-      title: 'Data Synced',
       icon: 'cloud',
       color: Colors.BLUE,
-      message: messageSync,
-      progrss: progressSync,
+      title: 'Data Synced',
+      subtitle: messageSync,
+      data: progressSync,
+      // TODO: the logic here needs revisited
+      isError: !isSyncError,
     },
   ];
   return (
     <View style={styles.view}>
-      {items.map((param, i) => {
-        return (
-          <View style={styles.view} key={i}>
-            <WearSync
-              title={param.title}
-              icon={param.icon}
-              color={param.color}
-              colorScale={colorScale}
-              message={param.message}
-              progress={param.progrss}
-            />
-          </View>
-        );
-      })}
+      <Text style={Typography.HEADER}>Progress</Text>
+      <View style={styles.container}>
+        {items.map((item, index) => {
+          // TODO: rename this component
+          return <WearSync {...item} key={index} colorScale={colorScale} />;
+        })}
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   view: {
-    flex: 1,
-  },
-  message: {
-    fontSize: Typography.FONT_SIZE_12,
-    color: Colors.RED,
     marginLeft: Spacing.SCALE_16,
+    marginRight: Spacing.SCALE_16,
+  },
+  container: {
+    marginTop: Spacing.SCALE_8,
   },
 });
 
-const mapStateToProps = state => state;
-
-const DataProgressContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(DataProgress);
-
-export default DataProgressContainer;
+export default DataProgress;

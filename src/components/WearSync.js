@@ -5,78 +5,58 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {Colors, Typography, Spacing} from '../styles';
-import {connect} from 'react-redux';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Progress from '../containers/contributions/Progress';
 
-import {mapDispatchToProps} from '../ducks/actions';
-
 const WearSync: () => React$Node = ({
-  title,
   icon,
   color,
-  progress,
-  message,
+  title,
+  subtitle,
+  data,
   colorScale,
+  isError = false,
 }) => {
+  const error = isError ? Colors.WARNING : Colors.BLACK;
   return (
-    <View style={styles.view}>
-      <View style={[styles.borderBar, styles.star]}>
-        <FontAwesome5
-          name={icon}
-          color={color}
-          size={Typography.FONT_SIZE_30}
-          style={styles.star}
-        />
-        <View style={styles.shadow}>
-          <Text style={styles.text}>{title}</Text>
-          <Text style={styles.shadow}>{message}</Text>
-        </View>
-        <View>
-          <Progress progress={progress} colorScale={colorScale} />
-        </View>
+    <View style={[styles.container, Typography.BORDER]}>
+      <FontAwesome5 name={icon} color={color} style={styles.icon} />
+      <View style={styles.content}>
+        <Text style={[Typography.TITLE, styles.title]}>{title}</Text>
+        <Text style={[Typography.SUBTITLE, styles.subtitle, {color: error}]}>
+          {subtitle}
+        </Text>
       </View>
+      <Progress data={data} colorScale={colorScale} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  view: {
+  container: {
     flexDirection: 'row',
+    marginBottom: Spacing.SCALE_8,
+    padding: Spacing.SCALE_8,
+  },
+  icon: {
+    alignItems: 'flex-start',
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    fontSize: Typography.FONT_SIZE_30,
+    marginRight: Spacing.SCALE_16,
+  },
+  content: {
+    flex: 1,
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    justifyContent: 'center',
   },
   title: {
-    fontSize: Typography.FONT_SIZE_16,
-    fontWeight: Typography.FONT_WEIGHT_BOLD,
-    color: Colors.BLACK,
-  },
-  borderBar: {
-    borderWidth: 1,
-    borderColor: Colors.WHITESMOKE,
-    flexDirection: 'row',
-    paddingVertical: Spacing.SCALE_8,
-  },
-  text: {
     fontSize: Typography.FONT_SIZE_20,
-    fontWeight: Typography.FONT_WEIGHT_BOLD,
-    color: Colors.BLACK,
-    marginLeft: Spacing.SCALE_16,
   },
-  shadow: {
-    fontSize: Typography.FONT_SIZE_12,
-    color: Colors.BLACK,
-    marginLeft: Spacing.SCALE_16,
-  },
-  star: {
-    marginLeft: Spacing.SCALE_8,
-    marginVertical: Spacing.SCALE_8,
+  subtitle: {
+    fontSize: Typography.FONT_SIZE_14,
   },
 });
 
-const mapStateToProps = state => state;
-
-const WearSyncComponents = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(WearSync);
-
-export default WearSyncComponents;
+export default WearSync;
