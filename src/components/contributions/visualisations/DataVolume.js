@@ -22,7 +22,7 @@ const DataVolume: () => React$Node = ({filteredData, colorScale}) => {
   return (
     <View style={styles.view}>
       <Text style={Typography.TITLE}>{t('visualisations.volume.title')}</Text>
-      <View style={styles.victoryPie}>
+      <View style={styles.visualisation}>
         <Svg width="100%" height="100%" viewBox="0 0 400 300">
           <VictoryPie
             // TODO: this should be an adapative height
@@ -49,7 +49,7 @@ const DataVolume: () => React$Node = ({filteredData, colorScale}) => {
 };
 
 const styles = StyleSheet.create({
-  victoryPie: {
+  visualisation: {
     // TODO: this should be an adapative height
     height: 130,
     alignItems: 'center',

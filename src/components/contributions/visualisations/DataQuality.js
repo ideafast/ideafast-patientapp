@@ -11,6 +11,8 @@ import {VictoryGroup, VictoryBar, VictoryChart} from 'victory-native';
 const DataQuality: () => React$Node = ({filteredData, colorScale}) => {
   const {t} = useTranslation('contributions');
 
+  // TODO: this should instead use the menu calendar filter;
+  // Note: using maxDays as a temporary fix to show UI
   const maxDays = filteredData.find(
     days =>
       days.metrics.days ===

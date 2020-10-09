@@ -21,6 +21,11 @@ const Contributions: () => React$Node = props => {
   const [activeDevices, setActiveDevices] = useState(devices);
 
   const onCheckboxSelected = device => {
+    // TODO: the user should not be able to remove all checkboxes
+    if (activeDevices.length === 1) {
+      // TODO: be more elegant in how error messages are delivered
+      return;
+    }
     const selectedDevices = activeDevices.includes(device)
       ? activeDevices.filter(d => d.id !== device.id)
       : [...activeDevices, device];
