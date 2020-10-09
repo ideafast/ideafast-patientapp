@@ -3,35 +3,29 @@
  * @flow strict-local
  */
 import React from 'react';
-import {StyleSheet, View, TouchableOpacity} from 'react-native';
-import {Colors, Typography, Spacing} from '../styles';
-import {connect} from 'react-redux';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import {mapDispatchToProps} from '../ducks/actions';
+import {
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  TouchableHighlight,
+} from 'react-native';
+import {Spacing, Typography, Shared} from '../styles';
 
-const Circles: () => React$Node = ({setDataVolume}) => {
-  const items = [
-    {
-      onPress: () => setDataVolume(true),
-    },
-    {
-      onPress: () => setDataVolume(false),
-    },
-  ];
+const Circles: () => React$Node = ({num, onPress, isActive}) => {
+  const items = Array.from(Array(num));
   return (
-    <View style={styles.content}>
-      {items.map((param, i) => {
+    <View style={styles.container}>
+      {items.map((p, index) => {
         return (
-          <TouchableOpacity
-            key={i}
-            style={styles.circle}
-            onPress={param.onPress}>
-            <FontAwesome5
-              name="circle"
-              color={Colors.GREY}
-              size={Typography.FONT_SIZE_12}
-            />
-          </TouchableOpacity>
+          <TouchableHighlight key={index} style={styles.view}>
+            <TouchableOpacity
+              onPress={() => {
+                onPress(index);
+              }}
+              style={[Shared.CIRCLE, Typography.BORDER]}>
+              {isActive === index && <View style={Shared.CHECKED_CIRCLE} />}
+            </TouchableOpacity>
+          </TouchableHighlight>
         );
       })}
     </View>
@@ -39,28 +33,13 @@ const Circles: () => React$Node = ({setDataVolume}) => {
 };
 
 const styles = StyleSheet.create({
-  view: {
-    paddingVertical: Spacing.SCALE_4,
-  },
-  border: {
-    borderWidth: 1,
-    borderColor: Colors.WHITESMOKE,
-  },
-  content: {
+  container: {
     flexDirection: 'row',
     justifyContent: 'center',
-    //marginTop: Spacing.SCALE_8,
   },
-  circle: {
-    marginHorizontal: Spacing.SCALE_8,
+  view: {
+    marginRight: Spacing.SCALE_4,
   },
 });
 
-const mapStateToProps = state => state;
-
-const CirclesComponents = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Circles);
-
-export default CirclesComponents;
+export default Circles;

@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 
-import {Colors, Spacing, Typography} from '../styles';
+import {Colors, Spacing, Typography, Shared} from '../styles';
 
 const RadioButtons: () => React$Node = ({options, active, onPress}) => {
   return (
@@ -22,8 +22,8 @@ const RadioButtons: () => React$Node = ({options, active, onPress}) => {
               <Text style={styles.language}>{item.name}</Text>
               <TouchableOpacity
                 onPress={() => onPress(item)}
-                style={styles.circle}>
-                {active === item.code && <View style={styles.checkedCircle} />}
+                style={[Shared.CIRCLE, Typography.BORDER]}>
+                {active === item.code && <View style={Shared.CHECKED_CIRCLE} />}
               </TouchableOpacity>
             </View>
           </TouchableHighlight>
@@ -38,21 +38,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-  },
-  circle: {
-    height: Spacing.SCALE_16,
-    width: Spacing.SCALE_16,
-    borderRadius: Spacing.SCALE_8,
-    borderWidth: 1,
-    borderColor: Colors.PRIMARY,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  checkedCircle: {
-    width: Spacing.SCALE_16,
-    height: Spacing.SCALE_16,
-    borderRadius: Spacing.SCALE_8,
-    backgroundColor: Colors.PRIMARY,
   },
   language: {
     marginBottom: Spacing.SCALE_8,

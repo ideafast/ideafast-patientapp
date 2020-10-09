@@ -4,65 +4,37 @@
  */
 import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
-import {Colors, Spacing} from '../styles';
-import {connect} from 'react-redux';
+import {Spacing, Shared} from '../styles';
 import DataQuality from '../containers/contributions/DataQuality';
 import DataVolume from '../containers/contributions/DataVolume';
-import {mapDispatchToProps} from '../ducks/actions';
 import Circles from './Circles';
 
-const DataCharts: () => React$Node = ({
-  activeDevices,
-  filterData,
-  colorScale,
-}) => {
-  const [dataVolume, setDataVolume] = useState(true);
+const DataCharts: () => React$Node = props => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const visualisations = [
+    <DataVolume {...props} />,
+    <DataQuality {...props} />,
+  ];
 
   return (
-    <View style={[styles.view, styles.border]}>
-      <View style={styles.circle}>
-        {dataVolume ? (
-          <DataVolume
-            activeDevices={activeDevices}
-            filterData={filterData}
-            colorScale={colorScale}
-          />
-        ) : (
-          <DataQuality
-            activeDevices={activeDevices}
-            filterData={filterData}
-            colorScale={colorScale}
-          />
-        )}
-
-        <Circles setDataVolume={setDataVolume} />
-      </View>
+    <View style={[styles.view, Shared.BORDER]}>
+      {visualisations[activeIndex]}
+      <Circles
+        num={visualisations.length}
+        onPress={i => setActiveIndex(i)}
+        isActive={activeIndex}
+      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   view: {
-    paddingVertical: Spacing.SCALE_4,
-  },
-  border: {
-    borderWidth: 1,
-    borderColor: Colors.WHITESMOKE,
-  },
-  content: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
-  circle: {
-    marginHorizontal: Spacing.SCALE_8,
+    marginTop: Spacing.SCALE_8,
+    marginLeft: Spacing.SCALE_16,
+    marginRight: Spacing.SCALE_16,
   },
 });
 
-const mapStateToProps = state => state;
-
-const DataChartsComponents = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(DataCharts);
-
-export default DataChartsComponents;
+export default DataCharts;
