@@ -22,7 +22,7 @@ const Contributions: () => React$Node = props => {
 
   const onCheckboxSelected = device => {
     // TODO: the user should not be able to remove all checkboxes
-    if (activeDevices.length === 1) {
+    if (activeDevices.length === 1 && activeDevices.includes(device)) {
       // TODO: be more elegant in how error messages are delivered
       return;
     }
