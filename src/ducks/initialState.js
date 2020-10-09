@@ -87,5 +87,5 @@ export default {
   userID: null,
   userLang: i18n.language,
   devices: DEVICES,
-  userDevices,
+  userDevices: userDevices.slice(0, 5),
 };
