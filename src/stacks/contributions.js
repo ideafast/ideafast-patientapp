@@ -1,7 +1,7 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import {Colors, Typography, Spacing, Stack} from '../styles';
 import React from 'react';
-import Contributions from '../containers/Contributions';
+import Contributions from '../containers/contributions/Contributions';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Settings from '../containers/Settings';
 // import Dropdownmenu from '../containers/contributions/DropdownMenu';

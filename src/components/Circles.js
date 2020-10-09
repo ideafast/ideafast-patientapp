@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
   },
   view: {
     marginRight: Spacing.SCALE_4,
+    marginTop: Spacing.SCALE_8,
   },
 });
 

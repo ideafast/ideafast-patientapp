@@ -6,7 +6,7 @@ import {
   View,
   Text,
 } from 'react-native';
-import {Colors, Spacing, Typography} from '../../styles';
+import {Colors, Spacing, Typography} from '../styles';
 
 const Checkbox: () => React$Node = ({
   text,
@@ -31,7 +31,6 @@ const Checkbox: () => React$Node = ({
 const styles = StyleSheet.create({
   checkbox: {
     flexDirection: 'row',
-    //margin: Spacing.SCALE_4,
     paddingVertical: Spacing.SCALE_4,
   },
   box: {

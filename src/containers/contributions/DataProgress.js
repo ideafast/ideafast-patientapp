@@ -5,13 +5,9 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {Colors, Typography, Spacing} from '../../styles';
-import WearSync from '../../components/WearSync';
+import WearSync from '../../components/contributions/WearSync';
 
-const DataProgress: () => React$Node = ({
-  filteredData,
-  totalDevices,
-  colorScale,
-}) => {
+const DataProgress: () => React$Node = ({filteredData, totalDevices}) => {
   const countDevice = filteredData.length;
   const isSyncError = countDevice === totalDevices;
 
