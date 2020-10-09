@@ -26,19 +26,24 @@ const ContributionItem: () => React$Node = ({icon, title, subtitle}) => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     flexDirection: 'row',
-    padding: Spacing.SCALE_4,
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: Spacing.SCALE_4,
+    paddingTop: Spacing.SCALE_8,
+    paddingBottom: Spacing.SCALE_8,
   },
   icon: {
     padding: Spacing.SCALE_4,
   },
   content: {
-    flexDirection: 'column',
     paddingLeft: Spacing.SCALE_4,
     paddingRight: Spacing.SCALE_4,
   },
   centerText: {
     alignSelf: 'center',
+    textAlign: 'center',
   },
 });
 

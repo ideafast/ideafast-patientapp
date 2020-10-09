@@ -1,6 +1,5 @@
 {
   "title" : "Contributions",
-  "text"  : "This is a container for contributions.",
   "picker": {
     "all": "All",
     "day": "1 Day",
@@ -13,5 +12,32 @@
     "user": "User ID",
     "lang": "Application Language",
     "choose": "Choose language"
+  },
+  "meta": {
+    "title": "Contributions",
+    "streak": "Day Streak",
+    "totalSize": "Total Data",
+    "totalWorn": "Devices Worn"
+  },
+  "progress": {
+    "title": "Progress",
+    "wearTime": {
+      "title": "Wear Time",
+      "subtitle": "{{daysWorn}} days for {{countDevice}}/{{totalDevices}} devices"
+    },
+    "dataSync": {
+      "title": "Data Synced",
+      "subtitle": "Devices synced",
+      "subtitleWithError": "{{count}} device needs synced"
+    }
+  },
+  "visualisations": {
+    "volume": {
+      "title": "Data Volume"
+    },
+    "quality": {
+      "title": "Data Quality",
+      "xAxisLabel": "{{startDate}} to {{endDate}} ({{days}} days)"
+    }
   }
 }

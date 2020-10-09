@@ -3,6 +3,7 @@
  * @flow strict-local
  */
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import {StyleSheet, View, Text} from 'react-native';
 import {VictoryPie, VictoryLabel} from 'victory-native';
 import {Svg} from 'react-native-svg';
@@ -10,6 +11,8 @@ import {Typography} from '../../../styles';
 import {FormatBytes} from '../../../util/General';
 
 const DataVolume: () => React$Node = ({filteredData, colorScale}) => {
+  const {t} = useTranslation('contributions');
+
   const deviceSizes = filteredData.map(d =>
     d.metrics.sessions.reduce((result, item) => result + item.size, 0),
   );
@@ -18,7 +21,7 @@ const DataVolume: () => React$Node = ({filteredData, colorScale}) => {
 
   return (
     <View style={styles.view}>
-      <Text style={Typography.TITLE}>Data Volume</Text>
+      <Text style={Typography.TITLE}>{t('visualisations.volume.title')}</Text>
       <View style={styles.victoryPie}>
         <Svg width="100%" height="100%" viewBox="0 0 400 300">
           <VictoryPie

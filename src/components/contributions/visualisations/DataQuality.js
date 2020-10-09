@@ -3,11 +3,14 @@
  * @flow strict-local
  */
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import {StyleSheet, View, Text} from 'react-native';
 import {Typography} from '../../../styles';
 import {VictoryGroup, VictoryBar, VictoryChart} from 'victory-native';
 
 const DataQuality: () => React$Node = ({filteredData, colorScale}) => {
+  const {t} = useTranslation('contributions');
+
   const maxDays = filteredData.find(
     days =>
       days.metrics.days ===
@@ -16,18 +19,22 @@ const DataQuality: () => React$Node = ({filteredData, colorScale}) => {
 
   const formatDate = iso => new Date(iso).toISOString().split('T')[0];
 
+  const xLabel = t('visualisations.quality.xAxisLabel', {
+    startDate: formatDate(maxDays.metrics.start),
+    endDate: formatDate(maxDays.metrics.end),
+    days: maxDays.metrics.days,
+  });
+
   const deviceQuality = filteredData.map(d => [
     {
-      x: `${formatDate(maxDays.metrics.start)} to ${formatDate(
-        maxDays.metrics.end,
-      )} (${maxDays.metrics.days} days)`,
+      x: xLabel,
       y: d.metrics.sessions.reduce((result, item) => result + item.quality, 0),
     },
   ]);
 
   return (
     <View style={styles.view}>
-      <Text style={Typography.TITLE}>Data Quality</Text>
+      <Text style={Typography.TITLE}>{t('visualisations.quality.title')}</Text>
       <View style={styles.victoryChart}>
         <VictoryChart
           // TODO: this should be an adapative height
