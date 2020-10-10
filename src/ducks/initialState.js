@@ -1,7 +1,7 @@
 import i18n from 'i18next';
 
 const defaultImage = require('../assets/devices/default.png');
-let userLang = i18n.languages?.includes(i18n.language) ? i18n.language : 'en';
+const userLang = i18n.languages?.includes(i18n.language) ? i18n.language : 'en';
 
 const devices = [
   {id: 0, name: 'Axivity', image: defaultImage},
