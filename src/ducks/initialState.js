@@ -1,8 +1,9 @@
 import i18n from 'i18next';
 
 const defaultImage = require('../assets/devices/default.png');
+const userLang = i18n.languages?.includes(i18n.language) ? i18n.language : 'en';
 
-const DEVICES = [
+const devices = [
   {id: 0, name: 'Axivity', image: defaultImage},
   {id: 1, name: 'Byteflies', image: defaultImage},
   {id: 2, name: 'Dreem', image: defaultImage},
@@ -18,6 +19,6 @@ const DEVICES = [
 
 export default {
   userID: null,
-  userLang: i18n.language,
-  devices: DEVICES,
+  userLang,
+  devices,
 };
