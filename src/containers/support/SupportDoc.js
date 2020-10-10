@@ -8,6 +8,8 @@ import {mapDispatchToProps} from '../../ducks/actions';
 
 import AllContent from '../../i18n/docs';
 
+import {MarkdownView} from 'react-native-markdown-view';
+
 const SupportDoc: () => React$Node = props => {
   const [content, setContent] = useState('');
 
@@ -23,7 +25,7 @@ const SupportDoc: () => React$Node = props => {
   return (
     <View style={styles.view}>
       <ScrollView style={styles.container}>
-        <Text>{content}</Text>
+        <MarkdownView>{content}</MarkdownView>
       </ScrollView>
     </View>
   );
