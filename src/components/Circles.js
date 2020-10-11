@@ -12,10 +12,9 @@ import {
 import {Spacing, Typography, Shared} from '../styles';
 
 const Circles: () => React$Node = ({num, onPress, isActive}) => {
-  const items = Array.from(Array(num));
   return (
     <View style={styles.container}>
-      {items.map((p, index) => {
+      {Array.from(Array(num).keys()).map(index => {
         return (
           <TouchableHighlight key={index} style={styles.view}>
             <TouchableOpacity

@@ -16,13 +16,18 @@ const WearSync: () => React$Node = ({
   data,
   isError = false,
 }) => {
-  const error = isError ? Colors.WARNING : Colors.BLACK;
+  const subtitleColor = isError ? Colors.WARNING : Colors.BLACK;
   return (
     <View style={[styles.container, Typography.BORDER]}>
       <FontAwesome5 name={icon} color={color} style={styles.icon} />
       <View style={styles.content}>
         <Text style={[Typography.TITLE, styles.title]}>{title}</Text>
-        <Text style={[Typography.SUBTITLE, styles.subtitle, {color: error}]}>
+        <Text
+          style={[
+            Typography.SUBTITLE,
+            styles.subtitle,
+            {color: subtitleColor},
+          ]}>
           {subtitle}
         </Text>
       </View>

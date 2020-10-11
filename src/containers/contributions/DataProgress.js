@@ -11,16 +11,17 @@ import WearSync from '../../components/contributions/WearSync';
 const DataProgress: () => React$Node = ({filteredData, totalDevices}) => {
   const {t} = useTranslation('contributions');
 
-  const countDevice = filteredData.length;
-  const isSyncError = countDevice === totalDevices;
+  const numDevicesWorn = filteredData.length;
+  // TODO: this should be calculated based on filteredData.metrics.sessions
+  const isSyncError = numDevicesWorn === totalDevices;
 
-  const makeData = (x, y) => ({x: x, y: y});
+  const makeData = (x, y) => ({x, y});
 
   // Note: this is hard-coded for now, but will be the days from the date filter
   const daysWorn = 3;
   const messageWear = t('progress.wearTime.subtitle', {
     daysWorn,
-    countDevice,
+    numDevicesWorn,
     totalDevices,
   });
   const progressWear = filteredData.map(d => makeData(d.id, d.metrics.days));
@@ -28,9 +29,9 @@ const DataProgress: () => React$Node = ({filteredData, totalDevices}) => {
   const messageSync = isSyncError
     ? t('progress.dataSync.subtitle')
     : t('progress.dataSync.subtitleWithError', {
-        count: totalDevices - countDevice,
+        count: totalDevices - numDevicesWorn,
       });
-
+  // TODO: currently is 1 if data was not synced, but needs changes to reflect non-synced data.
   const progressSync = filteredData.map(d => makeData(d.id, 1));
 
   const items = [

@@ -4,7 +4,7 @@ import React from 'react';
 import Contributions from '../containers/contributions/Contributions';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Settings from '../containers/Settings';
-// import Dropdownmenu from '../containers/contributions/DropdownMenu';
+// import DropDownMenu from '../containers/DropdownMenu';
 import {useTranslation} from 'react-i18next';
 
 export const {
@@ -31,7 +31,7 @@ export const ContributionsStack = props => {
               onPress={() => props.navigation.navigate('Settings')}
             />
           ),
-          // headerLeft: () => <Dropdownmenu />,
+          // headerLeft: () => <DropDownMenu />,
         }}
       />
       <StackScreen

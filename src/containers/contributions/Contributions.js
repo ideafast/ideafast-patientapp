@@ -46,7 +46,6 @@ const Contributions: () => React$Node = props => {
         <DataProgress
           filteredData={activeDevices}
           totalDevices={devices.length}
-          colorScale={colorScale}
         />
         <ContributionsMenu filteredData={devices} />
       </ScrollView>
