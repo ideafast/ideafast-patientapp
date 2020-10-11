@@ -1,11 +1,13 @@
 import i18n from 'i18next';
 
 const defaultImage = require('../assets/devices/default.png');
+const userLang = i18n.languages?.includes(i18n.language) ? i18n.language : 'en';
+
 // TODO: remove when API integration implemented
 import mock_devices from '../api/mock-data/devices.json';
 import {Colors} from '../styles';
 
-let DEVICES = [
+let devices = [
   {
     id: 'AX6',
     name: 'Axivity',
@@ -75,7 +77,7 @@ let DEVICES = [
 ];
 
 // TODO: remove when API integration implemented
-const userDevices = DEVICES.map(deviceLocal => {
+const userDevices = devices.map(deviceLocal => {
   // Find the remote object for this device based on unique key (ID)
   const deviceRemote = mock_devices.find(d => d.id === deviceLocal.id);
   // Merge objects: as we will ship icons, deviceLocal comes second
@@ -85,7 +87,7 @@ const userDevices = DEVICES.map(deviceLocal => {
 
 export default {
   userID: null,
-  userLang: i18n.language,
-  devices: DEVICES,
+  userLang,
+  devices,
   userDevices: userDevices.slice(0, 5),
 };
