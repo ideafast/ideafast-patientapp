@@ -2,7 +2,7 @@
   {
     "id":"AX6",
     "name":"Axivity",
-    "image":"https://ideafast/.eu",
+    "image":"https://ideafast.eu",
     "status":{
       "hardware":{
         "features":{
@@ -51,7 +51,7 @@
   {
     "id":"BTF",
     "name":"Byteflies",
-    "image":"https://ideafast/.eu",
+    "image":"https://ideafast.eu",
     "status":{
       "hardware":{
         "features":{
@@ -100,7 +100,7 @@
   {
     "id":"DRM",
     "name":"Dreem",
-    "image":"https://ideafast/.eu",
+    "image":"https://ideafast.eu",
     "status":{
       "hardware":{
         "features":{
@@ -151,7 +151,7 @@
   {
     "id":"BED",
     "name":"eBedSensor",
-    "image":"https://ideafast/.eu",
+    "image":"https://ideafast.eu",
     "status":{
       "hardware":{
         "features":{
@@ -200,7 +200,7 @@
   {
     "id":"BVN",
     "name":"Everion",
-    "image":"https://ideafast/.eu",
+    "image":"https://ideafast.eu",
     "status":{
       "hardware":{
         "features":{
@@ -251,7 +251,7 @@
   {
     "id":"MMM",
     "name":"Move Monitor",
-    "image":"https://ideafast/.eu",
+    "image":"https://ideafast.eu",
     "status":{
       "hardware":{
         "features":{
@@ -300,7 +300,7 @@
   {
     "id":"SMP",
     "name":"Samsung A40",
-    "image":"https://ideafast/.eu",
+    "image":"https://ideafast.eu",
     "status":{
       "hardware":{
         "features":{
@@ -336,7 +336,7 @@
   {
     "id":"TMA",
     "name":"Stress Monitor",
-    "image":"https://ideafast/.eu",
+    "image":"https://ideafast.eu",
     "status":{
       "hardware":{
         "features":{
@@ -385,7 +385,7 @@
   {
     "id":"TFA",
     "name":"Think Fast",
-    "image":"https://ideafast/.eu",
+    "image":"https://ideafast.eu",
     "status":{
       "hardware":{
         "features":{
@@ -434,7 +434,7 @@
   {
     "id":"VTP",
     "name":"Vital Patch",
-    "image":"https://ideafast/.eu",
+    "image":"https://ideafast.eu",
     "status":{
       "hardware":{
         "features":{
@@ -485,7 +485,7 @@
   {
     "id":"YSM",
     "name":"ZKone Yoli",
-    "image":"https://ideafast/.eu",
+    "image":"https://ideafast.eu",
     "status":{
       "hardware":{
         "features":{
