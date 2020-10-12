@@ -31,8 +31,11 @@ const DataProgress: () => React$Node = ({filteredData, totalDevices}) => {
     : t('progress.dataSync.subtitleWithError', {
         count: totalDevices - numDevicesWorn,
       });
-  // TODO: currently is 1 if data was not synced, but needs changes to reflect non-synced data.
-  const progressSync = filteredData.map(d => makeData(d.id, 1));
+
+  // TODO: calculate if data has been synced
+  const calculateSync = d => 1;
+
+  const progressSync = filteredData.map(d => makeData(d.id, calculateSync(d)));
 
   const items = [
     {
