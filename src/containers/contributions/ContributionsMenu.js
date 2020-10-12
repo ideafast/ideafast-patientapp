@@ -6,7 +6,7 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet, View, Text} from 'react-native';
 import {Typography, Spacing} from '../../styles';
-import {FormatBytes} from '../../util/General';
+import {FormatBytes} from '../../util';
 import ContributionItem from '../../components/contributions/ContributionItem';
 
 const ContributionsMenu: () => React$Node = ({filteredData}) => {

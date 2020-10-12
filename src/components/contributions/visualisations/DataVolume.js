@@ -8,7 +8,7 @@ import {StyleSheet, View, Text} from 'react-native';
 import {VictoryPie, VictoryLabel} from 'victory-native';
 import {Svg} from 'react-native-svg';
 import {Typography} from '../../../styles';
-import {FormatBytes} from '../../../util/General';
+import {FormatBytes} from '../../../util';
 
 const DataVolume: () => React$Node = ({filteredData, colorScale}) => {
   const {t} = useTranslation('contributions');
