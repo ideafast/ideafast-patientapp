@@ -43,57 +43,57 @@ import ZKOneDE from './de/zkone.md';
 import ZKOneNL from './nl/zkone.md';
 
 export default {
-  0: {
+  AX6: {
     en: AxivityEN,
     de: AxivityDE,
     nl: AxivityNL,
   },
-  1: {
+  BTF: {
     en: BytefliesEN,
     de: BytefliesDE,
     nl: BytefliesNL,
   },
-  2: {
+  DRM: {
     en: DreemEN,
     de: DreemDE,
     nl: DreemNL,
   },
-  3: {
+  BED: {
     en: EBedSensorEN,
     de: EBedSensorDE,
     nl: EBedSensorNL,
   },
-  4: {
+  BVN: {
     en: EverionEN,
     de: EverionDE,
     nl: EverionNL,
   },
-  5: {
+  MMM: {
     en: MoveMonitorEN,
     de: MoveMonitorDE,
     nl: MoveMonitorNL,
   },
-  6: {
+  TMA: {
     en: StressMonitorEN,
     de: StressMonitorDE,
     nl: StressMonitorNL,
   },
-  7: {
+  SMP: {
     en: StudyPhoneEN,
     de: StudyPhoneDE,
     nl: StudyPhoneNL,
   },
-  8: {
+  TFA: {
     en: ThinkFastEN,
     de: ThinkFastDE,
     nl: ThinkFastNL,
   },
-  9: {
+  VTP: {
     en: VitalPatchEN,
     de: VitalPatchDE,
     nl: VitalPatchNL,
   },
-  10: {
+  YSM: {
     en: ZKOneEN,
     de: ZKOneDE,
     nl: ZKOneNL,
