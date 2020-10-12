@@ -7,9 +7,9 @@ import {StyleSheet, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {connect} from 'react-redux';
 import DataCharts from './DataCharts';
-import DataProgress from './DataProgress';
+import DataProgressList from './DataProgressList';
 import DeviceCheckBoxes from './DeviceCheckBoxes';
-import ContributionsMenu from './ContributionsMenu';
+import ContributionsList from './ContributionsList';
 import {Colors} from '../../styles';
 
 import {mapDispatchToProps} from '../../ducks/actions';
@@ -43,11 +43,11 @@ const Contributions: () => React$Node = props => {
           onPress={onCheckboxSelected}
         />
         <DataCharts filteredData={activeDevices} colorScale={colorScale} />
-        <DataProgress
+        <DataProgressList
           filteredData={activeDevices}
           totalDevices={devices.length}
         />
-        <ContributionsMenu filteredData={devices} />
+        <ContributionsList filteredData={devices} />
       </ScrollView>
     </View>
   );

@@ -7,7 +7,7 @@ import {StyleSheet, View} from 'react-native';
 import {Spacing, Shared} from '../../styles';
 import DataQuality from '../../components/contributions/visualisations/DataQuality';
 import DataVolume from '../../components/contributions/visualisations/DataVolume';
-import Circles from '../../components/Circles';
+import CircleIndicators from '../../components/CircleIndicators';
 
 const DataCharts: () => React$Node = props => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -20,7 +20,7 @@ const DataCharts: () => React$Node = props => {
   return (
     <View style={[styles.view, Shared.BORDER]}>
       {visualisations[activeIndex]}
-      <Circles
+      <CircleIndicators
         num={visualisations.length}
         onPress={i => setActiveIndex(i)}
         isActive={activeIndex}

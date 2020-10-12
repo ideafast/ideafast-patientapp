@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import {Spacing, Typography, Shared} from '../styles';
 
-const Circles: () => React$Node = ({num, onPress, isActive}) => {
+const CircleIndicators: () => React$Node = ({num, onPress, isActive}) => {
   return (
     <View style={styles.container}>
       {Array.from(Array(num).keys()).map(index => {
@@ -42,4 +42,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Circles;
+export default CircleIndicators;

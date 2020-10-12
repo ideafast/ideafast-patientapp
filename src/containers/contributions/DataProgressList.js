@@ -6,9 +6,9 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet, View, Text} from 'react-native';
 import {Colors, Typography, Spacing} from '../../styles';
-import WearSync from '../../components/contributions/WearSync';
+import DataProgressItem from '../../components/contributions/DataProgressItem';
 
-const DataProgress: () => React$Node = ({filteredData, totalDevices}) => {
+const DataProgressList: () => React$Node = ({filteredData, totalDevices}) => {
   const {t} = useTranslation('contributions');
 
   const numDevicesWorn = filteredData.length;
@@ -60,8 +60,7 @@ const DataProgress: () => React$Node = ({filteredData, totalDevices}) => {
       <Text style={Typography.HEADER}>{t('progress.title')}</Text>
       <View style={styles.container}>
         {items.map((item, index) => {
-          // TODO: rename this component
-          return <WearSync {...item} key={index} />;
+          return <DataProgressItem {...item} key={index} />;
         })}
       </View>
     </View>
@@ -78,4 +77,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default DataProgress;
+export default DataProgressList;

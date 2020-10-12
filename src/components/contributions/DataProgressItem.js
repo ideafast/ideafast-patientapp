@@ -8,7 +8,7 @@ import {Colors, Typography, Spacing} from '../../styles';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Progress from './Progress';
 
-const WearSync: () => React$Node = ({
+const DataProgressItem: () => React$Node = ({
   icon,
   color,
   title,
@@ -63,4 +63,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default WearSync;
+export default DataProgressItem;
