@@ -1,11 +1,12 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import {Colors, Typography, Spacing, Stack} from '../styles';
 import React from 'react';
-import Contributions from '../containers/Contributions';
+import Contributions from '../containers/contributions/Contributions';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Settings from '../containers/Settings';
-import Dropdownmenu from '../containers/DropdownMenu';
+// import DropDownMenu from '../containers/DropdownMenu';
 import {useTranslation} from 'react-i18next';
+
 export const {
   Navigator: StackNavigator,
   Screen: StackScreen,
@@ -20,7 +21,7 @@ export const ContributionsStack = props => {
         component={Contributions}
         options={{
           title: t('title'),
-          headerTitleStyle: Stack.headerTitleStyle,
+          // headerTitleStyle: Stack.headerTitleStyle,
           headerRight: () => (
             <SimpleLineIcons
               name="settings"
@@ -30,18 +31,13 @@ export const ContributionsStack = props => {
               onPress={() => props.navigation.navigate('Settings')}
             />
           ),
-          headerLeft: () => <Dropdownmenu />,
+          // headerLeft: () => <DropDownMenu />,
         }}
       />
       <StackScreen
         name="Settings"
         component={Settings}
         options={{title: t('settings.title')}}
-      />
-      <StackScreen
-        name="Dropdownmenu"
-        component={Dropdownmenu}
-        options={{title: 'Drop Down'}}
       />
     </StackNavigator>
   );

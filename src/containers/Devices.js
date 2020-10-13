@@ -3,8 +3,7 @@
  * @flow strict-local
  */
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {Text} from 'react-native-elements';
+import {StyleSheet, View, Text} from 'react-native';
 import {Colors, Typography} from '../styles';
 import {connect} from 'react-redux';
 import {useTranslation} from 'react-i18next';
