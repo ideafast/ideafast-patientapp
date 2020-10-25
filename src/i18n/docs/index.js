@@ -1,4 +1,6 @@
-import AxivityEN from './en/axivity.md';
+import AxivityIntroEN from './en/axivity/intro.md';
+import AxivityGeneralEN from './en/axivity/general.md';
+import AxivityFaqEN from './en/axivity/faq.md';
 import AxivityDE from './de/axivity.md';
 import AxivityNL from './nl/axivity.md';
 
@@ -44,7 +46,7 @@ import ZKOneNL from './nl/zkone.md';
 
 export default {
   0: {
-    en: AxivityEN,
+    en: AxivityGeneralEN + '\n\n' + AxivityIntroEN + '\n\n' + AxivityFaqEN,
     de: AxivityDE,
     nl: AxivityNL,
   },

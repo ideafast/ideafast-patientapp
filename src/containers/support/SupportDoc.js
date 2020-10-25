@@ -9,7 +9,8 @@ import {mapDispatchToProps} from '../../ducks/actions';
 import AllContent from '../../i18n/docs';
 import {MarkdownView} from 'react-native-markdown-view';
 
-import {RenderLocalImage, renderImage} from './RenderImage';
+import {RenderLocalImage} from './RenderImage';
+import set from '@babel/runtime/helpers/esm/set';
 
 const testExample = `
  General Device Introduction
@@ -29,7 +30,21 @@ const testExample = `
  
  **How is it used?**
  
- Axivity is worn on the **non-dominant** wrist - i.e. the side you use less - using the provided silicone strap during day and night. It can be worn for up to 9 days without having to be recharged and is suitable for day-to-day activities, including showering and bathing, but must not be worn for activities such as diving, swimming, and sauna/steam rooms.`;
+ Axivity is worn on the **non-dominant** wrist - i.e. the side you use less - using the provided silicone strap during day and night. It can be worn for up to 9 days without having to be recharged and is suitable for day-to-day activities, including showering and bathing, but must not be worn for activities such as diving, swimming, and sauna/steam rooms.
+ asdddddddddddddddddddddddw       3 433255254533254254235432432545_+{}":@!#$%^&&*()?><,./';lp[]=-0987654321 Device How To / setup for wear 
+ ===============================
+
+ The AX sensors are placed in the silicone wristband that is worn like a watch of fitness band.
+
+ What sort of a device / application is this, what is it for and how does it work?
+ ---------------------------------------------------------------------------------
+
+ | |      |
+ |:-------------:|:-------------:|
+ |*   Axivity is a simple sensor device for recording movements in daily life, which you will be asked to wear for 5 days.|![](../images/ax6/1.jpeg)|
+ |*   ![](../images/ax6/1.jpeg)|This is worn on your NON-DOMINANT wrist (the side you use less). It should be snug on your wrist, not too tight but not so loose that it could slip or twist. When a watch strap is worn the **buckle typically starts at 12 o'clock ** -- this would make the engraved pattern always face you on the 6 o'clock inside edge, and so always be closer to the thumb.|
+ |*   If you have the watch on your LEFT arm, the engraving will be closer to your little finger.|![](../images/ax6/2.jpeg)|
+ |*   ![](../images/ax6/2.jpeg)|If you have the watch on your RIGHT arm, the engraving will be closest to your thumb.|`;
 
 const SupportDoc: () => React$Node = props => {
   const [content, setContent] = useState('');
@@ -37,21 +52,19 @@ const SupportDoc: () => React$Node = props => {
   useEffect(() => {
     const device = props.route.params.device;
     setContent(AllContent[device.id][props.userLang]);
-
     props.navigation.setOptions({
       title: device.name,
     });
   }, [props.route.params.device, props.navigation, props.userLang]);
 
-  // note: https://github.com/Benjamin-Dobell/react-native-markdown-view/blob/fff1a8ff00a7da37d284a9d0951af6d508042ce4/renders.js#L30-L37
   return (
     <View style={styles.view}>
       <ScrollView style={styles.container}>
         <MarkdownView
           rules={{
-            image: RenderLocalImage(renderImage),
+            image: RenderLocalImage,
           }}>
-          {testExample}
+          {content}
         </MarkdownView>
       </ScrollView>
     </View>
