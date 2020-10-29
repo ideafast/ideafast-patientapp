@@ -17,8 +17,10 @@ import BleItemRow from '../components/BleItemRow';
 import {mapDispatchToProps} from '../ducks/actions';
 import BleManager from '../util/BleManager';
 import BleManagerEmitter from '../util/BleManagerEmitter';
+import {useTranslation} from 'react-i18next';
 
 const Ble: () => React$Node = props => {
+  const {t} = useTranslation('ble');
   const [scanning, setScanning] = useState(false);
   const [peripherals, setPeripherals] = useState(new Map());
   const [appState, setAppState] = useState('');
@@ -30,16 +32,16 @@ const Ble: () => React$Node = props => {
 
   const handleAppStateChange = async nextAppState => {
     if (appState.match(/inactive|background/) && nextAppState === 'active') {
-      console.log('App has come to the foreground!');
+      console.log(t('foreground'));
       const peripheralsArray = await BleManager.getConnectedPeripherals([]);
-      console.log('Connected peripherals: ' + peripheralsArray.length);
+      console.log(t('connectedPer') + peripheralsArray.length);
     }
     setAppState(nextAppState);
   };
 
   const handleDiscoverPeripheral = peripheral => {
     let newperipherals = peripherals;
-    console.log('Got ble peripheral', peripheral);
+    console.log(t('gotPer'), peripheral);
     if (!peripheral.name) {
       peripheral.name = 'NO NAME';
     }
@@ -48,7 +50,7 @@ const Ble: () => React$Node = props => {
   };
 
   const handleStopScan = () => {
-    console.log('Scan is stopped');
+    console.log(t('ScanStop'));
     setScanning(false);
   };
 
@@ -60,14 +62,14 @@ const Ble: () => React$Node = props => {
       peripherals.set(peripheral.id, peripheral);
       setPeripherals(newperipherals);
     }
-    console.log('Disconnected from ' + data.peripheral);
+    console.log(t('disconnect') + data.peripheral);
   };
 
   const handleUpdateValueForCharacteristic = data => {
     console.log(
-      'Received data from ' +
+      t('dataReceived') +
         data.peripheral +
-        ' characteristic ' +
+        t('characteristic') +
         data.characteristic,
       data.value,
     );
@@ -106,15 +108,15 @@ const Ble: () => React$Node = props => {
         PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
       ).then(result => {
         if (result) {
-          console.log('Permission is OK');
+          console.log(t('permission'));
         } else {
           PermissionsAndroid.request(
             PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
           ).then(requestResult => {
             if (requestResult) {
-              console.log('User accept');
+              console.log(t('userA'));
             } else {
-              console.log('User refuse');
+              console.log(t('userR'));
             }
           });
         }
@@ -149,7 +151,7 @@ const Ble: () => React$Node = props => {
   const startScan = async () => {
     if (!scanning) {
       await BleManager.scan([], 3, true);
-      console.log('Scanning...');
+      console.log(t('scanning'));
       setScanning(true);
     }
   };
@@ -157,7 +159,7 @@ const Ble: () => React$Node = props => {
   const retrieveConnected = async () => {
     const results = await BleManager.getConnectedPeripherals([]);
     if (results.length === 0) {
-      console.log('No connected peripherals');
+      console.log(t('noPer'));
     }
     console.log(results);
     let newperipherals = peripherals;
@@ -181,7 +183,7 @@ const Ble: () => React$Node = props => {
         newperipherals.set(peripheral.id, p);
         setPeripherals(newperipherals);
       }
-      console.log('Connected to ' + peripheral.id);
+      console.log(t('connect') + peripheral.id);
     }
   };
 
@@ -194,14 +196,14 @@ const Ble: () => React$Node = props => {
       <View style={styles.container}>
         <View style={styles.row}>
           <Button
-            title={'Scan Bluetooth (' + (scanning ? 'on' : 'off') + ')'}
+            title={t('bluetooth') + (scanning ? t('on') : t('off')) + ')'}
             onPress={() => startScan()}
           />
         </View>
 
         <View style={styles.row}>
           <Button
-            title="Retrieve connected peripherals"
+            title={t('peripherals')}
             onPress={() => retrieveConnected()}
           />
         </View>

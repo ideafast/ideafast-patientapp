@@ -3,17 +3,25 @@
  * @flow strict-local
  */
 import React, {useState} from 'react';
-import {KeyboardAvoidingView, StyleSheet, TextInput, View} from 'react-native';
+import {
+  KeyboardAvoidingView,
+  StyleSheet,
+  TextInput,
+  View,
+  Text,
+} from 'react-native';
 import Logo from '../assets/logo.svg';
-import {Text} from 'react-native-elements';
 import {connect} from 'react-redux';
 
 import LoadingButton from '../components/LoadingButton';
 import {Typography, Spacing, Colors} from '../styles';
 
 import {mapDispatchToProps} from '../ducks/actions';
+import {useTranslation} from 'react-i18next';
 
 const Verify: () => React$Node = props => {
+  const {t} = useTranslation('verify');
+
   const [userID, setUserID] = useState('');
 
   const verify = async () => props.verifyUserID(userID);
@@ -23,15 +31,15 @@ const Verify: () => React$Node = props => {
       <View style={styles.logo}>
         <Logo width="100%" height="100%" />
       </View>
-      <Text style={styles.text}>Welcome to IDEA-FAST HubApp.</Text>
-      <Text style={styles.text}>Please enter your ID to begin.</Text>
+      <Text style={styles.text}>{t('title')}</Text>
+      <Text style={styles.text}>{t('id')}</Text>
       <TextInput
         style={styles.input}
-        placeholder="Verification Token"
+        placeholder={t('token')}
         onChangeText={text => setUserID(text)}
       />
       <LoadingButton
-        title="Verify"
+        title={t('verify')}
         disabled={!userID}
         onPress={verify}
         willUnmountOnSuccess

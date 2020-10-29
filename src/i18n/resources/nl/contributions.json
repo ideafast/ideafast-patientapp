@@ -1,0 +1,43 @@
+{
+  "title" : "Bijdragen",
+  "picker": {
+    "all": "Alle",
+    "day": "1 dag",
+    "week": "1 week",
+    "month": "3 maanden",
+    "days": "3 dagen"
+  },
+  "settings": {
+    "title": "Instellingen",
+    "user": "Gebruiker ID",
+    "lang": "Toepassingstaal",
+    "choose": "Kies een taal"
+  },
+  "meta": {
+    "title": "Bijdragen",
+    "streak": "Dag\nStreak",
+    "totalSize": "Totale\nGegevens",
+    "totalWorn": "Apparaten\nVersleten"
+  },
+  "progress": {
+    "title": "Voortgang",
+    "wearTime": {
+      "title": "Wear Time",
+      "subtitle": "{{daysWorn}} dagen voor {{countDevice}}/{{totalDevices}} apparaten"
+    },
+    "dataSync": {
+      "title": "Gegevens gesynchroniseerd",
+      "subtitle": "Apparaten gesynchroniseerd",
+      "subtitleWithError": "{{count}} apparaat moet worden gesynchroniseerd"
+    }
+  },
+  "visualisations": {
+    "volume": {
+      "title": "Gegevensvolume"
+    },
+    "quality": {
+      "title": "Gegevenskwaliteit",
+      "xAxisLabel": "{{startDate}} tot {{endDate}} ({{days}} dagen)"
+    }
+  }
+}

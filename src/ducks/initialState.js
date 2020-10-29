@@ -1,18 +1,10 @@
-const defaultImage = require('../assets/devices/default.png');
+import i18n from 'i18next';
+// TODO: remove when API integration implemented
+import mock_devices from '../api/mock-data/devices.json';
+import {Colors} from '../styles';
 
-const DEVICES = [
-  {id: 'AX6', name: 'Axivity', image: defaultImage},
-  {id: 'BTF', name: 'Byteflies', image: defaultImage},
-  {id: 'DRM', name: 'Dreem', image: defaultImage},
-  {id: 'BED', name: 'eBedSensor', image: defaultImage},
-  {id: 'BVN', name: 'Everion', image: defaultImage},
-  {id: 'MMM', name: 'Move Monitor', image: defaultImage},
-  {id: 'SMP', name: 'Samsung A40', image: defaultImage},
-  {id: 'TMA', name: 'Stress Monitor', image: defaultImage},
-  {id: 'TFA', name: 'Think Fast', image: defaultImage},
-  {id: 'VTP', name: 'Vital Patch', image: defaultImage},
-  {id: 'YSM', name: 'ZKOne YOLI', image: defaultImage},
-];
+const defaultImage = require('../assets/devices/default.png');
+const userLang = i18n.languages?.includes(i18n.language) ? i18n.language : 'en';
 
 // Note: this will be in i18n in PR
 const DEVICE_ERRORS = {
@@ -38,25 +30,64 @@ const DEVICE_ERRORS = {
   },
 };
 
-const SUPPORTED_LANGUAGES = [
+let devices = [
   {
-    code: 'en',
-    name: 'English',
+    id: 'BVN',
+    name: 'Everion',
+    image: defaultImage,
+    color: Colors.DEVICES.BVN,
   },
   {
-    code: 'de',
-    name: 'German',
+    id: 'MMM',
+    name: 'Move Monitor',
+    image: defaultImage,
+    color: Colors.DEVICES.MMM,
   },
   {
-    code: 'nl',
-    name: 'Dutch',
+    id: 'SMP',
+    name: 'Samsung Smartphone',
+    image: defaultImage,
+    color: Colors.DEVICES.SMP,
+  },
+  {
+    id: 'TMA',
+    name: 'Stress Monitor',
+    image: defaultImage,
+    color: Colors.DEVICES.TMA,
+  },
+  {
+    id: 'BED',
+    name: 'eBedSensor',
+    image: defaultImage,
+    color: Colors.DEVICES.BED,
+  },
+  {
+    id: 'VTP',
+    name: 'Vital Patch',
+    image: defaultImage,
+    color: Colors.DEVICES.VTP,
+  },
+  {
+    id: 'YSM',
+    name: 'ZKOne YOLI',
+    image: defaultImage,
+    color: Colors.DEVICES.YSM,
   },
 ];
 
+// TODO: remove when API integration implemented
+const userDevices = devices.map(deviceLocal => {
+  // Find the remote object for this device based on unique key (ID)
+  const deviceRemote = mock_devices.find(d => d.id === deviceLocal.id);
+  // Merge objects: as we will ship icons, deviceLocal comes second
+  // as its properties are used if both objects have the same key, e.g. image.
+  return {...deviceLocal, ...deviceRemote};
+});
+
 export default {
   userID: null,
-  userLang: 'en',
-  languages: SUPPORTED_LANGUAGES,
-  devices: DEVICES,
+  userLang,
+  devices,
+  userDevices: userDevices.slice(0, 5),
   deviceErrors: DEVICE_ERRORS,
 };
