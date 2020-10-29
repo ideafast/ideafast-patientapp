@@ -1,28 +1,27 @@
 {
-  "id": "DRM",
-  "uuid": "yyyxxx12668888",
-  "name": "dreem",
-  "status": {
-    "hardware": {
-      "features": {
-        "ble": false,
-        "wifi": false,
-        "wired": true
+  "id":"AX6",
+  "name": "Axivity",
+  "status":{
+    "hardware":{
+      "features":{
+        "ble":false,
+        "wifi":false,
+        "wired":false
       },
-      "connection": {
-        "battery": 0,
-        "ble": null,
-        "wifi": null
+      "connection":{
+        "battery":null,
+        "ble":null,
+        "wifi":null
       }
     },
-    "data": {
-      "isOnDevice": true,
-      "size": 100000000,
-      "isUploading": false,
-      "startRecorded": "2020-04-23T18:25:43.511Z",
-      "endRecorded": "2020-04-26T18:25:43.511Z",
-      "lastUploaded": "2020-09-20T18:25:43.511Z"
+    "data":{
+      "isOnDevice":false,
+      "size":null,
+      "isUploading":false,
+      "startRecorded":null,
+      "endRecorded":null,
+      "lastUploaded":null
     },
-    "error": null
+    "error":null
   }
 }
