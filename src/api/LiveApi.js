@@ -5,7 +5,8 @@ export default class LiveApi extends ApiInterface {
   request = async (method, resource, body = {}) => {
     try {
       const url = `${this.endpoint}/${resource}`;
-      const options = {method: method, body: JSON.stringify(body)};
+      const _body = ['GET'].includes(method) ? null : JSON.stringify(body);
+      const options = {method: method, body: _body};
 
       const response = await fetch(url, options);
 
