@@ -57,7 +57,7 @@ let devices = [
   },
   {
     id: 'BED',
-    name: 'eBedSensor',
+    name: 'EBedSensor',
     image: defaultImage,
     color: Colors.DEVICES.BED,
   },

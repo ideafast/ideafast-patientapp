@@ -14,10 +14,13 @@ import {Spacing} from '../../styles';
 import DeviceRowSupport from '../../components/devices/DeviceRowSupport';
 
 const Support: () => React$Node = props => {
+  const devices = props.devices.sort(
+    (a, b) => a.name.toUpperCase() > b.name.toUpperCase(),
+  );
   return (
     <View style={styles.view}>
       <ScrollView style={styles.container}>
-        {props.devices.map(device => {
+        {devices.map(device => {
           return (
             <DeviceRowSupport
               key={device.id}
