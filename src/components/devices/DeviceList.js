@@ -3,17 +3,17 @@
  * @flow strict-local
  */
 import React from 'react';
-import {StyleSheet, Button} from 'react-native';
-import {Colors, Spacing} from '../../styles';
+import {Button} from 'react-native';
+import {Colors} from '../../styles';
 import {FlatList} from 'react-native-gesture-handler';
 
 import {connect} from 'react-redux';
 import {mapDispatchToProps} from '../../ducks/actions';
 
-import DeviceRowItem from '../../components/devices/DeviceRowItem';
+import DeviceRow from '../../components/devices/DeviceRow';
 import DeviceIcons from '../../components/devices/DeviceIcons';
 
-import {FormatBytes, LastUploadTime} from '../../util/General';
+import {FormatBytes, LastUploadTime} from '../../util';
 
 const DeviceList: () => React$Node = props => {
   const errorByCode = code => props.deviceErrors[code][props.userLang];
@@ -63,7 +63,7 @@ const DeviceList: () => React$Node = props => {
   };
 
   const renderItem = ({item: device}) => (
-    <DeviceRowItem
+    <DeviceRow
       key={device.id}
       name={device.name}
       image={device.image}
@@ -83,17 +83,6 @@ const DeviceList: () => React$Node = props => {
     />
   );
 };
-
-const styles = StyleSheet.create({
-  view: {
-    flex: 1,
-    backgroundColor: Colors.WHITESMOKE,
-  },
-  container: {
-    marginTop: Spacing.SCALE_16,
-    marginHorizontal: Spacing.SCALE_16,
-  },
-});
 
 const mapStateToProps = state => state;
 
