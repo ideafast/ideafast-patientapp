@@ -8,6 +8,30 @@ const userLang = i18n.languages?.includes(i18n.language) ? i18n.language : 'en';
 
 let devices = [
   {
+    id: 'AX6',
+    name: 'Axivity',
+    image: defaultImage,
+    color: Colors.DEVICES.AX6,
+  },
+  {
+    id: 'BTF',
+    name: 'Byteflies',
+    image: defaultImage,
+    color: Colors.DEVICES.BTF,
+  },
+  {
+    id: 'DRM',
+    name: 'Dreem',
+    image: defaultImage,
+    color: Colors.DEVICES.DRM,
+  },
+  {
+    id: 'TFA',
+    name: 'Think Fast',
+    image: defaultImage,
+    color: Colors.DEVICES.TFA,
+  },
+  {
     id: 'BVN',
     name: 'Everion',
     image: defaultImage,
