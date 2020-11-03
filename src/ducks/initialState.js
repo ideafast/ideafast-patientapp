@@ -6,30 +6,6 @@ import {Colors} from '../styles';
 const defaultImage = require('../assets/devices/default.png');
 const userLang = i18n.languages?.includes(i18n.language) ? i18n.language : 'en';
 
-// Note: this will be in i18n in PR
-const DEVICE_ERRORS = {
-  WIFI_OFFLINE: {
-    en: {message: 'WiFi Disconnected', action: 'CONNECT'},
-    de: {message: 'WiFi Disconnected', action: 'CONNECT'},
-    nl: {message: 'WiFi Disconnected', action: 'CONNECT'},
-  },
-  SURVEY_INCOMPLETE: {
-    en: {message: 'Survey Incomplete', action: 'COMPLETE'},
-    de: {message: 'Survey Incomplete', action: 'COMPLETE'},
-    nl: {message: 'Survey Incomplete', action: 'COMPLETE'},
-  },
-  BLE_DISCONNECTED: {
-    en: {message: 'Bluetooth Disabled', action: 'ENABLE'},
-    de: {message: 'Bluetooth Disabled', action: 'ENABLE'},
-    nl: {message: 'Bluetooth Disabled', action: 'ENABLE'},
-  },
-  POWER_OFF: {
-    en: {message: 'Device is unplugged from power.', action: 'TURN ON'},
-    de: {message: 'Device is unplugged from power.', action: 'TURN ON'},
-    nl: {message: 'Device is unplugged from power.', action: 'TURN ON'},
-  },
-};
-
 let devices = [
   {
     id: 'BVN',
@@ -89,5 +65,4 @@ export default {
   userLang,
   devices,
   userDevices: userDevices.slice(0, 5),
-  deviceErrors: DEVICE_ERRORS,
 };

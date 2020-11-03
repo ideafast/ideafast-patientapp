@@ -3,6 +3,7 @@
  * @flow strict-local
  */
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import {Button} from 'react-native';
 import {Colors} from '../../styles';
 import {FlatList} from 'react-native-gesture-handler';
@@ -16,13 +17,14 @@ import DeviceIcons from '../../components/devices/DeviceIcons';
 import {FormatBytes, LastUploadTime} from '../../util';
 
 const DeviceList: () => React$Node = props => {
-  const errorByCode = code => props.deviceErrors[code][props.userLang];
+  const {t} = useTranslation('api');
+
   const hasError = device => !!device.status.error;
 
   const setSyncStatus = device => {
     const filesize = device.status.data.size;
     const errorCode = device.status.error;
-    const errorMessage = code => errorByCode(code).message;
+    const errorMessage = code => t(`${code}.message`);
 
     if (!device.status.data.isOnDevice) {
       // Note: Axivity, eBedSensor, & McRoberts data transfer is at end
@@ -44,7 +46,7 @@ const DeviceList: () => React$Node = props => {
 
   const renderDeviceIcons = device => {
     if (hasError(device)) {
-      const actionText = errorByCode(device.status.error).action;
+      const actionText = t(`${device.status.error}.action`);
 
       return (
         <Button

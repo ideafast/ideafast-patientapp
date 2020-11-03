@@ -1,0 +1,18 @@
+{
+  "WIFI_OFFLINE": {
+    "message": "WiFi verbroken",
+    "action": "AANSLUITEN"
+  },
+  "SURVEY_INCOMPLETE": {
+    "message": "Survey onvolledig",
+    "action": "COMPLEET"
+  },
+  "BLE_DISCONNECTED": {
+    "message": "Bluetooth uitgeschakeld",
+    "action": "INSCHAKELEN"
+},
+  "POWER_OFF": {
+    "message": "Apparaat is losgekoppeld van de stroom.",
+    "action": "INSCHAKELEN"
+  }
+}
