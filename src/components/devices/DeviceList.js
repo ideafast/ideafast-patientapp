@@ -17,7 +17,7 @@ import DeviceIcons from '../../components/devices/DeviceIcons';
 import {FormatBytes, LastUploadTime} from '../../util';
 
 const DeviceList: () => React$Node = props => {
-  const {t} = useTranslation('api');
+  const {t} = useTranslation(['api', 'devices']);
 
   const hasError = device => !!device.status.error;
 
@@ -29,17 +29,19 @@ const DeviceList: () => React$Node = props => {
     if (!device.status.data.isOnDevice) {
       // Note: Axivity, eBedSensor, & McRoberts data transfer is at end
       const isDeviceExcluded = ['AX6', 'BED', 'MMM'].includes(device.id);
-      // Not sure if this is needed. Could be removed?
+
       const message = isDeviceExcluded
-        ? 'Data will be uploaded when device returned'
-        : 'No data uploaded yet';
+        ? t('devices:status.manualTransfer')
+        : t('devices:status.noData');
       return hasError(device) ? errorMessage(errorCode) : message;
     }
 
     const lastUploaded = device.status.data.lastUploaded;
-    const status = `Synced ${FormatBytes(filesize)} ${LastUploadTime(
-      lastUploaded,
-    )}`;
+
+    const status = t('devices:status.sync', {
+      filesize: FormatBytes(filesize),
+      lastUploaded: LastUploadTime(lastUploaded),
+    });
 
     return hasError(device) ? errorMessage(errorCode) : status;
   };

@@ -64,5 +64,5 @@ export default {
   userID: null,
   userLang,
   devices,
-  userDevices: userDevices.slice(0, 5),
+  userDevices,
 };
