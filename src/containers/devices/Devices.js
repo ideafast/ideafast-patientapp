@@ -2,7 +2,7 @@
  * @format
  * @flow strict-local
  */
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, Text, View, SafeAreaView} from 'react-native';
 import {Colors, Spacing} from '../../styles';
 
@@ -10,33 +10,17 @@ import {connect} from 'react-redux';
 import {mapDispatchToProps} from '../../ducks/actions';
 
 import DeviceList from '../../components/devices/DeviceList';
+import {useDevices} from '../../hooks/useDevices';
 
 const Devices: () => React$Node = props => {
-  // Update UI based on API request
-  const [isLoading, setIsLoading] = useState(true);
-  // When the API request is made
-  const [isFetching, setIsFetching] = useState(true);
+  // Load devices from remote
+  const [loading] = useDevices(props.getDevices);
   // For UI to indicate when refreshing
   const [isRefreshing, setRefreshing] = useState(false);
 
-  const fetchDevices = async () => await props.getDevices();
-
-  useEffect(() => {
-    if (isFetching) {
-      fetchDevices();
-      setIsFetching(false);
-    }
-  }, [isFetching]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  useEffect(() => {
-    if (!isFetching) {
-      setIsLoading(false);
-    }
-  }, [props.devices]); // eslint-disable-line react-hooks/exhaustive-deps
-
   const onRefresh = async () => {
     setRefreshing(true);
-    await fetchDevices();
+    await props.getDevices();
     setRefreshing(false);
   };
 
@@ -45,7 +29,7 @@ const Devices: () => React$Node = props => {
   return (
     <View style={styles.view}>
       <SafeAreaView style={styles.container}>
-        {isLoading ? (
+        {loading ? (
           isLoadingView
         ) : (
           <DeviceList
