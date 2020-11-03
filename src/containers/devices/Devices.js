@@ -15,13 +15,16 @@ const Devices: () => React$Node = props => {
   // Update UI based on API request
   const [isLoading, setIsLoading] = useState(true);
   // When the API request is made
-  const [isFetching, setFetching] = useState(true);
+  const [isFetching, setIsFetching] = useState(true);
+  // For UI to indicate when refreshing
+  const [isRefreshing, setRefreshing] = useState(false);
+
+  const fetchDevices = async () => await props.getDevices();
 
   useEffect(() => {
     if (isFetching) {
-      const fetchDevices = async () => props.getDevices();
       fetchDevices();
-      setFetching(false);
+      setIsFetching(false);
     }
   }, [isFetching]); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -31,12 +34,26 @@ const Devices: () => React$Node = props => {
     }
   }, [props.devices]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  const onRefresh = async () => {
+    setRefreshing(true);
+    await fetchDevices();
+    setRefreshing(false);
+  };
+
   const isLoadingView = <Text style={styles.loading}>Loading Devices ...</Text>;
 
   return (
     <View style={styles.view}>
       <SafeAreaView style={styles.container}>
-        {isLoading ? isLoadingView : <DeviceList />}
+        {isLoading ? (
+          isLoadingView
+        ) : (
+          <DeviceList
+            devices={props.devices}
+            refreshing={isRefreshing}
+            onRefresh={onRefresh}
+          />
+        )}
       </SafeAreaView>
     </View>
   );

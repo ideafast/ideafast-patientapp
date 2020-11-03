@@ -4,19 +4,16 @@
  */
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import {Button} from 'react-native';
+import {Button, RefreshControl} from 'react-native';
 import {Colors} from '../../styles';
 import {FlatList} from 'react-native-gesture-handler';
-
-import {connect} from 'react-redux';
-import {mapDispatchToProps} from '../../ducks/actions';
 
 import DeviceRow from '../../components/devices/DeviceRow';
 import DeviceIcons from '../../components/devices/DeviceIcons';
 
 import {FormatBytes, LastUploadTime} from '../../util';
 
-const DeviceList: () => React$Node = props => {
+const DeviceList: () => React$Node = ({devices, refreshing, onRefresh}) => {
   const {t} = useTranslation(['api', 'devices']);
 
   const hasError = device => !!device.status.error;
@@ -81,18 +78,21 @@ const DeviceList: () => React$Node = props => {
 
   return (
     <FlatList
-      data={props.devices.sort(compareByError)}
+      alwaysBounceVertical={true}
+      showsVerticalScrollIndicator={false}
+      refreshControl={
+        <RefreshControl
+          enabled={true}
+          colors={[Colors.PRIMARY]}
+          refreshing={refreshing}
+          onRefresh={onRefresh}
+        />
+      }
+      data={devices.sort(compareByError)}
       renderItem={renderItem}
       keyExtractor={device => device.name}
     />
   );
 };
 
-const mapStateToProps = state => state;
-
-const DeviceListContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(DeviceList);
-
-export default DeviceListContainer;
+export default DeviceList;
