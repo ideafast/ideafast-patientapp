@@ -23,13 +23,13 @@ const Devices: () => React$Node = props => {
       fetchDevices();
       setFetching(false);
     }
-  }, [isFetching]); // eslint-disable-line
+  }, [isFetching]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (!isFetching) {
       setIsLoading(false);
     }
-  }, [props.devices]); // eslint-disable-line
+  }, [props.devices]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const isLoadingView = <Text style={styles.loading}>Loading Devices ...</Text>;
 
