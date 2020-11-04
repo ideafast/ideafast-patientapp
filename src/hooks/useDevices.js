@@ -1,10 +1,14 @@
+/**
+ * @format
+ * @flow strict-local
+ */
 import {useState, useEffect} from 'react';
 
-function useDevices(dispatcher) {
+function useDevices(getDevices) {
   const [loading, setLoading] = useState(true);
 
   async function fetchData() {
-    await dispatcher();
+    await getDevices();
     setLoading(false);
   }
 
