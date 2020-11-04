@@ -26,7 +26,11 @@ const DeviceList: () => React$Node = ({devices, refreshing, onRefresh}) => {
   };
 
   const setSyncStatus = device => {
-    const lastUploaded = LastUploadTime(device.status.data.lastUploaded);
+    const {days, hours} = LastUploadTime(device.status.data.lastUploaded);
+    const lastUploaded =
+      days > 0
+        ? t('devices:status.daysAgo', {days})
+        : t('devices:status.hoursAgo', {hours});
     const filesize = FormatBytes(device.status.data.size);
 
     const status = !device.status.data.isOnDevice

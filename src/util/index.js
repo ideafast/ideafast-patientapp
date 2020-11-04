@@ -2,7 +2,7 @@ const LastUploadTime = lastUploaded => {
   const delta = new Date() - new Date(lastUploaded);
   const days = Math.floor(delta / (1000 * 60 * 60 * 24));
   const hours = new Date(delta).getHours();
-  return days > 0 ? `${days} days ago` : `${hours} hours ago`;
+  return {days, hours};
 };
 
 const FormatBytes = (bytes, decimals = 0) => {

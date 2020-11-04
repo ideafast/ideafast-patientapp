@@ -3,6 +3,8 @@
   "status": {
     "manualTransfer": "Data uploaded when device returned",
     "noData": "Data not uploaded yet",
-    "sync": "Synced {{filesize}} {{lastUploaded}}"
+    "sync": "Synced {{filesize}} {{lastUploaded}}",
+    "daysAgo": "{{days}} days ago",
+    "hoursAgo": "{{hours}} hours ago"
   }
 }
