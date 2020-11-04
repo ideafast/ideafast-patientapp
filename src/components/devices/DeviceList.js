@@ -18,43 +18,34 @@ const DeviceList: () => React$Node = ({devices, refreshing, onRefresh}) => {
 
   const hasError = device => !!device.status.error;
 
+  const statusForManualTransfer = deviceID => {
+    // Note: Axivity, eBedSensor, & McRoberts data transfer is at end
+    return ['AX6', 'BED', 'MMM'].includes(deviceID)
+      ? t('devices:status.manualTransfer')
+      : t('devices:status.noData');
+  };
+
   const setSyncStatus = device => {
-    const filesize = device.status.data.size;
-    const errorCode = device.status.error;
-    const errorMessage = code => t(`${code}.message`);
+    const lastUploaded = LastUploadTime(device.status.data.lastUploaded);
+    const filesize = FormatBytes(device.status.data.size);
 
-    if (!device.status.data.isOnDevice) {
-      // Note: Axivity, eBedSensor, & McRoberts data transfer is at end
-      const isDeviceExcluded = ['AX6', 'BED', 'MMM'].includes(device.id);
+    const status = !device.status.data.isOnDevice
+      ? statusForManualTransfer(device.id)
+      : t('devices:status.sync', {
+          filesize,
+          lastUploaded,
+        });
 
-      const message = isDeviceExcluded
-        ? t('devices:status.manualTransfer')
-        : t('devices:status.noData');
-      return hasError(device) ? errorMessage(errorCode) : message;
-    }
-
-    const lastUploaded = device.status.data.lastUploaded;
-
-    const status = t('devices:status.sync', {
-      filesize: FormatBytes(filesize),
-      lastUploaded: LastUploadTime(lastUploaded),
-    });
-
-    return hasError(device) ? errorMessage(errorCode) : status;
+    return hasError(device) ? t(`${device.status.error}.message`) : status;
   };
 
   const renderDeviceIcons = device => {
     if (hasError(device)) {
-      const actionText = t(`${device.status.error}.action`);
-
       return (
         <Button
-          title={actionText}
+          title={t(`${device.status.error}.action`)}
           color={Colors.PRIMARY}
           // TODO: navigate to appropriate SupportDoc#Header
-          // could be achieved by navigating to SupportDoc, passing in a pointer (navToHeader?)
-          // and then using that in useEffect to navigate to the heading in markdown?
-          // therefore each error in deviceErrors should have one navToHeader property?
           // onPress={() => {}}
         />
       );
