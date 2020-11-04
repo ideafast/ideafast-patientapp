@@ -36,9 +36,9 @@ const DeviceRow: () => React$Node = ({
                 name="exclamation-circle"
               />
             )}
-            <Text style={styles.title}>{name}</Text>
+            <Text style={[Typography.TITLE, styles.title]}>{name}</Text>
           </View>
-          <Text style={styles.subtitle}>{status}</Text>
+          <Text style={[Typography.SUBTITLE, styles.subtitle]}>{status}</Text>
         </View>
         <View style={styles.actions}>{children}</View>
       </View>
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     borderColor: Colors.BORDER,
   },
   rowWithError: {
-    backgroundColor: '#d6d6d6',
+    backgroundColor: Colors.SELECTED,
     borderColor: Colors.PRIMARY,
   },
   container: {
@@ -78,15 +78,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    color: Colors.BLACK,
-    fontWeight: Typography.FONT_WEIGHT_BOLD,
     fontSize: Typography.FONT_SIZE_20,
   },
   subtitle: {
-    color: Colors.BLACK,
     marginLeft: Spacing.SCALE_16,
     fontSize: Typography.FONT_SIZE_12,
-    fontStyle: 'italic',
   },
   actions: {
     flexDirection: 'row',
