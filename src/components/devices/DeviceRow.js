@@ -1,3 +1,7 @@
+/**
+ * @format
+ * @flow strict-local
+ */
 import React from 'react';
 import {StyleSheet, Text, Image, TouchableHighlight, View} from 'react-native';
 import {Colors, Typography, Spacing} from '../../styles';
