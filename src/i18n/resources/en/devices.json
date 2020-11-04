@@ -1,4 +1,10 @@
 {
   "title": "Devices",
-  "text" : "This is a container for devices."
+  "status": {
+    "manualTransfer": "Data uploaded when device returned",
+    "noData": "Data not uploaded yet",
+    "sync": "Synced {{filesize}} {{lastUploaded}}",
+    "daysAgo": "{{days}} days ago",
+    "hoursAgo": "{{hours}} hours ago"
+  }
 }

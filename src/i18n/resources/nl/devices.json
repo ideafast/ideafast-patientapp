@@ -1,4 +1,10 @@
 {
   "title": "Apparaten",
-  "text" : "Dit is een container voor apparaten."
+  "status": {
+    "manualTransfer": "Gegevens geüpload wanneer apparaat geretourneerd",
+    "noData": "Gegevens nog niet geüpload",
+    "sync": "Gesynchroniseerd {{filesize}} {{lastUploaded}}",
+    "daysAgo": "{{days}} dagen geleden",
+    "hoursAgo": "{{hours}} uur geleden"
+  }
 }

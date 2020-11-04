@@ -1,11 +1,10 @@
 import i18n from 'i18next';
-
-const defaultImage = require('../assets/devices/default.png');
-const userLang = i18n.languages?.includes(i18n.language) ? i18n.language : 'en';
-
 // TODO: remove when API integration implemented
 import mock_devices from '../api/mock-data/devices.json';
 import {Colors} from '../styles';
+
+const defaultImage = require('../assets/devices/default.png');
+const userLang = i18n.languages?.includes(i18n.language) ? i18n.language : 'en';
 
 let devices = [
   {
@@ -58,7 +57,7 @@ let devices = [
   },
   {
     id: 'BED',
-    name: 'eBedSensor',
+    name: 'EBedSensor',
     image: defaultImage,
     color: Colors.DEVICES.BED,
   },
@@ -89,5 +88,5 @@ export default {
   userID: null,
   userLang,
   devices,
-  userDevices: userDevices.slice(0, 5),
+  userDevices,
 };

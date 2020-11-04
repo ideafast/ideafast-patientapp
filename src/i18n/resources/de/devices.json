@@ -1,4 +1,10 @@
 {
   "title": "Geräte",
-  "text" : "Dies ist ein Container für Geräte."
+  "status": {
+    "manualTransfer": "Daten wurden hochgeladen, als das Gerät zurückgegeben wurde",
+    "noData": "Daten noch nicht hochgeladen",
+    "sync": "Synchronisiert {{filesize}} {{lastUploaded}}",
+    "daysAgo": "vor {{days}} Tagen",
+    "hoursAgo": "{{hours}} Stunden zuvor"
+  }
 }

@@ -23,7 +23,7 @@
     "title": "Progress",
     "wearTime": {
       "title": "Wear Time",
-      "subtitle": "{{daysWorn}} days for {{countDevice}}/{{totalDevices}} devices"
+      "subtitle": "{{daysWorn}} days for {{numDevicesWorn}}/{{totalDevices}} devices"
     },
     "dataSync": {
       "title": "Data Synced",

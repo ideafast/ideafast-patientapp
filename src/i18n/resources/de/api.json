@@ -1,0 +1,18 @@
+{
+  "WIFI_OFFLINE" : {
+    "message": "WiFi getrennt",
+    "action": "VERBINDEN"
+  },
+  "SURVEY_INCOMPLETE" : {
+    "message": "Umfrage unvollständig",
+    "action": "KOMPLETT"
+  },
+  "BLE_DISCONNECTED" : {
+    "message": "Bluetooth deaktiviert",
+    "action": "AKTIVIEREN"
+  },
+  "POWER_OFF" : {
+    "message": "Gerät ist vom Stromnetz getrennt.",
+    "action": "EINSCHALTEN"
+  }
+}
