@@ -4,10 +4,10 @@
  */
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import {Colors, Spacing} from '.././../styles';
+import {Colors, Spacing} from '../../styles';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-import DeviceRow from './DeviceRow';
+import DeviceRow from '../devices/DeviceRow';
 
 const DeviceRowSupport: () => React$Node = props => {
   const children = <FontAwesome style={styles.icon} name="chevron-right" />;

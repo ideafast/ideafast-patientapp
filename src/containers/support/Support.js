@@ -11,7 +11,7 @@ import {mapDispatchToProps} from '../../ducks/actions';
 import {ScrollView} from 'react-native-gesture-handler';
 import {Spacing} from '../../styles';
 
-import DeviceRowSupport from '../../components/devices/DeviceRowSupport';
+import DeviceRowSupport from '../../components/support/DeviceRowSupport';
 
 const Support: () => React$Node = props => {
   const devices = props.devices.sort(
