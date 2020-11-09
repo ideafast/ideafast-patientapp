@@ -34,6 +34,10 @@ import VerifyDE from './resources/de/verify.json';
 import VerifyEN from './resources/en/verify.json';
 import VerifyNL from './resources/nl/verify.json';
 
+import APIDE from './resources/de/api.json';
+import APIEN from './resources/en/api.json';
+import APINL from './resources/nl/api.json';
+
 const locale =
   Platform.OS === 'ios'
     ? NativeModules.SettingsManager.settings.AppleLocale
@@ -44,8 +48,10 @@ i18n.locale = locale;
 i18n.use(initReactI18next).init({
   lng: locale.substring(0, 2),
   fallbackLng: 'en',
+  supportedLngs: ['en', 'de', 'nl'],
   resources: {
     en: {
+      api: APIEN,
       contributions: ContributionsEN,
       devices: DevicesEN,
       login: LoginEN,
@@ -56,6 +62,7 @@ i18n.use(initReactI18next).init({
       verify: VerifyEN,
     },
     nl: {
+      api: APINL,
       contributions: ContributionsNL,
       devices: DevicesNL,
       login: LoginNL,
@@ -66,6 +73,7 @@ i18n.use(initReactI18next).init({
       verify: VerifyNL,
     },
     de: {
+      api: APIDE,
       contributions: ContributionsDE,
       devices: DevicesDE,
       login: LoginDE,

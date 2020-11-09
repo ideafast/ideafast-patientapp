@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {StyleSheet} from 'react-native';
 import {Picker} from '@react-native-community/picker';
 import {useTranslation} from 'react-i18next';
-
 import {Spacing, Colors} from '../styles';
 
 const DropDownMenu: () => React$Node = props => {
@@ -16,17 +15,17 @@ const DropDownMenu: () => React$Node = props => {
     t('picker.all'),
   ];
 
-  const [option, setOption] = useState('');
+  const [days, setDays] = useState('');
 
   return (
     <Picker
-      selectedValue={option}
+      selectedValue={days}
       style={styles.picker}
       mode="dropdown"
-      onValueChange={(itemValue, itemIndex) => setOption(itemValue)}>
-      {options.map((filter, index) => {
-        return <Picker.Item label={filter} value={index} key={index} />;
-      })}
+      onValueChange={(itemValue, itemIndex) => setDays(itemValue)}>
+      {options.map((item, index) => (
+        <Picker.Item label={item} value={item.value} key={index} />
+      ))}
     </Picker>
   );
 };

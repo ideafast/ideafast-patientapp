@@ -1,7 +1,7 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import {Colors, Typography, Spacing, Stack} from '../styles';
 import React from 'react';
-import Devices from '../containers/Devices';
+import Devices from '../containers/devices/Devices';
 import Ble from '../containers/Ble';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import {useTranslation} from 'react-i18next';
