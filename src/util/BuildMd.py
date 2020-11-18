@@ -1,127 +1,90 @@
 import os
 import shutil
+import subprocess
+import stat
 from pathlib import Path
 
 # todo:
-#  1. Check whether script works on MAC OS
-#  2. Find a solution to clone repo.
-#  3. Figure out permissions to delete cloned repo
+#  1. Find alternative for os.walk in Pathlib package.
+#  2. Check whether 'stat' works on other OS platforms.
+#  3. Find out why cannot clone git repo from a script.
 
 # To use:
-# COPY this script into cloned repo
 # (cloned by running 'git clone https://github.com/ideafast/ideafast-devicesupportdocs-web.git ./SupportDocumentation'
 # in the root repo).
 
-# Create dictionary
 # Structure will be: { device: [ path1, path2,... ] }
-newStructure = {}
+DOCS_PATH_STORE = {}
+
+DOCS_PATH = Path(r'../../SupportDocumentation')
 
 
-def fill_keys():
-    os.chdir(Path.cwd() / Path('_common'))
-    newStructure.clear()
-    for dev in os.listdir():
-        newStructure[dev] = []
-    os.chdir(Path('../../'))
+# returns
+def fill_keys(lang_extension: Path) -> dict:
+    DOCS_PATH_STORE.clear()
+    return {f.name: [] for f in (DOCS_PATH / "_i18n" / lang_extension / "_common").glob('**/*') if f.is_dir()}
 
 
-def fill_values():
-    for file in os.listdir():
-        if file == '_misc':
-            continue
-        else:
-            try:
-                os.chdir(file)
-                for deviceName in os.listdir():
-                    for device in newStructure.keys():
-                        if deviceName == device:
-                            try:
-                                os.chdir(device)
-                            except OSError:
-                                print(f'OS ERROR: Failed to change dir from {path.cwd()} to {device}')
-                            for docs in os.listdir():
-                                newStructure[device].append(Path.cwd() / docs)
-                            os.chdir(Path('../../'))
-                            break
-                os.chdir(Path('../../'))
-            except:
-                print(f'Failed to changed directory: {Path.cwd()} to {file}')
+def fill_values(lang_extension: Path):
+    documents = [p for p in (DOCS_PATH / "_i18n" / lang_extension).iterdir() if p.name != '_misc']
+    for device_path in documents:
+        for device in DOCS_PATH_STORE.keys():
+            DOCS_PATH_STORE[device] += [Path(p) for p in device_path.iterdir() if p.name == device]
 
 
-def move_files(target_dir):
-    target_dir = Path(target_dir)
-    for dev, num in newStructure.items():
+def move_files(target_dir: Path):
+    for dev, num in DOCS_PATH_STORE.items():
         target_dir2 = target_dir / dev
-        try:
-            if not os.path.isdir(target_dir2):
-                os.mkdir(target_dir2)
-        except FileExistsError:
-            print(f'FILE EXISTS ERROR: {target_dir2} already exists.')
-        except OSError:
-            print(f'OS ERROR: Path {target_dir2} is wrong.')
-        for document_path in num:
-            try:
-                shutil.copy(document_path, target_dir2)
-                print(f'\n{document_path} successfully copied into {target_dir2} ')
-            except IOError:
-                print(f'OS ERROR: Failed to move {document_path} to {target_dir2}.')
+        if not target_dir2.resolve().is_dir():
+            target_dir2.mkdir()
+        else:
+            shutil.rmtree(target_dir2.resolve())
+            target_dir2.mkdir()
+        for device_path in num:
+            [shutil.copy(document_path.resolve(), target_dir2.resolve()) for document_path in device_path.iterdir()]
 
 
-def read_and_copy(lang_extension):
-    os.chdir(Path(lang_extension))
-    fill_keys()
-    fill_values()
-    dir_path = Path(f'C:/Users/test/IdeaProjects/ideafast-patientapp/src/i18n/docs/{lang}')
-
-    try:
+def read_and_copy(lang_extension: Path):
+    fill_values(lang_extension)
+    dir_path = Path(f'../i18n/docs/{lang}')
+    if dir_path.is_dir():
         shutil.rmtree(dir_path)
-        os.mkdir(dir_path)
-    except OSError:
-        print(f'OS ERROR: Failed to delete {dir_path} and create empty directory.')
+    dir_path.mkdir()
     move_files(dir_path)
 
 
-def copy_images(root_path):
-    try:
-        images_from = root_path / 'images'
-        images_to = root_path / '../src/assets/devices'
-        os.chdir(images_from)
-        for directory in os.listdir():
-            if os.path.isdir(images_to / directory):
-                shutil.rmtree(images_to / directory)
-            shutil.copytree(directory, images_to / directory)
-    except IOError:
-        print(f'IO ERROR: Failed to copy images')
+def delete_repo():
+    for root, dirs, files in os.walk("../../SupportDocumentation"):
+        for directory in dirs:
+            Path.chmod((Path(root) / directory), stat.S_IRWXU)
+        for file in files:
+            Path.chmod((Path(root) / file), stat.S_IRWXU)
+    shutil.rmtree('../../SupportDocumentation')
+
+
+def copy_images():
+    images_from = DOCS_PATH / 'images'
+    images_to = Path('../assets/devices/')
+    for image_directory in images_from.iterdir():
+        _path = Path(images_to / image_directory.name)
+        if _path.is_dir():
+            shutil.rmtree(_path.resolve())
+        shutil.copytree(image_directory.resolve(), _path.resolve())
+
+
+# def clone_repo():
+    # subprocess.call(['git clone git@github.com:ideafast/ideafast-devicesupportdocs-web.git ./SupportDocumentation']
+    #                 , shell=True)
+    # subprocess.Popen(['git', 'clone', 'git@github.com:ideafast/ideafast-devicesupportdocs-web.git',
+    #                  '/SupportDocumentation'])
 
 
 if __name__ == '__main__':
-    path = Path
-    ideafastPath = path.cwd()
+    docs = Path('./docs/_i18n')
+    # clone_repo()
 
-    # subprocess.run(['git clone https://github.com/ideafast/ideafast-devicesupportdocs-web.git ./SupportDocumentation']
-    # , check=True, shell=True)
-
-    try:
-        os.chdir(path.cwd() / '_i18n/')
-    except OSError:
-        print(f'OS ERROR: Failed to changed directory: {Path.cwd()} to _i18n/')
-
-    lang_path = os.getcwd()
-    for lang in os.listdir():
-
-        if lang == 'en':
-            read_and_copy(lang)
-            os.chdir(lang_path)
-
-        elif lang == 'de':
-            read_and_copy(lang)
-            os.chdir(lang_path)
-
-        elif lang == 'nl':
-            read_and_copy(lang)
-            os.chdir(lang_path)
-    copy_images(ideafastPath)
-    try:
-        shutil.rmtree(ideafastPath / '../')
-    except:
-        print(f'Failed to delete Support Documentation repo')
+    for lang in [Path('en'), Path('de'), Path('nl')]:
+        DOCS_PATH_STORE.update(fill_keys(lang))
+        read_and_copy(lang)
+    copy_images()
+    delete_repo()
