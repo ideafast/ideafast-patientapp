@@ -10,7 +10,7 @@ from pathlib import Path
 #  3. Find out why cannot clone git repo from a script.
 
 # To use:
-# (cloned by running 'git clone https://github.com/ideafast/ideafast-devicesupportdocs-web.git ./SupportDocumentation'
+# Clone (cloned by running 'git clone https://github.com/ideafast/ideafast-devicesupportdocs-web.git ./SupportDocumentation'
 # in the root repo).
 
 # Structure will be: { device: [ path1, path2,... ] }
@@ -73,8 +73,8 @@ def copy_images():
 
 
 # def clone_repo():
-    # subprocess.call(['git clone git@github.com:ideafast/ideafast-devicesupportdocs-web.git ./SupportDocumentation']
-    #                 , shell=True)
+    # subprocess.call(['git clone git@github.com:ideafast/ideafast-devicesupportdocs-web.git '
+    #                  '../../SupportDocumentation'], shell=True)
     # subprocess.Popen(['git', 'clone', 'git@github.com:ideafast/ideafast-devicesupportdocs-web.git',
     #                  '/SupportDocumentation'])
 
