@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#010101">
+  
+  
+    <title>Stress Monitor (Patient Materials)</title>
+  
+  <link rel="manifest" href="http://localhost:4000/manifest.json" crossorigin="use-credentials">
+  <link rel="stylesheet" href="http://localhost:4000/assets/main.css">
+  <link rel="stylesheet" href="http://localhost:4000/assets/app.css">
+  <link rel="apple-touch-icon" type="image/png" href="http://localhost:4000/icons/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="http://localhost:4000/icons/favicon.png">
+  <script type="text/javascript">
+    if ("serviceWorker" in navigator) {
+      if (navigator.serviceWorker.controller) {
+        console.log("An active service worker found, no need to register");
+      } else {
+        // Register the service worker
+        navigator.serviceWorker
+          .register("http://localhost:4000/sw.js", {
+            scope: "./"
+          })
+          .then(function (reg) {
+            console.log("Service worker has been registered for scope: " + reg.scope);
+          });
+      }
+    }
+  </script>
+</head>
+<body>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        
+
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    
+    <h1 class="post-title p-name" itemprop="name headline">Stress Monitor (Patient Materials)</h1>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="general-application-introduction">General Application Introduction</h1>
+
+<p>Stress Monitor is a mobile application that runs in the background and records anonymised data about other mobile application usage, movement activity, and location and uses this data to determine different types of behaviour. For example, if you had WhatsApp opened for 30 minutes when messaging friends, then Stress Monitor would record that you have used a “communication” application for 30-minutes while in location “1” where this number is used to represent your most frequent locations instead of actual geolocation information.</p>
+
+<p>Stress Monitor also sends notifications to complete a short questionnaire as pre-determined times, which helps contextualise the mobile application usage data that it has recorded. These questionnaires relate to how you are feeling, are very short and can be completed within the Stress Monitor application.</p>
+
+<h2 id="how-does-this-application-look">How does this application look?</h2>
+
+<p>Stress Monitor is a mobile application, which has a <em>bonsai tree icon</em> (illustrated to the right) that will appear when you install the application.<img src="../images/stress_monitor/1.jpeg" alt="" /></p>
+
+<p>Stress Monitor has three screens – <em>Chart</em>, <em>Reporting</em> and <em>Settings</em> – that are illustrated below. <em>Chart</em> shows the categories it has created for your application usage over time. <em>Reporting</em> presents the number of entries Stress Monitor has recorded. <em>Settings</em> presents a link to the privacy policy and your user ID, which will appear as a long, randomly generated word.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="../images/stress_monitor/2.jpeg" alt="" /></td>
+      <td><img src="../images/stress_monitor/3.jpeg" alt="" /></td>
+      <td><img src="../images/stress_monitor/4.jpeg" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="what-does-it-record">What does it record?</h2>
+
+<p>Stress Monitor records three categories of data: (i) the types of_applications_ that you’re using on your smartphone (e.g. “communication” and “shopping”); (ii) a predication of your <em>movement</em> (e.g. “running”, “in vehicle”) and (iii) a number to represent your <em>location</em> to understand where movement and application usage occurs more generally, for example, if you use shopping applications more when at one location. All data recorded by Stress Monitor is anonymised.</p>
+
+<h2 id="how-is-it-used">How is it used?</h2>
+
+<p>There are two parts to Stress Monitor: (i) it automatically records application usage; and (ii) it sends questionnaire notifications. The first part requires no interaction with Stress Monitor as it will run in the background and record this data by itself.</p>
+
+<p>Questionnaires are sent through Stress Monitor to help provide context for how you were feeling throughout the day at pre-determined times, which are currently <strong>09:00, 13:00, 17:00 and 21:00.</strong> A typical questionnaire is illustrated below to highlight its short length:</p>
+
+<p><img src="../images/stress_monitor/5.jpeg" alt="" /></p>
+
+<h1 id="data-transfer-protocol-for-patients">Data transfer protocol for patients</h1>
+
+<h2 id="as-a-patient-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days">As a patient: do I need to do anything on a daily basis or all N days?</h2>
+
+<p>No. The <strong>Stress Monitor</strong> application records information in the background and will be installed on your personal smartphone. The application prompts questionnaires related to fatigue and sleep at pre-defined times: <strong>09:00, 13:00, 17:00 and 21:00.</strong> The questionnaires can be answered within one hour from the notification by clicking the banner on the top of screen, e.g. 9:00-10:00.</p>
+
+<p>However, on your first visit you will need to download, install, and log into the stress monitor application on your personal Android smartphone or the provided smartphone. Once you are logged in, you will provide your <strong>hash id</strong> from within the application’s settings to the clinician. This helps us associate data collected within_stress monitor_ with other data collected through the study, such as eBedSensor. Details on how to view and access this are outlined in<a href="#needs-pairing-with-hub-device">section 3</a>.</p>
+
+<h2 id="as-a-patient-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended">As a patient: do I need to do anything after each individual period of device / app use ended?</h2>
+
+<p>Not applicable.</p>
+
+<h2 id="as-a-patient-do-i-need-to-do-anything-after-my-full-periods-of-use-of-a-specific-device--app-ends">As a patient: do I need to do anything after my full periods of use of a specific device / app ends?</h2>
+
+<p>Not applicable.</p>
+
+<h1 id="devicehow-to-setup-for-wear">Device How To / setup for wear </h1>
+
+<h2 id="how-can-i-get-help-with-using-this">How can I get help with using this?</h2>
+
+<p>If you have any other questions or concerns, please contact your <em>local study centre:</em></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Newcastle, United Kingdom</strong></td>
+      <td><strong>Rotterdam, Netherlands</strong></td>
+      <td><strong>Kiel, Germany</strong></td>
+      <td><strong>Muenster, Germany</strong></td>
+    </tr>
+    <tr>
+      <td>Person Name<br />Centre Name<br />Location</td>
+      <td>Person Name<br />Centre Name<br />Location</td>
+      <td>Person Name<br />Centre Name<br />Location</td>
+      <td>Person Name<br />Centre Name<br />Location</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work">What sort of a device / application is this, what is it for and how does it work?</h2>
+
+<p><strong>Stress Monitor</strong> is a mobile application that runs in the background and records movement activity, location and information about your mobile usage, such as battery status. This data gives information about <em>behaviour</em> based on time, location and general mobile usage. Data is then grouped into categories, such as communication or social media.</p>
+
+<ul>
+  <li>The names of applications that are used are not stored anywhere, only the category that the application belongs to (e.g. communication/social) is collected.</li>
+  <li>No data of the content of the applications (e.g. text typing, voice input) or the keystrokes is collected.</li>
+  <li>No physical location data is collected. The location data is grouped into clusters with abstract identifiers (e.g. 1,2,3…) and only these identifiers are collected.</li>
+  <li>No personal information is stored by the application that can be used to identify you.</li>
+</ul>
+
+<p>The application also prompts questionnaires related to fatigue and sleep at pre-defined times: <strong>09:00, 13:00, 17:00 and 21:00,</strong> which must be answered within one hour by clicking the banner on the top of screen, e.g. 9:00-10:00. An example of the questionnaire appearing at 13:00 is presented in the figure below.</p>
+
+<p><img src="../images/stress_monitor/22.jpeg" alt="" /></p>
+
+<p><strong>Figure:</strong> <em>Receiving a notification to complete the Stress Monitor questionnaire</em></p>
+
+<p><strong>Question and Response Types</strong></p>
+
+<p>The questions and associated response format change based on the time of day. There are four answer formats: <em>slider</em> as illustrated images <strong>A and B</strong>, <em>text entry</em> (where you write a response), pull down menu as illustrated in image <strong>C and D.</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="../images/stress_monitor/23.jpeg" alt="" /></td>
+    </tr>
+    <tr>
+      <td><strong>A</strong>, <strong>B</strong>, <strong>C</strong>, <strong>D</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>An overview of what questions to expect is outlined in the table below:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Launch time</strong></td>
+      <td><strong>Questions</strong></td>
+      <td><strong>Answer format</strong></td>
+    </tr>
+    <tr>
+      <td>9:00, 13:00, 17:00, 21:00</td>
+      <td>Physical fatigue</td>
+      <td>Slider</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Mental fatigue</td>
+      <td>Slider</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Anxiousness</td>
+      <td>Slider</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Depression</td>
+      <td>Slider</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Pain</td>
+      <td>Slider</td>
+    </tr>
+    <tr>
+      <td>13:00, 17:00</td>
+      <td>Sleepiness</td>
+      <td>Pull down menu</td>
+    </tr>
+    <tr>
+      <td>21:00</td>
+      <td>Physical activity</td>
+      <td>Slider</td>
+    </tr>
+    <tr>
+      <td>21.00</td>
+      <td>Mental activity</td>
+      <td>Slider</td>
+    </tr>
+    <tr>
+      <td>21:00</td>
+      <td>Comments of the day</td>
+      <td>Text entry</td>
+    </tr>
+    <tr>
+      <td>9:00</td>
+      <td>Bedtime</td>
+      <td>Time entry dialog (Android)</td>
+    </tr>
+    <tr>
+      <td>9:00</td>
+      <td>Wake up time</td>
+      <td>Time entry dialog (Android)</td>
+    </tr>
+    <tr>
+      <td>9:00</td>
+      <td>Sleep quality</td>
+      <td>Slider</td>
+    </tr>
+    <tr>
+      <td>9:00</td>
+      <td>Time before falling asleep</td>
+      <td>Pull down menu</td>
+    </tr>
+    <tr>
+      <td>9:00</td>
+      <td>Time awake during night</td>
+      <td>Pull down menu</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="what-will-i-need-to-do-before-i-can-start-using-this">What will I need to do before I can start using this?</h2>
+
+<h3 id="any-account-setup-required">Any account setup required?</h3>
+
+<p><strong><em>Yes.</em></strong> You should install and log into the stress monitor application and also provide the <strong><em>hash id</em></strong> from within the application settings to the staff member on site on your first visit.</p>
+
+<h4 id="installing-stress-monitor">Installing Stress Monitor</h4>
+
+<p>Please download and install the application direct from the Google Play Store. To do this, open the “Play Store” app. Once open, search for ”<strong>VTT Stress Monitor for IDEA-FAST</strong>” and tap the first result as below:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="../images/stress_monitor/25.jpeg" alt="" /></td>
+      <td><img src="../images/stress_monitor/26.jpeg" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note:</strong><em>If you cannot see the application when searching as above, open a browser and visit the following URL, which will take you to the application on the Play Store:</em><a href="https://ply.gl/fi.vtt.stressmonitorv4"><em>https://ply.gl/fi.vtt.stressmonitorv4</em></a></p>
+
+<h4 id="signing-in-with-google">Signing in with Google</h4>
+
+<p>Once the application has installed, tap “Sign in with Google”, enter your password and your will be taken to the home screen</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="../images/stress_monitor/27.jpeg" alt="" /></td>
+      <td><img src="../images/stress_monitor/28.jpeg" alt="" /></td>
+      <td><img src="../images/stress_monitor/29.jpeg" alt="" /></td>
+    </tr>
+    <tr>
+      <td>Figure N: Tap “Sign in with Google”</td>
+      <td>Figure N: Enter your email</td>
+      <td>Figure N: Enter your password</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>After you enter your email and password you will be logged into the Stress Monitor application. Please go to the settings page to view your <em>hash id</em> that should be shared with the clinical staff on your first visit.</p>
+
+<h3 id="needs-pairing-with-hub-device">Needs pairing with hub-device?</h3>
+
+<p>Not applicable.</p>
+
+<h3 id="any-configuration--assembly-required">Any configuration / assembly required?</h3>
+
+<p><strong>Yes.</strong> Once the Stress Monitor is installed it must be configured to record data in the background as illustrated below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong><em>Allow mobile phone access</em></strong><br /><img src="../images/stress_monitor/30.jpeg" alt="" /></td>
+    </tr>
+    <tr>
+      <td><strong><em>Allow Physical Activity Monitoring</em></strong><br /><img src="../images/stress_monitor/31.jpeg" alt="" /></td>
+    </tr>
+    <tr>
+      <td><strong><em>Allow access to location</em></strong><br /><img src="../images/stress_monitor/32.jpeg" alt="" /></td>
+    </tr>
+    <tr>
+      <td><strong><em>Change power usage</em></strong><br />Open “Stress Monitor”<em>.</em> On the first time, the app asks to modify the battery optimizations setting<br /><img src="../images/stress_monitor/33.jpeg" alt="" /></td>
+    </tr>
+    <tr>
+      <td>Select the dropdown and choose “all” to view the available applications, which appear in alphabetical order.<br /><img src="../images/stress_monitor/34.jpeg" alt="" /></td>
+    </tr>
+    <tr>
+      <td>Scroll down until you see_Stress Monitor_ and verify that it is switched off; it must be grey.<br /><img src="../images/stress_monitor/35.jpeg" alt="" /></td>
+    </tr>
+    <tr>
+      <td><strong><em>Enable statistics usage</em></strong><br />Open_Stress Monitor_and click “go to settings” from the dialog that appears.<br /><img src="../images/stress_monitor/36.jpeg" alt="" /></td>
+    </tr>
+    <tr>
+      <td>Select “Stress Monitor” from the list as above.<br /><img src="../images/stress_monitor/37.jpeg" alt="" /></td>
+    </tr>
+    <tr>
+      <td>Ensure that “Allow usage tracking” is_blue_indicating that it is switched “on”.<br /><img src="../images/stress_monitor/38.jpeg" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Once you have logged in and during your first site visit you will need to show the clinical staff member the <em>hash id</em> from the Settings tap next to “Signed in user id:”. Please provide this when on site. This will allow the idea fast project to associate the data recorded through the stress monitor application with other data recorded during the study, such as the eBedSensor.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="../images/stress_monitor/21a.jpeg" alt="" /></td>
+      <td><img src="../images/stress_monitor/21c.jpeg" alt="" /></td>
+    </tr>
+    <tr>
+      <td>Please provide the_hash id_ when first visiting the clinical site by using the copy feature</td>
+      <td>You can also show the QR code feature to allow the clinician to scan it with your their phone. Most phone camera apps will automatically recognise a QR code - or you can download a QR reader app. This allow them to copy the <em>hash id</em> on their personal phone (and send it to themselves on email for example)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="troubleshootingfaq">Troubleshooting/FAQ</h1>
+
+<h2 id="the-device--app-seems-to-have-stopped-working-what-should-i-do">The device / app seems to have stopped working: what should I do?</h2>
+
+<h3 id="battery">Battery?</h3>
+
+<p>N/A</p>
+
+<h3 id="connectivity-issues">Connectivity issues?</h3>
+
+<p>N/A</p>
+
+<h3 id="need-to-restart-or-log-in-again">Need to restart or log in again?</h3>
+
+<p>N/A</p>
+
+<h2 id="using-the-device--app-is-uncomfortable-to-me-what-can-i-do">Using the device / app is uncomfortable to me: what can I do?</h2>
+
+<p>N/A</p>
+
+<h3 id="adjust-wear-style">Adjust wear style?</h3>
+
+<p>N/A</p>
+
+<h3 id="adjust-usage-pattern">Adjust usage pattern?</h3>
+
+<p>N/A</p>
+
+<h1 id="device-return">Device return</h1>
+
+<h2 id="what-do-i-do-when-a-period-of-device-use-is-over">What do I do when a period of device use is over?</h2>
+
+<p>You should uninstall_Stress Monitor_from your personal smartphone after the study period.</p>
+
+<h2 id="before-the-device-is-returned-or-disposed-of-does-any-data-need-to-be-transferred">Before the device is returned or disposed of: does any data need to be transferred?</h2>
+
+<p>N/A</p>
+
+<h2 id="do-i-need-to-return-the-device-somewhere">Do I need to return the device somewhere?</h2>
+
+<p>N/A</p>
+
+
+  </div>
+
+  <a class="u-url" href="/pat/stress-monitor" hidden></a>
+</article>
+
+      </div>
+    </main></body>
+
+</html>
