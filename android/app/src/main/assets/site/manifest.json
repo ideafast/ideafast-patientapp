@@ -1,0 +1,18 @@
+{
+  "lang": "en",
+  "dir": "ltr\rtl",
+  "name": "IDEA-FAST Device Support Documentation",
+  "short_name": "IDEA-FAST Support Docs",
+  "icons": [
+    {
+      "src": "icons/favicon.png",
+      "sizes": "512x512",
+      "type": "image\/png"
+    }
+  ],
+  "theme_color": "#1a1a1a",
+  "background_color": "#1a1a1a",
+  "start_url": "https://docs.ideafast.eu/",
+  "display": "standalone",
+  "orientation": "natural"
+}

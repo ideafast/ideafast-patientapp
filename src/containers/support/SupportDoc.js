@@ -18,7 +18,7 @@ function LoadingIndicatorView() {
 }
 
 const SupportDoc: () => React$Node = props => {
-  const [content, setContent] = useState('');
+  const [renderedOnce, setRenderedOnce] = useState(false);
   let webview = null;
 
   const patFilenames = {
@@ -35,6 +35,10 @@ const SupportDoc: () => React$Node = props => {
     YSM: 'zk.html',
   };
 
+  const updateSource = () => {
+    setRenderedOnce(true);
+  };
+
   props.navigation.setOptions({
     title: props.route.params.device.name,
   });
@@ -48,16 +52,21 @@ const SupportDoc: () => React$Node = props => {
   if (props.userLang != 'en') {
     filenameWithPath = props.userLang + '/' + filenameWithPath;
   }
+  let localURI = 'file:///android_asset/site/pat/' + filenameWithPath;
+
+  // comment
+  console.log('');
 
   return (
     <View style={{flex: 1, flexDirection: 'column'}}>
       <WebView
-        ref={ref => (webview = ref)}
+        allowFileAccess={true}
+        allowUniversalAccessFromFileURLs={true}
         renderLoading={LoadingIndicatorView}
         startInLoadingState={true}
         style={{flex: 1, flexDirection: 'column'}}
-        allowUniversalAccessFromFileURLs={true}
-        source={{uri: 'file:///android_asset/site/pat/' + filenameWithPath}}
+        onLoad={updateSource}
+        source={renderedOnce ? {uri: localURI} : undefined}
       />
     </View>
   );
