@@ -8,11 +8,11 @@
   
     <title>Axivity AX6 (Patient Materials)</title>
   
-  <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
-  <link rel="stylesheet" href="assets/main.css">
-  <link rel="stylesheet" href="assets/app.css">
-  <link rel="apple-touch-icon" type="image/png" href="icons/favicon.png">
-  <link rel="shortcut icon" type="image/png" href="icons/favicon.png">
+  <link rel="manifest" href="http://localhost:4000/manifest.json" crossorigin="use-credentials">
+  <link rel="stylesheet" href="http://localhost:4000/assets/main.css">
+  <link rel="stylesheet" href="http://localhost:4000/assets/app.css">
+  <link rel="apple-touch-icon" type="image/png" href="http://localhost:4000/icons/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="http://localhost:4000/icons/favicon.png">
   <script type="text/javascript">
     if ("serviceWorker" in navigator) {
       if (navigator.serviceWorker.controller) {
@@ -20,7 +20,7 @@
       } else {
         // Register the service worker
         navigator.serviceWorker
-          .register("sw.js", {
+          .register("http://localhost:4000/sw.js", {
             scope: "./"
           })
           .then(function (reg) {
@@ -43,7 +43,54 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h1 id="general-device-introduction">General Device Introduction</h1>
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#general-device-introduction">General Device Introduction</a></li>
+<li class="toc-entry toc-h1"><a href="#data-transfer-protocol-for-patients">Data transfer protocol for patients</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#as-a-patient-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days">As a patient: do I need to do anything on a daily basis or all N days?</a></li>
+<li class="toc-entry toc-h2"><a href="#as-a-patient-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended">As a patient: do I need to do anything after each individual period of device / app use ended?</a></li>
+<li class="toc-entry toc-h2"><a href="#as-a-patient-do-i-need-to-do-anything-after-my-full-periods-of-use-of-a-specific-device--app-ends">As a patient: do I need to do anything after my full periods of use of a specific device / app ends?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#device-how-to--setup-for-wear">Device How To / setup for wear</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work">What sort of a device / application is this, what is it for and how does it work?</a></li>
+<li class="toc-entry toc-h2"><a href="#what-will-i-need-to-do-before-i-can-start-using-this">What will I need to do before I can start using this?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#any-account-setup-required">Any account setup required?</a></li>
+<li class="toc-entry toc-h3"><a href="#needs-pairing-with-hub-device">Needs pairing with hub-device?</a></li>
+<li class="toc-entry toc-h3"><a href="#any-configuration--assembly-required">Any configuration / assembly required?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#troubleshootingfaq">Troubleshooting/FAQ</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#the-device--app-seems-to-have-stopped-working-what-should-i-do">The device / app seems to have stopped working: what should I do?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#battery">Battery?</a></li>
+<li class="toc-entry toc-h3"><a href="#connectivity-issues">Connectivity issues?</a></li>
+<li class="toc-entry toc-h3"><a href="#need-to-restart-or-log-in-again">Need to restart or log in again?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#using-the-device--app-is-uncomfortable-to-me-what-can-i-do">Using the device / app is uncomfortable to me: what can I do?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#adjust-wear-style">Adjust wear style?</a></li>
+<li class="toc-entry toc-h3"><a href="#adjust-usage-pattern">Adjust usage pattern?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#how-can-i-get-help-with-using-this">How can I get help with using this?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#device-return">Device return</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#what-do-i-do-when-a-period-of-device-use-is-over">What do I do when a period of device use is over?</a></li>
+<li class="toc-entry toc-h2"><a href="#before-the-device-is-returned-or-disposed-of-does-any-data-need-to-be-transferred">Before the device is returned or disposed of: does any data need to be transferred?</a></li>
+<li class="toc-entry toc-h2"><a href="#do-i-need-to-return-the-device-somewhere">Do I need to return the device somewhere?</a></li>
+</ul>
+</li>
+</ul><h1 id="general-device-introduction">
+<a class="anchor" href="#general-device-introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>General Device Introduction</h1>
 
 <p>The Axivity (AX6) is a wrist worn sensor for monitoring and recording movement including <em>body position, acceleration,</em> and <em>direction</em> . This data can be used to identify activities, such as sitting, walking, falling, etc. Axivity records data every second and stores it inside the small black sensor “puck” (Figure 1).</p>
 
@@ -51,214 +98,351 @@
 
 <p>Axivity comes in two parts: a silicone strap and a small sensor “puck” as illustrated in <strong>Figure 1,</strong> which is inserted inside the wristband and worn on the wrist (Figure 2).</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td><img src="../images/ax6/1.jpeg" alt="" /></td>
-      <td><img src="../images/ax6/2.jpeg" alt="" /></td>
-    </tr>
-    <tr>
-      <td>Figure 1: Axivity wristband and sensor “puck”</td>
-      <td><strong>Figure 2:</strong> Placement on a wrist</td>
-    </tr>
-  </tbody>
-</table>
+<div class="desktop">
+
+  <table>
+    <tbody>
+      <tr>
+        <td><img src="../images/ax6/1.jpeg" alt=""></td>
+        <td><img src="../images/ax6/2.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td>
+<strong>Figure 1:</strong> <em>Axivity wristband and sensor “puck”</em>
+</td>
+        <td>
+<strong>Figure 2:</strong> <em>Placement on a wrist</em>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<div class="mobile">
+
+  <table>
+    <tbody>
+      <tr>
+        <td><img src="../images/ax6/1.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td>
+<strong>Figure 1:</strong> <em>Axivity wristband and sensor “puck”</em>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <tbody>
+      <tr>
+        <td><img src="../images/ax6/2.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td>
+<strong>Figure 2:</strong> <em>Placement on a wrist</em>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
 
 <p><strong>What does it record?</strong></p>
 
-<p>The Axivity automatically records anonymised movement data on the sensor “puck”. This data includes: your <em>position of wrist</em> , the <em>acceleration</em> and the <em>direction</em> that you move.</p>
+<p>The Axivity automatically records anonymised movement data on the sensor “puck”. This data includes: your <em>position of wrist</em>, the <em>acceleration</em> and the <em>direction</em> that you move.</p>
 
 <p><strong>How is it used?</strong></p>
 
 <p>Axivity is worn on the <strong>non-dominant</strong> wrist - i.e. the side you use less - using the provided silicone strap during day and night. It can be worn for up to 9 days without having to be recharged and is suitable for day-to-day activities, including showering and bathing, but must not be worn for activities such as diving, swimming, and sauna/steam rooms.</p>
 
-<h1 id="data-transfer-protocol-for-patients">Data transfer protocol for patients</h1>
+<h1 id="data-transfer-protocol-for-patients">
+<a class="anchor" href="#data-transfer-protocol-for-patients" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data transfer protocol for patients</h1>
 
-<h2 id="as-a-patient-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days">As a patient: do I need to do anything on a daily basis or all N days?</h2>
+<h2 id="as-a-patient-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days">
+<a class="anchor" href="#as-a-patient-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a patient: do I need to do anything on a daily basis or all N days?</h2>
 
 <p>Yes. You will be asked to wear the Axivity wristband for <strong>5-days, then take a 2-day break from wearing it, then wear it for a final 5 days</strong> . Please charge the device during the 2-day break period so that it becomes fully charged.</p>
 
 <p>After the complete study period you will either: (i) be provided a new device by a clinician; (ii) visit a clinician and they will transfer data for you; or (iii) receive another device to wear.</p>
 
-<h2 id="as-a-patient-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended">As a patient: do I need to do anything after each individual period of device / app use ended?</h2>
+<h2 id="as-a-patient-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended">
+<a class="anchor" href="#as-a-patient-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a patient: do I need to do anything after each individual period of device / app use ended?</h2>
 
 <p>No. Transferring data from Axivity will be managed by your clinician. They will contact you to arrange an appointment after the study period. If no specific arrangements are made, the device will simply be returned together with all other devices at the end of the study period.</p>
 
-<h2 id="as-a-patient-do-i-need-to-do-anything-after-my-full-periods-of-use-of-a-specific-device--app-ends">As a patient: do I need to do anything after my full periods of use of a specific device / app ends?</h2>
+<h2 id="as-a-patient-do-i-need-to-do-anything-after-my-full-periods-of-use-of-a-specific-device--app-ends">
+<a class="anchor" href="#as-a-patient-do-i-need-to-do-anything-after-my-full-periods-of-use-of-a-specific-device--app-ends" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a patient: do I need to do anything after my full periods of use of a specific device / app ends?</h2>
 
 <p>Yes. After your full period of use ends in the trial, you must go to the study site. The research team will take the device and transfer your data from it.</p>
 
-<h1 id="devicehow-to-setup-for-wear">Device How To / setup for wear </h1>
+<h1 id="device-how-to--setup-for-wear">
+<a class="anchor" href="#device-how-to--setup-for-wear" aria-hidden="true"><span class="octicon octicon-link"></span></a>Device How To / setup for wear</h1>
 
 <p>The AX sensors are placed in the silicone wristband that is worn like a watch of fitness band.</p>
 
-<h2 id="what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work">What sort of a device / application is this, what is it for and how does it work?</h2>
+<h2 id="what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work">
+<a class="anchor" href="#what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work" aria-hidden="true"><span class="octicon octicon-link"></span></a>What sort of a device / application is this, what is it for and how does it work?</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center"> </th>
-      <th style="text-align: center"> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">*   Axivity is a simple sensor device for recording movements in daily life, which you will be asked to wear for 5 days.</td>
-      <td style="text-align: center"><img src="../images/ax6/18.jpeg" alt="" /></td>
-    </tr>
-    <tr>
-      <td style="text-align: center">*   <img src="../images/ax6/19.jpeg" alt="" /></td>
-      <td style="text-align: center">This is worn on your NON-DOMINANT wrist (the side you use less). It should be snug on your wrist, not too tight but not so loose that it could slip or twist. When a watch strap is worn the **buckle typically starts at 12 o’clock ** – this would make the engraved pattern always face you on the 6 o’clock inside edge, and so always be closer to the thumb.</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">*   If you have the watch on your LEFT arm, the engraving will be closer to your little finger.</td>
-      <td style="text-align: center"><img src="../images/ax6/20.jpeg" alt="" /></td>
-    </tr>
-    <tr>
-      <td style="text-align: center">*   <img src="../images/ax6/21.jpeg" alt="" /></td>
-      <td style="text-align: center">If you have the watch on your RIGHT arm, the engraving will be closest to your thumb.</td>
-    </tr>
-  </tbody>
-</table>
+<div class="desktop">
 
-<p>Once you have turned it on you do not need to do anything else but wear it. Please wear it at night during sleep too.</p>
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align: center"> </th>
+        <th style="text-align: center"> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align: center">Axivity is a simple sensor device for recording movements in daily life, which you will be asked to wear for 5 days.</td>
+        <td style="text-align: center"><img src="../images/ax6/18.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td style="text-align: center"><img src="../images/ax6/19.jpeg" alt=""></td>
+        <td style="text-align: center">This is worn on your NON-DOMINANT wrist (the side you use less). It should be snug on your wrist, not too tight but not so loose that it could slip or twist. When a watch strap is worn the <strong>buckle typically starts at 12 o’clock</strong> – this would make the engraved pattern always face you on the 6 o’clock inside edge, and so always be closer to the thumb.</td>
+      </tr>
+      <tr>
+        <td style="text-align: center">If you have the watch on your LEFT arm, the engraving will be closer to your little finger.</td>
+        <td style="text-align: center"><img src="../images/ax6/20.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td style="text-align: center"><img src="../images/ax6/21.jpeg" alt=""></td>
+        <td style="text-align: center">If you have the watch on your RIGHT arm, the engraving will be closest to your thumb.</td>
+      </tr>
+    </tbody>
+  </table>
 
-<ul>
-  <li>It is safe to wear. The strap is made from soft, silicone and should not cause any irritation on your wrist.</li>
-  <li>It is waterproof so can be worn in the shower, bath or swimming but please take it off during diving or a sauna. Other than that, continue with your normal routine whilst wearing the watch.</li>
-  <li>The battery will last 30 days so you do not need to charge it.</li>
-</ul>
+  <p>Once you have turned it on you do not need to do anything else but wear it. Please wear it at night during sleep too.</p>
 
-<p>If the sensor is not already fitted on the band or if the sensor falls off the strap, follow these steps to attach the sensor to the watch strap:</p>
+  <ul>
+    <li>It is safe to wear. The strap is made from soft, silicone and should not cause any irritation on your wrist.</li>
+    <li>It is waterproof so can be worn in the shower, bath or swimming but please take it off during diving or a sauna. Other than that, continue with your normal routine whilst wearing the watch.</li>
+    <li>The battery will last 30 days so you do not need to charge it.</li>
+  </ul>
 
-<table>
-  <thead>
-    <tr>
-      <th> </th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>*   Locate the arrow on the AX and align this with the small arrow on the underside of the band.</td>
-      <td><img src="../images/ax6/22.jpeg" alt="" /></td>
-    </tr>
-    <tr>
-      <td>*   Gently push the AX into the cavity, the silicone will deform as it enters.</td>
-      <td><img src="../images/ax6/23.jpeg" alt="" /></td>
-    </tr>
-    <tr>
-      <td>*   Fully insert the AX until the silicone completely encapsulates the device.</td>
-      <td><img src="../images/ax6/24.jpeg" alt="" /></td>
-    </tr>
-    <tr>
-      <td>*   Fit the band on your wrist.</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
+  <p>If the sensor is not already fitted on the band or if the sensor falls off the strap, follow these steps to attach the sensor to the watch strap:</p>
 
-<h2 id="what-will-i-need-to-do-before-i-can-start-using-this">What will I need to do before I can start using this?</h2>
+  <table>
+    <tbody>
+      <tr>
+        <td>Locate the arrow on the AX and align this with the small arrow on the underside of the band.</td>
+        <td><img src="../images/ax6/22.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td>Gently push the AX into the cavity, the silicone will deform as it enters.</td>
+        <td><img src="../images/ax6/23.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td>Fully insert the AX until the silicone completely encapsulates the device.</td>
+        <td><img src="../images/ax6/24.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td>Fit the band on your wrist.</td>
+        <td> </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<div class="mobile">
+
+  <p><img src="../images/ax6/18.jpeg" alt=""></p>
+
+  <p>This is worn on your NON-DOMINANT wrist (the side you use less). It should be snug on your wrist, not too tight but not so loose that it could slip or twist. When a watch strap is worn the <strong>buckle typically starts at 12 o’clock</strong> – this would make the engraved pattern always face you on the 6 o’clock inside edge, and so always be closer to the thumb.</p>
+
+  <p><img src="../images/ax6/19.jpeg" alt=""></p>
+
+  <p>If you have the watch on your LEFT arm, the engraving will be closer to your little finger.</p>
+
+  <p><img src="../images/ax6/20.jpeg" alt=""></p>
+
+  <p>If you have the watch on your RIGHT arm, the engraving will be closest to your thumb.</p>
+
+  <p><img src="../images/ax6/21.jpeg" alt=""></p>
+
+  <p>Once you have turned it on you do not need to do anything else but wear it. Please wear it at night during sleep too.</p>
+
+  <p>It is safe to wear. The strap is made from soft, silicone and should not cause any irritation on your wrist.</p>
+
+  <p>It is waterproof so can be worn in the shower, bath or swimming but please take it off during diving or a sauna. Other than that, continue with your normal routine whilst wearing the watch.
+The battery will last 30 days so you do not need to charge it.</p>
+
+  <p>If the sensor is not already fitted on the band or if the sensor falls off the strap, follow these steps to attach the sensor to the watch strap:</p>
+
+  <p>Locate the arrow on the AX and align this with the small arrow on the underside of the band.</p>
+
+  <p><img src="../images/ax6/22.jpeg" alt=""></p>
+
+  <p>Gently push the AX into the cavity, the silicone will deform as it enters.</p>
+
+  <p><img src="../images/ax6/23.jpeg" alt=""></p>
+
+  <p>Fully insert the AX until the silicone completely encapsulates the device.</p>
+
+  <p><img src="../images/ax6/24.jpeg" alt=""></p>
+
+  <p>Fit the band on your wrist.</p>
+
+</div>
+
+<h2 id="what-will-i-need-to-do-before-i-can-start-using-this">
+<a class="anchor" href="#what-will-i-need-to-do-before-i-can-start-using-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>What will I need to do before I can start using this?</h2>
 
 <p>If you are about to begin using the AX6 device and it has been given to you more than 2 days ago, please follow these steps to make sure it is fully charged before you begin the recording:</p>
 
-<table>
-  <thead>
-    <tr>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Charging Instructions</strong></td>
-    </tr>
-    <tr>
-      <td>The Axivity sensor can be charged through its micro USB connector using a cable connected to a standard power supply. For example, a 5V AC adapter to a wall socket, or a USB port on a computer or externally powered USB hub.<br />An LED light will be amber when the AX6 is charging. Full charge will be indicated by a solid green (not connected to a computer) or pulsing white (connected to a computer) – this may take up to two hours.</td>
-    </tr>
-    <tr>
-      <td><img src="../images/ax6/25.jpeg" alt="" /></td>
-    </tr>
-  </tbody>
-</table>
+<div class="desktop">
 
-<h3 id="any-account-setup-required">Any account setup required?</h3>
+  <table>
+    <thead>
+      <tr>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Charging Instructions</strong></td>
+      </tr>
+      <tr>
+        <td>The Axivity sensor can be charged through its micro USB connector using a cable connected to a standard power supply. For example, a 5V AC adapter to a wall socket, or a USB port on a computer or externally powered USB hub.<br>An LED light will be amber when the AX6 is charging. Full charge will be indicated by a solid green (not connected to a computer) or pulsing white (connected to a computer) – this may take up to two hours.</td>
+      </tr>
+      <tr>
+        <td><img src="../images/ax6/25.jpeg" alt=""></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<div class="mobile">
+
+  <table>
+    <thead>
+      <tr>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Charging Instructions</strong></td>
+      </tr>
+      <tr>
+        <td>The Axivity sensor can be charged through its micro USB connector using a cable connected to a standard power supply. For example, a 5V AC adapter to a wall socket, or a USB port on a computer or externally powered USB hub.<br>An LED light will be amber when the AX6 is charging. Full charge will be indicated by a solid green (not connected to a computer) or pulsing white (connected to a computer) – this may take up to two hours.</td>
+      </tr>
+      <tr>
+        <td><img src="../images/ax6/25.jpeg" alt=""></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<h3 id="any-account-setup-required">
+<a class="anchor" href="#any-account-setup-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any account setup required?</h3>
 
 <p>There will be no account setup to use the AX wrist band.</p>
 
-<h3 id="needs-pairing-with-hub-device">Needs pairing with hub-device?</h3>
+<h3 id="needs-pairing-with-hub-device">
+<a class="anchor" href="#needs-pairing-with-hub-device" aria-hidden="true"><span class="octicon octicon-link"></span></a>Needs pairing with hub-device?</h3>
 
 <p>There will be no pairing required to use the AX wrist band.</p>
 
-<h3 id="any-configuration--assembly-required">Any configuration / assembly required?</h3>
+<h3 id="any-configuration--assembly-required">
+<a class="anchor" href="#any-configuration--assembly-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any configuration / assembly required?</h3>
 
 <p>There will be no configuration required to use the AX wrist band.</p>
 
-<h1 id="troubleshootingfaq">Troubleshooting/FAQ</h1>
+<h1 id="troubleshootingfaq">
+<a class="anchor" href="#troubleshootingfaq" aria-hidden="true"><span class="octicon octicon-link"></span></a>Troubleshooting/FAQ</h1>
 
-<h2 id="the-device--app-seems-to-have-stopped-working-what-should-i-do">The device / app seems to have stopped working: what should I do?</h2>
+<h2 id="the-device--app-seems-to-have-stopped-working-what-should-i-do">
+<a class="anchor" href="#the-device--app-seems-to-have-stopped-working-what-should-i-do" aria-hidden="true"><span class="octicon octicon-link"></span></a>The device / app seems to have stopped working: what should I do?</h2>
 
-<h3 id="battery">Battery?</h3>
+<h3 id="battery">
+<a class="anchor" href="#battery" aria-hidden="true"><span class="octicon octicon-link"></span></a>Battery?</h3>
 
 <p>You may not be informed instantly that your device is out of the battery. Usually the battery should be charged and ready to use for your entire study duration. If you are about to begin using the AX6 device and it has been given to you more that 2 days ago, please follow these steps to make sure it is fully charged before you begin the recording.</p>
 
-<h3 id="connectivity-issues">Connectivity issues?</h3>
+<h3 id="connectivity-issues">
+<a class="anchor" href="#connectivity-issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Connectivity issues?</h3>
 
 <p>Not Applicable.</p>
 
-<h3 id="need-to-restart-or-log-in-again">Need to restart or log in again?</h3>
+<h3 id="need-to-restart-or-log-in-again">
+<a class="anchor" href="#need-to-restart-or-log-in-again" aria-hidden="true"><span class="octicon octicon-link"></span></a>Need to restart or log in again?</h3>
 
 <p>Not applicable.</p>
 
-<h2 id="using-the-device--app-is-uncomfortable-to-me-what-can-i-do">Using the device / app is uncomfortable to me: what can I do?</h2>
+<h2 id="using-the-device--app-is-uncomfortable-to-me-what-can-i-do">
+<a class="anchor" href="#using-the-device--app-is-uncomfortable-to-me-what-can-i-do" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using the device / app is uncomfortable to me: what can I do?</h2>
 
-<h3 id="adjust-wear-style">Adjust wear style?</h3>
+<h3 id="adjust-wear-style">
+<a class="anchor" href="#adjust-wear-style" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adjust wear style?</h3>
 
 <p>You may need to change a size of the strap. If you feel the device is dirty you can clean it with wet wipes. After showering or exposing the device to water, please wipe it down with a dry cloth. This ensures that the label printed onto the device does not peel off.</p>
 
-<h3 id="adjust-usage-pattern">Adjust usage pattern?</h3>
+<h3 id="adjust-usage-pattern">
+<a class="anchor" href="#adjust-usage-pattern" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adjust usage pattern?</h3>
 
 <p>You may not be applicable to wear them 24/7 or encounter a skin sensitive situation. Please consult your clinician for further advice.</p>
 
-<h2 id="how-can-i-get-help-with-using-this">How can I get help with using this?</h2>
+<h2 id="how-can-i-get-help-with-using-this">
+<a class="anchor" href="#how-can-i-get-help-with-using-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>How can I get help with using this?</h2>
 
 <p>If you have any other questions or concerns, please contact your <em>local study centre:</em></p>
 
-<table>
-  <thead>
-    <tr>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Newcastle, United Kingdom</strong></td>
-      <td><strong>Rotterdam, Netherlands</strong></td>
-      <td><strong>Kiel, Germany</strong></td>
-      <td><strong>Muenster, Germany</strong></td>
-    </tr>
-    <tr>
-      <td>Person Name<br />Centre Name<br />Location</td>
-      <td>Person Name<br />Centre Name<br />Location</td>
-      <td>Person Name<br />Centre Name<br />Location</td>
-      <td>Person Name<br />Centre Name<br />Location</td>
-    </tr>
-  </tbody>
-</table>
+<div class="desktop">
 
-<h1 id="device-return">Device return</h1>
+  <table>
+    <thead>
+      <tr>
+        <th><strong>Newcastle upon Tyne, United Kingdom</strong></th>
+        <th><strong>Rotterdam, Netherlands</strong></th>
+        <th><strong>Kiel, Germany</strong></th>
+        <th><strong>Muenster, Germany</strong></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Person Name, Centre Name, Location</td>
+        <td>Person Name, Centre Name, Location</td>
+        <td>Person Name, Centre Name, Location</td>
+        <td>Person Name, Centre Name, Location</td>
+      </tr>
+    </tbody>
+  </table>
 
-<h2 id="what-do-i-do-when-a-period-of-device-use-is-over">What do I do when a period of device use is over?</h2>
+</div>
+
+<div class="mobile">
+
+  <p><strong>Newcastle upon Tyne, United Kingdom</strong><br>Location<br>Person Name<br>Centre Name<br></p>
+
+  <p><strong>Rotterdam, Netherlands</strong><br>Location<br>Person Name<br>Centre Name<br></p>
+
+  <p><strong>Kiel, Germany</strong><br>Location<br>Person Name<br>Centre Name<br></p>
+
+  <p><strong>Muenster, Germany</strong><br>Location<br>Person Name<br>Centre Name<br></p>
+
+</div>
+
+<h1 id="device-return">
+<a class="anchor" href="#device-return" aria-hidden="true"><span class="octicon octicon-link"></span></a>Device return</h1>
+
+<h2 id="what-do-i-do-when-a-period-of-device-use-is-over">
+<a class="anchor" href="#what-do-i-do-when-a-period-of-device-use-is-over" aria-hidden="true"><span class="octicon octicon-link"></span></a>What do I do when a period of device use is over?</h2>
 
 <p>Please store the device in a safe place and make sure it stays clean and dry. Please contact the person that provided you with it to arrange further steps.</p>
 
-<h2 id="before-the-device-is-returned-or-disposed-of-does-any-data-need-to-be-transferred">Before the device is returned or disposed of: does any data need to be transferred?</h2>
+<h2 id="before-the-device-is-returned-or-disposed-of-does-any-data-need-to-be-transferred">
+<a class="anchor" href="#before-the-device-is-returned-or-disposed-of-does-any-data-need-to-be-transferred" aria-hidden="true"><span class="octicon octicon-link"></span></a>Before the device is returned or disposed of: does any data need to be transferred?</h2>
 
 <p>No, data are stored safely on the device. No further action is required.</p>
 
-<h2 id="do-i-need-to-return-the-device-somewhere">Do I need to return the device somewhere?</h2>
+<h2 id="do-i-need-to-return-the-device-somewhere">
+<a class="anchor" href="#do-i-need-to-return-the-device-somewhere" aria-hidden="true"><span class="octicon octicon-link"></span></a>Do I need to return the device somewhere?</h2>
 
 <p>Please contact the person that provided you with it to arrange further steps. You will have to return it either in person or by post – subject to further individual arrangement.</p>
 

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="de"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#010101">
+  
+  
+    <title>Asset Management (inventory.ideafast.eu)</title>
+  
+  <link rel="manifest" href="/de/manifest.json" crossorigin="use-credentials">
+  <link rel="stylesheet" href="/de/assets/main.css">
+  <link rel="stylesheet" href="/de/assets/app.css">
+  <link rel="apple-touch-icon" type="image/png" href="/de/icons/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="/de/icons/favicon.png">
+  <script type="text/javascript">
+    if ("serviceWorker" in navigator) {
+      if (navigator.serviceWorker.controller) {
+        console.log("An active service worker found, no need to register");
+      } else {
+        // Register the service worker
+        navigator.serviceWorker
+          .register("/de/sw.js", {
+            scope: "./"
+          })
+          .then(function (reg) {
+            console.log("Service worker has been registered for scope: " + reg.scope);
+          });
+      }
+    }
+  </script>
+</head>
+<body>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        
+
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    
+    <h1 class="post-title p-name" itemprop="name headline">Asset Management (inventory.ideafast.eu)</h1>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#general-introduction">General Introduction</a></li>
+<li class="toc-entry toc-h1"><a href="#login">Login</a></li>
+<li class="toc-entry toc-h1"><a href="#create-location">Create Location</a></li>
+<li class="toc-entry toc-h1"><a href="#create-asset-model">Create Asset Model</a></li>
+<li class="toc-entry toc-h1"><a href="#create-clinical-staff-admin">Create Clinical Staff Admin</a></li>
+<li class="toc-entry toc-h1"><a href="#create-patient-user">Create Patient User</a></li>
+<li class="toc-entry toc-h1"><a href="#create-asset">Create Asset</a></li>
+<li class="toc-entry toc-h1"><a href="#check-incheck-out-asset">Check in/Check out Asset</a></li>
+<li class="toc-entry toc-h1"><a href="#determine-asset-location-at-specific-time">Determine Asset Location at specific time</a></li>
+</ul><h1 id="general-introduction">
+<a class="anchor" href="#general-introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>General Introduction</h1>
+
+<p>Our asset management software system enables us to log where and who has current ownership of devices owned by the IDEA-FAST project. It is hosted at inventory.ideafast.eu and relevant clinical staff will have been supplied with user credentials. For additional support in unusual circumstances, we have a super admin account that should enable us to rectify any issues – though this should be used sparingly.</p>
+
+<p>IT IS VERY IMPORTANT THAT CLINICAL SITES USE THE SYSTEM TO 1. ENLIST ANY NEW DEVICES, MAKING RECORD OF UNIQUE DEVICE-PROVIDER ID TOGETHER WITH A VALID IDEA-FAST DEVICE ID AND 2. TO “CHECK OUT” ANY ITEMS THAT ARE HANDED TO PARTICIPANTS AND TO “CHECK IN” ITEMS AS SOON AS THEY ARE RETURNED BY PARTICIPANTS.</p>
+
+<p><em>Why are we using an inventory management system?</em></p>
+
+<p><em>1. It is good practice to keep clear records of the precise whereabouts of each device. This will become particularly important at the scale of the CVS.</em></p>
+
+<p><em>2. It is not always possible for us to annotate all device data with the custom IDEA-FAST patient IDs in cases where the device data is initially automatically uploaded to device-provider servers. When a (e.g. Dreem) device is added, the process requires that a connection is made (by taking note in the inventory management form) of a unique device-provider device ID and the IDEA-FAST device ID. When clinical site staff use the system to check devices “out” and “back in” again, once they are returned, the system builds up a historical record of time periods for which particular devices have been associated with an individual study participant (by participant ID). That way, when we later facilitate data transfer for devices for which we do not have a straight-forward way to directly associate IDEA-FAST device IDs with the data recorded from the devices, we can look at the device-provider device IDs annotated with that data and then use a look-up of the inventory management system records to associate the correct IDEA-FAST patient and device ID (whichever necessary). This will be done automatically for those devices for which data is initially automatically uploaded to device-provider servers (e.g. Dreem).</em></p>
+
+<h1 id="login">
+<a class="anchor" href="#login" aria-hidden="true"><span class="octicon octicon-link"></span></a>Login</h1>
+
+<p>On accessing the site, you should see the following.<br>
+<img src="../images/snipe_it/1.jpeg" alt=""></p>
+
+<p>Enter your credentials and login. You should now see the homepage – this one is empty.</p>
+
+<p><img src="../images/snipe_it/2.jpeg" alt=""></p>
+
+<p>For most of the initial setup work, the relevant will be found in the sidebar under settings</p>
+
+<p><img src="../images/snipe_it/4.jpeg" alt=""></p>
+
+<h1 id="create-location">
+<a class="anchor" href="#create-location" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create Location</h1>
+
+<p>Locations are where we assign clinical staff, patient users and assets to.</p>
+
+<p>To create a location, select Locations in the Settings menu. You will now be on the locations page. To make a new location, click the ‘Create New’ button.<br>
+<img src="../images/snipe_it/5.jpeg" alt=""></p>
+
+<p>Fill this in and click ‘Save’. Your new location should now be visible on the screen.</p>
+
+<h1 id="create-asset-model">
+<a class="anchor" href="#create-asset-model" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create Asset Model</h1>
+
+<p>Asset models will be the selection of devices a specific asset can possibly be.</p>
+
+<p>To create a location, select Asset Models in the Settings menu. You will now be on the asset models page. To make a new asset models, click the ‘Create New’ button.</p>
+
+<p><img src="../images/snipe_it/6.jpeg" alt=""></p>
+
+<p>For these, it is required to select a manufacturer and company name. These can be created by clicking the ‘New’ button next to their dropdown boxes. A pop-up will now appear, enter the details, and click ‘Save’ to create them. Fill in any other known fields and click ‘Save’. Your new asset model will now be visible on the screen.</p>
+
+<h1 id="create-clinical-staff-admin">
+<a class="anchor" href="#create-clinical-staff-admin" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create Clinical Staff Admin</h1>
+
+<p>To create a clinical staff admin, first select the people icon (2 above setting on the LHS bar). You should now be on the people page. Now select ‘Create New’.</p>
+
+<p><img src="../images/snipe_it/7.jpeg" alt=""></p>
+
+<p>In this page, you should select the correct Location – which should hopefully already have been added – for the clinical staff. Ideally, their email addresses should be added and the checkbox to send them their credentials by email should be checked. Fill in any other relevant fields.</p>
+
+<p>Click on the Permissions tab and configure as shown, leaving all others unchanged and then click ’Save’.</p>
+
+<p><img src="../images/snipe_it/8.jpeg" alt=""></p>
+
+<p>The Clinical Staff Admin has now been created.</p>
+
+<h1 id="create-patient-user">
+<a class="anchor" href="#create-patient-user" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create Patient User</h1>
+
+<p>To create a patient user, first select the people icon (2 above setting on the LHS bar). You should now be on the people page. Now select ‘Create New’.</p>
+
+<p><img src="../images/snipe_it/9.jpeg" alt=""></p>
+
+<p>In this page, you should select the correct Location – which should hopefully already have been added – for the patient. Their username should likely be their unique id number.</p>
+
+<p>The Active checkbox should be unchecked.</p>
+
+<p>Click on the Permissions tab and configure as shown, leaving all others unchanged and then click ’Save’.</p>
+
+<p><img src="../images/snipe_it/10.jpeg" alt=""></p>
+
+<p>The Patient User has now been created.</p>
+
+<h1 id="create-asset">
+<a class="anchor" href="#create-asset" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create Asset</h1>
+
+<p>To access assets overview, select ‘List All’ in LHS bar as shown.<br>
+<img src="../images/snipe_it/11.jpeg" alt=""></p>
+
+<p>You should now be on the assets page. Now select ‘Create New’.</p>
+
+<p><img src="../images/snipe_it/12.jpeg" alt=""></p>
+
+<p>The Asset Tag should be the unique id number for the asset.</p>
+
+<p>In this page, you should select the correct Default Location – which should hopefully already have been added – for the asset.</p>
+
+<p>The same goes for the correct Asset Model.</p>
+
+<p>The status should be set to ‘Ready to Deploy’ and ‘Checkout to’ tab should be set to ‘Location’ with the dropdown left unselected.</p>
+
+<p>Note that you should always add the Serial number of the device into the Serial input – this will allow us to identify devices if their IDEA-FAST id tag goes missing from the device.</p>
+
+<p>Fill in any other relevant fields and click ‘Save’. The new asset will now be visible on the screen.</p>
+
+<h1 id="check-incheck-out-asset">
+<a class="anchor" href="#check-incheck-out-asset" aria-hidden="true"><span class="octicon octicon-link"></span></a>Check in/Check out Asset</h1>
+
+<p>To check out an asset, select the ‘Checkout’ button on an asset. This page will appear.</p>
+
+<p><img src="../images/snipe_it/13.jpeg" alt=""></p>
+
+<p>Select the correct ‘User’ the device is with and click Checkout.</p>
+
+<p>To check in an asset – when it is received back at a location from a user – select the ‘Checkin’ button on an asset.</p>
+
+<p><img src="../images/snipe_it/14.jpeg" alt=""></p>
+
+<p>Simply select ‘Ready to Deploy’ in the Status dropdown and click Checkin.</p>
+
+<h1 id="determine-asset-location-at-specific-time">
+<a class="anchor" href="#determine-asset-location-at-specific-time" aria-hidden="true"><span class="octicon octicon-link"></span></a>Determine Asset Location at specific time</h1>
+
+<p>The assets table will show the asset’s current location. To determine its location through history, slightly more steps are required.</p>
+
+<p>This may be very useful if a device has been with multiple patients.</p>
+
+<p>To do so, click on an asset’s name in the asset table.</p>
+
+<p>You will now see this approximately.</p>
+
+<p><img src="../images/snipe_it/15.jpeg" alt=""></p>
+
+<p>Click on the History tab and you will see this approximately.</p>
+
+<p><img src="../images/snipe_it/16.jpeg" alt=""></p>
+
+<p>The dates here can be used to determine when each patient had the relevant device and which admin was responsible for recording this.</p>
+
+
+  </div>
+
+  <a class="u-url" href="/de/pro/snipe-it" hidden></a>
+</article>
+
+      </div>
+    </main></body>
+
+</html>

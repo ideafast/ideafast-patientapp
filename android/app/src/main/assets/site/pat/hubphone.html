@@ -8,11 +8,11 @@
   
     <title>Samsung Galaxy Phone (Patient Materials)</title>
   
-  <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
-  <link rel="stylesheet" href="assets/main.css">
-  <link rel="stylesheet" href="assets/app.css">
-  <link rel="apple-touch-icon" type="image/png" href="icons/favicon.png">
-  <link rel="shortcut icon" type="image/png" href="icons/favicon.png">
+  <link rel="manifest" href="http://localhost:4000/manifest.json" crossorigin="use-credentials">
+  <link rel="stylesheet" href="http://localhost:4000/assets/main.css">
+  <link rel="stylesheet" href="http://localhost:4000/assets/app.css">
+  <link rel="apple-touch-icon" type="image/png" href="http://localhost:4000/icons/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="http://localhost:4000/icons/favicon.png">
   <script type="text/javascript">
     if ("serviceWorker" in navigator) {
       if (navigator.serviceWorker.controller) {
@@ -20,7 +20,7 @@
       } else {
         // Register the service worker
         navigator.serviceWorker
-          .register("sw.js", {
+          .register("http://localhost:4000/sw.js", {
             scope: "./"
           })
           .then(function (reg) {
@@ -43,303 +43,692 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h1 id="general-device-introduction">General Device Introduction</h1>
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#general-device-introduction">General Device Introduction</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#how-does-this-device-look">How does this device look?</a></li>
+<li class="toc-entry toc-h2"><a href="#how-is-it-used">How is it used?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#data-transfer-protocol-for-patients">Data transfer protocol for patients</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#as-a-patient-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days">As a patient: do I need to do anything on a daily basis or all N days?</a></li>
+<li class="toc-entry toc-h2"><a href="#as-a-patient-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended">As a patient: do I need to do anything after each individual period of device / app use ended?</a></li>
+<li class="toc-entry toc-h2"><a href="#as-a-patient-do-i-need-to-do-anything-after-my-full-periods-of-use-of-a-specific-device--app-ends">As a patient: do I need to do anything after my full periods of use of a specific device / app ends?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#device-how-to--setup-for-wear">Device How To / setup for wear</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work">What sort of a device / application is this, what is it for and how does it work?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#connecting-to-your-home-wifi">Connecting to your home WiFi</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#step-1-unlock-phone">Step 1: Unlock phone</a></li>
+<li class="toc-entry toc-h4"><a href="#step-2-view-wifi">Step 2: View WiFi</a></li>
+<li class="toc-entry toc-h4"><a href="#step-3-connect">Step 3: Connect</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#what-will-i-need-to-do-before-i-can-start-using-this">What will I need to do before I can start using this?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#any-account-setup-required">Any account setup required?</a></li>
+<li class="toc-entry toc-h3"><a href="#needs-pairing-with-other-devices">Needs pairing with other devices?</a></li>
+<li class="toc-entry toc-h3"><a href="#any-configuration--assembly-required">Any configuration / assembly required?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#troubleshootingfaq">Troubleshooting/FAQ</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#the-device--app-seems-to-have-stopped-working-what-should-i-do">The device / app seems to have stopped working: what should I do?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#battery">Battery?</a></li>
+<li class="toc-entry toc-h3"><a href="#connectivity-issues">Connectivity issues?</a></li>
+<li class="toc-entry toc-h3"><a href="#restarting-bluetooth">Restarting Bluetooth</a></li>
+<li class="toc-entry toc-h3"><a href="#restarting-wi-fi">Restarting Wi-Fi</a></li>
+<li class="toc-entry toc-h3"><a href="#enablingdisabling-flight-mode">Enabling/Disabling Flight Mode</a></li>
+<li class="toc-entry toc-h3"><a href="#restarting-phone">Restarting Phone</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#using-the-device--app-is-uncomfortable-to-me-what-can-i-do">Using the device / app is uncomfortable to me: what can I do?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#adjust-wear-style">Adjust wear style?</a></li>
+<li class="toc-entry toc-h3"><a href="#adjust-usage-pattern">Adjust usage pattern?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#how-can-i-get-help-with-using-this">How can I get help with using this?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#device-return">Device return</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#what-do-i-do-when-a-period-of-device-use-is-over">What do I do when a period of device use is over?</a></li>
+<li class="toc-entry toc-h2"><a href="#before-the-device-is-returned-or-disposed-of-does-any-data-need-to-be-transferred">Before the device is returned or disposed of: does any data need to be transferred?</a></li>
+<li class="toc-entry toc-h2"><a href="#do-i-need-to-return-the-device-somewhere">Do I need to return the device somewhere?</a></li>
+</ul>
+</li>
+</ul><h1 id="general-device-introduction">
+<a class="anchor" href="#general-device-introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>General Device Introduction</h1>
 
 <p>You will be provided with a <strong>Samsung Galaxy A40</strong> <strong>smartphone</strong> for the duration of this study. Its purpose is to connect and transfer data between the sensing devices that you wear and the smartphone where they have an associated mobile application. The smartphone will have 7 <strong>applications</strong> preinstalled and configured for use with the associated sensing devices or during the study, including: <strong>VitalPatch, Biovotion, ZK1 YOLI, Dreem, VTT Stress Monitor, CamCog ThinkFast, and IDEA-FAST Support Documentation</strong>.</p>
 
 <p>The <strong>VTT Stress Monitor App</strong> and <strong>CamCog</strong> record data about phone usage or send prompts to complete short questionnaires daily. Because these applications will send notifications at pre-defined times and are intended to also record patterns of how you use your personal mobile device, it is recommended that they are <em>not</em> used on the Samsung Hub device. Instead, they should be installed on the participants <em>personal mobile smartphone,</em> and if the participant <strong><em>does not have a mobile smartphone or does not consent for these applications to be installed on their personal device, then they should be used on the Samsung device.</em></strong></p>
 
-<h2 id="how-does-this-device-look">How does this device look?</h2>
+<h2 id="how-does-this-device-look">
+<a class="anchor" href="#how-does-this-device-look" aria-hidden="true"><span class="octicon octicon-link"></span></a>How does this device look?</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th> </th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Samsung A40 Android SmartPhone</strong></td>
-      <td><strong>Samsung A40 box and charger</strong></td>
-    </tr>
-    <tr>
-      <td><img src="../images/hubphone/1.jpeg" alt="" /></td>
-      <td><img src="../images/hubphone/2.jpeg" alt="" /></td>
-    </tr>
-  </tbody>
-</table>
+<div class="desktop">
 
-<h2 id="how-is-it-used">How is it used?</h2>
+  <table>
+    <thead>
+      <tr>
+        <th> </th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Samsung A40 Android SmartPhone</strong></td>
+        <td><strong>Samsung A40 box and charger</strong></td>
+      </tr>
+      <tr>
+        <td><img src="../images/hubphone/1.jpeg" alt=""></td>
+        <td><img src="../images/hubphone/2.jpeg" alt=""></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<div class="mobile">
+
+  <table>
+    <tbody>
+      <tr>
+        <td><strong>Samsung A40 Android SmartPhone</strong></td>
+      </tr>
+      <tr>
+        <td><img src="../images/hubphone/1.jpeg" alt=""></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <tbody>
+      <tr>
+        <td><strong>Samsung A40 box and charger</strong></td>
+      </tr>
+      <tr>
+        <td><img src="../images/hubphone/2.jpeg" alt=""></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<h2 id="how-is-it-used">
+<a class="anchor" href="#how-is-it-used" aria-hidden="true"><span class="octicon octicon-link"></span></a>How is it used?</h2>
 
 <p>The Samsung A40 smartphone will automatically connect to the preconfigured sensing devices if they are within range (typically a few meters) and transfer data from each using the preinstalled mobile phone applications. Note that not all devices will be connected to the study phones. The information materials for each device contains further details. Once you have an internet connection, some of the sensing device applications will upload the data from the Samsung device to the cloud where researchers of the study can view it. <strong><em>It is important that you carry the Samsung device within two meters of you while wearing any sensing devices and that it is charged each night to ensure it can transfer data.</em></strong></p>
 
 <p>Depending on your individual study participation pattern, the phone will either connect to the internet through your local WiFi, or it will come equipped with a 4G prepaid card. <strong>Please note that if the phone connects to the internet using a 4G prepaid card, we must ask participants not to use the phone for any unnecessary and data-intense online activities, such as watching videos online.</strong></p>
 
-<h1 id="data-transfer-protocol-for-patients">Data transfer protocol for patients</h1>
+<h1 id="data-transfer-protocol-for-patients">
+<a class="anchor" href="#data-transfer-protocol-for-patients" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data transfer protocol for patients</h1>
 
-<h2 id="as-a-patient-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days">As a patient: do I need to do anything on a daily basis or all N days?</h2>
+<h2 id="as-a-patient-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days">
+<a class="anchor" href="#as-a-patient-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a patient: do I need to do anything on a daily basis or all N days?</h2>
 
 <p>When wearing either the VitalPatch or Biovotion (also known as Everion) you should check the smartphone twice per day – <em>in the morning and before bed</em> – to ensure the associated mobile applications are connected and have transferred data from daily wear of each device.</p>
 
 <p>When you are using either or both the VitalPatch and Biovotion devices, their associated mobile applications will send a persistent notification to the Samsung device (Figure 1-2 below), which indicates the devices connection, battery status, and if data has been uploaded to the cloud.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th> </th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Figure 1:</strong> VitalPatch</td>
-      <td><strong>Figure 2:</strong> Biovotion</td>
-    </tr>
-    <tr>
-      <td><img src="../images/hubphone/3.jpeg" alt="" /></td>
-      <td><img src="../images/hubphone/4.jpeg" alt="" /></td>
-    </tr>
-  </tbody>
-</table>
+<div class="desktop">
 
-<h2 id="as-a-patient-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended">As a patient: do I need to do anything after each individual period of device / app use ended?</h2>
+  <table>
+    <tbody>
+      <tr>
+        <td><img src="../images/hubphone/3.jpeg" alt=""></td>
+        <td><img src="../images/hubphone/4.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td>
+<strong>Figure 1:</strong> <em>VitalPatch</em>
+</td>
+        <td>
+<strong>Figure 2:</strong> <em>Biovotion</em>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<div class="mobile">
+
+  <table>
+    <tbody>
+      <tr>
+        <td><img src="../images/hubphone/3.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td>
+<strong>Figure 1:</strong> <em>VitalPatch</em>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <tbody>
+      <tr>
+        <td><img src="../images/hubphone/4.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td>
+<strong>Figure 2:</strong> <em>Biovotion</em>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<h2 id="as-a-patient-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended">
+<a class="anchor" href="#as-a-patient-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a patient: do I need to do anything after each individual period of device / app use ended?</h2>
 
 <p><strong>Yes.</strong> You must continue carrying the Samsung smartphone as it will transfer data from different devices across the duration of the study, such as VitalPatch or Biovotion.</p>
 
-<h2 id="as-a-patient-do-i-need-to-do-anything-after-my-full-periods-of-use-of-a-specific-device--app-ends">As a patient: do I need to do anything after my full periods of use of a specific device / app ends?</h2>
+<h2 id="as-a-patient-do-i-need-to-do-anything-after-my-full-periods-of-use-of-a-specific-device--app-ends">
+<a class="anchor" href="#as-a-patient-do-i-need-to-do-anything-after-my-full-periods-of-use-of-a-specific-device--app-ends" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a patient: do I need to do anything after my full periods of use of a specific device / app ends?</h2>
 
 <p><strong>No.</strong> Data will be automatically uploaded from the Samsung device to the cloud. After your full period of use ends in the trial, you must meet your clinician. They will take the Samsung device and retrieve any data remaining that has not been uploaded from it. The device will then be cleaned and prepared to be used by another study participant. Some study centres will arrange with you to return the devices via mail. If so, please follow any additional instructions provided by the study centre and make sure to power off the study phone before sending it off.</p>
 
-<h1 id="devicehow-to-setup-for-wear">Device How To / setup for wear </h1>
+<h1 id="device-how-to--setup-for-wear">
+<a class="anchor" href="#device-how-to--setup-for-wear" aria-hidden="true"><span class="octicon octicon-link"></span></a>Device How To / setup for wear</h1>
 
 <p>The Samsung Galaxy A40 is a mobile smartphone for use in the study to store and transfer data from some of the wearable devices that you will be asked to use. The smartphone will be preconfigured to include all the necessary mobile applications for the duration of this study. A separate mobile phone is provided to assure compatibility, to avoid having to ask you to install a lot of apps on your private device and as using multiple Bluetooth devices have an impact on battery duration. Having a unique phone with the sole purpose of recording data will ensure it lasts a full day without impacting your everyday use of your own mobile phone. Additionally, in case you do not want to install the <strong>StressMonitor</strong> and <strong>CamCog apps</strong> on your privately owned smartphone, or if you do not own a device that is compatible with these devices (such as not owning an Android device) then you can use these apps on the study phone.</p>
 
-<h2 id="what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work">What sort of a device / application is this, what is it for and how does it work?</h2>
+<h2 id="what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work">
+<a class="anchor" href="#what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work" aria-hidden="true"><span class="octicon octicon-link"></span></a>What sort of a device / application is this, what is it for and how does it work?</h2>
 
 <p>The <strong>Samsung A40</strong> is an Android mobile smartphone that will be connected to your local WiFi (if available) or preconfigured with SIM card for mobile network connectivity to upload data automatically when you use specific sensing devices. Its purpose is to connect and transfer data between the sensing devices that you wear and the smartphone where they have an associated mobile application.</p>
 
-<h3 id="connecting-to-your-home-wifi"><strong><em>Connecting to your home WiFi</em></strong></h3>
+<h3 id="connecting-to-your-home-wifi">
+<a class="anchor" href="#connecting-to-your-home-wifi" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Connecting to your home WiFi</em></strong>
+</h3>
 
 <p>Once you arrive home the provided Samsung smartphone should be connected to your home WiFi. Please obtain the WiFi network <em>name</em> and <em>password</em> before proceeding. If you have not changed these on your home router, then this will be the “SSID” and “Password” written on the router’s label.</p>
 
-<h4 id="step-1-unlock-phone"><strong>Step 1: Unlock phone</strong></h4>
+<h4 id="step-1-unlock-phone">
+<a class="anchor" href="#step-1-unlock-phone" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Step 1: Unlock phone</strong>
+</h4>
 
 <p>Press the button on the right side of the device to illuminate the screen and swipe up. The “Enter Pin” screen will appear as illustrated below. Enter <strong>1034</strong>.</p>
 
-<h4 id="step-2-view-wifi"><strong>Step 2: View WiFi</strong></h4>
+<h4 id="step-2-view-wifi">
+<a class="anchor" href="#step-2-view-wifi" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Step 2: View WiFi</strong>
+</h4>
 
-<p>Swipe down from the top of the screen (where the front camera is located) and you will see a list of icons. If the Wi-Fi button is blue, press and hold the button and the <em>available networks</em> screen will appear (Figure 1). If the Wi-Fi button is grey that means it is turned off. To turn it on tap the icon.</p>
+<p>Swipe down from the top of the screen (where the front camera is located) and you will see a list of icons. If the Wi-Fi button is blue, press and hold the button and the <em>available networks</em> screen will appear (Figure 3). If the Wi-Fi button is grey that means it is turned off. To turn it on tap the icon.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><img src="../images/hubphone/91.jpeg" alt="" /></td>
-    </tr>
-    <tr>
-      <td>Figure 1: Available networks Wi-Fi</td>
-    </tr>
-  </tbody>
-</table>
+<div class="desktop">
 
-<h4 id="step-3-connect"><strong>Step 3: Connect</strong></h4>
+  <table>
+    <thead>
+      <tr>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><img src="../images/hubphone/91.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td>
+<strong>Figure 3</strong>: <em>Available networks Wi-Fi</em>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
-<p>Tap the network that has your home Wi-Fi name (in this example it is EJ5) and then enter the password and tap “Connect” (Figure 3). You will then be taken to a new screen where your Wi-Fi is shown as active (Figure 3).</p>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th> </th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><img src="../images/hubphone/92.jpeg" alt="" /></td>
-      <td><img src="../images/hubphone/93.jpeg" alt="" /></td>
-    </tr>
-    <tr>
-      <td>Figure 2: enter your WiFi’s password</td>
-      <td>Figure 3: the ‘current network’ should be the one you entered.</td>
-    </tr>
-  </tbody>
-</table>
+<div class="mobile">
 
-<h2 id="what-will-i-need-to-do-before-i-can-start-using-this">What will I need to do before I can start using this?</h2>
+  <table>
+    <tbody>
+      <tr>
+        <td><img src="../images/hubphone/91.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td>
+<strong>Figure 3</strong>: <em>Available networks Wi-Fi</em>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
-<h3 id="any-account-setup-required">Any account setup required?</h3>
+</div>
+
+<h4 id="step-3-connect">
+<a class="anchor" href="#step-3-connect" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Step 3: Connect</strong>
+</h4>
+
+<p>Tap the network that has your home Wi-Fi name (in this example it is EJ5) and then enter the password and tap “Connect” (Figure 4). You will then be taken to a new screen where your Wi-Fi is shown as active (Figure 5).</p>
+
+<div class="desktop">
+
+  <table>
+    <thead>
+      <tr>
+        <th> </th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><img src="../images/hubphone/92.jpeg" alt=""></td>
+        <td><img src="../images/hubphone/93.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td>
+<strong>Figure 4</strong>: <em>enter your WiFi’s password</em>
+</td>
+        <td>
+<strong>Figure 5</strong>: <em>the ‘current network’ should be the one you entered.</em>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<div class="mobile">
+
+  <table>
+    <tbody>
+      <tr>
+        <td><img src="../images/hubphone/92.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td>
+<strong>Figure 4</strong>: <em>enter your WiFi’s password</em>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <tbody>
+      <tr>
+        <td><img src="../images/hubphone/93.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td>
+<strong>Figure 5</strong>: <em>the ‘current network’ should be the one you entered.</em>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<h2 id="what-will-i-need-to-do-before-i-can-start-using-this">
+<a class="anchor" href="#what-will-i-need-to-do-before-i-can-start-using-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>What will I need to do before I can start using this?</h2>
+
+<h3 id="any-account-setup-required">
+<a class="anchor" href="#any-account-setup-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any account setup required?</h3>
 
 <p><strong>No.</strong> Your Samsung smartphone will be associated and pre-configured with a study-specific account for the phone itself and for each sensing application that will be used. Should the phone require a PIN to unlock this should be set to <strong>1034</strong>.</p>
 
-<h3 id="needs-pairing-with-other-devices">Needs pairing with other devices?</h3>
+<h3 id="needs-pairing-with-other-devices">
+<a class="anchor" href="#needs-pairing-with-other-devices" aria-hidden="true"><span class="octicon octicon-link"></span></a>Needs pairing with other devices?</h3>
 
 <p><strong>Yes.</strong> Some of the wearable devices you will be asked to use during the study will need to be paired with the study phone. You will find detailed guidance on this in the materials about each wearable. The provided Samsung smartphone should be added to your home WiFi as documented above.</p>
 
-<h3 id="any-configuration--assembly-required">Any configuration / assembly required?</h3>
+<h3 id="any-configuration--assembly-required">
+<a class="anchor" href="#any-configuration--assembly-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any configuration / assembly required?</h3>
 
 <p><strong>No.</strong> There will be no configuration required to use the Samsung A40 device. You should receive it fully charged, but we kindly ask you to make sure that it always remains charged and turned on during the study. The phone should come with all required applications pre-installed. You will also receive a USB-C charger that can be used to charge the phone. Due to organisational reasons for this study, charging equipment may come with either EU or UK mains plug connectors. If needed, an according adapter (converter) plug will be provided to you by at the clinical site.</p>
 
-<h3 id="how-can-i-get-help-with-using-this">How can I get help with using this?</h3>
+<h1 id="troubleshootingfaq">
+<a class="anchor" href="#troubleshootingfaq" aria-hidden="true"><span class="octicon octicon-link"></span></a>Troubleshooting/FAQ</h1>
 
-<p>If you have any other questions or concerns, please contact your <em>local study centre:</em></p>
+<h2 id="the-device--app-seems-to-have-stopped-working-what-should-i-do">
+<a class="anchor" href="#the-device--app-seems-to-have-stopped-working-what-should-i-do" aria-hidden="true"><span class="octicon octicon-link"></span></a>The device / app seems to have stopped working: what should I do?</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Newcastle, United Kingdom</strong></td>
-      <td><strong>Rotterdam, Netherlands</strong></td>
-      <td><strong>Kiel, Germany</strong></td>
-      <td><strong>Muenster, Germany</strong></td>
-    </tr>
-    <tr>
-      <td>Person Name<br />Centre Name<br />Location</td>
-      <td>Person Name<br />Centre Name<br />Location</td>
-      <td>Person Name<br />Centre Name<br />Location</td>
-      <td>Person Name<br />Centre Name<br />Location</td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="troubleshootingfaq">Troubleshooting/FAQ</h1>
-
-<h2 id="the-device--app-seems-to-have-stopped-working-what-should-i-do">The device / app seems to have stopped working: what should I do?</h2>
-
-<h3 id="battery">Battery?</h3>
+<h3 id="battery">
+<a class="anchor" href="#battery" aria-hidden="true"><span class="octicon octicon-link"></span></a>Battery?</h3>
 
 <p>We kindly ask you to keep the battery in the smartphone charged and the phone turned on at all times. This can be achieved by charging the phone each night. As this is a new mobile smartphone its battery should last all day. Should you have any specific issues relating to the battery being drained quickly, please hold the power button on the right-hand side of the phone for 3 seconds until a popup menu appears. Please select the “Restart” option. If issues with battery drain persist after restarting the phone, then please get in touch with your study contact.</p>
 
-<h3 id="connectivity-issues">Connectivity issues?</h3>
+<h3 id="connectivity-issues">
+<a class="anchor" href="#connectivity-issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Connectivity issues?</h3>
 
 <p>The Samsung smartphone is provided so that it can connect and transfer data from specific sensing devices over Bluetooth and then use a Wi-Fi connection (when available) to upload the transferred data to the cloud. Some of the sensing devices have their own unique mobile application, which will be listed on your home screen. If you are having specific connectivity issues with those devices, please refer to their documentation (<a href="http://link">VitalPatch</a>, <a href="http://wat">Dreem</a>, and <a href="http://link">BioVotion</a>). If the problem continues, please contact your clinician. The smartphone should be connected to your home Wi-Fi as documented above. If no Internet network connect is available through your home network, then the pre-paid SIM card will be used. If your network connectivity problems continue, please contact your clinician.</p>
 
-<h3 id="restarting-bluetooth"><strong><em>Restarting Bluetooth</em></strong></h3>
+<h3 id="restarting-bluetooth">
+<a class="anchor" href="#restarting-bluetooth" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Restarting Bluetooth</em></strong>
+</h3>
 
 <p>Bluetooth will be enabled when the above sensing applications are installed. However, this can be turned off at any time (such as to reset the connection) by swiping down and tapping the Bluetooth icon. If the Bluetooth icon has a blue background then it is connected, and if it has a grey background then it is disabled. To restart Bluetooth, tap the associated icon until it turns from blue to grey, which will turn the Bluetooth off. Wait 10 seconds and tap it again to turn it back on.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th> </th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><img src="../images/hubphone/94.jpeg" alt="" /></td>
-      <td><img src="../images/hubphone/95.jpeg" alt="" /></td>
-    </tr>
-    <tr>
-      <td>Figure 1: Bluetooth is blue when enabled.</td>
-      <td>Figure 2: Bluetooth is grey when disabled.</td>
-    </tr>
-  </tbody>
-</table>
+<div class="desktop">
 
-<h3 id="restarting-wi-fi"><strong><em>Restarting Wi-Fi</em></strong></h3>
+  <table>
+    <thead>
+      <tr>
+        <th> </th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><img src="../images/hubphone/94.jpeg" alt=""></td>
+        <td><img src="../images/hubphone/95.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td>
+<strong>Figure 6</strong>: <em>Bluetooth is blue when enabled.</em>
+</td>
+        <td>
+<strong>Figure 7</strong>: <em>Bluetooth is grey when disabled.</em>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
-<p>Unlock the phone by pressing the power button (located on the right side of the phone), swiping up, and entering <strong>1034</strong> for the PIN. Swipe down from the toolbar and Wi-Fi icon will be listed in blue as enabled (Figure 1). Tap the icon and it will turn grey, which turns the Wi-Fi off (Figure 2). Wait 20 seconds and tap it again to turn it on and it will automatically connect to the previous network.</p>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th> </th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><img src="../images/hubphone/96.jpeg" alt="" /></td>
-      <td><img src="../images/hubphone/97.jpeg" alt="" /></td>
-    </tr>
-    <tr>
-      <td>Figure 1: Wi-Fi is blue when enabled.</td>
-      <td>Figure 2: Wi-Fi is grey when disabled.</td>
-    </tr>
-  </tbody>
-</table>
+<div class="mobile">
 
-<h3 id="enablingdisabling-flight-mode"><strong><em>Enabling/Disabling Flight Mode</em></strong></h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><img src="../images/hubphone/94.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td>
+<strong>Figure 6</strong>: <em>Bluetooth is blue when enabled.</em>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <tbody>
+      <tr>
+        <td><img src="../images/hubphone/95.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td>
+<strong>Figure 7</strong>: <em>Bluetooth is grey when disabled.</em>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<h3 id="restarting-wi-fi">
+<a class="anchor" href="#restarting-wi-fi" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Restarting Wi-Fi</em></strong>
+</h3>
+
+<p>Unlock the phone by pressing the power button (located on the right side of the phone), swiping up, and entering <strong>1034</strong> for the PIN. Swipe down from the toolbar and Wi-Fi icon will be listed in blue as enabled (Figure 8). Tap the icon and it will turn grey, which turns the Wi-Fi off (Figure 9). Wait 20 seconds and tap it again to turn it on and it will automatically connect to the previous network.</p>
+
+<div class="desktop">
+
+  <table>
+    <thead>
+      <tr>
+        <th> </th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><img src="../images/hubphone/96.jpeg" alt=""></td>
+        <td><img src="../images/hubphone/97.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td>
+<strong>Figure 8</strong>: <em>Wi-Fi is blue when enabled.</em>
+</td>
+        <td>
+<strong>Figure 9</strong>: <em>Wi-Fi is grey when disabled.</em>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+<div class="mobile">
+
+  <table>
+    <tbody>
+      <tr>
+        <td><img src="../images/hubphone/96.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td>
+<strong>Figure 8</strong>: <em>Wi-Fi is blue when enabled.</em>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <tbody>
+      <tr>
+        <td><img src="../images/hubphone/97.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td>
+<strong>Figure 9</strong>: <em>Wi-Fi is grey when disabled.</em>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<h3 id="enablingdisabling-flight-mode">
+<a class="anchor" href="#enablingdisabling-flight-mode" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Enabling/Disabling Flight Mode</em></strong>
+</h3>
 
 <p>Flight mode turns off all network connections including Wi-Fi and Bluetooth, which can be useful to reset all connections with the phone without restarting the device. Swipe down from the toolbar and flight mode icon will be listed in grey and appears as a plane:</p>
 
-<table>
-  <thead>
-    <tr>
-      <th> </th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><img src="../images/hubphone/98.jpeg" alt="" /></td>
-      <td><img src="../images/hubphone/99.jpeg" alt="" /></td>
-    </tr>
-    <tr>
-      <td>Figure 1: Wi-Fi enabled and Flight Mode is off.</td>
-      <td>Figure 2: Flight Mode is blue when enabled.</td>
-    </tr>
-  </tbody>
-</table>
+<div class="desktop">
+
+  <table>
+    <thead>
+      <tr>
+        <th> </th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><img src="../images/hubphone/98.jpeg" alt=""></td>
+        <td><img src="../images/hubphone/99.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td>
+<strong>Figure 10</strong>: <em>Wi-Fi enabled and Flight Mode is off.</em>
+</td>
+        <td>
+<strong>Figure 11</strong>: <em>Flight Mode is blue when enabled.</em>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<div class="mobile">
+
+  <table>
+    <tbody>
+      <tr>
+        <td><img src="../images/hubphone/98.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td>
+<strong>Figure 10</strong>: <em>Wi-Fi enabled and Flight Mode is off.</em>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <tbody>
+      <tr>
+        <td><img src="../images/hubphone/99.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td>
+<strong>Figure 11</strong>: <em>Flight Mode is blue when enabled.</em>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
 
 <p>Grey indicates that flight mode is <em>disabled.</em> Tap the flight mode icon and it will turn blue to indicate it is activated and the Wi-Fi and Bluetooth connections on the menu bar will turn grey. Wait 20 seconds and tap the flight mode icon again to disable it, which will reactivate the phones Bluetooth and Wi-Fi.</p>
 
-<h3 id="restarting-phone"><strong><em>Restarting Phone</em></strong></h3>
+<h3 id="restarting-phone">
+<a class="anchor" href="#restarting-phone" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Restarting Phone</em></strong>
+</h3>
 
 <p>Unlock the phone by pressing the power button (located on the right side of the phone), swiping up, and entering <strong>1034</strong> for the PIN. Press and hold the power button until the following three options will appears and tap “Restart” twice and the phone will restart:</p>
 
-<table>
-  <thead>
-    <tr>
-      <th> </th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><img src="../images/hubphone/100.jpeg" alt="" /></td>
-      <td><img src="../images/hubphone/101.jpeg" alt="" /></td>
-    </tr>
-    <tr>
-      <td><strong>Figure 1:</strong> three options that appear.</td>
-      <td><strong>Figure 2:</strong> Tap Restart twice to restart the phone.</td>
-    </tr>
-  </tbody>
-</table>
+<div class="desktop">
 
-<h2 id="using-the-device--app-is-uncomfortable-to-me-what-can-i-do">Using the device / app is uncomfortable to me: what can I do?</h2>
+  <table>
+    <thead>
+      <tr>
+        <th> </th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><img src="../images/hubphone/100.jpeg" alt=""></td>
+        <td><img src="../images/hubphone/101.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td>
+<strong>Figure 12:</strong> <em>The three options that appear.</em>
+</td>
+        <td>
+<strong>Figure 13:</strong> <em>Tap Restart twice to restart the phone.</em>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
-<h3 id="adjust-wear-style">Adjust wear style?</h3>
+</div>
+
+<div class="mobile">
+
+  <table>
+    <tbody>
+      <tr>
+        <td><img src="../images/hubphone/100.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td>
+<strong>Figure 12:</strong> <em>The three options that appear.</em>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <tbody>
+      <tr>
+        <td><img src="../images/hubphone/101.jpeg" alt=""></td>
+      </tr>
+      <tr>
+        <td>
+<strong>Figure 13:</strong> <em>Tap Restart twice to restart the phone.</em>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<h2 id="using-the-device--app-is-uncomfortable-to-me-what-can-i-do">
+<a class="anchor" href="#using-the-device--app-is-uncomfortable-to-me-what-can-i-do" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using the device / app is uncomfortable to me: what can I do?</h2>
+
+<h3 id="adjust-wear-style">
+<a class="anchor" href="#adjust-wear-style" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adjust wear style?</h3>
 
 <p>We kindly always ask you to keep the phone nearby while participating in the study. However, it can be placed in a purse, pocket, backpack or other pouch.</p>
 
-<h3 id="adjust-usage-pattern">Adjust usage pattern?</h3>
+<h3 id="adjust-usage-pattern">
+<a class="anchor" href="#adjust-usage-pattern" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adjust usage pattern?</h3>
 
 <p>We kindly ask you to keep the study phone with you or nearby at all times. At night, a location in the same room is fine, such as a bedside table. If you feel the device is dirty you can clean it with wet wipes or alcohol rub.</p>
 
-<h1 id="device-return">Device return</h1>
+<h2 id="how-can-i-get-help-with-using-this">
+<a class="anchor" href="#how-can-i-get-help-with-using-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>How can I get help with using this?</h2>
 
-<h2 id="what-do-i-do-when-a-period-of-device-use-is-over">What do I do when a period of device use is over?</h2>
+<p>If you have any other questions or concerns, please contact your <em>local study centre:</em></p>
+
+<div class="desktop">
+
+  <table>
+    <thead>
+      <tr>
+        <th><strong>Newcastle upon Tyne, United Kingdom</strong></th>
+        <th><strong>Rotterdam, Netherlands</strong></th>
+        <th><strong>Kiel, Germany</strong></th>
+        <th><strong>Muenster, Germany</strong></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Person Name, Centre Name, Location</td>
+        <td>Person Name, Centre Name, Location</td>
+        <td>Person Name, Centre Name, Location</td>
+        <td>Person Name, Centre Name, Location</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<div class="mobile">
+
+  <p><strong>Newcastle upon Tyne, United Kingdom</strong><br>Location<br>Person Name<br>Centre Name<br></p>
+
+  <p><strong>Rotterdam, Netherlands</strong><br>Location<br>Person Name<br>Centre Name<br></p>
+
+  <p><strong>Kiel, Germany</strong><br>Location<br>Person Name<br>Centre Name<br></p>
+
+  <p><strong>Muenster, Germany</strong><br>Location<br>Person Name<br>Centre Name<br></p>
+
+</div>
+
+<h1 id="device-return">
+<a class="anchor" href="#device-return" aria-hidden="true"><span class="octicon octicon-link"></span></a>Device return</h1>
+
+<h2 id="what-do-i-do-when-a-period-of-device-use-is-over">
+<a class="anchor" href="#what-do-i-do-when-a-period-of-device-use-is-over" aria-hidden="true"><span class="octicon octicon-link"></span></a>What do I do when a period of device use is over?</h2>
 
 <p>Please store the device in a safe place and make sure it stays clean and dry. Please contact the person that provided you with it to arrange further steps.</p>
 
-<h2 id="before-the-device-is-returned-or-disposed-of-does-any-data-need-to-be-transferred">Before the device is returned or disposed of: does any data need to be transferred?</h2>
+<h2 id="before-the-device-is-returned-or-disposed-of-does-any-data-need-to-be-transferred">
+<a class="anchor" href="#before-the-device-is-returned-or-disposed-of-does-any-data-need-to-be-transferred" aria-hidden="true"><span class="octicon octicon-link"></span></a>Before the device is returned or disposed of: does any data need to be transferred?</h2>
 
 <p><strong>No.</strong> Data that has been successfully uploaded to the cloud are stored safely. Any data that remains on your Samsung smartphone that has not been uploaded will be manually uploaded once it is returned. Therefore, it is very important that you do not uninstall any applications. All recorded data from the sensor devices will be cleared from the phone before it is handed out to any further study participants.</p>
 
-<h2 id="do-i-need-to-return-the-device-somewhere">Do I need to return the device somewhere?</h2>
+<h2 id="do-i-need-to-return-the-device-somewhere">
+<a class="anchor" href="#do-i-need-to-return-the-device-somewhere" aria-hidden="true"><span class="octicon octicon-link"></span></a>Do I need to return the device somewhere?</h2>
 
 <p><strong>Yes.</strong> Please get in touch with your local study centre contact if you are not yet aware of the process for returning your study phone. You will have to return it either in person or by post – subject to further individual arrangement.</p>
 

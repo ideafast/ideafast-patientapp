@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="nl"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#010101">
+  
+  
+    <title>ZKOne YOLI Smart Sleep Monitor</title>
+  
+  <link rel="manifest" href="/nl/manifest.json" crossorigin="use-credentials">
+  <link rel="stylesheet" href="/nl/assets/main.css">
+  <link rel="stylesheet" href="/nl/assets/app.css">
+  <link rel="apple-touch-icon" type="image/png" href="/nl/icons/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="/nl/icons/favicon.png">
+  <script type="text/javascript">
+    if ("serviceWorker" in navigator) {
+      if (navigator.serviceWorker.controller) {
+        console.log("An active service worker found, no need to register");
+      } else {
+        // Register the service worker
+        navigator.serviceWorker
+          .register("/nl/sw.js", {
+            scope: "./"
+          })
+          .then(function (reg) {
+            console.log("Service worker has been registered for scope: " + reg.scope);
+          });
+      }
+    }
+  </script>
+</head>
+<body>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        
+
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    
+    <h1 class="post-title p-name" itemprop="name headline">ZKOne YOLI Smart Sleep Monitor</h1>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#general-device-introduction">General Device Introduction</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#how-does-this-device-look">How does this device look?</a></li>
+<li class="toc-entry toc-h2"><a href="#what-does-it-record">What does it record?</a></li>
+<li class="toc-entry toc-h2"><a href="#how-is-it-used">How is it used?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#data-transfer-protocol-for-patients">Data transfer protocol for patients</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#as-a-patient-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days">As a patient: do I need to do anything on a daily basis or all N days?</a></li>
+<li class="toc-entry toc-h2"><a href="#as-a-patient-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended">As a patient: do I need to do anything after each individual period of device / app use ended?</a></li>
+<li class="toc-entry toc-h2"><a href="#as-a-patient-do-i-need-to-do-anything-after-my-full-periods-of-use-of-a-specific-device--app-ends">As a patient: do I need to do anything after my full periods of use of a specific device / app ends?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#data-transfer-protocol-for-professionals">Data transfer protocol for professionals</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#as-a-professional-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days-for-each-patient-using-a-specific-device--app">As a professional: do I need to do anything on a daily basis or all N days (for each patient using a specific device / app)?</a></li>
+<li class="toc-entry toc-h2"><a href="#as-a-professional-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended-for-each-patient-using-a-specific-device--app">As a professional: do I need to do anything after each individual period of device / app use ended (for each patient using a specific device / app)?</a></li>
+<li class="toc-entry toc-h2"><a href="#as-a-professional-do-i-need-to-do-anything-after-the-full-periods-of-use-of-a-specific-device--app-ends-for-each-patient-using-a-specific-device--app">As a professional: do I need to do anything after the full periods of use of a specific device / app ends (for each patient using a specific device / app)?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#original-device-setup-and-pairing">Original device setup and pairing</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#if-handling-a-device-and-it-arrives-new-what-needs-doing-before-it-gets-sent-to-a-study-centre">If handling a device and it arrives new: what needs doing before it gets sent to a study centre?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#put-into-inventory-management">Put into inventory management?</a></li>
+<li class="toc-entry toc-h3"><a href="#needs-firmware-update">Needs firmware update?</a></li>
+<li class="toc-entry toc-h3"><a href="#pairing-with-a-companion-application">Pairing with a companion application?</a></li>
+<li class="toc-entry toc-h3"><a href="#any-account-setup-required">Any account setup required?</a></li>
+<li class="toc-entry toc-h3"><a href="#needs-pairing-with-hub-device">Needs pairing with hub device?</a></li>
+<li class="toc-entry toc-h3"><a href="#any-assembly-required">Any assembly required?</a></li>
+<li class="toc-entry toc-h3"><a href="#package-together-with-which-other-devices-for-which-study-centre">Package together with which other devices for which study centre?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#if-handling-an-application-what-needs-doing-before-a-study-centre-can-use-the-app">If handling an application: what needs doing before a study centre can use the app?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#do-we-need-to-get-accounts-from-the-application-provider">Do we need to get accounts from the application provider?</a></li>
+<li class="toc-entry toc-h3"><a href="#can-the-software-be-downloaded-or-do-we-need-to-make-it-available">Can the software be downloaded, or do we need to make it available?</a></li>
+<li class="toc-entry toc-h3"><a href="#does-it-need-to-be-installed-on-the-hub-devices">Does it need to be installed on the hub devices?</a></li>
+<li class="toc-entry toc-h3"><a href="#do-we-need-to-activate-study-accounts">Do we need to activate study accounts?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#device-pre-setup-and-configuration">Device pre-setup and configuration</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work">What sort of a device / application is this, what is it for and how does it work?</a></li>
+<li class="toc-entry toc-h2"><a href="#what-has-already-been-done-in-pre-setup-for-the-device-or-application">What has already been done in pre-setup for the device or application?</a></li>
+<li class="toc-entry toc-h2"><a href="#what-will-need-to-be-done-before-a-patient-can-start-using-this">What will need to be done before a patient can start using this?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#any-account-setup-required">Any account setup required?</a></li>
+<li class="toc-entry toc-h3"><a href="#needs-pairing-with-hub-device">Needs pairing with hub-device?</a></li>
+<li class="toc-entry toc-h3"><a href="#any-configuration--assembly-required">Any configuration / assembly required?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#devicehow-tosetup">Device How To setup </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work">What sort of a device / application is this, what is it for and how does it work?</a></li>
+<li class="toc-entry toc-h2"><a href="#what-will-i-need-to-do-before-i-can-start-using-this">What will I need to do before I can start using this?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#any-account-setup-required">Any account setup required?</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#connecting-to-wi-fi-first-use-only">Connecting to Wi-Fi (first use only)</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#needs-pairing-with-hub-device">Needs pairing with hub-device?</a></li>
+<li class="toc-entry toc-h3"><a href="#any-configuration--assembly-required">Any configuration / assembly required?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#troubleshootingfaq">Troubleshooting/FAQ</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#the-device--app-seems-to-have-stopped-working-what-should-i-do">The device / app seems to have stopped working: what should I do?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#battery">Battery?</a></li>
+<li class="toc-entry toc-h3"><a href="#connectivity-issues">Connectivity issues?</a></li>
+<li class="toc-entry toc-h3"><a href="#need-to-restart-or-log-in-again">Need to restart or log in again?</a></li>
+<li class="toc-entry toc-h3"><a href="#does-the-device-need-to-be-plugged-in-constantly">Does the device need to be plugged in constantly?</a></li>
+<li class="toc-entry toc-h3"><a href="#which-room-should-it-go-in">Which room should it go in?</a></li>
+<li class="toc-entry toc-h3"><a href="#how-much-memory-does-the-zkone-device-have">How much memory does the ZKOne device have?</a></li>
+<li class="toc-entry toc-h3"><a href="#what-quantity-of-data-is-produced-for-one-night-sleep">What quantity of data is produced for one night sleep?</a></li>
+<li class="toc-entry toc-h3"><a href="#can-data-be-manually-retrieved-from-the-zkone-device">Can data be manually retrieved from the ZKOne device?</a></li>
+<li class="toc-entry toc-h3"><a href="#does-the-zkone-function-correctly-without-a-wi-fi-connection">Does the ZKOne function correctly without a Wi-Fi connection?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#how-can-i-get-help-with-using-this">How can I get help with using this?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#device-return">Device return</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#what-do-i-do-when-a-period-of-device-use-is-over">What do I do when a period of device use is over?</a></li>
+<li class="toc-entry toc-h2"><a href="#before-the-device-is-returned-or-disposed-of-does-any-data-need-to-be-transferred">Before the device is returned or disposed of: does any data need to be transferred?</a></li>
+<li class="toc-entry toc-h2"><a href="#do-i-need-to-return-the-device-somewhere">Do I need to return the device somewhere?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#returned-device-processing-and-cleaning--an-application-use-period-for-a-participant-has-ended">Returned device processing and cleaning / an application use period for a participant has ended</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#do-i-need-to-clean-the-device-after-each-participant-returns-the-device">Do I need to clean the device after each participant returns the device?</a></li>
+<li class="toc-entry toc-h2"><a href="#what-type-of-material-can-cleansterilise-the-device">What type of material can clean/sterilise the device?</a></li>
+<li class="toc-entry toc-h2"><a href="#trigger-data-transfer-protocols">Trigger Data Transfer Protocols?</a></li>
+<li class="toc-entry toc-h2"><a href="#where-should-the-device-be-returned">Where should the device be returned?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#device-recycling-and-provisioning">Device recycling and provisioning</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#how-will-the-devices-and-applications-be-supplied-to-the-study-site">How will the devices and applications be supplied to the study site?</a></li>
+<li class="toc-entry toc-h2"><a href="#what-to-do-with-devices-once-the-study-site-is-entirely-done-with-them">What to do with devices once the study site is entirely done with them?</a></li>
+</ul>
+</li>
+</ul><h1 id="general-device-introduction">
+<a class="anchor" href="#general-device-introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>General Device Introduction</h1>
+
+<p><img src="../images/zk/1.jpeg" alt="">The YOLI Sleep Monitor uses a Wi-Fi signal (radar) for monitoring and recording respiratory rate without requiring any interaction with the device. It can sense body movement up to 3 meters from the device and can detect different sleep conditions, such as sleep apnoea.</p>
+
+<h2 id="how-does-this-device-look">
+<a class="anchor" href="#how-does-this-device-look" aria-hidden="true"><span class="octicon octicon-link"></span></a>How does this device look?</h2>
+
+<p>The YOLI is a small white box (Figure 1) that must be connected to Wi-Fi using a separate mobile application and should be placed next to your bed at waist height, such as on a bedside cabinet (Figure 2). The device has a power button on the front that can be used for turning it off when not in use, i.e. not sleeping. The YOLI has a yellow-green light on the side that shows Wi-Fi connectivity, which will always be on when the device is working correctly, or slowly flashing when it does not have a working internet connection.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="../images/zk/2.jpeg" alt=""></td>
+      <td><img src="../images/zk/3.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>
+<strong>Figure 1:</strong> Power button is on the front of the device and a long press can be used to configure Wi-Fi.</td>
+      <td>
+<strong>Figure 2:</strong> The device should be placed at waist height in your bedroom for monitoring sleep.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="what-does-it-record">
+<a class="anchor" href="#what-does-it-record" aria-hidden="true"><span class="octicon octicon-link"></span></a>What does it record?</h2>
+
+<p>The YOLI automatically records respiration rate of nearby people every minute during the night.</p>
+
+<h2 id="how-is-it-used">
+<a class="anchor" href="#how-is-it-used" aria-hidden="true"><span class="octicon octicon-link"></span></a>How is it used?</h2>
+
+<p>The YOLI should be placed near your bed, ideally on a bedside table and at waist height (Figure 2). Once it is connected to a power source and added to your home Wi-Fi, or to a Wi-Fi hotspot provided by the study phone (if no home Wi-Fi is available), it will automatically begin monitoring your sleep health. Before you go to sleep, please make sure to use the switch on the front of the device (Figure 1) to turn it on and make sure the indicator light is on and not flashing. When you wake up and start your day, please turn the device off during the day to conserve energy and data bandwidth.</p>
+
+<h1 id="data-transfer-protocol-for-patients">
+<a class="anchor" href="#data-transfer-protocol-for-patients" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data transfer protocol for patients</h1>
+
+<h2 id="as-a-patient-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days">
+<a class="anchor" href="#as-a-patient-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a patient: do I need to do anything on a daily basis or all N days?</h2>
+
+<p>Yes. You should manually connect the YOLI mobile application to your home WiFi and ensure that the YOLI device is turned on during the agreed monitoring periods and placed close to your bed. The YOLI device will automatically record your heart rate and breathing rate when turned on. Guidance for how to connect to WiFi are <a href="#connecting-to-wi-fi-first-use-only">described below</a>.</p>
+
+<h2 id="as-a-patient-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended">
+<a class="anchor" href="#as-a-patient-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a patient: do I need to do anything after each individual period of device / app use ended?</h2>
+
+<p>Yes. Outside of the agreed monitoring period please turn the YOLI device off by using the power button on the front of the device.</p>
+
+<h2 id="as-a-patient-do-i-need-to-do-anything-after-my-full-periods-of-use-of-a-specific-device--app-ends">
+<a class="anchor" href="#as-a-patient-do-i-need-to-do-anything-after-my-full-periods-of-use-of-a-specific-device--app-ends" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a patient: do I need to do anything after my full periods of use of a specific device / app ends?</h2>
+
+<p>Yes. Please turn off the device when not being used.</p>
+
+<hr>
+
+<hr>
+
+<h1 id="data-transfer-protocol-for-professionals">
+<a class="anchor" href="#data-transfer-protocol-for-professionals" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data transfer protocol for professionals</h1>
+
+<h2 id="as-a-professional-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days-for-each-patient-using-a-specific-device--app">
+<a class="anchor" href="#as-a-professional-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days-for-each-patient-using-a-specific-device--app" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a professional: do I need to do anything on a daily basis or all N days (for each patient using a specific device / app)?</h2>
+
+<p>Yes. On the first day of providing the participant with the device you should log into the YOLI website and associate the device with a participant. This will allow you to use the website to check that the data is recorded successfully across the duration of the study.</p>
+
+<p>Please log in to the <a href="https://nctms.zkboyue.com/">YOLI website</a> using the <strong>site credential</strong> on the encrypted password vault as <a href="https://docs.ideafast.eu/pro/hubcomputer#keepassx-password-manager">described in the computer setup documentation</a>. Once logged in, you need to add the device as a “bed” and associate it with a participant ID through the website. Please use the <em>participant ID</em> and <em>device id</em> when adding a new bed, for example P-ABC, and ZK1-Q2PNDF:</p>
+
+<p><img src="../images/zk/6.jpeg" alt=""></p>
+
+<p>You can view the list of devices (”beds”). Tap ”Add bed” to add a new device:</p>
+
+<p><img src="../images/zk/7.jpeg" alt=""></p>
+
+<p>Enter the device ID (e.g. ZK1-Q2PNDF) and the participant’s ID for the bed. The device is associated with bed while you add the bed on the system. When a patient is booked into the bed, the system automatically associates the patient to the device.</p>
+
+<p>Once a device is added, you can then add a note to remind you which participant each device is associated with:</p>
+
+<p><img src="../images/zk/8.jpeg" alt=""></p>
+
+<p>The home screen will list each bed as a device used by a participant, when you add a bed to the system and register the participant in the corresponding bed. Data is displayed in the real-time, and you can log into the YOLI website and verify that each device has been used by participant at any time.</p>
+
+<p><img src="../images/zk/9.jpeg" alt=""></p>
+
+<p>If you want to see the record of the monitoring data, you can check through “<strong>Today Data</strong>” or ”<strong>Historical Data</strong>”. And you can click the button of “<strong>Export Data</strong>” to download the physiological data.</p>
+
+<p><img src="../images/zk/10.jpeg" alt=""></p>
+
+<p><strong>Note:</strong> If these fields are empty, then the participant has not setup the device correctly and please contact them as soon as possible.</p>
+
+<p><img src="../images/zk/11.jpeg" alt=""></p>
+
+<h2 id="as-a-professional-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended-for-each-patient-using-a-specific-device--app">
+<a class="anchor" href="#as-a-professional-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended-for-each-patient-using-a-specific-device--app" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a professional: do I need to do anything after each individual period of device / app use ended (for each patient using a specific device / app)?</h2>
+
+<p>Yes. You should change the status of the participant through the <a href="https://nctms.zkboyue.com/">YOLI website</a> from “<strong>active</strong>” to “<strong>discharged</strong>” as illustrated below:</p>
+
+<p><img src="../images/zk/12.jpeg" alt=""></p>
+
+<h2 id="as-a-professional-do-i-need-to-do-anything-after-the-full-periods-of-use-of-a-specific-device--app-ends-for-each-patient-using-a-specific-device--app">
+<a class="anchor" href="#as-a-professional-do-i-need-to-do-anything-after-the-full-periods-of-use-of-a-specific-device--app-ends-for-each-patient-using-a-specific-device--app" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a professional: do I need to do anything after the full periods of use of a specific device / app ends (for each patient using a specific device / app)?</h2>
+
+<p>Yes. As noted above, data recorded for each device across the study period can be downloaded through the YOLO website using the “<strong>export data”</strong> function. Login credentials can be accessed from within the encrypted vault as <a href="https://docs.ideafast.eu/pro/hubcomputer#keepassx-password-manager">described in the computer setup documentation</a>.</p>
+
+<hr>
+
+<hr>
+
+<h1 id="original-device-setup-and-pairing">
+<a class="anchor" href="#original-device-setup-and-pairing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Original device setup and pairing</h1>
+
+<h2 id="if-handling-a-device-and-it-arrives-new-what-needs-doing-before-it-gets-sent-to-a-study-centre">
+<a class="anchor" href="#if-handling-a-device-and-it-arrives-new-what-needs-doing-before-it-gets-sent-to-a-study-centre" aria-hidden="true"><span class="octicon octicon-link"></span></a>If handling a device and it arrives new: what needs doing before it gets sent to a study centre?</h2>
+
+<h3 id="put-into-inventory-management">
+<a class="anchor" href="#put-into-inventory-management" aria-hidden="true"><span class="octicon octicon-link"></span></a>Put into inventory management?</h3>
+
+<p>Update device inventory to verify that you have received the device. Please navigate to <a href="https://inventory.ideafast.eu">https://inventory.ideafast.eu</a> and follow the steps for registering a new device, e.g. input the current location, provider device ID and the IDEA-FAST device ID (from the ID sticker). If the device is not yet equipped with an IDEA-FAST device ID sticker, please attach a new ID sticker from your sticker supply to the back of the YOLI device. Please do not forget to enter this ID in the inventory management system accordingly.</p>
+
+<h3 id="needs-firmware-update">
+<a class="anchor" href="#needs-firmware-update" aria-hidden="true"><span class="octicon octicon-link"></span></a>Needs firmware update?</h3>
+
+<p>Not applicable.</p>
+
+<h3 id="pairing-with-a-companion-application">
+<a class="anchor" href="#pairing-with-a-companion-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pairing with a companion application?</h3>
+
+<p>Data is stored on YOLI device and transferred to the cloud when connected to Wi-Fi. Therefore, initial pairing is required in the original setup.</p>
+
+<h3 id="any-account-setup-required">
+<a class="anchor" href="#any-account-setup-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any account setup required?</h3>
+
+<p>No account setup is required as the YOLI will automatically connect to the associated mobile application. However, initial setup is required to connect the YOLI device to the home Wi-Fi network. Turn on the YOLI device, then long press the touch key which is on the front of the device until the light on the side is quickly flashing. The light is quickly flash when the device is waiting to configure the Wi-Fi. Once the Wi-Fi tool application is open, you will see screenshot as below. You should then connect the YOLI device to your home Wi-Fi using the associated YOLI application on the Samsung A40 smartphone.</p>
+
+<h3 id="needs-pairing-with-hub-device">
+<a class="anchor" href="#needs-pairing-with-hub-device" aria-hidden="true"><span class="octicon octicon-link"></span></a>Needs pairing with hub device?</h3>
+
+<p>Yes. The YOLI application will come pre-installed on the provided Samsung A40 smartphone and needs to be used to link the YOLI device to a Wi-Fi internet connection.</p>
+
+<h3 id="any-assembly-required">
+<a class="anchor" href="#any-assembly-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any assembly required?</h3>
+
+<p>Not applicable.</p>
+
+<h3 id="package-together-with-which-other-devices-for-which-study-centre">
+<a class="anchor" href="#package-together-with-which-other-devices-for-which-study-centre" aria-hidden="true"><span class="octicon octicon-link"></span></a>Package together with which other devices for which study centre?</h3>
+
+<p>Not applicable.</p>
+
+<h2 id="if-handling-an-application-what-needs-doing-before-a-study-centre-can-use-the-app">
+<a class="anchor" href="#if-handling-an-application-what-needs-doing-before-a-study-centre-can-use-the-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>If handling an application: what needs doing before a study centre can use the app?</h2>
+
+<h3 id="do-we-need-to-get-accounts-from-the-application-provider">
+<a class="anchor" href="#do-we-need-to-get-accounts-from-the-application-provider" aria-hidden="true"><span class="octicon octicon-link"></span></a>Do we need to get accounts from the application provider?</h3>
+
+<p>Not applicable.</p>
+
+<h3 id="can-the-software-be-downloaded-or-do-we-need-to-make-it-available">
+<a class="anchor" href="#can-the-software-be-downloaded-or-do-we-need-to-make-it-available" aria-hidden="true"><span class="octicon octicon-link"></span></a>Can the software be downloaded, or do we need to make it available?</h3>
+
+<p>Not applicable.</p>
+
+<h3 id="does-it-need-to-be-installed-on-the-hub-devices">
+<a class="anchor" href="#does-it-need-to-be-installed-on-the-hub-devices" aria-hidden="true"><span class="octicon octicon-link"></span></a>Does it need to be installed on the hub devices?</h3>
+
+<p>Not applicable.</p>
+
+<h3 id="do-we-need-to-activate-study-accounts">
+<a class="anchor" href="#do-we-need-to-activate-study-accounts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Do we need to activate study accounts?</h3>
+
+<p>Not applicable.</p>
+
+<h1 id="device-pre-setup-and-configuration">
+<a class="anchor" href="#device-pre-setup-and-configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Device pre-setup and configuration</h1>
+
+<h2 id="what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work">
+<a class="anchor" href="#what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work" aria-hidden="true"><span class="octicon octicon-link"></span></a>What sort of a device / application is this, what is it for and how does it work?</h2>
+
+<p>YOLI is a sleep monitor that uses millimetre wave biological radar technology to monitor respiratory rate in real-time from participants in a non-intrusive wave.</p>
+
+<p><img src="../images/zk/13.jpeg" alt=""></p>
+
+<p>Functions of the Sleep Monitor:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+<img src="../images/zk/14.jpeg" alt=""><strong>Non-contact</strong><br>Installed on the wall or placed on the bedside table.</td>
+      <td>
+<img src="../images/zk/15.jpeg" alt=""> <strong>Sleep Apnea syndrome</strong><br>Monitoring Apnea accident and analysing AHI. It tells you the potential sleep health hazards.</td>
+    </tr>
+    <tr>
+      <td>
+<img src="../images/zk/16.jpeg" alt=""> <strong>Instant physiological parameter</strong><br>Heart Rate, Respiratory Rate, Sleep Status, Physical Motion and Other Sign Data.</td>
+      <td>
+<img src="../images/zk/17.jpeg" alt=""> <strong>Off-bed warning</strong><br>Aim at warning about abnormal vital signs and Long hours away from bed.</td>
+    </tr>
+    <tr>
+      <td>
+<img src="../images/zk/18.jpeg" alt=""> <strong>Sleep health analysis</strong><br>Analysing sleep health quality through judging their deep sleep, shallow sleep, REM, waking heart rate, breathing rate, body movement and turning over were also discussed.</td>
+      <td>
+<img src="../images/zk/19.jpeg" alt=""> <strong>Smart clock</strong><br>Waking up the user at the most appropriate time according to the wake-up time range selected by the user.</td>
+    </tr>
+    <tr>
+      <td>
+<img src="../images/zk/20.jpeg" alt=""> <strong>Sleep sound</strong><br>Broadcast music to improve sleep.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="what-has-already-been-done-in-pre-setup-for-the-device-or-application">
+<a class="anchor" href="#what-has-already-been-done-in-pre-setup-for-the-device-or-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>What has already been done in pre-setup for the device or application?</h2>
+
+<p>Yes. The YOLI mobile application will have been installed on the provided device hub (Samsung A40) and logged in using a pre-created account.</p>
+
+<h2 id="what-will-need-to-be-done-before-a-patient-can-start-using-this">
+<a class="anchor" href="#what-will-need-to-be-done-before-a-patient-can-start-using-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>What will need to be done before a patient can start using this?</h2>
+
+<h3 id="any-account-setup-required">
+<a class="anchor" href="#any-account-setup-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any account setup required?</h3>
+
+<p>Not applicable.</p>
+
+<h3 id="needs-pairing-with-hub-device">
+<a class="anchor" href="#needs-pairing-with-hub-device" aria-hidden="true"><span class="octicon octicon-link"></span></a>Needs pairing with hub-device?</h3>
+
+<p>Not applicable.</p>
+
+<h3 id="any-configuration--assembly-required">
+<a class="anchor" href="#any-configuration--assembly-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any configuration / assembly required?</h3>
+
+<p>Yes. The participant must use the YOLI app on the device hub smartphone to connect to device to their home Wi-Fi, or if a home WiFi is not available - to the WiFi hotspot provided by the study phone.</p>
+
+<h1 id="devicehow-tosetup">
+<a class="anchor" href="#devicehow-tosetup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Device How To setup </h1>
+
+<h2 id="what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work">
+<a class="anchor" href="#what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work" aria-hidden="true"><span class="octicon octicon-link"></span></a>What sort of a device / application is this, what is it for and how does it work?</h2>
+
+<h2 id="what-will-i-need-to-do-before-i-can-start-using-this">
+<a class="anchor" href="#what-will-i-need-to-do-before-i-can-start-using-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>What will I need to do before I can start using this?</h2>
+
+<p>You will need to power on the YOLI device and connect it to Wi-Fi on its first us. The device needs to be plugged in to its associated 12V power supply as outlined below:</p>
+
+<p><img src="../images/zk/21.jpeg" alt=""></p>
+
+<h3 id="any-account-setup-required">
+<a class="anchor" href="#any-account-setup-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any account setup required?</h3>
+
+<p>No. The YOLI application will come pre-installed on the provided Samsung A40 smartphone.</p>
+
+<h4 id="connecting-to-wi-fi-first-use-only">
+<a class="anchor" href="#connecting-to-wi-fi-first-use-only" aria-hidden="true"><span class="octicon octicon-link"></span></a>Connecting to Wi-Fi (first use only)</h4>
+
+<p>Turn on the YOLI device, then long press the touch key which is on the front of the device until the light on the side is quickly flashing. The light is quickly flash when the device is waiting to configure the Wi-Fi. Once the Wi-Fi tool application is open, you will see screenshot as below. You should then connect the YOLI device to your home Wi-Fi using the associated YOLI application on the Samsun A40 smartphone. Tap the icon on the home screen to open the mobile application:</p>
+
+<p><img src="../images/zk/22.jpeg" alt=""></p>
+
+<p>Once open, the home screen will show YOLO Wi-Fi configuration user interface where you need to enter the name and password of your home WiFi. This is required for YOLI to automatically upload data. If you are unsure what your home WiFi SSID (name) and password are, these are typically written on the back of your router that provides Internet to your home.</p>
+
+<p><img src="../images/zk/23.jpeg" alt=""></p>
+
+<p>If you do not have a home Wi-Fi, please enable and use the provided smartphone’s Wi-Fi hotspot as <a href="https://docs.ideafast.eu/pro/hubphone#enabling-hotspot">described here</a>.</p>
+
+<p>If the YOLI device does not appear, please turn the YOLI on and off from the switch:</p>
+
+<p><img src="../images/zk/24.jpeg" alt=""></p>
+
+<h3 id="needs-pairing-with-hub-device">
+<a class="anchor" href="#needs-pairing-with-hub-device" aria-hidden="true"><span class="octicon octicon-link"></span></a>Needs pairing with hub-device?</h3>
+
+<p>Yes. The YOLI application will come pre-installed on the provided Samsung A40 smartphone and needs to be used to link the YOLI device to a Wi-Fi internet connection.</p>
+
+<h3 id="any-configuration--assembly-required">
+<a class="anchor" href="#any-configuration--assembly-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any configuration / assembly required?</h3>
+
+<p>Not applicable.</p>
+
+<h1 id="troubleshootingfaq">
+<a class="anchor" href="#troubleshootingfaq" aria-hidden="true"><span class="octicon octicon-link"></span></a>Troubleshooting/FAQ</h1>
+
+<h2 id="the-device--app-seems-to-have-stopped-working-what-should-i-do">
+<a class="anchor" href="#the-device--app-seems-to-have-stopped-working-what-should-i-do" aria-hidden="true"><span class="octicon octicon-link"></span></a>The device / app seems to have stopped working: what should I do?</h2>
+
+<h3 id="battery">
+<a class="anchor" href="#battery" aria-hidden="true"><span class="octicon octicon-link"></span></a>Battery?</h3>
+
+<p>Not applicable. The YOLI device uses a DC charger.</p>
+
+<h3 id="connectivity-issues">
+<a class="anchor" href="#connectivity-issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Connectivity issues?</h3>
+
+<p>Wi-Fi is required on the YOLI device for it to record data correctly. The LED light on the side of the device will be always on to show that it is connected to Wi-Fi and will blink slowly when the device is not connected to the Wi-Fi.</p>
+
+<p><img src="../images/zk/2.jpeg" alt=""></p>
+
+<h3 id="need-to-restart-or-log-in-again">
+<a class="anchor" href="#need-to-restart-or-log-in-again" aria-hidden="true"><span class="octicon octicon-link"></span></a>Need to restart or log in again?</h3>
+
+<p>Not applicable.</p>
+
+<h3 id="does-the-device-need-to-be-plugged-in-constantly">
+<a class="anchor" href="#does-the-device-need-to-be-plugged-in-constantly" aria-hidden="true"><span class="octicon octicon-link"></span></a>Does the device need to be plugged in constantly?</h3>
+
+<p>Yes, the device need be plugged in constantly.</p>
+
+<h3 id="which-room-should-it-go-in">
+<a class="anchor" href="#which-room-should-it-go-in" aria-hidden="true"><span class="octicon octicon-link"></span></a>Which room should it go in?</h3>
+
+<p>When the patient sleeps on the bed or sits in the chair, the device needs to be placed as shown in Figure. 1. Note that the patient needs to keep still (without body movement), the device can monitor the patient breath in a contactless manner. The distance between the device and the human target needs to be less than 3m.</p>
+
+<p><img src="../images/zk/26.jpeg" alt=""></p>
+
+<h3 id="how-much-memory-does-the-zkone-device-have">
+<a class="anchor" href="#how-much-memory-does-the-zkone-device-have" aria-hidden="true"><span class="octicon octicon-link"></span></a>How much memory does the ZKOne device have?</h3>
+
+<p>It will save 24 hours data before the device restart. (if there is no network)</p>
+
+<h3 id="what-quantity-of-data-is-produced-for-one-night-sleep">
+<a class="anchor" href="#what-quantity-of-data-is-produced-for-one-night-sleep" aria-hidden="true"><span class="octicon octicon-link"></span></a>What quantity of data is produced for one night sleep?</h3>
+
+<p>The data is saved every 2 seconds with the format (e.g., timestamp, respiration rate). The quantity of data is about 500KB for one night.</p>
+
+<h3 id="can-data-be-manually-retrieved-from-the-zkone-device">
+<a class="anchor" href="#can-data-be-manually-retrieved-from-the-zkone-device" aria-hidden="true"><span class="octicon octicon-link"></span></a>Can data be manually retrieved from the ZKOne device?</h3>
+
+<p>No. Data can only be retrieved from the cloud server.</p>
+
+<h3 id="does-the-zkone-function-correctly-without-a-wi-fi-connection">
+<a class="anchor" href="#does-the-zkone-function-correctly-without-a-wi-fi-connection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Does the ZKOne function correctly without a Wi-Fi connection?</h3>
+
+<p>No. WiFi is required for the ZKOne YOLI Sleep monitor device to function correctly.</p>
+
+<h2 id="how-can-i-get-help-with-using-this">
+<a class="anchor" href="#how-can-i-get-help-with-using-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>How can I get help with using this?</h2>
+
+<p>If you have any other questions or concerns, please contact your local study centre:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Newcastle, United Kingdom</strong></td>
+      <td><strong>Rotterdam, Netherlands</strong></td>
+      <td><strong>Kiel, Germany</strong></td>
+      <td><strong>Muenster, Germany</strong></td>
+    </tr>
+    <tr>
+      <td>Person Name<br>Centre Name<br>Location</td>
+      <td>Person Name<br>Centre Name<br>Location</td>
+      <td>Person Name<br>Centre Name<br>Location</td>
+      <td>Person Name<br>Centre Name<br>Location</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="device-return">
+<a class="anchor" href="#device-return" aria-hidden="true"><span class="octicon octicon-link"></span></a>Device return</h1>
+
+<h2 id="what-do-i-do-when-a-period-of-device-use-is-over">
+<a class="anchor" href="#what-do-i-do-when-a-period-of-device-use-is-over" aria-hidden="true"><span class="octicon octicon-link"></span></a>What do I do when a period of device use is over?</h2>
+
+<p>Turn the device off by pressing the button on the front of the YOLI device and the light on the side will also turn off.</p>
+
+<h2 id="before-the-device-is-returned-or-disposed-of-does-any-data-need-to-be-transferred">
+<a class="anchor" href="#before-the-device-is-returned-or-disposed-of-does-any-data-need-to-be-transferred" aria-hidden="true"><span class="octicon octicon-link"></span></a>Before the device is returned or disposed of: does any data need to be transferred?</h2>
+
+<p>Not applicable. The YOLI device automatically uploads data in real-time to the YOLI services where data can be downloaded as outlined above.</p>
+
+<h2 id="do-i-need-to-return-the-device-somewhere">
+<a class="anchor" href="#do-i-need-to-return-the-device-somewhere" aria-hidden="true"><span class="octicon octicon-link"></span></a>Do I need to return the device somewhere?</h2>
+
+<p>Please contact the person that provided you with it to arrange further steps. You will have to return it by post – subject to further individual arrangement.</p>
+
+<h1 id="returned-device-processing-and-cleaning--an-application-use-period-for-a-participant-has-ended">
+<a class="anchor" href="#returned-device-processing-and-cleaning--an-application-use-period-for-a-participant-has-ended" aria-hidden="true"><span class="octicon octicon-link"></span></a>Returned device processing and cleaning / an application use period for a participant has ended</h1>
+
+<h2 id="do-i-need-to-clean-the-device-after-each-participant-returns-the-device">
+<a class="anchor" href="#do-i-need-to-clean-the-device-after-each-participant-returns-the-device" aria-hidden="true"><span class="octicon octicon-link"></span></a>Do I need to clean the device after each participant returns the device?</h2>
+
+<p>Not applicable.</p>
+
+<h2 id="what-type-of-material-can-cleansterilise-the-device">
+<a class="anchor" href="#what-type-of-material-can-cleansterilise-the-device" aria-hidden="true"><span class="octicon octicon-link"></span></a>What type of material can clean/sterilise the device?</h2>
+
+<p>Not applicable.</p>
+
+<h2 id="trigger-data-transfer-protocols">
+<a class="anchor" href="#trigger-data-transfer-protocols" aria-hidden="true"><span class="octicon octicon-link"></span></a>Trigger Data Transfer Protocols?</h2>
+
+<p>Not applicable. Data is recorded on the YOLI device every 2 seconds and roughly 500KB is recorded per night. Data is automatically transferred from the device YOLI’s server and the device stores 24-hours of data as a backup.</p>
+
+<h2 id="where-should-the-device-be-returned">
+<a class="anchor" href="#where-should-the-device-be-returned" aria-hidden="true"><span class="octicon octicon-link"></span></a>Where should the device be returned?</h2>
+
+<p>Prior to returning any device, please ensure all data has been transferred and successfully uploaded to the idea-fast data hub if required.</p>
+
+<h1 id="device-recycling-and-provisioning">
+<a class="anchor" href="#device-recycling-and-provisioning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Device recycling and provisioning</h1>
+
+<h2 id="how-will-the-devices-and-applications-be-supplied-to-the-study-site">
+<a class="anchor" href="#how-will-the-devices-and-applications-be-supplied-to-the-study-site" aria-hidden="true"><span class="octicon octicon-link"></span></a>How will the devices and applications be supplied to the study site?</h2>
+
+<p>The devices will be delivered to study site by express.</p>
+
+<h2 id="what-to-do-with-devices-once-the-study-site-is-entirely-done-with-them">
+<a class="anchor" href="#what-to-do-with-devices-once-the-study-site-is-entirely-done-with-them" aria-hidden="true"><span class="octicon octicon-link"></span></a>What to do with devices once the study site is entirely done with them?</h2>
+
+  </div>
+
+  <a class="u-url" href="/nl/all/zk" hidden></a>
+</article>
+
+      </div>
+    </main></body>
+
+</html>

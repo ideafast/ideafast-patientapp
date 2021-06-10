@@ -8,11 +8,11 @@
   
     <title>Vital Patch</title>
   
-  <link rel="manifest" href="de/manifest.json" crossorigin="use-credentials">
-  <link rel="stylesheet" href="de/assets/main.css">
-  <link rel="stylesheet" href="de/assets/app.css">
-  <link rel="apple-touch-icon" type="image/png" href="de/icons/favicon.png">
-  <link rel="shortcut icon" type="image/png" href="de/icons/favicon.png">
+  <link rel="manifest" href="/de/manifest.json" crossorigin="use-credentials">
+  <link rel="stylesheet" href="/de/assets/main.css">
+  <link rel="stylesheet" href="/de/assets/app.css">
+  <link rel="apple-touch-icon" type="image/png" href="/de/icons/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="/de/icons/favicon.png">
   <script type="text/javascript">
     if ("serviceWorker" in navigator) {
       if (navigator.serviceWorker.controller) {
@@ -20,7 +20,7 @@
       } else {
         // Register the service worker
         navigator.serviceWorker
-          .register("de/sw.js", {
+          .register("/de/sw.js", {
             scope: "./"
           })
           .then(function (reg) {
@@ -43,7 +43,57 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="general-device-introduction">General Device Introduction</h2>
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#general-device-introduction">General Device Introduction</a></li>
+<li class="toc-entry toc-h2"><a href="#how-does-this-device-look">How does this device look?</a></li>
+<li class="toc-entry toc-h2"><a href="#what-does-it-record">What does it record?</a></li>
+<li class="toc-entry toc-h2"><a href="#how-is-it-used">How is it used?</a></li>
+<li class="toc-entry toc-h1"><a href="#data-transfer-protocol-for-patients">Data transfer protocol for patients</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days">Do I need to do anything on a daily basis or all N days?</a></li>
+<li class="toc-entry toc-h2"><a href="#do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended">Do I need to do anything after each individual period of device / app use ended?</a></li>
+<li class="toc-entry toc-h2"><a href="#do-i-need-to-do-anything-after-my-full-periods-of-use-of-a-specific-device--app-ends">Do I need to do anything after my full periods of use of a specific device / app ends?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#device-how-to--setup-for-wear">Device How To / setup for wear</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#how-can-i-get-help-with-using-this">How can I get help with using this?</a></li>
+<li class="toc-entry toc-h2"><a href="#what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work">What sort of a device / application is this, what is it for and how does it work?</a></li>
+<li class="toc-entry toc-h2"><a href="#what-will-i-need-to-do-before-i-can-start-using-this">What will I need to do before I can start using this?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#any-account-setup-required">Any account setup required?</a></li>
+<li class="toc-entry toc-h3"><a href="#needs-pairing-with-hub-device">Needs pairing with hub-device?</a></li>
+<li class="toc-entry toc-h3"><a href="#any-configuration--assembly-required">Any configuration / assembly required?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#troubleshootingfaq">Troubleshooting/FAQ</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#the-device--app-seems-to-have-stopped-working-what-should-i-do">The device / app seems to have stopped working: what should I do?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#battery">Battery?</a></li>
+<li class="toc-entry toc-h3"><a href="#connectivity-issues">Connectivity issues?</a></li>
+<li class="toc-entry toc-h3"><a href="#need-to-restart-or-log-in-again">Need to restart or log in again?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#using-the-device--app-is-uncomfortable-to-me-what-can-i-do">Using the device / app is uncomfortable to me: what can I do?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#adjust-wear-style">Adjust wear style?</a></li>
+<li class="toc-entry toc-h3"><a href="#adjust-usage-pattern">Adjust usage pattern?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#device-return">Device return</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#what-do-i-do-when-a-period-of-device-use-is-over">What do I do when a period of device use is over?</a></li>
+<li class="toc-entry toc-h2"><a href="#before-the-device-is-returned-or-disposed-of-does-any-data-need-to-be-transferred">Before the device is returned or disposed of: does any data need to be transferred?</a></li>
+<li class="toc-entry toc-h2"><a href="#do-i-need-to-return-the-device-somewhere">Do I need to return the device somewhere?</a></li>
+</ul>
+</li>
+</ul><h2 id="general-device-introduction">
+<a class="anchor" href="#general-device-introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>General Device Introduction</h2>
 
 <p>The VitalPatch is a disposable chest-worn sensor for monitoring vital signs, such as: heart rate, body temperature and movement. The Vital records data and stores data on the device every few seconds and. The patch then sends this data to a mobile application via Bluetooth when it has a connection. The battery in the patch lasts for five-days and cannot be recharged.</p>
 
@@ -56,48 +106,56 @@
   </thead>
   <tbody>
     <tr>
-      <td><img src="../images/vital_patch/device.png" alt="" /></td>
-      <td><img src="../images/vital_patch/placement.png" alt="" /></td>
+      <td><img src="../images/vital_patch/device.png" alt=""></td>
+      <td><img src="../images/vital_patch/placement.png" alt=""></td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="how-does-this-device-look">How does this device look?</h2>
+<h2 id="how-does-this-device-look">
+<a class="anchor" href="#how-does-this-device-look" aria-hidden="true"><span class="octicon octicon-link"></span></a>How does this device look?</h2>
 
 <p>An overview of the VitalPatch's shape and components is illustrated below:</p>
 
-<p><img src="../images/vital_patch/topbottomview.png" alt="" /></p>
+<p><img src="../images/vital_patch/topbottomview.png" alt=""></p>
 
 <p><strong>Figure 1:</strong> <em>the top (to power on) and bottom (to attach to skin) view of the VitalPatch.</em></p>
 
-<h2 id="what-does-it-record">What does it record?</h2>
+<h2 id="what-does-it-record">
+<a class="anchor" href="#what-does-it-record" aria-hidden="true"><span class="octicon octicon-link"></span></a>What does it record?</h2>
 
 <p>The VitalPatch records body movements and posture (standing, sitting, etc.), heart rate, respiratory (breathing) rate, body temperature and skin temperature.</p>
 
-<h2 id="how-is-it-used">How is it used?</h2>
+<h2 id="how-is-it-used">
+<a class="anchor" href="#how-is-it-used" aria-hidden="true"><span class="octicon octicon-link"></span></a>How is it used?</h2>
 
-<p><img src="../images/vital_patch/primarysecondary.png" alt="" />
+<p><img src="../images/vital_patch/primarysecondary.png" alt="">
 The VitalPatch is applied to one of two positions in the upper left side of the chest as illustrated to the right. Body hair should be removed where the patch will be placed to ensure a good connection. It can be worn during a shower but exposure directly under the shower head should be minimal. Do not submerge the VitalPatch in water or use in a sauna.</p>
 
-<h1 id="data-transfer-protocol-for-patients">Data transfer protocol for patients</h1>
+<h1 id="data-transfer-protocol-for-patients">
+<a class="anchor" href="#data-transfer-protocol-for-patients" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data transfer protocol for patients</h1>
 
-<h2 id="do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days">Do I need to do anything on a daily basis or all N days?</h2>
+<h2 id="do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days">
+<a class="anchor" href="#do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days" aria-hidden="true"><span class="octicon octicon-link"></span></a>Do I need to do anything on a daily basis or all N days?</h2>
 
 <p>For first time useSo start using a VitalPatch, please follow the instructions in <a href="http://link/">Section 4</a> to pair the VitalPatch with your mobile device (the phone provided to you for this study). Once the VitalPatch is attached to your chest and turned on, it will automatically connect to its mobile application on the provided Samsung device and transfer data. As data is transferred via Bluetooth (in a range of 10 metres (32ft)), we recommend that you always carry the provided smartphone with you. If you lose connectivity between the patch and mobile phone, data is stored on the patch and will be transmitted once the phone has connectivity again. Please ensure that yourthe mobile device provided to you ("study phone") is placed near your bed when you sleep to accommodate data transfer in the night. You need to ensure the mobile device is kept charged.</p>
 
-<h2 id="do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended">Do I need to do anything after each individual period of device / app use ended?</h2>
+<h2 id="do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended">
+<a class="anchor" href="#do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended" aria-hidden="true"><span class="octicon octicon-link"></span></a>Do I need to do anything after each individual period of device / app use ended?</h2>
 
 <p>After using the device for 5 days it will be out of battery. To ensure that the patch has stopped recording please cut the patch in half. The old patch can be disposed of in the regular waste (it is fitted with a special type of battery that can safely be put into household waste).</p>
 
-<h2 id="do-i-need-to-do-anything-after-my-full-periods-of-use-of-a-specific-device--app-ends">Do I need to do anything after my full periods of use of a specific device / app ends?</h2>
+<h2 id="do-i-need-to-do-anything-after-my-full-periods-of-use-of-a-specific-device--app-ends">
+<a class="anchor" href="#do-i-need-to-do-anything-after-my-full-periods-of-use-of-a-specific-device--app-ends" aria-hidden="true"><span class="octicon octicon-link"></span></a>Do I need to do anything after my full periods of use of a specific device / app ends?</h2>
 
 <p>Yes. After your period of use ends, you will have a follow-up telephone call with the clinical researcher to discuss your monitoring period.</p>
 
-<h1 id="device-how-to--setup-for-wear">Device How To / setup for wear</h1>
+<h1 id="device-how-to--setup-for-wear">
+<a class="anchor" href="#device-how-to--setup-for-wear" aria-hidden="true"><span class="octicon octicon-link"></span></a>Device How To / setup for wear</h1>
 
 <p>The VitalPatch must be applied to the chest whereso that the logo side and battery are facing upwards, as shown in the image below:</p>
 
-<p><img src="../images/vital_patch/topbottomview.png" alt="" /></p>
+<p><img src="../images/vital_patch/topbottomview.png" alt=""></p>
 
 <p><strong>Figure N:</strong> <em>the top (to power on) and bottom (to attach to skin) view of the VitalPatch.</em></p>
 
@@ -105,37 +163,37 @@ The VitalPatch is applied to one of two positions in the upper left side of the 
 
 <p><em>Step 1: Handling VitalPatch</em></p>
 
-<p>Prior to applying the VitalPatch to your chest you must clean and dry your hands to remove any dirt. Do not touch the adhesive on the VitalPatch. <img src="../images/vital_patch/grasp.png" alt="" /></p>
+<p>Prior to applying the VitalPatch to your chest you must clean and dry your hands to remove any dirt. Do not touch the adhesive on the VitalPatch. <img src="../images/vital_patch/grasp.png" alt=""></p>
 
 <p><em>Step 2: Prepare skin</em></p>
 
-<p>The VitalPatch should be attached on the <em>upper left chest (left-hand side for the wearer)</em>. If the device cannot be placed here, then use the second application site instead (see Figure N). The second application site is located just left of the centreline, below the chest on the rib cage. For a good connection and proper operation, the patch should NOT be worn over areas with a lot of body hair. Remove body hair in the area of device placement before applying the device. See image to the left. <img src="../images/vital_patch/sides.png" alt="" /></p>
+<p>The VitalPatch should be attached on the <em>upper left chest (left-hand side for the wearer)</em>. If the device cannot be placed here, then use the second application site instead (see Figure N). The second application site is located just left of the centreline, below the chest on the rib cage. For a good connection and proper operation, the patch should NOT be worn over areas with a lot of body hair. Remove body hair in the area of device placement before applying the device. See image to the left. <img src="../images/vital_patch/sides.png" alt=""></p>
 
 <p><em>Step 3: Remove VitalPatch from pouch</em></p>
 
-<p>Tear open the pouch using the notch mark and remove the device carefully to _ <strong>avoid pressing the Power Button</strong> _ <strong>.</strong> RetainPlease do not yet dispose the pouch or the adhesive backing with the device Bluetooth ID number as you will need this information to connect to the mobile application. The Bluetooth ID number can be found on the pouch label or on the adhesive backing in both human readable and barcode formats. <img src="../images/vital_patch/pouch.png" alt="" /></p>
+<p>Tear open the pouch using the notch mark and remove the device carefully to _ <strong>avoid pressing the Power Button</strong> _ <strong>.</strong> RetainPlease do not yet dispose the pouch or the adhesive backing with the device Bluetooth ID number as you will need this information to connect to the mobile application. The Bluetooth ID number can be found on the pouch label or on the adhesive backing in both human readable and barcode formats. <img src="../images/vital_patch/pouch.png" alt=""></p>
 
 <p><strong>Note:</strong> Clean the area before use with soap and water and dry thoroughly. The application site should be free of oils and lotions to maximise adhesion. You must shave this area with a razor to be free from any hair.</p>
 
 <p><em>Step 4: Power-on the VitalPatch</em></p>
 
-<p><img src="../images/vital_patch/poweron.png" alt="" /> Locate and press the Power Button off centred on the device. Look for a green light illuminating temporarily to confirm the device is powered on as illustrated in the image to the left. This button will only flash briefly and turns off afterwards (even though the patch is on). If you are not sure whether the device was turned on successfully, please continue to follow the next steps as instructed and you will be able to see whether turning the device on worked once you reach step 7.</p>
+<p><img src="../images/vital_patch/poweron.png" alt=""> Locate and press the Power Button off centred on the device. Look for a green light illuminating temporarily to confirm the device is powered on as illustrated in the image to the left. This button will only flash briefly and turns off afterwards (even though the patch is on). If you are not sure whether the device was turned on successfully, please continue to follow the next steps as instructed and you will be able to see whether turning the device on worked once you reach step 7.</p>
 
 <p><em>Step 5: Position patch on the chest.</em></p>
 
-<p>With the adhesive backings still adhered (see image to the right), place the patch on a flat body surface on the left chest with one side. This should be roughly two fingers below the collar bone and angled toward the heart as illustrated to the right. While the exact angle is not critical, it is more important to attach the patch to the flattest surface of the chest to prevent it slipping when moving. The battery side of the device should be pointed to the left side of the patient's chest. <img src="../images/vital_patch/primarysecondarylocation.png" alt="" /></p>
+<p>With the adhesive backings still adhered (see image to the right), place the patch on a flat body surface on the left chest with one side. This should be roughly two fingers below the collar bone and angled toward the heart as illustrated to the right. While the exact angle is not critical, it is more important to attach the patch to the flattest surface of the chest to prevent it slipping when moving. The battery side of the device should be pointed to the left side of the patient's chest. <img src="../images/vital_patch/primarysecondarylocation.png" alt=""></p>
 
 <p><strong>Note:</strong> The logo on the patch should be positioned so it is readable by someone facing you. The battery will be closest to the left side of the chest. If the device cannot be placed in the Primary Location use the Secondary Location instead, which is located just left of the centreline, below the rib cage as illustrated above (see Figure N).</p>
 
 <p><em>Step 6: Apply patch to body.</em></p>
 
-<p>Hold one end of the patch against the chest. Lift the other side and grab the adhesive backing tab located near the centre of the device. Without touching the adhesive, pull the tab to remove the adhesive backing and press the patch down to apply. Repeat this process to apply the other side of the patch. Press down on both ends of the device to ensure it is well adhered to skin. Please avoid exercise and any exposure of the device to splash water for 30 minutes from when the VitalPatch is applied to your chest. <img src="../images/vital_patch/apply.png" alt="" /></p>
+<p>Hold one end of the patch against the chest. Lift the other side and grab the adhesive backing tab located near the centre of the device. Without touching the adhesive, pull the tab to remove the adhesive backing and press the patch down to apply. Repeat this process to apply the other side of the patch. Press down on both ends of the device to ensure it is well adhered to skin. Please avoid exercise and any exposure of the device to splash water for 30 minutes from when the VitalPatch is applied to your chest. <img src="../images/vital_patch/apply.png" alt=""></p>
 
 <p><em>Step 7: Connecting to Mobile Application</em></p>
 
 <p>MBS Health Application automatically starts when the phone is switched on. If no VitalPatch is detected, it will keep searching until one is found. Please make sure that Bluetooth is enabled on the phone. Note: the green power light only flashes briefly when the patch is first turned on. The phone will indicate that the patch is synced (not the light). No user input is required. When the mobile device is switched on, the status of vital sign monitoring will appear as notifications as illustrated below:</p>
 
-<p><img src="../images/vital_patch/phonestatus.png" alt="" /></p>
+<p><img src="../images/vital_patch/phonestatus.png" alt=""></p>
 
 <p>There are three status messages that you will likely see during the trial:</p>
 
@@ -149,9 +207,10 @@ The VitalPatch is applied to one of two positions in the upper left side of the 
 
 <p>If VitalPatch does not automatically connect to the app within a few minutes, it may be the case that the power-on as instructed above in Step 4 did not work. If that appears to be the case, please attempt to power it up one more time as follows:</p>
 
-<p><img src="../images/vital_patch/poweron.png" alt="" /> Once the VitalPatch has been attached to your chest you can turn it on by pressing the Power Button. A green light will flash temporarily to confirm the device has been switched on. Once the device has been successfully activated, tThis light will not continue to flash during wear.</p>
+<p><img src="../images/vital_patch/poweron.png" alt=""> Once the VitalPatch has been attached to your chest you can turn it on by pressing the Power Button. A green light will flash temporarily to confirm the device has been switched on. Once the device has been successfully activated, tThis light will not continue to flash during wear.</p>
 
-<h2 id="how-can-i-get-help-with-using-this">How can I get help with using this?</h2>
+<h2 id="how-can-i-get-help-with-using-this">
+<a class="anchor" href="#how-can-i-get-help-with-using-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>How can I get help with using this?</h2>
 
 <p>If you have any other questions or concerns, please contact your <em>local study centre:</em></p>
 
@@ -161,7 +220,9 @@ The VitalPatch is applied to one of two positions in the upper left side of the 
       <th><strong>Newcastle, United Kingdom</strong></th>
       <th><strong>Rotterdam, Netherlands</strong></th>
       <th><strong>Kiel, Germany</strong></th>
-      <th><strong>Mue</strong>** n <strong>**ster,</strong>  <strong>Germany</strong></th>
+      <th>
+<strong>Mue</strong>** n <strong>**ster,</strong>  <strong>Germany</strong>
+</th>
     </tr>
   </thead>
   <tbody>
@@ -174,63 +235,80 @@ The VitalPatch is applied to one of two positions in the upper left side of the 
   </tbody>
 </table>
 
-<h2 id="what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work">What sort of a device / application is this, what is it for and how does it work?</h2>
+<h2 id="what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work">
+<a class="anchor" href="#what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work" aria-hidden="true"><span class="octicon octicon-link"></span></a>What sort of a device / application is this, what is it for and how does it work?</h2>
 
 <p>VitalPatch is a chest-worn biosensor that continuously monitors vital signs for up to five days, such as heart rate and movement. Its lightweight design makes it less intrusive for daily wear and the data it records can help clinical professionals understand a range of medical conditions that were once only possible using large equipment in a hospital.</p>
 
-<h2 id="what-will-i-need-to-do-before-i-can-start-using-this">What will I need to do before I can start using this?</h2>
+<h2 id="what-will-i-need-to-do-before-i-can-start-using-this">
+<a class="anchor" href="#what-will-i-need-to-do-before-i-can-start-using-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>What will I need to do before I can start using this?</h2>
 
-<h3 id="any-account-setup-required">Any account setup required?</h3>
+<h3 id="any-account-setup-required">
+<a class="anchor" href="#any-account-setup-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any account setup required?</h3>
 
 <p>N/A</p>
 
-<h3 id="needs-pairing-with-hub-device">Needs pairing with hub-device?</h3>
+<h3 id="needs-pairing-with-hub-device">
+<a class="anchor" href="#needs-pairing-with-hub-device" aria-hidden="true"><span class="octicon octicon-link"></span></a>Needs pairing with hub-device?</h3>
 
 <p>N/ASee Step 7.</p>
 
-<h3 id="any-configuration--assembly-required">Any configuration / assembly required?</h3>
+<h3 id="any-configuration--assembly-required">
+<a class="anchor" href="#any-configuration--assembly-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any configuration / assembly required?</h3>
 
 <p>Yes, you will be required to attach the VitalPatch device to your chest. See Steps 1 to 7 for detailed instructions.</p>
 
-<h1 id="troubleshootingfaq">Troubleshooting/FAQ</h1>
+<h1 id="troubleshootingfaq">
+<a class="anchor" href="#troubleshootingfaq" aria-hidden="true"><span class="octicon octicon-link"></span></a>Troubleshooting/FAQ</h1>
 
-<h2 id="the-device--app-seems-to-have-stopped-working-what-should-i-do">The device / app seems to have stopped working: what should I do?</h2>
+<h2 id="the-device--app-seems-to-have-stopped-working-what-should-i-do">
+<a class="anchor" href="#the-device--app-seems-to-have-stopped-working-what-should-i-do" aria-hidden="true"><span class="octicon octicon-link"></span></a>The device / app seems to have stopped working: what should I do?</h2>
 
-<h3 id="battery">Battery?</h3>
+<h3 id="battery">
+<a class="anchor" href="#battery" aria-hidden="true"><span class="octicon octicon-link"></span></a>Battery?</h3>
 
 <p>The battery of the VitalPatch will last 5 days. If the battery is dead, you will not be able to connect in the mobile application as outlined above, and no further data will be recordedtherefore, data will be lost. If data has not yet been synchronised to the phone using the app before the VitalPatch runs out of battery, then any data not yet transferred is lost.</p>
 
-<h3 id="connectivity-issues">Connectivity issues?</h3>
+<h3 id="connectivity-issues">
+<a class="anchor" href="#connectivity-issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Connectivity issues?</h3>
 
 <p>If connection to your mobile device has failed, check that your mobile device supports Bluetooth Low Energy (BLE) and that the Bluetooth settings on your mobile device are on. If Bluetooth is enabled but the connection still fails, restart your mobile device and try connecting again. If the battery in your patch is exhausted, you will not be able to connect.</p>
 
-<h3 id="need-to-restart-or-log-in-again">Need to restart or log in again?</h3>
+<h3 id="need-to-restart-or-log-in-again">
+<a class="anchor" href="#need-to-restart-or-log-in-again" aria-hidden="true"><span class="octicon octicon-link"></span></a>Need to restart or log in again?</h3>
 
 <p>N/A</p>
 
-<h2 id="using-the-device--app-is-uncomfortable-to-me-what-can-i-do">Using the device / app is uncomfortable to me: what can I do?</h2>
+<h2 id="using-the-device--app-is-uncomfortable-to-me-what-can-i-do">
+<a class="anchor" href="#using-the-device--app-is-uncomfortable-to-me-what-can-i-do" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using the device / app is uncomfortable to me: what can I do?</h2>
 
 <p>TODO: INSERT NOTE ABOUT POSSIBILITY OF ALLERGIC REACTIONS / RED SKIN .. ITCHES … IF AFFECTED PLEASE CONTACT LOCAL STUDY CENTRE … IF ITCHING IS EXTREMELY UNC</p>
 
-<h3 id="adjust-wear-style">Adjust wear style?</h3>
+<h3 id="adjust-wear-style">
+<a class="anchor" href="#adjust-wear-style" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adjust wear style?</h3>
 
 <p>N/A/</p>
 
-<h3 id="adjust-usage-pattern">Adjust usage pattern?</h3>
+<h3 id="adjust-usage-pattern">
+<a class="anchor" href="#adjust-usage-pattern" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adjust usage pattern?</h3>
 
 <p>N/A</p>
 
-<h1 id="device-return">Device return</h1>
+<h1 id="device-return">
+<a class="anchor" href="#device-return" aria-hidden="true"><span class="octicon octicon-link"></span></a>Device return</h1>
 
-<h2 id="what-do-i-do-when-a-period-of-device-use-is-over">What do I do when a period of device use is over?</h2>
+<h2 id="what-do-i-do-when-a-period-of-device-use-is-over">
+<a class="anchor" href="#what-do-i-do-when-a-period-of-device-use-is-over" aria-hidden="true"><span class="octicon octicon-link"></span></a>What do I do when a period of device use is over?</h2>
 
 <p>Cut through the old patch and dispose in regular waste.</p>
 
-<h2 id="before-the-device-is-returned-or-disposed-of-does-any-data-need-to-be-transferred">Before the device is returned or disposed of: does any data need to be transferred?</h2>
+<h2 id="before-the-device-is-returned-or-disposed-of-does-any-data-need-to-be-transferred">
+<a class="anchor" href="#before-the-device-is-returned-or-disposed-of-does-any-data-need-to-be-transferred" aria-hidden="true"><span class="octicon octicon-link"></span></a>Before the device is returned or disposed of: does any data need to be transferred?</h2>
 
 <p>No. Once the VitalPatch is activated and synced with the provided mobile device the data is automatically transferred to phone. You must return this phone at the end of the study period.</p>
 
-<h2 id="do-i-need-to-return-the-device-somewhere">Do I need to return the device somewhere?</h2>
+<h2 id="do-i-need-to-return-the-device-somewhere">
+<a class="anchor" href="#do-i-need-to-return-the-device-somewhere" aria-hidden="true"><span class="octicon octicon-link"></span></a>Do I need to return the device somewhere?</h2>
 
 <p>Please contact the person that provided you with it to arrange further steps. You will have to return it by post – subject to further individual arrangement.</p>
 

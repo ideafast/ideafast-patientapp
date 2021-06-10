@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="de"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#010101">
+  
+  
+    <title>Dreem Headband</title>
+  
+  <link rel="manifest" href="/de/manifest.json" crossorigin="use-credentials">
+  <link rel="stylesheet" href="/de/assets/main.css">
+  <link rel="stylesheet" href="/de/assets/app.css">
+  <link rel="apple-touch-icon" type="image/png" href="/de/icons/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="/de/icons/favicon.png">
+  <script type="text/javascript">
+    if ("serviceWorker" in navigator) {
+      if (navigator.serviceWorker.controller) {
+        console.log("An active service worker found, no need to register");
+      } else {
+        // Register the service worker
+        navigator.serviceWorker
+          .register("/de/sw.js", {
+            scope: "./"
+          })
+          .then(function (reg) {
+            console.log("Service worker has been registered for scope: " + reg.scope);
+          });
+      }
+    }
+  </script>
+</head>
+<body>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        
+
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    
+    <h1 class="post-title p-name" itemprop="name headline">Dreem Headband</h1>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#data-transfer-protocol-for-professionals">Data transfer protocol for professionals</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#as-a-professional-do-i-need-to-do-anything-daily-or-all-n-days-for-each-patient-using-a-specific-device--app">As a professional: do I need to do anything daily or all N days (for each patient using a specific device / app)?</a></li>
+<li class="toc-entry toc-h2"><a href="#as-a-professional-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended-for-each-patient-using-a-specific-device--app">As a professional: do I need to do anything after each individual period of device / app use ended (for each patient using a specific device / app)?</a></li>
+<li class="toc-entry toc-h2"><a href="#verify-data-uploaded-by-participant">Verify Data Uploaded by Participant</a></li>
+<li class="toc-entry toc-h2"><a href="#login">Login</a></li>
+<li class="toc-entry toc-h2"><a href="#as-a-professional-do-i-need-to-do-anything-after-the-full-periods-of-use-of-a-specific-device--app-ends-for-each-patient-using-a-specific-device--app">As a professional: do I need to do anything after the full periods of use of a specific device / app ends (for each patient using a specific device / app)?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#original-device-setup-and-pairing">Original device setup and pairing</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#if-handling-a-device-and-it-arrives-new-what-needs-doing-before-it-gets-sent-to-a-study-centre">If handling a device and it arrives new: what needs doing before it gets sent to a study centre?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#put-into-inventory-management">Put into inventory management?</a></li>
+<li class="toc-entry toc-h3"><a href="#needs-firmware-update">Needs firmware update?</a></li>
+<li class="toc-entry toc-h3"><a href="#pairing-with-a-companion-application">Pairing with a companion application?</a></li>
+<li class="toc-entry toc-h3"><a href="#any-account-setup-required">Any account setup required?</a></li>
+<li class="toc-entry toc-h3"><a href="#needs-pairing-with-hub-device">Needs pairing with hub device.</a></li>
+<li class="toc-entry toc-h3"><a href="#any-assembly-required">Any assembly required?</a></li>
+<li class="toc-entry toc-h3"><a href="#package-together-with-which-other-devices-for-which-study-centre">Package together with which other devices for which study centre?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#if-handling-an-application-what-needs-doing-before-a-study-centre-can-use-the-app">If handling an application: what needs doing before a study centre can use the app?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#do-we-need-to-get-accounts-from-the-application-provider">Do we need to get accounts from the application provider?</a></li>
+<li class="toc-entry toc-h3"><a href="#can-the-software-be-downloaded-or-do-we-need-to-make-it-available">Can the software be downloaded, or do we need to make it available?</a></li>
+<li class="toc-entry toc-h3"><a href="#does-it-need-to-be-installed-on-the-hub-devices">Does it need to be installed on the hub devices?</a></li>
+<li class="toc-entry toc-h3"><a href="#do-we-need-to-activate-study-accounts">Do we need to activate study accounts?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#device-pre-setup-and-configuration">Device pre-setup and configuration</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work">What sort of a device / application is this, what is it for and how does it work?</a></li>
+<li class="toc-entry toc-h2"><a href="#what-has-already-been-done-in-pre-setup-for-the-device-or-application">What has already been done in pre-setup for the device or application?</a></li>
+<li class="toc-entry toc-h2"><a href="#what-will-need-to-be-done-before-a-patient-can-start-using-this">What will need to be done before a patient can start using this?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#any-account-setup-required">Any account setup required?</a></li>
+<li class="toc-entry toc-h3"><a href="#needs-pairing-with-hub-device">Needs pairing with hub-device?</a></li>
+<li class="toc-entry toc-h3"><a href="#any-configuration--assembly-required">Any configuration / assembly required?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#troubleshootingfaq">Troubleshooting/FAQ</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#the-device--app-seems-to-have-stopped-working-what-should-i-do">The device / app seems to have stopped working: what should I do?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#battery">Battery?</a></li>
+<li class="toc-entry toc-h3"><a href="#connectivity-issues">Connectivity issues?</a></li>
+<li class="toc-entry toc-h3"><a href="#need-to-restart-or-log-in-again">Need to restart or log in again?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#using-the-device--app-is-uncomfortable-to-me-what-can-i-do">Using the device / app is uncomfortable to me: what can I do?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#adjust-wear-style">Adjust wear style?</a></li>
+<li class="toc-entry toc-h3"><a href="#adjust-usage-pattern">Adjust usage pattern?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#how-can-i-get-help-with-using-this">How can I get help with using this?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#returned-device-processing-and-cleaning--an-application-use-period-for-a-participant-has-ended">Returned device processing and cleaning / an application use period for a participant has ended</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#do-i-need-to-clean-the-device-after-each-participant-returns-the-device">Do I need to clean the device after each participant returns the device?</a></li>
+<li class="toc-entry toc-h2"><a href="#trigger-data-transfer-protocols">Trigger Data Transfer Protocols?</a></li>
+<li class="toc-entry toc-h2"><a href="#where-should-the-device-be-returned">Where should the device be returned?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#device-recycling-and-provisioning">Device recycling and provisioning</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#how-will-the-devices-and-applications-be-supplied-to-the-study-site">How will the devices and applications be supplied to the study site?</a></li>
+<li class="toc-entry toc-h2"><a href="#what-to-do-with-devices-once-the-study-site-is-entirely-done-with-them">What to do with devices once the study site is entirely done with them?</a></li>
+</ul>
+</li>
+</ul><p><strong>General Device Introduction</strong></p>
+
+<p><img src="../images/dreem/1.jpeg" alt="">The Dreem 2 device is a wireless headband that can record, store, and automatically analyse brain function such as sleep activity, in real-time without any connection (e.g., Bluetooth, Wi-Fi, etc.).</p>
+
+<p><strong>What does it record?</strong></p>
+
+<p>The headband had sensors on the front and back of the device that records brain wave activity and movement data, which is used to calculate sleep stages. This data is stored on the headband then uploaded to the Internet when the Dreem 2 headband is connected to Wi-Fi.</p>
+
+<p><strong>How is it used?</strong></p>
+
+<p>The Dreem 2 headband is worn on the head during sleeping. It has sensors embedded in the front and back parts of the headband to ensure it records accurate reading while you move during sleep. The headband is flexible and can be adjusted to accommodate all head shapes and sizes. The sensors within the Dreem 2 headband should be in direct contact with the skin similar to how it is positioned below.</p>
+
+<p><strong><em>Table 1:</em></strong><em>An overview of how the device is positioned on the head.</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/dreem/2.jpeg" alt=""></td>
+      <td><img src="../images/dreem/3.jpeg" alt=""></td>
+      <td><img src="../images/dreem/4.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>
+<strong>Figure 1:</strong> The front sensors must be placed in the middle of the forehead.</td>
+      <td>
+<strong>Figure 2:</strong>The back sensors must be pushed against your scalp.</td>
+      <td>
+<strong>Figure 3:</strong> To ensure optimal support throughout the night, pull the upper arch backwards.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="data-transfer-protocol-for-professionals">
+<a class="anchor" href="#data-transfer-protocol-for-professionals" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data transfer protocol for professionals</h1>
+
+<h2 id="as-a-professional-do-i-need-to-do-anything-daily-or-all-n-days-for-each-patient-using-a-specific-device--app">
+<a class="anchor" href="#as-a-professional-do-i-need-to-do-anything-daily-or-all-n-days-for-each-patient-using-a-specific-device--app" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a professional: do I need to do anything daily or all N days (for each patient using a specific device / app)?</h2>
+
+<p>Not applicable.</p>
+
+<h2 id="as-a-professional-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended-for-each-patient-using-a-specific-device--app">
+<a class="anchor" href="#as-a-professional-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended-for-each-patient-using-a-specific-device--app" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a professional: do I need to do anything after each individual period of device / app use ended (for each patient using a specific device / app)?</h2>
+
+<p>Yes. After a participant has worn a device for 2<strong>days</strong> you should<strong>verify that they have connected the device to Wi-Fi and uploaded data.</strong>You can do thisthrough the Dreem 2 website as outlined below.</p>
+
+<h2 id="verify-data-uploaded-by-participant">
+<a class="anchor" href="#verify-data-uploaded-by-participant" aria-hidden="true"><span class="octicon octicon-link"></span></a><em>Verify Data Uploaded by Participant</em>
+</h2>
+
+<p>Each participant will connect the provided Dreem 2 headband to their home Wi-Fi, which will automatically upload data to the Dreem 2 servers once the device is on charge. The Dreem 2 headband stores 80-hours of recording on a headband and so it is important to verify that the data has been uploaded and is of good quality (to ensure the headband is worn correctly). If it is not, then please contact the participant to provide further assistance.</p>
+
+<h2 id="login">
+<a class="anchor" href="#login" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Login</em></strong>
+</h2>
+
+<p>Data uploaded by each participant is stored on Dreem 2’s website (<a href="https://ts-viewer.rythm.co">https://ts-viewer.rythm.co</a>) and can be accessed using the<strong>site credential</strong> on the provided_encrypted vault._To access this:</p>
+
+<ul>
+  <li>
+</ul>
+
+<p><strong><em>Records availability</em></strong></p>
+
+<p>Once logged in, you will then see a list of recordings, when they took place, their duration and on what device. For each recording, the email address associated with the provided Samsung smartphone, the device ID, the start time and the duration of the recording are listed.<strong>The “user” and “device” will help you identify which records to view.</strong></p>
+
+<p>Records are organised by upload order where the newest appears first. There are two types of records:</p>
+
+<ul>
+  <li>Grey records are recordings that have been successfully uploaded to the servers.</li>
+  <li>Red records are recordings that have<strong>not been successfully uploaded to the server.</strong> This is typically due to having no Wi-Fi connection or the headband has not yet been plugged in.</li>
+</ul>
+
+<p><img src="../images/dreem/5.jpeg" alt=""></p>
+
+<p><strong>Fig. 12: Dreem 2 portal for viewing uploaded data</strong></p>
+
+<p><strong><em>Record quality check assessment</em></strong></p>
+
+<p>The procedure to assess the quality of a recording is detailed below.</p>
+
+<p><strong><em>Step 1. Record data metrics check</em></strong></p>
+
+<p>On the home page, click on the desired record to display the record dashboard at the bottom of the screen (Figure 13). This provides further details based on signal quality for the chosen record.</p>
+
+<p><img src="../images/dreem/6.jpeg" alt=""></p>
+
+<p><strong>Fig. 13: Dreem 2 portal – Home page with record dashboard</strong></p>
+
+<p><strong><em>Channel indexes of the recording</em></strong></p>
+
+<p>Under the ‘Quality’ section you will see the_frontal_and_occipital_index channels, which report a<strong>percentage</strong>to show the overall quality of the recording. The quality value is deemed satisfactory if it is &gt;=<strong>0.7</strong>as outlined in Table 2:</p>
+
+<p>Table 2: Average index channel quality thresholds</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Average index channel</strong></td>
+      <td><strong>Indication</strong></td>
+    </tr>
+    <tr>
+      <td>0.7-1</td>
+      <td>Success</td>
+    </tr>
+    <tr>
+      <td>0.55-0.69</td>
+      <td>Borderline – Note as failure</td>
+    </tr>
+    <tr>
+      <td>0.01-0.54</td>
+      <td>Failure</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong><em>Step 2. Manually Verify Data Quality</em></strong></p>
+
+<p>Manual record inspection of the raw Dreem 2 data will need to be performed for each recording where the index channel is borderline or failure (&lt; 0.69). Double-click on the desired record and a new page will appear where you can access to the entire raw recording.</p>
+
+<p><strong>1.</strong><strong>Setting Workspace</strong></p>
+
+<p>By clicking the toolbox in the viewer, you will be able to set parameters for the viewing, such as epoch duration, channels displayed, etc.</p>
+
+<p><img src="../images/dreem/7.jpeg" alt=""></p>
+
+<p><strong>Figure 15. Morpheo Viewer with Toolbox open</strong></p>
+
+<p><strong>2.</strong><strong>Choosing Signals</strong></p>
+
+<p>Click ‘<strong>Select Signals</strong>’ in the toolbar (Figure 15) to configure all available signals. From the ‘<strong>select signals</strong>’ menu, you can drag any signal from ‘available’ to ‘selected’. This will allow visualisation of the channels raw data in the viewer. You can also drag the signal box up and down, to change its viewing location in the viewer. Press<strong>‘multiplot’</strong>at the bottom right to implement your desired workspace / montage.</p>
+
+<p>Note: Scales and filters of record signals have been pre-processed. They are not necessary to set for Dreem 2 record inspections. The recommended workspace for record inspection includes:</p>
+
+<ul>
+  <li>
+    <ul>
+      <li>7 EEG Channels.</li>
+      <li>1 accelerometer (Norm) channel that will detect subject movements (which can also result in loss of good quality signal).</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>3.</strong><strong>Scroll through record</strong></p>
+
+<p>Press the right and left arrows (Figure 16) to move the signal viewing window forward or back by 10 seconds. Pressing the_enter_ button will move the window forward by 30 seconds (one epoch).</p>
+
+<p><img src="../images/dreem/8.jpeg" alt=""></p>
+
+<p><strong>Figure 16. Morpheo Viewer Signal Selection Window</strong></p>
+
+<p><strong>4.</strong><strong>Record Inspection</strong></p>
+
+<p>Scroll through the record and note record quality of the EEG:<strong>good quality is determined if there are no missing data</strong>. Sleep onset, sleep biomarkers (sleep spindles, K-complexes, delta waves, etc.), and sleep stages should be visualised through the record in the EEG.</p>
+
+<p><img src="../images/dreem/9.jpeg" alt=""></p>
+
+<p><strong>Figure 17: Good signal quality – Stage 2 sleep with sleep spindles is easily distinguished.</strong></p>
+
+<p>When these features cannot be detected, the epochs should be noted as poor quality signal. Over 2 hours of poor-quality signal will be noted as a record failure.</p>
+
+<p><img src="../images/dreem/10.jpeg" alt=""></p>
+
+<p><strong>Figure 18: Poor signal quality- Sleep stage and biomarkers are not easily distinguished.</strong></p>
+
+<p>Records can have good signal quality in some channels with poor signal quality in other channels. The signal quality is still considered acceptable when one occipital and one frontal EEG channel has sleep stage / sleep biomarker deductible signals.</p>
+
+<p><img src="../images/dreem/11.jpeg" alt=""></p>
+
+<p><strong>Figure 19: Acceptable signal quality - Poor signal originating from F7 sensor. However, one frontal and 3 occipital channels are of good quality. This is acceptable for good signal quality.</strong></p>
+
+<p>If the signal quality is not satisfactory, you may want to contact the patient to provide guidance on how to better place the headband to ensure optimal sleep signal quality.</p>
+
+<h2 id="as-a-professional-do-i-need-to-do-anything-after-the-full-periods-of-use-of-a-specific-device--app-ends-for-each-patient-using-a-specific-device--app">
+<a class="anchor" href="#as-a-professional-do-i-need-to-do-anything-after-the-full-periods-of-use-of-a-specific-device--app-ends-for-each-patient-using-a-specific-device--app" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a professional: do I need to do anything after the full periods of use of a specific device / app ends (for each patient using a specific device / app)?</h2>
+
+<p><strong>Yes.</strong> There are<strong>five steps</strong> concerning data transfer that must be followed after the full study period:</p>
+
+<ol>
+  <li>Connect the Dreem 2 headband to Wi-Fi to<strong>upload any remaining data</strong>.</li>
+  <li>Log into the associated website to view and<strong>download this data to your work computer</strong>.</li>
+  <li>
+<strong>Upload participant’s data</strong> to the IDEA-FAST data hub.</li>
+  <li>Create a<strong>local backup</strong> of the participant’s data on the provided external hard drive.</li>
+  <li>
+<strong>Reinstall</strong>the Dreem 2 app on the device smartphone before a new participant uses it.</li>
+</ol>
+
+<p><strong>1. Upload Data</strong></p>
+
+<p>All data from the Dreem 2 headband should be automatically uploaded by participants through their home Wi-Fi during the study period. After the full wear period, please connect the smartphone to Internet and setup the headband to a local Wi-Fi using instructions in<strong>Section 2</strong>. Once connected, place the headband on charge (see Section 2) and verify that the participant had no red records (i.e. data that is not uploaded) through Dreem 2’s Viewer web interface.</p>
+
+<p><strong>2. Downloading Data</strong></p>
+
+<p>Data that has been uploaded from the Dreem 2 headband will be stored on Dreem 2’s servers and can be viewed using the<strong>Dreem 2 Viewer</strong> application. Please login using your site credentials as outlined in . Once logged in, you will see data from all participants across sites.<strong>USER</strong>is the ID of the smartphone (e.g.<strong>A40-5AF59F)</strong> and the<strong>DEVICE</strong>is the ID of the Dreem 2 headband (e.g.<strong>DRM-GE7FXG)</strong>: both IDs will be attached as labels on the device.</p>
+
+<p><img src="../images/dreem/12.jpeg" alt=""></p>
+
+<p><strong>Figure 20:</strong> The Dreem 2 Viewer home page where you can view and download participant’s data.</p>
+
+<p>Tap the “<strong>Device</strong>” column to sort all rows by device. Find the device you want to download data for by clicking the “<strong>Next</strong>” button at the bottom of the screen until the desired device appears.</p>
+
+<p><img src="../images/dreem/13.jpeg" alt=""></p>
+
+<p><strong>Figure 21:</strong> The “Prev” and “Next buttons are used to navigate to other data.</p>
+
+<p>Once you see rows where the device you wish to download data for appears, are ready to begin downloading data. If any of the rows are red, please refer to the<strong>upload data</strong> section above. Once ready, press Shift + Click each column that you want to download data for, and press “<strong>Download</strong>” located in the top left corner of the screen (Figure 20).</p>
+
+<p>This data will be saved by default into your downloads folder located at:</p>
+
+<p><strong>C:\Users\YourUserName\Downloads</strong></p>
+
+<p>Please create a new folder on your desktop named “<strong>IDEA-FAST</strong>” where you can store all downloaded data by participant. For each participant, create a new folder inside IDEA-FAST named “{PHONEID}-{DEVICEID}”. Using the example phone ID (A40-5AF59F<strong>)</strong>and device ID (DRM-GE7FXG) above, this results in:</p>
+
+<p><img src="../images/dreem/14.jpeg" alt=""></p>
+
+<p><strong>Figure 23:</strong>Store participant’s data on your desktop in a folder by phone ID and participant ID.</p>
+
+<p><strong><em>Data Overview</em></strong></p>
+
+<p>Data downloaded will vary in size depending on the length of sleep sessions. An overview of each file expected to be downloaded and estimated size is outlined below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>File Type</strong></td>
+      <td><strong>File Description</strong></td>
+      <td><strong>Estimated Size (~5 days use)</strong></td>
+    </tr>
+    <tr>
+      <td><em>.tar.gz</em></td>
+      <td>A zipped file containing raw data encoded in binary blobs.</td>
+      <td>90-200MB</td>
+    </tr>
+    <tr>
+      <td>.h5</td>
+      <td>Raw data in h5 format.</td>
+      <td>300-500MB</td>
+    </tr>
+    <tr>
+      <td>.edf</td>
+      <td>The EEG and 3D accelerometer data in the European data format (EDF)</td>
+      <td>150-400MB</td>
+    </tr>
+    <tr>
+      <td>.jpeg</td>
+      <td>The hypnogram image.</td>
+      <td>&lt; 1MB</td>
+    </tr>
+    <tr>
+      <td>.txt</td>
+      <td>This file is presented as scoring files when extracting from a sleep-scoring software. The sleep-staging providing in this file is the Dreem 2-algorithm which is slightly different from the one (smoothed-Dreem 2-algorithm) that is used for visualisation on the app.</td>
+      <td>&lt; 1MB</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>3. Transfer Data to IDEA-FAST Data Hub</strong></p>
+
+<p><strong>4. Create Data Backup on External Hard Drive</strong></p>
+
+<p><strong>5. Reinstall Dreem 2 Application on Samsung Smartphone</strong></p>
+
+<p>The Dreem 2 mobile application should be reinstalled on the study smartphone prior to being used by another participant. This will delete any data associated with the previous participant. To do that press and hold the Dreem 2 icon that’s located on the home screen on the smartphone. A popup with four options will appear. Tap “App Info” and you will be taken to an options screen (Figure 24).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/dreem/15.jpeg" alt=""></td>
+      <td><img src="../images/dreem/16.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>
+<strong>Figure 24: T</strong>ap and hold on icon to view options.</td>
+      <td>
+<strong>Figure 25:</strong> Scroll to the bottom to view app.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Scroll to the bottom and tap “App details in store” to view the app on the Google Play Store (Figure 25), which will display two options: “<strong>Uninstall</strong>” and “<strong>Open</strong>”.<strong>Tap Uninstall.</strong></p>
+
+<p><img src="../images/dreem/17.jpeg" alt=""></p>
+
+<p><strong>Figure 26:</strong> Viewing the Dreem 2 application on the Google Play Store.</p>
+
+<p>After tapping uninstall, a popup box will appear (Figure 26). Tap OK to begin uninstalling.</p>
+
+<p><img src="../images/dreem/18.jpeg" alt=""></p>
+
+<p><strong>Figure 27:</strong>Uninstalling the Dreem 2 application.</p>
+
+<p>Once the application is uninstalled, only an “Install” button will appear (Figure 28). Tap Install to begin installing the Dreem 2 application.</p>
+
+<p><img src="../images/dreem/19.jpeg" alt=""></p>
+
+<p><strong>Figure 28:</strong> Installing the Dreem 2 application.</p>
+
+<p>Once installed, tap “<strong>Open</strong>” (Figure 23) to Open the Dreem 2 application. Tap “<strong>I ALREADY HAVE AN ACCOUNT</strong>” on the home screen (Fig 26) and choose “Via Email” to log into the application (Fig 27).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/dreem/20.jpeg" alt=""></td>
+      <td><img src="../images/dreem/21.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 26: Select “I already have an account”</td>
+      <td>Figure 27: Select “via email” to log in</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Enter the email address and password based on the device ID of the dream headset. The label on the headset is the device ID. You can find the associated email and password in the {ACCESS_ENCRYPTED_FAULT_INSTRUCTIONS}}.</p>
+
+<h1 id="original-device-setup-and-pairing">
+<a class="anchor" href="#original-device-setup-and-pairing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Original device setup and pairing</h1>
+
+<h2 id="if-handling-a-device-and-it-arrives-new-what-needs-doing-before-it-gets-sent-to-a-study-centre">
+<a class="anchor" href="#if-handling-a-device-and-it-arrives-new-what-needs-doing-before-it-gets-sent-to-a-study-centre" aria-hidden="true"><span class="octicon octicon-link"></span></a>If handling a device and it arrives new: what needs doing before it gets sent to a study centre?</h2>
+
+<h3 id="put-into-inventory-management">
+<a class="anchor" href="#put-into-inventory-management" aria-hidden="true"><span class="octicon octicon-link"></span></a>Put into inventory management?</h3>
+
+<p>{DEVICE_INVENTORY_INSTRUCTIONS}</p>
+
+<h3 id="needs-firmware-update">
+<a class="anchor" href="#needs-firmware-update" aria-hidden="true"><span class="octicon octicon-link"></span></a>Needs firmware update?</h3>
+
+<p>Not applicable.</p>
+
+<h3 id="pairing-with-a-companion-application">
+<a class="anchor" href="#pairing-with-a-companion-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pairing with a companion application?</h3>
+
+<p>Not applicable.</p>
+
+<h3 id="any-account-setup-required">
+<a class="anchor" href="#any-account-setup-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any account setup required?</h3>
+
+<p>No. Accounts for the Dreem 2 mobile application (installed on the provided smartphone) and website (for clinical staff to view participant’s data) have been setup for each mobile phone and study site.</p>
+
+<p>Account credentials for both the participants smartphone and cloud platform are available through an encrypted keychain. Please see {INSTRUCTIONS_TO_VIEW_PASSWORDS} for more details.</p>
+
+<h3 id="needs-pairing-with-hub-device">
+<a class="anchor" href="#needs-pairing-with-hub-device" aria-hidden="true"><span class="octicon octicon-link"></span></a>Needs pairing with hub device.</h3>
+
+<p>Not applicable.</p>
+
+<h3 id="any-assembly-required">
+<a class="anchor" href="#any-assembly-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any assembly required?</h3>
+
+<p>The tightness of the headband needs to be adjusted by choosing an appropriate size of adjusters. A smaller size is recommended and should only be changed if the patient feels uncomfortable with the tightness.</p>
+
+<h3 id="package-together-with-which-other-devices-for-which-study-centre">
+<a class="anchor" href="#package-together-with-which-other-devices-for-which-study-centre" aria-hidden="true"><span class="octicon octicon-link"></span></a>Package together with which other devices for which study centre?</h3>
+
+<p>Not applicable.</p>
+
+<h2 id="if-handling-an-application-what-needs-doing-before-a-study-centre-can-use-the-app">
+<a class="anchor" href="#if-handling-an-application-what-needs-doing-before-a-study-centre-can-use-the-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>If handling an application: what needs doing before a study centre can use the app?</h2>
+
+<h3 id="do-we-need-to-get-accounts-from-the-application-provider">
+<a class="anchor" href="#do-we-need-to-get-accounts-from-the-application-provider" aria-hidden="true"><span class="octicon octicon-link"></span></a>Do we need to get accounts from the application provider?</h3>
+
+<p>Not applicable. The Dreem 2 mobile application will be preinstalled (including logged in) on the provided smartphone and ready for use by a participant. Dreem 2’s<a href="http://login.rthym.co/data_access/register/">associated</a> website where clinical professionals can access, view and download data requires a separate login credentials.</p>
+
+<p>Account credentials for both the participants smartphone and cloud platform are available through an encrypted vault. Please see {INSTRUCTIONS_TO_VIEW_PASSWORDS} for more details.</p>
+
+<h3 id="can-the-software-be-downloaded-or-do-we-need-to-make-it-available">
+<a class="anchor" href="#can-the-software-be-downloaded-or-do-we-need-to-make-it-available" aria-hidden="true"><span class="octicon octicon-link"></span></a>Can the software be downloaded, or do we need to make it available?</h3>
+
+<p>Not applicable. The Dreem 2 mobile application will be pre-installed on all provided Samsung devices.</p>
+
+<h3 id="does-it-need-to-be-installed-on-the-hub-devices">
+<a class="anchor" href="#does-it-need-to-be-installed-on-the-hub-devices" aria-hidden="true"><span class="octicon octicon-link"></span></a>Does it need to be installed on the hub devices?</h3>
+
+<p>Yes. The Dreem 2 application will come pre-installed and logged into the device hub smartphone using ideafast-{HUB_DEVICE_ID}@dreem.com as the login name.</p>
+
+<h3 id="do-we-need-to-activate-study-accounts">
+<a class="anchor" href="#do-we-need-to-activate-study-accounts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Do we need to activate study accounts?</h3>
+
+<p>Not applicable. However, if you need to reinstall the mobile application please use the device hub email as outlined above. The associated password can be obtained through {INSTRUCTIONS_TO_VIEW_PASSWORDS}.</p>
+
+<h1 id="device-pre-setup-and-configuration">
+<a class="anchor" href="#device-pre-setup-and-configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Device pre-setup and configuration</h1>
+
+<h2 id="what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work">
+<a class="anchor" href="#what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work" aria-hidden="true"><span class="octicon octicon-link"></span></a>What sort of a device / application is this, what is it for and how does it work?</h2>
+
+<p><img src="../images/dreem/22.jpeg" alt="">The Dreem 2 device is a headband that records physiological data (EEG brain wave activity) and movement during sleep. The headband connects to a Wi-Fi and automatically uploads this data to the Dreem 2 cloud platform when on charge. A separate mobile application can show participant’s aggregated metrics of their sleep, such as sleep stages and movement.</p>
+
+<h2 id="what-has-already-been-done-in-pre-setup-for-the-device-or-application">
+<a class="anchor" href="#what-has-already-been-done-in-pre-setup-for-the-device-or-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>What has already been done in pre-setup for the device or application?</h2>
+
+<p>The Dreem mobile application has been installed on the provided device hub (Samsung A40) and logged in using a pre-created account.</p>
+
+<h2 id="what-will-need-to-be-done-before-a-patient-can-start-using-this">
+<a class="anchor" href="#what-will-need-to-be-done-before-a-patient-can-start-using-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>What will need to be done before a patient can start using this?</h2>
+
+<h3 id="any-account-setup-required">
+<a class="anchor" href="#any-account-setup-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any account setup required?</h3>
+
+<p>No. The Dreem 2 application will come pre-installed on the provided Samsung A40 smartphone. If you need to reinstall the mobile application, such as when a new participant uses it, you<strong>must log in via the “email” option in the log screen</strong>. A set of email addresses and passwords to use are outlined in {INSTRUCTIONS_TO_VIEW_PASSWORDS}, which includes credentials to view and download participant’s data from Dreem 2’s website (<a href="http://url-to-other-page"><strong>Section N</strong></a>).</p>
+
+<h3 id="needs-pairing-with-hub-device">
+<a class="anchor" href="#needs-pairing-with-hub-device" aria-hidden="true"><span class="octicon octicon-link"></span></a>Needs pairing with hub-device?</h3>
+
+<p>Not applicable.</p>
+
+<h3 id="any-configuration--assembly-required">
+<a class="anchor" href="#any-configuration--assembly-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any configuration / assembly required?</h3>
+
+<p>When logging in on the Dreem 2 App a Bluetooth connection will be required, so that it can communicate with the headband. The Dreem 2 headband requires a Wi-Fi connection to upload raw data from the headband to the server.</p>
+
+<h1 id="troubleshootingfaq">
+<a class="anchor" href="#troubleshootingfaq" aria-hidden="true"><span class="octicon octicon-link"></span></a>Troubleshooting/FAQ</h1>
+
+<h2 id="the-device--app-seems-to-have-stopped-working-what-should-i-do">
+<a class="anchor" href="#the-device--app-seems-to-have-stopped-working-what-should-i-do" aria-hidden="true"><span class="octicon octicon-link"></span></a>The device / app seems to have stopped working: what should I do?</h2>
+
+<h3 id="battery">
+<a class="anchor" href="#battery" aria-hidden="true"><span class="octicon octicon-link"></span></a>Battery?</h3>
+
+<p>The Dreem 2 headband will last around 12 hours and takes 2-3 hours to fully charge. Please charge your headband in the day after night use to ensure the data can be recorded when worn.</p>
+
+<h3 id="connectivity-issues">
+<a class="anchor" href="#connectivity-issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Connectivity issues?</h3>
+
+<p>If you are having trouble pairing your headband and smartphone, please ensure that: your headband is sufficiently charged and near the smartphone. If you continue to have issues, please restart your phone and headband by turning both off and on by holding the power button down on each device for 5 seconds.</p>
+
+<h3 id="need-to-restart-or-log-in-again">
+<a class="anchor" href="#need-to-restart-or-log-in-again" aria-hidden="true"><span class="octicon octicon-link"></span></a>Need to restart or log in again?</h3>
+
+<p>The provided smartphone uses study specific credentials to log into the mobile application. If you have logged out, please contact the research site for how to log into the Dreem 2 app.</p>
+
+<h2 id="using-the-device--app-is-uncomfortable-to-me-what-can-i-do">
+<a class="anchor" href="#using-the-device--app-is-uncomfortable-to-me-what-can-i-do" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using the device / app is uncomfortable to me: what can I do?</h2>
+
+<h3 id="adjust-wear-style">
+<a class="anchor" href="#adjust-wear-style" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adjust wear style?</h3>
+
+<p>If you feel that the headband is too tight or lose during use, please readjust the headband to find a more comfortable fit. Details of adjusting the headband are described in<a href="http://section1">Section 1</a>.</p>
+
+<h3 id="adjust-usage-pattern">
+<a class="anchor" href="#adjust-usage-pattern" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adjust usage pattern?</h3>
+
+<p>The Dreem 2 headband should be worn during sleep. If you encounter any skin sensitivity or irritation, please contact your local study centre as indicated below.</p>
+
+<h2 id="how-can-i-get-help-with-using-this">
+<a class="anchor" href="#how-can-i-get-help-with-using-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>How can I get help with using this?</h2>
+
+<p>If you have any other questions or concerns, please contact your <em>local study centre:</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Newcastle, United Kingdom</strong></td>
+      <td><strong>Rotterdam, Netherlands</strong></td>
+      <td><strong>Kiel, Germany</strong></td>
+      <td><strong>Muenster, Germany</strong></td>
+    </tr>
+    <tr>
+      <td>Person Name<br>Centre Name<br>Location</td>
+      <td>Person Name<br>Centre Name<br>Location</td>
+      <td>Person Name<br>Centre Name<br>Location</td>
+      <td>Person Name<br>Centre Name<br>Location</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<hr>
+
+<h1 id="returned-device-processing-and-cleaning--an-application-use-period-for-a-participant-has-ended">
+<a class="anchor" href="#returned-device-processing-and-cleaning--an-application-use-period-for-a-participant-has-ended" aria-hidden="true"><span class="octicon octicon-link"></span></a>Returned device processing and cleaning / an application use period for a participant has ended</h1>
+
+<h2 id="do-i-need-to-clean-the-device-after-each-participant-returns-the-device">
+<a class="anchor" href="#do-i-need-to-clean-the-device-after-each-participant-returns-the-device" aria-hidden="true"><span class="octicon octicon-link"></span></a>Do I need to clean the device after each participant returns the device?</h2>
+
+<p>Yes. The headbands should be cleaned with alcohol wipes.</p>
+
+<p>What type of material can clean the device?</p>
+
+<p>Alcohol wipescan be used to clean the Dreem 2 headband.</p>
+
+<h2 id="trigger-data-transfer-protocols">
+<a class="anchor" href="#trigger-data-transfer-protocols" aria-hidden="true"><span class="octicon octicon-link"></span></a>Trigger Data Transfer Protocols?</h2>
+
+<p>The Dreem 2 headband stores up to 80-hours of recording internally and uses Wi-Fi to transfer data from the device to Dreem 2’s servers. Each participant must configure the Dreem 2 device to connect with their home Wi-Fi. You should log into Dreem 2’s website to monitor the status of each participant’s data as outlined in Section 2.</p>
+
+<h2 id="where-should-the-device-be-returned">
+<a class="anchor" href="#where-should-the-device-be-returned" aria-hidden="true"><span class="octicon octicon-link"></span></a>Where should the device be returned?</h2>
+
+<p>Prior to returning any device, please ensure all data have been transferred and successfully uploaded to the IDEA-FAST hub (link to above).</p>
+
+<h1 id="device-recycling-and-provisioning">
+<a class="anchor" href="#device-recycling-and-provisioning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Device recycling and provisioning</h1>
+
+<h2 id="how-will-the-devices-and-applications-be-supplied-to-the-study-site">
+<a class="anchor" href="#how-will-the-devices-and-applications-be-supplied-to-the-study-site" aria-hidden="true"><span class="octicon octicon-link"></span></a>How will the devices and applications be supplied to the study site?</h2>
+
+<p>Devices will be shipped by Dreem 2 directly to study sites. The Dreem 2 mobile application will be preinstalled on the provided Samsung smartphones.</p>
+
+<h2 id="what-to-do-with-devices-once-the-study-site-is-entirely-done-with-them">
+<a class="anchor" href="#what-to-do-with-devices-once-the-study-site-is-entirely-done-with-them" aria-hidden="true"><span class="octicon octicon-link"></span></a>What to do with devices once the study site is entirely done with them?</h2>
+
+<p>This is still to be decided upon.</p>
+
+
+  </div>
+
+  <a class="u-url" href="/de/pro/dreem" hidden></a>
+</article>
+
+      </div>
+    </main></body>
+
+</html>

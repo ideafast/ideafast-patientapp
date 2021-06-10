@@ -49,12 +49,49 @@
     text-align: center;
 }
 
-img {
-    display: block;
-    max-height: 30em;
-    margin: 0 auto;
+@media screen and (min-width: 1000px) {
+    .mobile {
+        display: none;
+    }
+
+    .desktop {
+        display:  inherit;
+    }
+
+    .desktop table {
+        text-align: center;
+    }
+
 }
 
-table {
-    text-align: center;
+@media screen and (max-width: 999px) {
+    .mobile {
+        display: inherit;
+    }
+
+    .desktop {
+        display:  none;
+    }
+
+    .mobile img {
+        display: block;
+        max-height: inherit;
+        margin: 0 auto;
+        width:100%;
+    }
+
+    .mobile table {
+        text-align: center !important;
+    }
+
+    body {
+        align-items: stretch;
+        overflow-x: hidden;
+        width:100%;
+    }
+
+    html {
+        overflow-x: hidden;
+        }
+    }
 }

@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html lang="nl"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#010101">
+  
+  
+    <title>Hub Phone Setup</title>
+  
+  <link rel="manifest" href="/nl/manifest.json" crossorigin="use-credentials">
+  <link rel="stylesheet" href="/nl/assets/main.css">
+  <link rel="stylesheet" href="/nl/assets/app.css">
+  <link rel="apple-touch-icon" type="image/png" href="/nl/icons/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="/nl/icons/favicon.png">
+  <script type="text/javascript">
+    if ("serviceWorker" in navigator) {
+      if (navigator.serviceWorker.controller) {
+        console.log("An active service worker found, no need to register");
+      } else {
+        // Register the service worker
+        navigator.serviceWorker
+          .register("/nl/sw.js", {
+            scope: "./"
+          })
+          .then(function (reg) {
+            console.log("Service worker has been registered for scope: " + reg.scope);
+          });
+      }
+    }
+  </script>
+</head>
+<body>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        
+
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    
+    <h1 class="post-title p-name" itemprop="name headline">Hub Phone Setup</h1>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#general-device-introduction">General Device Introduction</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#how-does-this-device-look">How does this device look?</a></li>
+<li class="toc-entry toc-h2"><a href="#how-is-it-used">How is it used?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#data-transfer-protocol-for-patients">Data transfer protocol for patients</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#as-a-patient-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days">As a patient: do I need to do anything on a daily basis or all N days?</a></li>
+<li class="toc-entry toc-h2"><a href="#as-a-patient-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended">As a patient: do I need to do anything after each individual period of device / app use ended?</a></li>
+<li class="toc-entry toc-h2"><a href="#as-a-patient-do-i-need-to-do-anything-after-my-full-periods-of-use-of-a-specific-device--app-ends">As a patient: do I need to do anything after my full periods of use of a specific device / app ends?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#data-transfer-protocol-for-professionals">Data transfer protocol for professionals</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#as-a-professional-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days-for-each-patient-using-a-specific-device--app">As a professional: do I need to do anything on a daily basis or all N days (for each patient using a specific device / app)?</a></li>
+<li class="toc-entry toc-h2"><a href="#as-a-professional-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended-for-each-patient-using-a-specific-device--app">As a professional: do I need to do anything after each individual period of device / app use ended (for each patient using a specific device / app)?</a></li>
+<li class="toc-entry toc-h2"><a href="#as-a-professional-do-i-need-to-do-anything-after-the-full-periods-of-use-of-a-specific-device--app-ends-for-each-patient-using-a-specific-device--app">As a professional: do I need to do anything after the full periods of use of a specific device / app ends (for each patient using a specific device / app)?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#original-device-setup-and-pairing">Original device setup and pairing</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#if-handling-a-device-and-it-arrives-new-what-needs-doing-before-it-gets-sent-to-a-study-centre">If handling a device and it arrives new: what needs doing before it gets sent to a study centre?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#first-time-use">First Time Use</a></li>
+<li class="toc-entry toc-h3"><a href="#operating-system-update">Operating System Update</a></li>
+<li class="toc-entry toc-h3"><a href="#adding-mobile-phone-sim-only-for-certain-study-sites">Adding Mobile Phone SIM (only for certain study sites)</a></li>
+<li class="toc-entry toc-h3"><a href="#remove-preinstalled-apps">Remove preinstalled apps</a></li>
+<li class="toc-entry toc-h3"><a href="#update-existing-apps">Update Existing Apps</a></li>
+<li class="toc-entry toc-h3"><a href="#remove-samsung-daily">Remove Samsung Daily</a></li>
+<li class="toc-entry toc-h3"><a href="#remove-home-screen">Remove Home Screen</a></li>
+<li class="toc-entry toc-h3"><a href="#disable-google-assistant">Disable Google Assistant</a></li>
+<li class="toc-entry toc-h3"><a href="#install-sensing-applications">Install Sensing Applications</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#dreem">Dreem</a></li>
+<li class="toc-entry toc-h4"><a href="#vtt-stress-monitor">VTT Stress Monitor</a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#enabling-permissions">Enabling Permissions</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h4"><a href="#mediobiosense-health-for-vitalpatch">MedioBioSense Health (for VitalPatch)</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#install-miscellaneous-applications">Install Miscellaneous Applications</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#ideafast-support-materials">IDEAFAST Support Materials</a></li>
+<li class="toc-entry toc-h4"><a href="#team-viewer-quick-support">Team Viewer (Quick Support)</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#disable-sound">Disable Sound</a></li>
+<li class="toc-entry toc-h3"><a href="#configuring-hotspot">Configuring Hotspot</a></li>
+<li class="toc-entry toc-h3"><a href="#enabling-hotspot">Enabling Hotspot</a></li>
+<li class="toc-entry toc-h3"><a href="#organise-quick-panel">Organise Quick Panel</a></li>
+<li class="toc-entry toc-h3"><a href="#disabling-homescreen-shortcuts">Disabling HomeScreen Shortcuts</a></li>
+<li class="toc-entry toc-h3"><a href="#label-samsung-device">Label Samsung Device</a></li>
+<li class="toc-entry toc-h3"><a href="#reusing-smartphone-across-participants">Reusing Smartphone Across Participants</a></li>
+<li class="toc-entry toc-h3"><a href="#put-into-inventory-management">Put into inventory management?</a></li>
+<li class="toc-entry toc-h3"><a href="#needs-firmware-update">Needs firmware update?</a></li>
+<li class="toc-entry toc-h3"><a href="#pairing-with-a-companion-application">Pairing with a companion application?</a></li>
+<li class="toc-entry toc-h3"><a href="#any-account-setup-required">Any account setup required?</a></li>
+<li class="toc-entry toc-h3"><a href="#needs-pairing-with-hub-device">Needs pairing with hub device?</a></li>
+<li class="toc-entry toc-h3"><a href="#any-assembly-required">Any assembly required?</a></li>
+<li class="toc-entry toc-h3"><a href="#package-together-with-which-other-devices-for-which-study-centre">Package together with which other devices for which study centre?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#if-handling-an-application-what-needs-doing-before-a-study-centre-can-use-the-app">If handling an application: what needs doing before a study centre can use the app?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#do-we-need-to-get-accounts-from-the-application-provider">Do we need to get accounts from the application provider?</a></li>
+<li class="toc-entry toc-h3"><a href="#can-the-software-be-downloaded-or-do-we-need-to-make-it-available">Can the software be downloaded, or do we need to make it available?</a></li>
+<li class="toc-entry toc-h3"><a href="#does-it-need-to-be-installed-on-the-hub-devices">Does it need to be installed on the hub devices?</a></li>
+<li class="toc-entry toc-h3"><a href="#do-we-need-to-activate-study-accounts">Do we need to activate study accounts?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#device-pre-setup-and-configuration">Device pre-setup and configuration</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work">What sort of a device / application is this, what is it for and how does it work?</a></li>
+<li class="toc-entry toc-h2"><a href="#what-has-already-been-done-in-pre-setup-for-the-device-or-application">What has already been done in pre-setup for the device or application?</a></li>
+<li class="toc-entry toc-h2"><a href="#what-will-need-to-be-done-before-a-patient-can-start-using-this">What will need to be done before a patient can start using this?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#any-account-setup-required">Any account setup required?</a></li>
+<li class="toc-entry toc-h3"><a href="#needs-pairing-with-hub-device">Needs pairing with hub-device?</a></li>
+<li class="toc-entry toc-h3"><a href="#any-configuration--assembly-required">Any configuration / assembly required?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#devicehow-to-setup-for-wear">Device How To / setup for wear </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work">What sort of a device / application is this, what is it for and how does it work?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#connecting-to-your-home-wifi">Connecting to your home WiFi</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#step-1-unlock-phone">Step 1: Unlock phone</a></li>
+<li class="toc-entry toc-h4"><a href="#step-2-view-wifi">Step 2: View WiFi</a></li>
+<li class="toc-entry toc-h4"><a href="#step-3-connect">Step 3: Connect</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#what-will-i-need-to-do-before-i-can-start-using-this">What will I need to do before I can start using this?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#any-account-setup-required">Any account setup required?</a></li>
+<li class="toc-entry toc-h3"><a href="#needs-pairing-with-other-devices">Needs pairing with other devices?</a></li>
+<li class="toc-entry toc-h3"><a href="#any-configuration--assembly-required">Any configuration / assembly required?</a></li>
+<li class="toc-entry toc-h3"><a href="#how-can-i-get-help-with-using-this">How can I get help with using this?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#troubleshootingfaq">Troubleshooting/FAQ</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#the-device--app-seems-to-have-stopped-working-what-should-i-do">The device / app seems to have stopped working: what should I do?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#battery">Battery?</a></li>
+<li class="toc-entry toc-h3"><a href="#connectivity-issues">Connectivity issues?</a></li>
+<li class="toc-entry toc-h3"><a href="#restarting-bluetooth">Restarting Bluetooth</a></li>
+<li class="toc-entry toc-h3"><a href="#restarting-wi-fi">Restarting Wi-Fi</a></li>
+<li class="toc-entry toc-h3"><a href="#enablingdisabling-flight-mode">Enabling/Disabling Flight Mode</a></li>
+<li class="toc-entry toc-h3"><a href="#restarting-phone">Restarting Phone</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#using-the-device--app-is-uncomfortable-to-me-what-can-i-do">Using the device / app is uncomfortable to me: what can I do?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#adjust-wear-style">Adjust wear style?</a></li>
+<li class="toc-entry toc-h3"><a href="#adjust-usage-pattern">Adjust usage pattern?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#device-return">Device return</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#what-do-i-do-when-a-period-of-device-use-is-over">What do I do when a period of device use is over?</a></li>
+<li class="toc-entry toc-h2"><a href="#before-the-device-is-returned-or-disposed-of-does-any-data-need-to-be-transferred">Before the device is returned or disposed of: does any data need to be transferred?</a></li>
+<li class="toc-entry toc-h2"><a href="#do-i-need-to-return-the-device-somewhere">Do I need to return the device somewhere?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#returned-device-processing-and-cleaning--an-application-use-period-for-a-participant-has-ended">Returned device processing and cleaning / an application use period for a participant has ended</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#trigger-data-transfer-protocols">Trigger Data Transfer Protocols?</a></li>
+<li class="toc-entry toc-h2"><a href="#where-should-the-device-be-returned">Where should the device be returned?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#device-recycling-and-provisioning">Device recycling and provisioning</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#how-will-the-devices-and-applications-be-supplied-to-the-study-site">How will the devices and applications be supplied to the study site?</a></li>
+<li class="toc-entry toc-h2"><a href="#what-to-do-with-devices-once-the-study-site-is-entirely-done-with-them">What to do with devices once the study site is entirely done with them?</a></li>
+</ul>
+</li>
+</ul><h1 id="general-device-introduction">
+<a class="anchor" href="#general-device-introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>General Device Introduction</h1>
+
+<p>You will be provided with a <strong>Samsung Galaxy A40</strong> <strong>smartphone</strong> for the duration of this study. Its purpose is to connect and transfer data between the sensing devices that you wear and the smartphone where they have an associated mobile application. The smartphone will have 7 <strong>applications</strong> preinstalled and configured for use with the associated sensing devices or during the study, including: <strong>VitalPatch, Biovotion, ZK1 YOLI, Dreem, VTT Stress Monitor, CamCog ThinkFast, and IDEA-FAST Support Documentation</strong>.</p>
+
+<p>The <strong>VTT Stress Monitor App</strong> and <strong>CamCog</strong> record data about phone usage or send prompts to complete short questionnaires daily. Because these applications will send notifications at pre-defined times and are intended to also record patterns of how you use your personal mobile device, it is recommended that they are <em>not</em> used on the Samsung Hub device. Instead, they should be installed on the participants <em>personal mobile smartphone,</em> and if the participant <strong><em>does not have a mobile smartphone or does not consent for these applications to be installed on their personal device, then they should be used on the Samsung device.</em></strong></p>
+
+<h2 id="how-does-this-device-look">
+<a class="anchor" href="#how-does-this-device-look" aria-hidden="true"><span class="octicon octicon-link"></span></a>How does this device look?</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Samsung A40 Android SmartPhone</strong></td>
+      <td><strong>Samsung A40 box and charger</strong></td>
+    </tr>
+    <tr>
+      <td><img src="../images/hubphone/1.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/2.jpeg" alt=""></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="how-is-it-used">
+<a class="anchor" href="#how-is-it-used" aria-hidden="true"><span class="octicon octicon-link"></span></a>How is it used?</h2>
+
+<p>The Samsung A40 smartphone will automatically connect to the preconfigured sensing devices if they are within range (typically a few meters) and transfer data from each using the preinstalled mobile phone applications. Note that not all devices will be connected to the study phones. The information materials for each device contains further details. Once you have an internet connection, some of the sensing device applications will upload the data from the Samsung device to the cloud where researchers of the study can view it. <strong><em>It is important that you carry the Samsung device within two meters of you while wearing any sensing devices and that it is charged each night to ensure it can transfer data.</em></strong></p>
+
+<p>Depending on your individual study participation pattern, the phone will either connect to the internet through your local WiFi, or it will come equipped with a 4G prepaid card. <strong>Please note that if the phone connects to the internet using a 4G prepaid card, we must ask participants not to use the phone for any unnecessary and data-intense online activities, such as watching videos online.</strong></p>
+
+<h1 id="data-transfer-protocol-for-patients">
+<a class="anchor" href="#data-transfer-protocol-for-patients" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data transfer protocol for patients</h1>
+
+<h2 id="as-a-patient-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days">
+<a class="anchor" href="#as-a-patient-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a patient: do I need to do anything on a daily basis or all N days?</h2>
+
+<p>When wearing either the VitalPatch or Biovotion (also known as Everion) you should check the smartphone twice per day – <em>in the morning and before bed</em> – to ensure the associated mobile applications are connected and have transferred data from daily wear of each device.</p>
+
+<p>When you are using either or both the VitalPatch and Biovotion devices, their associated mobile applications will send a persistent notification to the Samsung device (Figure 1-2 below), which indicates the devices connection, battery status, and if data has been uploaded to the cloud.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+<strong>Figure 1:</strong> VitalPatch</td>
+      <td>
+<strong>Figure 2:</strong> Biovotion</td>
+    </tr>
+    <tr>
+      <td><img src="../images/hubphone/3.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/4.jpeg" alt=""></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="as-a-patient-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended">
+<a class="anchor" href="#as-a-patient-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a patient: do I need to do anything after each individual period of device / app use ended?</h2>
+
+<p><strong>Yes.</strong> You must continue carrying the Samsung smartphone as it will transfer data from different devices across the duration of the study, such as VitalPatch or Biovotion.</p>
+
+<h2 id="as-a-patient-do-i-need-to-do-anything-after-my-full-periods-of-use-of-a-specific-device--app-ends">
+<a class="anchor" href="#as-a-patient-do-i-need-to-do-anything-after-my-full-periods-of-use-of-a-specific-device--app-ends" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a patient: do I need to do anything after my full periods of use of a specific device / app ends?</h2>
+
+<p><strong>No.</strong> Data will be automatically uploaded from the Samsung device to the cloud. After your full period of use ends in the trial, you must meet your clinician. They will take the Samsung device and retrieve any data remaining that has not been uploaded from it. The device will then be cleaned and prepared to be used by another study participant. Some study centres will arrange with you to return the devices via mail. If so, please follow any additional instructions provided by the study centre and make sure to power off the study phone before sending it off.</p>
+
+<h1 id="data-transfer-protocol-for-professionals">
+<a class="anchor" href="#data-transfer-protocol-for-professionals" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data transfer protocol for professionals</h1>
+
+<h2 id="as-a-professional-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days-for-each-patient-using-a-specific-device--app">
+<a class="anchor" href="#as-a-professional-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days-for-each-patient-using-a-specific-device--app" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a professional: do I need to do anything on a daily basis or all N days (for each patient using a specific device / app)?</h2>
+
+<p>Not Applicable.</p>
+
+<h2 id="as-a-professional-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended-for-each-patient-using-a-specific-device--app">
+<a class="anchor" href="#as-a-professional-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended-for-each-patient-using-a-specific-device--app" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a professional: do I need to do anything after each individual period of device / app use ended (for each patient using a specific device / app)?</h2>
+
+<p>Not Applicable.</p>
+
+<h2 id="as-a-professional-do-i-need-to-do-anything-after-the-full-periods-of-use-of-a-specific-device--app-ends-for-each-patient-using-a-specific-device--app">
+<a class="anchor" href="#as-a-professional-do-i-need-to-do-anything-after-the-full-periods-of-use-of-a-specific-device--app-ends-for-each-patient-using-a-specific-device--app" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a professional: do I need to do anything after the full periods of use of a specific device / app ends (for each patient using a specific device / app)?</h2>
+
+<p><strong>Yes.</strong> You must arrange a visit with each patient at the end of the study to collect all sensing devices, including the <strong>Samsung smartphone</strong>. When the patient brings the device, you must ensure that it is fully charged and that all data from mobile applications associated with sensing devices – VitalPatch and Biovotion – is transferred from the smartphone to the cloud. After data has been transferred and the device is fully charged, if you feel that the device is dirty you can clean it with wet wipes.</p>
+
+<h1 id="original-device-setup-and-pairing">
+<a class="anchor" href="#original-device-setup-and-pairing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Original device setup and pairing</h1>
+
+<h2 id="if-handling-a-device-and-it-arrives-new-what-needs-doing-before-it-gets-sent-to-a-study-centre">
+<a class="anchor" href="#if-handling-a-device-and-it-arrives-new-what-needs-doing-before-it-gets-sent-to-a-study-centre" aria-hidden="true"><span class="octicon octicon-link"></span></a>If handling a device and it arrives new: what needs doing before it gets sent to a study centre?</h2>
+
+<p>The following activities must be undertaken before a participant receives a device. These are presented as a checklist to help guide the process.</p>
+
+<ul>
+  <li>Unbox the device, charge it, and <strong><em>set it up for first time use</em></strong>
+    <ul>
+      <li>Add a local Wi-Fi and update the Operating System to the latest version (verify successful update to Android 10).</li>
+      <li>Set up phone to use the following PIN for locking / unlocking: 1034</li>
+    </ul>
+  </li>
+  <li>Insert a mobile SIM card, if provided</li>
+  <li>Install mobile applications:
+    <ul>
+      <li>Sensing apps: <strong><em>VitalPatch, Biovotion, Dreem, VTT Stress Monitor and CamCog ThinkFast, ZK1 YOLI.</em></strong>
+</li>
+      <li>
+<strong><em>Misc apps:</em></strong> <em>IDEA-FAST support documentation and TeamViewer for remote access.</em>
+</li>
+    </ul>
+  </li>
+  <li>Organise the Home Screen and panels to only show the IDEA FAST applications.</li>
+  <li>Label each Samsung Device and register the device in the inventory manager.</li>
+</ul>
+
+<h3 id="first-time-use">
+<a class="anchor" href="#first-time-use" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>First Time Use</em></strong>
+</h3>
+
+<p>When you first receive the Samsung A40 unbox it and turn it on. If a device has low battery, please charge it before proceeding. Turn it on by pressing the single button on the right side of the device. The first screen will ask to agree to the terms and conditions. Tap “<strong>End User Licence Agreement</strong>” and tap “Next”. Do not select the other three <em>optional</em> options.</p>
+
+<p><img src="../images/hubphone/5.jpeg" alt=""></p>
+
+<p>Figure 1: only choose the “End user Licence Agreement” option</p>
+
+<p>You will then be asked to if you want to transfer data from another device prior to installing. Tap “Skip this for now” and “Next”.</p>
+
+<p><img src="../images/hubphone/6.jpeg" alt=""></p>
+
+<p>Figure 2: do not transfer any data from other devices</p>
+
+<p>Next, you will be asked to choose a Wi-Fi. It is <strong>very important</strong> that you connect to a local Wi-Fi during the installation process. Tap whichever Wi-Fi you want to connect to and enter the associated password (Figure 3). After that, “connected” will appear to indicate your successful connection (Figure 4). Tap “Next” to move onto the next stage.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/7.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/8.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 3: choose a Wi-Fi network</td>
+      <td>Figure 4: Wi-Fi network connected.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The following screen will show a loading screen as the phone will begin downloading updates from the internet because you have connected to Wi-Fi. Once this is done, you will be prompted to log into a Google Account (Figure 5).</p>
+
+<p><img src="../images/hubphone/9.jpeg" alt=""></p>
+
+<p>Figure 5: sign in with a Google account.</p>
+
+<p>Each Samsung smartphone has an associated device_id and a pre-created gmail and password. To access these, please open a ticket on the IDEA-FAST support platform: <a href="http://support.ideafast.eu/">http://support.ideafast.eu/</a></p>
+
+<p>Note: if this is the first time a device has been setup, then the ‘Create account’ option should be chosen. The gmail to enter should be “ideafast-DEVICE_ID” where DEVICE_ID is the device’s unique ID that was pre-created by the IDEAFAST project. Enter dummy details for the fullname, gender and date of birth. For the password, generate a 16-length string using <a href="https://passwordsgenerator.net/">https://passwordsgenerator.net/</a> with ‘symbols’ excluded. Add both the Device ID and password to the secure password vault using key pass as outlined in <a href="https://docs.ideafast.eu/all/hubcomputer">the hub computer setup</a>.</p>
+
+<p>After successful authentication you will be asked to agree to Google’s terms and services. Tap “I agree” and you will be taken to a new screen where “Getting Account Info” is underway.</p>
+
+<p>You will then be asked to select backups if they exist. Tap “Next”.</p>
+
+<p>The next screen is “Date &amp; time” and should be automatically populated. Tap “Next”.</p>
+
+<p>The next screen will ask you if you want to create a PIN. Enter “1034” once, then again for confirmation, and the PIN will be created.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/10.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 6: set the PIN to <strong>1034</strong> and enter it twice for confirmation.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The next screen will ask you to “Turn on” Google Assistant. Tap “No thanks” as this feature <strong>should not be enabled:</strong></p>
+
+<p><img src="../images/hubphone/11.jpeg" alt=""></p>
+
+<p>Figure 7: do <strong>not</strong> enable Google Voice and Assistant. Tap “No Thanks”.</p>
+
+<p>Next you will be prompted to select ‘Google Services’, which are enabled (blue) by default. Please <strong>disable all services, which will turn them from blue to grey.</strong> Once all services are disabled, tap “Accept”.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/12.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 8: disable all services offered by Google.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The next screen will show a loading bar and “adding the finishing touches…” to the mobile:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/13.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 9: loading screen to update your previous choices.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You will then be prompted to “Sign in to your Samsung account”. Tap “Skip”. You may then be asked “Skip out of all this?” to confirm you want to skip. Tap “Skip” again. The next screen will read “All done!” and show the “Finish” button. <strong>Note: this is not the final screen!</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/14.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 10: installation complete.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Tap the “Tap here” text as the sleep to extend you battery life’ feature <strong>must be disabled</strong>. This will take you to a new screen: tap the button from <strong>blue to grey</strong>, which will turn this feature off (Figure N). Tap the back button in the top-left area of the screen (“&lt;”) to go back to the previous page.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/15.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/16.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 11: battery extended feature is enabled by default. Please disable it.</td>
+      <td>Figure 12: once disabled, the button and background turn from blue to grey.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Finally, you will be asked to “Discover your new favourite app”. Tap “No Thanks” to skip this. The default home screen will then be displayed and look like this:</p>
+
+<p><img src="../images/hubphone/17.jpeg" alt="Inserting image..."></p>
+
+<p><strong>Well done, the installation of Android is complete.</strong></p>
+
+<h3 id="operating-system-update">
+<a class="anchor" href="#operating-system-update" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Operating System Update</em></strong>
+</h3>
+
+<p>The provided devices will be updated to the latest Operating System (OS) version: Android 10. However, after initially unboxing and setting the device up, please check if any additional updates are available, then download and install them if there are. Samsung provide a <a href="https://www.youtube.com/watch?v=h2CB5Jt-Kj8">1-minute video tutorial of this process</a>, and we have provided a step-by-step guide of the process below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1.  Before starting the update process, please assure the phone is charged &gt; 50 % and connected to a charger.Swipe down from the top of the screen to vie the options. Tap the Cog in the top right-hand corner of the screen.</td>
+      <td><img src="../images/hubphone/18.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>2.  Scroll down until you see “Software update” and tap it. You may see</td>
+      <td><img src="../images/hubphone/19.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>3.  Tap “Download and Install”. The phone will check for any updates.</td>
+      <td><img src="../images/hubphone/20.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>4.  A new screen will appear if there are any updates available. Tap “Download” to begin the process.</td>
+      <td><img src="../images/hubphone/21.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>5.  Once downloaded tap a new screen will appear to install the software update. Type “Install Now”. Depending on the size of the download, this may take some time.</td>
+      <td><img src="../images/hubphone/22.jpeg" alt=""></td>
+    </tr>
+  </tbody>
+</table>
+
+<ol>
+  <li>
+<strong>Note:</strong> _You may need to follow these steps multiple times to update to the latest version. As of June 01 2020 the latest available operating system version for the study phones is Android 10.</li>
+</ol>
+
+<h3 id="adding-mobile-phone-sim-only-for-certain-study-sites">
+<a class="anchor" href="#adding-mobile-phone-sim-only-for-certain-study-sites" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Adding Mobile Phone SIM (only for certain study sites)</em></strong>
+</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>The Mobile Phone SIM is stored inside a small <em>slot</em> inside the top left of the mobile phone. There is a metal sim card removal tool inside the Samsung A40 box. Push the end of this tool into the small, circle opening, and the SIM slot will pop out as illustrated to the right.<br><em>Note: this is required for ‘WiFi Hotspot’ below</em>
+</td>
+      <td>
+<img src="../images/hubphone/23.jpeg" alt="Inserting image..."><br><strong><em>Tool being used to remove SIM card slot</em></strong>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="remove-preinstalled-apps">
+<a class="anchor" href="#remove-preinstalled-apps" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Remove preinstalled apps</em></strong>
+</h3>
+
+<p>Several applications come preinstalled on the Samsung A40 that are send notifications or track data in the background, which drains battery and may confuse the participant when using the smartphone. As such, please uninstall or disable all applications as follows:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/24.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/25.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 1: several applications are installed by default, such as Facebook and Spotify.</td>
+      <td>Figure 2: uninstall/disable all applications besides those listed in the screenshot above.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Some applications can be uninstalled from the smartphone, such as `Play Music`. Press and hold the application you want to uninstall, and a dialog will appear above the application (Figure 3). Tap “Uninstall” and the application will be uninstalled. Some applications, such as Facebook, cannot be entirely uninstalled and should be “Disabled” instead. Follow the same process for uninstalling and tap “Disable” to permanently turn the application off.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/26.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/27.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 3: press and hold an app to view the uninstall option.</td>
+      <td>Figure 4: some applications cannot be uninstalled and should be disabled instead.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The following applications should be uninstalled: <em>Office Mobile, Spotify, Samsung Notes, Samsung Health, Samsung Members, Galaxy wearable, and SmartThings.</em></p>
+
+<p>The following applications should eb disabled: <em>LinkedIn, OneDrive, Facebook.</em></p>
+
+<h3 id="update-existing-apps">
+<a class="anchor" href="#update-existing-apps" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Update Existing Apps</em></strong>
+</h3>
+
+<p>Please update all applications before proceeding to install new applications. To do this, open “Google Play” and tap the menu on the left side of the screen and a list of options will appear. Tap “My apps &amp; games” (Figure 1) and you will be taken to a screen where you can view all applications that need updated. Tap the “Update all” button and the applications will begin installing. If no updates are availiable, this option will not exist (Figure 2).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/28.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/29.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 1: Select “My apps &amp; games”</td>
+      <td>Figure 2: if all applications are updated you will see “no updates available”.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="remove-samsung-daily">
+<a class="anchor" href="#remove-samsung-daily" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Remove Samsung Daily</em></strong>
+</h3>
+
+<p>By default, if you swipe left you will see “Samsung Daily”, which can present a range of widgets to the user. To disable this, press and hold a space on the unlocked home screen where no application shortcut exists, and a popup will appear (Figure 1). Swipe left and you will see a blue button next to Samsung Daily (Figure 2). Tap it and Samsung Daily will be disabled.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/30.jpeg" alt="Inserting image..."></td>
+      <td><img src="../images/hubphone/31.jpeg" alt="Inserting image..."></td>
+    </tr>
+    <tr>
+      <td>
+<strong>Figure 1:</strong> tap the trash icon to delete a home screen.</td>
+      <td>
+<strong>Figure 2:</strong> Tap the blue button to turn it grey (disabled).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="remove-home-screen">
+<a class="anchor" href="#remove-home-screen" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Remove Home Screen</em></strong>
+</h3>
+
+<p>There are two home screens by default. Swipe up and you will see all home screens (Figure 1 above). Tap the trash can icon and that will delete one home screen. There should only be one home screen enabled.</p>
+
+<h3 id="disable-google-assistant">
+<a class="anchor" href="#disable-google-assistant" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Disable Google Assistant</em></strong>
+</h3>
+
+<p>Close any opened application and go to the home screen. Swipe up from the bottom left corner to open the application try and tap “Settings”. From there, tap the search icon and enter “Voice match” and tap the first result (Figure 1). You will be taken to a new screen where you will see that “Google Assistant” is enabled. Tap the associated button to disable it, which will turn it from <strong>blue to grey</strong> (Figure 2).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/32.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/33.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 1: Search for ‘Voice match’ on the Settings screen.</td>
+      <td>Figure 2: Google Assistant is enabled by default and appear in blue. Tap the icon and it will turn grey to indicate it is disabled.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="install-sensing-applications">
+<a class="anchor" href="#install-sensing-applications" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Install Sensing Applications</em></strong>
+</h3>
+
+<p>There are <strong>8 applications</strong> to be installed in total: <strong>6 sensing</strong> and <strong>2 Miscellaneous</strong>.</p>
+
+<h4 id="dreem">
+<a class="anchor" href="#dreem" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Dreem</em></strong>
+</h4>
+
+<p>Dreem’s mobile application connects to a wireless headband that can record, store, and automatically analyse brain function such as sleep activity. To install Dreem, open the “Play Store” app and search for “Dreem” and tap the result as illustrated below (Figure 1).</p>
+
+<p><img src="../images/hubphone/34.jpeg" alt=""></p>
+
+<p><strong>Figure 1:</strong> search for “dreem” on the Google Play store.</p>
+
+<p>On the following screen tap “Install” and then “Open” once the application has successfully installed. You will then see two login options (Figure 2). Tap “I ALREADY HAVE AN ACCOUNT” and you will be taken to a different screen with three options (Figure 3). Tap “<strong>VIA EMAIL</strong>” log in using the Gmail associated with the phone and a separate password that you must find in the password vault.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/35.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/36.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 2: An account has been pre-created for each provided smartphone.</td>
+      <td>Figure 3: Please log in using <strong>via email</strong> and not Google or Facebook.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Once logged in you will be prompted to whitelist and allow the location service, which is used to help detect the headband. Tap “Allow only while using the app” and “OK” respectively (Figure 4).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/37.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/38.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>
+<strong>Figure 4:</strong> Enable location when using Dreem</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Dreem is now successfully installed and ready to pair with a device.</strong></p>
+
+<p><strong>Add App to Home Screen</strong></p>
+
+<p>Once installed, swipe from the bottom left corner to open the application tray. Long press the the “Dreem” application and tap “Add to Home”.</p>
+
+<h4 id="vtt-stress-monitor">
+<a class="anchor" href="#vtt-stress-monitor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>VTT Stress Monitor</em></strong>
+</h4>
+
+<p>Stress Monitor is a mobile application that runs in the background and records anonymised data about other mobile application usage, movement activity, and location and uses this data to determine different types of <em>behaviour</em>. To install it, open the “Google Play” app (<img src="../images/hubphone/39.jpeg" alt="">) and search for ”<strong>VTT Stress Monitor for IDEA-FAST</strong>” and tap the first result as below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/40.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/41.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 1: click the app by <strong>Janne</strong> with the <strong>IDEAFAST logo</strong>
+</td>
+      <td>Figure 2: Tap “Install” to install the app.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note:</strong> <em>If you cannot see the application when searching as above, open a browser and visit the following URL, which will take you to the application on the Play Store:</em> <a href="https://ply.gl/fi.vtt.stressmonitorv4"><em>https://ply.gl/fi.vtt.stressmonitorv4</em></a></p>
+
+<h5 id="enabling-permissions">
+<a class="anchor" href="#enabling-permissions" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Enabling Permissions</em></strong>
+</h5>
+
+<p>When you open the Stress Monitor application you will be asked to allow three types of permissions:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/42.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/43.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/44.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>
+<strong>Figure 3:</strong> Enable Phone Call, Activity Tracking and Location permissions</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The next step involved changing the power usage settings. You will next be asked to modify the battery optimizations setting (Figure 4). Tap “GO TO SETTINGS” and from there tap the search button (the magnifying glass) and enter “Stress”, which will appear with a blue box next to it (Figure 5). Tap the box to turn it grey and therefore disable battery optimising (Figure 6).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/45.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/46.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/47.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 4: permission dialog</td>
+      <td>Figure 5: battery optimisation is enabled by default</td>
+      <td>Figure 6: tap the button to disable it.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>After disabling batter optimisation, the Stress Monitor app will ask to enable “usage statistics” (Figure 7). Tap “GO TO SETTINGS” and similar to before search for “Stress Monitor” (Figure 5) and this time check the box to change it form grey to blue, e.g. enabling usage statistics (Figure 8).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/48.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/49.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 7: usage statistics are disabled by default</td>
+      <td>Figure 8: tap the button to turn it blue and enabled.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>After permissions are enabled, you will see a login screen where you should <strong>not</strong> enter any credentials. The clinical staff member can enter these details if the participant choses to use the Samsung smartphone rather than their personal device, e.g. if they have an iPhone.</p>
+
+<p><strong>Add App to Home Screen</strong></p>
+
+<p>Once installed, swipe from the bottom left corner to open the application tray. Long press the “VTT Stress Monitor for IDEAFAST” application and tap “Add to Home”.</p>
+
+<h4 id="mediobiosense-health-for-vitalpatch">
+<a class="anchor" href="#mediobiosense-health-for-vitalpatch" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>MedioBioSense Health (for VitalPatch)</em></strong>
+</h4>
+
+<p>The associated mobile application for VitalPatch, <strong>MBSHealth</strong>, is distributed as an <strong>APK</strong>, therefore you must change the settings to allow downloading and installing of APKs from unknown sources. Open “Internet” (not Chrome) and tap “agree” to agree to Samsung’s terms for using the browser. Tap “Not now” to set Samsung Internet as your default browser. Enter <a href="https://mbs.wp3.ideafast.eu/">https://mbs.wp3.ideafast.eu/</a> in the address bar. This will redirect you to the APK file hosted on Google Drive. Click download if the file does not automatically download. Tap “Allow” when asked to provide Samsung Internet with permission to save the file on the phone (Figure 2).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/50.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/51.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/52.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 1: Google Drive Download</td>
+      <td>Figure 2: Permission to install APK on smartphone</td>
+      <td>Figure 3: automatic dialog to open APK after download.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Once downloaded, a dialog will automatically appear to open the file, tap “Open File” (Figure 3). If this disappears, to find the downloaded APK file, close the browser and swipe left to view all apps. In the “Samsung” folder tap “My Files”, which is the yellow icon.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/53.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 4: Navigate to the Samsung Folder and tap the yellow icon app named “My Files”.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>From there, tap “Internal storage” and navigate to “Download” and you will see one file named “MBSHealthLocal…”. Tap the APK that you have downloaded, and a dialog will appear (Figure 5). Click “<strong>Settings</strong>” and “<strong>Allow from this source</strong>” by changing the icon from grey to blue (Figure 6), then tap the “&lt;” to return to the installation process and tap “install” (Figure 7). The application will begin installing, and once complete tap “Open”.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/54.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/55.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/56.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 5: Tap “Settings”</td>
+      <td>Figure 6: Tap the icon from grey to blue.</td>
+      <td>Figure 7:</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Once installed, you need to enable three permissions by tapping “allow” as outlined below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/57.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/58.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/59.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 8: Enable Location</td>
+      <td>Figure 9: Enable Storage</td>
+      <td>Figure 10: Stop Battery Optimising</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Once permissions are enabled, the app will start ‘running’ and ‘scanning for a patch’ as outlined below, which sends persistency notifications to the smartphone:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/60.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/61.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>
+<strong>Figure 11:</strong> several notifications will be sent while using the application depending on if it is connected to a nearby VitalPatch.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Add App to Home Screen</strong></p>
+
+<p>Once installed, swipe from the bottom left corner to open the application tray. Long press the “MBS Health” application and tap “Add to Home”.</p>
+
+<h3 id="install-miscellaneous-applications">
+<a class="anchor" href="#install-miscellaneous-applications" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Install Miscellaneous Applications</em></strong>
+</h3>
+
+<p>The following applications are installed to provide support to participants during the study.</p>
+
+<h4 id="ideafast-support-materials">
+<a class="anchor" href="#ideafast-support-materials" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>IDEAFAST Support Materials</em></strong>
+</h4>
+
+<p>The support materials website contains documentation for all sensing devices with common questions that participants may have. This should be installed using the <strong>Microsoft Edge</strong> browser for an optimal experience.</p>
+
+<p>Download and install Edge from the Google Play Store by opening “Google Play” and entering “Microsoft Edge” into the address bar and tapping “Install”.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/62.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 1: search for ‘microsoft edge’</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Once installed, open the application by tapping “Open”. On the first time opening the application you will be presented with three questions:</p>
+
+<ul>
+  <li>“Sign in to turn on sync” tap “<strong>Skip</strong>”</li>
+  <li>“Share data about websites you visit” tap “<strong>Not now</strong>”</li>
+  <li>“Share usage data for personalisation” tap “<strong>Not now</strong>”</li>
+  <li>“Always browse with Microsoft Edge” tap “<strong>Yes</strong>”</li>
+  <li>“Open with” tap “<strong>Edge</strong>” and “<strong>Always</strong>”</li>
+</ul>
+
+<p>Once installed, open the Edge browser and enter <a href="https://docs.ideafast.eu">https://docs.ideafast.eu</a> into the address bar. You will then be prompted to enter a username and password (Figure 1). Enter your study site name in lowercase (e.g. kiel). The password is in the study vault or open a ticket at <a href="http://support.ideafast.eu/">http://support.ideafast.eu/</a> and the password will be provided. This website is password protected to prevent any accidently disclosure of copyright material and indexing via search engines.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/63.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 1: a pop-up dialog will appear asking for a username and password to enter the documentation website.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Once you have authenticated, please tap “Save” to store the username/password (Figure 2). <strong>This step is very important as the credentials are used when installing the application.</strong> This will prevent you or/and the participant re-entering the credentials multiple times.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/64.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 2: Tap Save to store the credentials for reuse later.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Once on the website, wait a few moment and notification will appear on the bottom that reads “Add IDEA-FAST Support Docs to Home screen” (Figure 3). Tap on it and you will be asked to “Add to Home screen” (figure 4). Tap “Add”</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/65.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/66.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 3: a popup to add the app to the home screen.</td>
+      <td>Figure 4: Tap “Add” to install the docs website on the mobile.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Another popup will appear asking to confirm to install the application on the Home screen and how it will appear as an icon. Tap “Add” (Figure 5). This may take some time to install. Once installed, a notification will appear that reads: “Shortcut to IDEA-FAST Support Docs added to Home screen.”.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/67.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 5: Tap ‘Add’ to install the Support Docs app.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>After installation, the IDEA-FAST logo will appear as an application on the home screen as illustrated below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/68.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 6: IDEAFAST logo</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Tap the icon and you will see the home page of the website and no navigation bar, i.e. no back/refresh buttons (Figure 7). The IDEA-FAST support documentation is now successfully installed.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/69.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 7: the support docs home screen.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Note: swiping down will ‘refresh’ the application and update the support materials if any changes have been made. The login pop that appeared above may appear, but should have the credentials that were previously entered, allowing you to click ‘Okay’ to login.</p>
+
+<h4 id="team-viewer-quick-support">
+<a class="anchor" href="#team-viewer-quick-support" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Team Viewer (Quick Support)</em></strong>
+</h4>
+
+<p>Team Viewer Quick Support is a remote access software that can be used to provide remote support. To install Quick Support, open the “Play Store” application by swiping left from the home screen and clicking the app. Once open, enter “quick support” in the search bar and tap “Install” (Figure 1). Once it is finished installed tap “Open” (Figure 2).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/70.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/71.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 1: Search for “Quick Support” in the Google Play Store and install the above “QS” app.</td>
+      <td>Figure 2: once installed, tap “Open”</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Once the app is open, swipe right through the onboarding screens and tap “Done”. You then will be asked to activate the remote access permissions via “Samsung Knox”. Tap “ACTIVATE” (Figure 3) and you will be taken to another screen with terms and conditions. Tap “Next” to agree to these (Figure 4).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/72.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/73.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/74.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 1: Tap ‘Activate’</td>
+      <td>Figure 2: Tap ‘Next’</td>
+      <td>Figure 3: Permissions granted</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>After this, another permissions popup will appear for “special app access” permissions. Tap “Settings” and you will be taken to a new screen. Tap the grey button to the right of “Allow permissions” and it will turn blue, then tap the “&lt;” icon in the tap left hand corner to go back.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/75.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/76.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 4: Tap ‘Settings’ to enable permissions</td>
+      <td>Figure 5: Tap the button to enable permissions.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>All permissions will now be set. To remotely access this specific smartphone, you must write down the “<strong>ID</strong>” presented within the application (Figure 6) and mail it to Jay Rainey (Newcastle University).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/77.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 6: This is an example of an “ID” that appears when permissions are successfully enabled.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="disable-sound">
+<a class="anchor" href="#disable-sound" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Disable Sound</em></strong>
+</h3>
+
+<p>Sound is enabled by default and the volume is quite high. Several built-in mobile applications send notifications with sound that can be distracting for the participant. To disable sound, swipe down to open the context menu, and tap the sound icon twice: it will emit a vibrate on first press and the icon will change but remain blue (Figure 2), then will be disabled on the next press (Figure 3).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/78.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/79.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/80.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 1: Sound <strong>Enabled</strong>
+</td>
+      <td>Figure 2: <strong>Vibration</strong> Only</td>
+      <td>Figure 3: <strong>Sound/Vibration disabled</strong>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="configuring-hotspot">
+<a class="anchor" href="#configuring-hotspot" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Configuring Hotspot</em></strong>
+</h3>
+
+<p>Swipe download and tap and hold the Mobile Hotspot icon and the configure page will appear. A mobile hotspot cannot be enabled if no SIM card is inserted, however, you should preconfigure the network name that will broadcast to users, and the associated password. To do that, tap the “AndroidAP…” to and a popup will appear like Figure 3. Enter <strong>ideafast</strong> as the network name in all lower-case letters. Similarly, tap “Password” and enter “<strong>ideafast</strong>” and the Wi-Fi hotspot configuration is complete (Figure 4).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/81.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/82.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>
+<strong>Figure 3:</strong> the default network name will begin with ‘Android’ and should be changed to ‘ideafast’.</td>
+      <td>
+<strong>Figure 4:</strong> how the hotspot appears in the configuration page once complete.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="enabling-hotspot">
+<a class="anchor" href="#enabling-hotspot" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Enabling Hotspot</em></strong>
+</h3>
+
+<p>Before enabling a network please ensure that the Wi-Fi hotspot has been configured as described above, i.e. so it is named ideafast. If a SIM card has been provided you can enable a mobile hotspot. Unlock the phone by pressing the power button (located on the right side of the phone), swiping up, and entering <strong>1034</strong> for the PIN. Swipe down from the toolbar and you will see the Hotspot icon is gray as illustrated below. Tap it the hotspot will be enabled.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/83.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/84.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 1: hotspot is gray when disabled.</td>
+      <td>Figure 2: hotspot icon is <strong>blue</strong> when enabled.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="organise-quick-panel">
+<a class="anchor" href="#organise-quick-panel" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Organise Quick Panel</em></strong>
+</h3>
+
+<p>By default, there are many options in the quick panel that are not necessary for use and some that if enabled may impact installed sensing applications, such as battery saver mode. To hide these, swipe down to view the quick panel, and tap the vertical triple dot to view the options and tap “Button order” (Figure 1). You will then see all the active icons on the bottom. Drag all except those listed below to the top of the screen to hide them from view, i.e. <em>WiFI, Flight Mode, Bluetooth, Mobil Data, Mobile Hotspot, Portrait and Location</em> as illustrated below.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/85.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/86.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 1: Tap the menu and chose “button order”</td>
+      <td>Figure 2: Drag unused buttons to the top.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="disabling-homescreen-shortcuts">
+<a class="anchor" href="#disabling-homescreen-shortcuts" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Disabling HomeScreen Shortcuts</em></strong>
+</h3>
+
+<p>Two shortcuts to open the phone call and camera are enabled on the home screen, which should be removed. To do this, swipe left to open the apps and click “Settings”. Scroll down until you see “Lock screen”. Tap it and you will be taken to a new screen. Scroll to the bottom and you will see “Shortcuts” with a blue option as enabled (Figure 1). Tap the button to disable the home screen shortcuts: the button will turn from blue to grey as illustrated below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/87.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/88.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 1: Shortcuts enabled</td>
+      <td>Figure 2: Shortcuts disabled</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="label-samsung-device">
+<a class="anchor" href="#label-samsung-device" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Label Samsung Device</em></strong>
+</h3>
+
+<p>You will be provided with labels for each smartphone device. Please record the device’s serial number and the device ID on the label for entry into the inventory management system (visit: <a href="https://inventory.ideafast.eu">https://inventory.ideafast.eu</a>). The label provided should be attached directly underneath the “SAMSUNG” text on the backside of the device.</p>
+
+<h3 id="reusing-smartphone-across-participants">
+<a class="anchor" href="#reusing-smartphone-across-participants" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Reusing Smartphone Across Participants</em></strong>
+</h3>
+
+<p>All data from the Samsung A40 must be deleted if the device is intended to be used across participants. This involves: removing any contacts from the phone book, deleting all SMS messages, and clearing the browser history.</p>
+
+<h3 id="put-into-inventory-management">
+<a class="anchor" href="#put-into-inventory-management" aria-hidden="true"><span class="octicon octicon-link"></span></a>Put into inventory management?</h3>
+
+<p><strong>Yes.</strong> Unique device IDs for each Samsung smartphone have been pre-generated for you and can be found in the following spreadsheet for each study site:</p>
+
+<ul>
+  <li><a href="https://newcastle.sharepoint.com/sites/idea-fast/_layouts/15/Doc.aspx?sourcedoc=%7BBE52EF34-3160-44DF-96A0-CDB775608B83%7D&amp;file=DeviceTrackingID.xlsx&amp;action=default&amp;mobileredirect=true&amp;CT=1593529423743&amp;OR=ItemsView">https://newcastle.sharepoint.com/sites/idea-fast/_layouts/15/Doc.aspx?sourcedoc=%7BBE52EF34-3160-44DF-96A0-CDB775608B83%7D&amp;file=DeviceTrackingID.xlsx&amp;action=default&amp;mobileredirect=true&amp;CT=1593529423743&amp;OR=ItemsView</a></li>
+</ul>
+
+<p>You should then print and attach a physical label to each Samsung device. An overview of this process is described below:</p>
+
+<ol>
+  <li>Record the unique device ID that is printed in the inventory management tool at <a href="https://inventory.ideafast.eu">https://inventory.ideafast.eu</a>
+</li>
+  <li>Find the device ID on the above spreadsheet.</li>
+  <li>Record both IDs in the appropriate fields on the inventory management website (<a href="https://inventory.ideafast.eu">https://inventory.ideafast.eu</a>) and record the current location of the device (e.g. Kiel).</li>
+  <li>Update to “EN-ROUTE-TO-” once dispatched.</li>
+  <li>Produce a label and a backup label for the device and attach one label to the device immediately.</li>
+  <li>Enclose the backup label with the device when preparing for dispatching it.</li>
+</ol>
+
+<h3 id="needs-firmware-update">
+<a class="anchor" href="#needs-firmware-update" aria-hidden="true"><span class="octicon octicon-link"></span></a>Needs firmware update?</h3>
+
+<p><strong>No.</strong> However, please following the instructions below to <em>update the operating system.</em></p>
+
+<h3 id="pairing-with-a-companion-application">
+<a class="anchor" href="#pairing-with-a-companion-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pairing with a companion application?</h3>
+
+<p><strong>Yes.</strong> You must <em>install and pair</em> the Samsung smartphone with the Dreem and Biovotion devices if they are being used by a participant. Detailed installation instructions for each device are available outlined below and pairing instructions on their support documentation linked above.</p>
+
+<h3 id="any-account-setup-required">
+<a class="anchor" href="#any-account-setup-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any account setup required?</h3>
+
+<p>Yes, a Google Account has been pre-created for each Samsung A40 with the email address <a href="mailto:idf-%7BDEVICE_ID%7D@gmail.com">ideafast.{DEVICE_ID}@gmail.com</a> where DEVICE_ID will be the device’s ID that appears on the associated label. Account credentials for each Google Account are available through an encrypted vault. For further details please open a ticket on the idea fast support website: <a href="http://support.ideafast.eu/">http://support.ideafast.eu/</a></p>
+
+<h3 id="needs-pairing-with-hub-device">
+<a class="anchor" href="#needs-pairing-with-hub-device" aria-hidden="true"><span class="octicon octicon-link"></span></a>Needs pairing with hub device?</h3>
+
+<p><strong>Yes.</strong> There are <strong>seven</strong> mobile applications that must be installed on each Samsung smartphone. Installation instructions are provided for each application below. Once these are installed, place them on the home screen of the Samsung device. This will make it easier for participants to find each mobile application if needed as illustrated below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/89.jpeg" alt=""></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>
+<strong>Figure 1:</strong> Application Tray on a clean install</td>
+      <td>
+<strong>Figure 2:</strong> Home screen layout</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>When the phone is set up the home screen should look <em>exactly</em> as illustrated in Figure 2 Detailed installation instructions are provided in <a href="http://wat"><strong>Section 3</strong></a>.</p>
+
+<h3 id="any-assembly-required">
+<a class="anchor" href="#any-assembly-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any assembly required?</h3>
+
+<p><strong>Yes.</strong> The pre-setup and configuration activities outlined below must be completed for each Samsung smartphone, including:</p>
+
+<ol>
+  <li>Unboxing</li>
+  <li>Google account creation or use existing one</li>
+  <li>Updating operating system</li>
+  <li>Insert SD &amp; SIM card [if applicable]</li>
+  <li>Install mobile applications</li>
+  <li>Organise home screen</li>
+  <li>Label device.</li>
+</ol>
+
+<h3 id="package-together-with-which-other-devices-for-which-study-centre">
+<a class="anchor" href="#package-together-with-which-other-devices-for-which-study-centre" aria-hidden="true"><span class="octicon octicon-link"></span></a>Package together with which other devices for which study centre?</h3>
+
+<p><strong>Yes.</strong></p>
+
+<h2 id="if-handling-an-application-what-needs-doing-before-a-study-centre-can-use-the-app">
+<a class="anchor" href="#if-handling-an-application-what-needs-doing-before-a-study-centre-can-use-the-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>If handling an application: what needs doing before a study centre can use the app?</h2>
+
+<h3 id="do-we-need-to-get-accounts-from-the-application-provider">
+<a class="anchor" href="#do-we-need-to-get-accounts-from-the-application-provider" aria-hidden="true"><span class="octicon octicon-link"></span></a>Do we need to get accounts from the application provider?</h3>
+
+<p>Yes. A unique <strong>Google account</strong> must be setup and the device configured for each device as outlined in section N.</p>
+
+<h3 id="can-the-software-be-downloaded-or-do-we-need-to-make-it-available">
+<a class="anchor" href="#can-the-software-be-downloaded-or-do-we-need-to-make-it-available" aria-hidden="true"><span class="octicon octicon-link"></span></a>Can the software be downloaded, or do we need to make it available?</h3>
+
+<p>Not Applicable</p>
+
+<h3 id="does-it-need-to-be-installed-on-the-hub-devices">
+<a class="anchor" href="#does-it-need-to-be-installed-on-the-hub-devices" aria-hidden="true"><span class="octicon octicon-link"></span></a>Does it need to be installed on the hub devices?</h3>
+
+<p>Not Applicable</p>
+
+<h3 id="do-we-need-to-activate-study-accounts">
+<a class="anchor" href="#do-we-need-to-activate-study-accounts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Do we need to activate study accounts?</h3>
+
+<p><strong>Yes.</strong> Specific study accounts for each installed mobile application must be used following guidance on the login procedure on the associated documentation, e.g. <a href="http://link">Dreem</a>.</p>
+
+<h1 id="device-pre-setup-and-configuration">
+<a class="anchor" href="#device-pre-setup-and-configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Device pre-setup and configuration</h1>
+
+<h2 id="what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work">
+<a class="anchor" href="#what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work" aria-hidden="true"><span class="octicon octicon-link"></span></a>What sort of a device / application is this, what is it for and how does it work?</h2>
+
+<p>The <strong>Samsung A40</strong> is a modern Android mobile smartphone to be used in the study to transfer and store data from hardware sensing devices used by participants. Some sensing devices, such as <em>VitalPatch</em>, have their own <strong>mobile applications</strong> that transfer data from the device to the phone using Bluetooth. Using the Samsung A40 instead of participants personal phones ensures compatibility, as well as a longer battery life with minimal disturbances to the participant.<img src="../images/hubphone/90.jpeg" alt=""></p>
+
+<h2 id="what-has-already-been-done-in-pre-setup-for-the-device-or-application">
+<a class="anchor" href="#what-has-already-been-done-in-pre-setup-for-the-device-or-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>What has already been done in pre-setup for the device or application?</h2>
+
+<p>The phones should already have been updated to the latest operating system version and all required applications installed and configured.</p>
+
+<h2 id="what-will-need-to-be-done-before-a-patient-can-start-using-this">
+<a class="anchor" href="#what-will-need-to-be-done-before-a-patient-can-start-using-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>What will need to be done before a patient can start using this?</h2>
+
+<h3 id="any-account-setup-required">
+<a class="anchor" href="#any-account-setup-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any account setup required?</h3>
+
+<p>The phones you receive will already be pre-configured in Newcastle to be used with a study-specific account. Unless otherwise noted the <strong>PIN-code for unlocking the device should be 1034.</strong></p>
+
+<p>If you are receiving the mobiles directly to your study site, please following the instructions below to setup and install all required mobile applications and configuration of the smartphone.</p>
+
+<p>If the phone has been used by another participant, please follow the <strong><em>reusing smartphone across participants</em></strong> instructions below that outline which data must be deleted.</p>
+
+<h3 id="needs-pairing-with-hub-device">
+<a class="anchor" href="#needs-pairing-with-hub-device" aria-hidden="true"><span class="octicon octicon-link"></span></a>Needs pairing with hub-device?</h3>
+
+<p>No. The phone itself acts as the “hub” device for sensing devices that have a mobile application.</p>
+
+<h3 id="any-configuration--assembly-required">
+<a class="anchor" href="#any-configuration--assembly-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any configuration / assembly required?</h3>
+
+<p><strong>Yes.</strong> Unique device IDs for each Samsung smartphone have been pre-generated for you and can be found in the following spreadsheet for each study site:</p>
+
+<ul>
+  <li><a href="https://newcastle.sharepoint.com/sites/idea-fast/_layouts/15/Doc.aspx?sourcedoc=%7BBE52EF34-3160-44DF-96A0-CDB775608B83%7D&amp;file=DeviceTrackingID.xlsx&amp;action=default&amp;mobileredirect=true&amp;CT=1593529423743&amp;OR=ItemsView">https://newcastle.sharepoint.com/sites/idea-fast/_layouts/15/Doc.aspx?sourcedoc=%7BBE52EF34-3160-44DF-96A0-CDB775608B83%7D&amp;file=DeviceTrackingID.xlsx&amp;action=default&amp;mobileredirect=true&amp;CT=1593529423743&amp;OR=ItemsView</a></li>
+</ul>
+
+<p>You should then print and attach a physical label to each Samsung device. An overview of this process is described below:</p>
+
+<ol>
+  <li>Record the unique device ID that is printed in the inventory management tool at <a href="https://inventory.ideafast.eu">https://inventory.ideafast.eu</a>
+</li>
+  <li>Find the device ID on the above spreadsheet.</li>
+  <li>Record both IDs in the appropriate fields on the inventory management website (<a href="https://inventory.ideafast.eu">https://inventory.ideafast.eu</a>) and record the current location of the device (e.g. Kiel).</li>
+  <li>Update to “EN-ROUTE-TO-” once dispatched.</li>
+  <li>Produce a label and a backup label for the device and attach one label to the device immediately.</li>
+  <li>Enclose the backup label with the device when preparing for dispatching it.</li>
+</ol>
+
+<h1 id="devicehow-to-setup-for-wear">
+<a class="anchor" href="#devicehow-to-setup-for-wear" aria-hidden="true"><span class="octicon octicon-link"></span></a>Device How To / setup for wear </h1>
+
+<p>The Samsung Galaxy A40 is a mobile smartphone for use in the study to store and transfer data from some of the wearable devices that you will be asked to use. The smartphone will be preconfigured to include all the necessary mobile applications for the duration of this study. A separate mobile phone is provided to assure compatibility, to avoid having to ask you to install a lot of apps on your private device and as using multiple Bluetooth devices have an impact on battery duration. Having a unique phone with the sole purpose of recording data will ensure it lasts a full day without impacting your everyday use of your own mobile phone. Additionally, in case you do not want to install the <strong>StressMonitor</strong> and <strong>CamCog apps</strong> on your privately owned smartphone, or if you do not own a device that is compatible with these devices (such as not owning an Android device) then you can use these apps on the study phone.</p>
+
+<h2 id="what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work">
+<a class="anchor" href="#what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work" aria-hidden="true"><span class="octicon octicon-link"></span></a>What sort of a device / application is this, what is it for and how does it work?</h2>
+
+<p>The <strong>Samsung A40</strong> is an Android mobile smartphone that will be connected to your local WiFi (if available) or preconfigured with SIM card for mobile network connectivity to upload data automatically when you use specific sensing devices. Its purpose is to connect and transfer data between the sensing devices that you wear and the smartphone where they have an associated mobile application.</p>
+
+<h3 id="connecting-to-your-home-wifi">
+<a class="anchor" href="#connecting-to-your-home-wifi" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Connecting to your home WiFi</em></strong>
+</h3>
+
+<p>Once you arrive home the provided Samsung smartphone should be connected to your home WiFi. Please obtain the WiFi network <em>name</em> and <em>password</em> before proceeding. If you have not changed these on your home router, then this will be the “SSID” and “Password” written on the router’s label.</p>
+
+<h4 id="step-1-unlock-phone">
+<a class="anchor" href="#step-1-unlock-phone" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Step 1: Unlock phone</strong>
+</h4>
+
+<p>Press the button on the right side of the device to illuminate the screen and swipe up. The “Enter Pin” screen will appear as illustrated below. Enter <strong>1034</strong>.</p>
+
+<h4 id="step-2-view-wifi">
+<a class="anchor" href="#step-2-view-wifi" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Step 2: View WiFi</strong>
+</h4>
+
+<p>Swipe down from the top of the screen (where the front camera is located) and you will see a list of icons. If the Wi-Fi button is blue, press and hold the button and the <em>available networks</em> screen will appear (Figure 1). If the Wi-Fi button is grey that means it is turned off. To turn it on tap the icon.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/91.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 1: Available networks Wi-Fi</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="step-3-connect">
+<a class="anchor" href="#step-3-connect" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Step 3: Connect</strong>
+</h4>
+
+<p>Tap the network that has your home Wi-Fi name (in this example it is EJ5) and then enter the password and tap “Connect” (Figure 3). You will then be taken to a new screen where your Wi-Fi is shown as active (Figure 3).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/92.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/93.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 2: enter your WiFi’s password</td>
+      <td>Figure 3: the ‘current network’ should be the one you entered.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="what-will-i-need-to-do-before-i-can-start-using-this">
+<a class="anchor" href="#what-will-i-need-to-do-before-i-can-start-using-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>What will I need to do before I can start using this?</h2>
+
+<h3 id="any-account-setup-required">
+<a class="anchor" href="#any-account-setup-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any account setup required?</h3>
+
+<p><strong>No.</strong> Your Samsung smartphone will be associated and pre-configured with a study-specific account for the phone itself and for each sensing application that will be used. Should the phone require a PIN to unlock this should be set to <strong>1034</strong>.</p>
+
+<h3 id="needs-pairing-with-other-devices">
+<a class="anchor" href="#needs-pairing-with-other-devices" aria-hidden="true"><span class="octicon octicon-link"></span></a>Needs pairing with other devices?</h3>
+
+<p><strong>Yes.</strong> Some of the wearable devices you will be asked to use during the study will need to be paired with the study phone. You will find detailed guidance on this in the materials about each wearable. The provided Samsung smartphone should be added to your home WiFi as documented above.</p>
+
+<h3 id="any-configuration--assembly-required">
+<a class="anchor" href="#any-configuration--assembly-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any configuration / assembly required?</h3>
+
+<p><strong>No.</strong> There will be no configuration required to use the Samsung A40 device. You should receive it fully charged, but we kindly ask you to make sure that it always remains charged and turned on during the study. The phone should come with all required applications pre-installed. You will also receive a USB-C charger that can be used to charge the phone. Due to organisational reasons for this study, charging equipment may come with either EU or UK mains plug connectors. If needed, an according adapter (converter) plug will be provided to you by at the clinical site.</p>
+
+<h3 id="how-can-i-get-help-with-using-this">
+<a class="anchor" href="#how-can-i-get-help-with-using-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>How can I get help with using this?</h3>
+
+<p>If you have any other questions or concerns, please contact your <em>local study centre:</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Newcastle, United Kingdom</strong></td>
+      <td><strong>Rotterdam, Netherlands</strong></td>
+      <td><strong>Kiel, Germany</strong></td>
+      <td><strong>Muenster, Germany</strong></td>
+    </tr>
+    <tr>
+      <td>Person Name<br>Centre Name<br>Location</td>
+      <td>Person Name<br>Centre Name<br>Location</td>
+      <td>Person Name<br>Centre Name<br>Location</td>
+      <td>Person Name<br>Centre Name<br>Location</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="troubleshootingfaq">
+<a class="anchor" href="#troubleshootingfaq" aria-hidden="true"><span class="octicon octicon-link"></span></a>Troubleshooting/FAQ</h1>
+
+<h2 id="the-device--app-seems-to-have-stopped-working-what-should-i-do">
+<a class="anchor" href="#the-device--app-seems-to-have-stopped-working-what-should-i-do" aria-hidden="true"><span class="octicon octicon-link"></span></a>The device / app seems to have stopped working: what should I do?</h2>
+
+<h3 id="battery">
+<a class="anchor" href="#battery" aria-hidden="true"><span class="octicon octicon-link"></span></a>Battery?</h3>
+
+<p>We kindly ask you to keep the battery in the smartphone charged and the phone turned on at all times. This can be achieved by charging the phone each night. As this is a new mobile smartphone its battery should last all day. Should you have any specific issues relating to the battery being drained quickly, please hold the power button on the right-hand side of the phone for 3 seconds until a popup menu appears. Please select the “Restart” option. If issues with battery drain persist after restarting the phone, then please get in touch with your study contact.</p>
+
+<h3 id="connectivity-issues">
+<a class="anchor" href="#connectivity-issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Connectivity issues?</h3>
+
+<p>The Samsung smartphone is provided so that it can connect and transfer data from specific sensing devices over Bluetooth and then use a Wi-Fi connection (when available) to upload the transferred data to the cloud. Some of the sensing devices have their own unique mobile application, which will be listed on your home screen. If you are having specific connectivity issues with those devices, please refer to their documentation (<a href="http://link">VitalPatch</a>, <a href="http://wat">Dreem</a>, and <a href="http://link">BioVotion</a>). If the problem continues, please contact your clinician. The smartphone should be connected to your home Wi-Fi as documented above. If no Internet network connect is available through your home network, then the pre-paid SIM card will be used. If your network connectivity problems continue, please contact your clinician.</p>
+
+<h3 id="restarting-bluetooth">
+<a class="anchor" href="#restarting-bluetooth" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Restarting Bluetooth</em></strong>
+</h3>
+
+<p>Bluetooth will be enabled when the above sensing applications are installed. However, this can be turned off at any time (such as to reset the connection) by swiping down and tapping the Bluetooth icon. If the Bluetooth icon has a blue background then it is connected, and if it has a grey background then it is disabled. To restart Bluetooth, tap the associated icon until it turns from blue to grey, which will turn the Bluetooth off. Wait 10 seconds and tap it again to turn it back on.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/94.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/95.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 1: Bluetooth is blue when enabled.</td>
+      <td>Figure 2: Bluetooth is grey when disabled.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="restarting-wi-fi">
+<a class="anchor" href="#restarting-wi-fi" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Restarting Wi-Fi</em></strong>
+</h3>
+
+<p>Unlock the phone by pressing the power button (located on the right side of the phone), swiping up, and entering <strong>1034</strong> for the PIN. Swipe down from the toolbar and Wi-Fi icon will be listed in blue as enabled (Figure 1). Tap the icon and it will turn grey, which turns the Wi-Fi off (Figure 2). Wait 20 seconds and tap it again to turn it on and it will automatically connect to the previous network.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/96.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/97.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 1: Wi-Fi is blue when enabled.</td>
+      <td>Figure 2: Wi-Fi is grey when disabled.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="enablingdisabling-flight-mode">
+<a class="anchor" href="#enablingdisabling-flight-mode" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Enabling/Disabling Flight Mode</em></strong>
+</h3>
+
+<p>Flight mode turns off all network connections including Wi-Fi and Bluetooth, which can be useful to reset all connections with the phone without restarting the device. Swipe down from the toolbar and flight mode icon will be listed in grey and appears as a plane:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/98.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/99.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 1: Wi-Fi enabled and Flight Mode is off.</td>
+      <td>Figure 2: Flight Mode is blue when enabled.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Grey indicates that flight mode is <em>disabled.</em> Tap the flight mode icon and it will turn blue to indicate it is activated and the Wi-Fi and Bluetooth connections on the menu bar will turn grey. Wait 20 seconds and tap the flight mode icon again to disable it, which will reactivate the phones Bluetooth and Wi-Fi.</p>
+
+<h3 id="restarting-phone">
+<a class="anchor" href="#restarting-phone" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong><em>Restarting Phone</em></strong>
+</h3>
+
+<p>Unlock the phone by pressing the power button (located on the right side of the phone), swiping up, and entering <strong>1034</strong> for the PIN. Press and hold the power button until the following three options will appears and tap “Restart” twice and the phone will restart:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="../images/hubphone/100.jpeg" alt=""></td>
+      <td><img src="../images/hubphone/101.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>
+<strong>Figure 1:</strong> three options that appear.</td>
+      <td>
+<strong>Figure 2:</strong> Tap Restart twice to restart the phone.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="using-the-device--app-is-uncomfortable-to-me-what-can-i-do">
+<a class="anchor" href="#using-the-device--app-is-uncomfortable-to-me-what-can-i-do" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using the device / app is uncomfortable to me: what can I do?</h2>
+
+<h3 id="adjust-wear-style">
+<a class="anchor" href="#adjust-wear-style" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adjust wear style?</h3>
+
+<p>We kindly always ask you to keep the phone nearby while participating in the study. However, it can be placed in a purse, pocket, backpack or other pouch.</p>
+
+<h3 id="adjust-usage-pattern">
+<a class="anchor" href="#adjust-usage-pattern" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adjust usage pattern?</h3>
+
+<p>We kindly ask you to keep the study phone with you or nearby at all times. At night, a location in the same room is fine, such as a bedside table. If you feel the device is dirty you can clean it with wet wipes or alcohol rub.</p>
+
+<h1 id="device-return">
+<a class="anchor" href="#device-return" aria-hidden="true"><span class="octicon octicon-link"></span></a>Device return</h1>
+
+<h2 id="what-do-i-do-when-a-period-of-device-use-is-over">
+<a class="anchor" href="#what-do-i-do-when-a-period-of-device-use-is-over" aria-hidden="true"><span class="octicon octicon-link"></span></a>What do I do when a period of device use is over?</h2>
+
+<p>Please store the device in a safe place and make sure it stays clean and dry. Please contact the person that provided you with it to arrange further steps.</p>
+
+<h2 id="before-the-device-is-returned-or-disposed-of-does-any-data-need-to-be-transferred">
+<a class="anchor" href="#before-the-device-is-returned-or-disposed-of-does-any-data-need-to-be-transferred" aria-hidden="true"><span class="octicon octicon-link"></span></a>Before the device is returned or disposed of: does any data need to be transferred?</h2>
+
+<p><strong>No.</strong> Data that has been successfully uploaded to the cloud are stored safely. Any data that remains on your Samsung smartphone that has not been uploaded will be manually uploaded once it is returned. Therefore, it is very important that you do not uninstall any applications. All recorded data from the sensor devices will be cleared from the phone before it is handed out to any further study participants.</p>
+
+<h2 id="do-i-need-to-return-the-device-somewhere">
+<a class="anchor" href="#do-i-need-to-return-the-device-somewhere" aria-hidden="true"><span class="octicon octicon-link"></span></a>Do I need to return the device somewhere?</h2>
+
+<p><strong>Yes.</strong> Please get in touch with your local study centre contact if you are not yet aware of the process for returning your study phone. You will have to return it either in person or by post – subject to further individual arrangement.</p>
+
+<h1 id="returned-device-processing-and-cleaning--an-application-use-period-for-a-participant-has-ended">
+<a class="anchor" href="#returned-device-processing-and-cleaning--an-application-use-period-for-a-participant-has-ended" aria-hidden="true"><span class="octicon octicon-link"></span></a>Returned device processing and cleaning / an application use period for a participant has ended</h1>
+
+<h2 id="trigger-data-transfer-protocols">
+<a class="anchor" href="#trigger-data-transfer-protocols" aria-hidden="true"><span class="octicon octicon-link"></span></a>Trigger Data Transfer Protocols?</h2>
+
+<p>Each Samsung smartphone will host mobile applications including: <a href="http://vital-patch-data-transfer"><strong>VitalPatch</strong></a><strong>, Dreem, Biovotion, VTT Stress Monitor and CamCog</strong>. It is critical that you verify each of these applications does not have any data and if they do, to follow the <em>data transfer protocol in the associated documentation</em> (linked above). Please ensure that the Samsung device is connected to Wi-Fi. Some of these applications will attempt to automatically upload data once an internet connected is created.</p>
+
+<h2 id="where-should-the-device-be-returned">
+<a class="anchor" href="#where-should-the-device-be-returned" aria-hidden="true"><span class="octicon octicon-link"></span></a>Where should the device be returned?</h2>
+
+<p>Prior to returning any device, please ensure all data has been transferred and successfully uploaded to the idea-fast data portal: <a href="https://data.ideafast.eu">https://data.ideafast.eu</a></p>
+
+<h1 id="device-recycling-and-provisioning">
+<a class="anchor" href="#device-recycling-and-provisioning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Device recycling and provisioning</h1>
+
+<h2 id="how-will-the-devices-and-applications-be-supplied-to-the-study-site">
+<a class="anchor" href="#how-will-the-devices-and-applications-be-supplied-to-the-study-site" aria-hidden="true"><span class="octicon octicon-link"></span></a>How will the devices and applications be supplied to the study site?</h2>
+
+<p>They will be mailed directly to the study site.</p>
+
+<h2 id="what-to-do-with-devices-once-the-study-site-is-entirely-done-with-them">
+<a class="anchor" href="#what-to-do-with-devices-once-the-study-site-is-entirely-done-with-them" aria-hidden="true"><span class="octicon octicon-link"></span></a>What to do with devices once the study site is entirely done with them?</h2>
+
+<p>Please ensure any data has been transferred from the smartphone and uploaded successfully. You should then clean the device using alcohol wipes if it is dirty and put it in the original box. Please then contact Jan Smeddinck from Newcastle University to arrange shipping of the Samsung smartphones from your study site to Newcastle. Once shipping is confirmed, please update the inventory tracking website (<a href="http://inventory.ideafast.eu/">http://inventory.ideafast.eu/</a>) to note that these have been dispatched. All smartphones will be ‘reset’ once they arrive in Newcastle and prepared again for future studies.</p>
+
+
+  </div>
+
+  <a class="u-url" href="/nl/all/hubphone" hidden></a>
+</article>
+
+      </div>
+    </main></body>
+
+</html>

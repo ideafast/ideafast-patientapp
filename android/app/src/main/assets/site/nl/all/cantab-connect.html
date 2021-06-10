@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="nl"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#010101">
+  
+  
+    <title>CANTAB Connect</title>
+  
+  <link rel="manifest" href="/nl/manifest.json" crossorigin="use-credentials">
+  <link rel="stylesheet" href="/nl/assets/main.css">
+  <link rel="stylesheet" href="/nl/assets/app.css">
+  <link rel="apple-touch-icon" type="image/png" href="/nl/icons/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="/nl/icons/favicon.png">
+  <script type="text/javascript">
+    if ("serviceWorker" in navigator) {
+      if (navigator.serviceWorker.controller) {
+        console.log("An active service worker found, no need to register");
+      } else {
+        // Register the service worker
+        navigator.serviceWorker
+          .register("/nl/sw.js", {
+            scope: "./"
+          })
+          .then(function (reg) {
+            console.log("Service worker has been registered for scope: " + reg.scope);
+          });
+      }
+    }
+  </script>
+</head>
+<body>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        
+
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    
+    <h1 class="post-title p-name" itemprop="name headline">CANTAB Connect</h1>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#introduction">Introduction</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#how-does-this-technology-look">How does this technology look?</a></li>
+<li class="toc-entry toc-h2"><a href="#what-does-it-record">What does it record?</a></li>
+<li class="toc-entry toc-h2"><a href="#how-is-it-used">How is it used?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#data-transfer-protocol-for-patients">Data transfer protocol for patients</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#as-a-patient-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days">As a patient: do I need to do anything on a daily basis or all N days?</a></li>
+<li class="toc-entry toc-h2"><a href="#as-a-patient-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended">As a patient: do I need to do anything after each individual period of device / app use ended?</a></li>
+<li class="toc-entry toc-h2"><a href="#as-a-patient-do-i-need-to-do-anything-after-my-full-periods-of-use-of-a-specific-device--app-ends">As a patient: do I need to do anything after my full periods of use of a specific device / app ends?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#data-transfer-protocol-for-professionals">Data transfer protocol for professionals</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#as-a-professional-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days-for-each-patient-using-a-specific-device--app">As a professional: do I need to do anything on a daily basis or all N days (for each patient using a specific device / app)?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#setting-up-the-ipad">Setting up the iPad</a></li>
+<li class="toc-entry toc-h3"><a href="#setting-up-cantab-connect">Setting up CANTAB Connect</a></li>
+<li class="toc-entry toc-h3"><a href="#creating-a-cantab-account">Creating a CANTAB Account</a></li>
+<li class="toc-entry toc-h3"><a href="#application-overview">Application Overview</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#as-a-professional-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended-for-each-patient-using-a-specific-device--app">As a professional: do I need to do anything after each individual period of device / app use ended (for each patient using a specific device / app)?</a></li>
+<li class="toc-entry toc-h2"><a href="#as-a-professional-do-i-need-to-do-anything-after-the-full-periods-of-use-of-a-specific-device--app-ends-for-each-patient-using-a-specific-device--app">As a professional: do I need to do anything after the full periods of use of a specific device / app ends (for each patient using a specific device / app)?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#original-device-setup-and-pairing">Original device setup and pairing</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#if-handling-a-device-and-it-arrives-new-what-needs-doing-before-it-gets-sent-to-a-study-centre">If handling a device and it arrives new: what needs doing before it gets sent to a study centre?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#put-into-inventory-management">Put into inventory management?</a></li>
+<li class="toc-entry toc-h3"><a href="#needs-firmware-update">Needs firmware update?</a></li>
+<li class="toc-entry toc-h3"><a href="#pairing-with-a-companion-application">Pairing with a companion application?</a></li>
+<li class="toc-entry toc-h3"><a href="#any-account-setup-required">Any account setup required?</a></li>
+<li class="toc-entry toc-h3"><a href="#needs-pairing-with-hub-device">Needs pairing with hub device?</a></li>
+<li class="toc-entry toc-h3"><a href="#any-assembly-required">Any assembly required?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#package-together-with-which-other-devices-for-which-study-centre">Package together with which other devices for which study centre?</a></li>
+<li class="toc-entry toc-h2"><a href="#if-handling-an-application-what-needs-doing-before-a-study-centre-can-use-the-app">If handling an application: what needs doing before a study centre can use the app?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#do-we-need-to-get-accounts-from-the-application-provider">Do we need to get accounts from the application provider?</a></li>
+<li class="toc-entry toc-h3"><a href="#can-the-software-be-downloaded-or-do-we-need-to-make-it-available">Can the software be downloaded, or do we need to make it available?</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#downloading-and-installing-cantab">Downloading and Installing CANTAB</a></li>
+<li class="toc-entry toc-h4"><a href="#logging-in">Logging In</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#does-it-need-to-be-installed-on-the-hub-devices">Does it need to be installed on the hub devices?</a></li>
+<li class="toc-entry toc-h3"><a href="#do-we-need-to-activate-study-accounts">Do we need to activate study accounts?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#device-pre-setup-and-configuration">Device pre-setup and configuration</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work">What sort of a device / application is this, what is it for and how does it work?</a></li>
+<li class="toc-entry toc-h2"><a href="#what-has-already-been-done-in-pre-setup-for-the-device-or-application">What has already been done in pre-setup for the device or application?</a></li>
+<li class="toc-entry toc-h2"><a href="#what-will-need-to-be-done-before-a-patient-can-start-using-this">What will need to be done before a patient can start using this?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#any-account-setup-required">Any account setup required?</a></li>
+<li class="toc-entry toc-h3"><a href="#needs-pairing-with-hub-device">Needs pairing with hub-device?</a></li>
+<li class="toc-entry toc-h3"><a href="#any-configuration--assembly-required">Any configuration / assembly required?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#devicehow-to-setup-for-wear">Device How To / setup for wear </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work">What sort of a device / application is this, what is it for and how does it work?</a></li>
+<li class="toc-entry toc-h2"><a href="#what-will-i-need-to-do-before-i-can-start-using-this">What will I need to do before I can start using this?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#any-account-setup-required">Any account setup required?</a></li>
+<li class="toc-entry toc-h3"><a href="#needs-pairing-with-hub-device">Needs pairing with hub-device?</a></li>
+<li class="toc-entry toc-h3"><a href="#any-configuration--assembly-required">Any configuration / assembly required?</a></li>
+<li class="toc-entry toc-h3"><a href="#how-can-i-get-help-with-using-this">How can I get help with using this?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#troubleshootingfaq">Troubleshooting/FAQ</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#the-device--app-seems-to-have-stopped-working-what-should-i-do">The device / app seems to have stopped working: what should I do?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#battery">Battery?</a></li>
+<li class="toc-entry toc-h3"><a href="#sounds">Sounds?</a></li>
+<li class="toc-entry toc-h3"><a href="#connectivity-issues">Connectivity issues?</a></li>
+<li class="toc-entry toc-h3"><a href="#need-to-restart-or-log-in-again">Need to restart or log in again?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#using-the-device--app-is-uncomfortable-to-me-what-can-i-do">Using the device / app is uncomfortable to me: what can I do?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#adjust-wear-style">Adjust wear style?</a></li>
+<li class="toc-entry toc-h3"><a href="#adjust-usage-pattern">Adjust usage pattern?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#device-return">Device return</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#what-do-i-do-when-a-period-of-device-use-is-over">What do I do when a period of device use is over?</a></li>
+<li class="toc-entry toc-h2"><a href="#before-the-device-is-returned-or-disposed-of-does-any-data-need-to-be-transferred">Before the device is returned or disposed of: does any data need to be transferred?</a></li>
+<li class="toc-entry toc-h2"><a href="#do-i-need-to-return-the-device-somewhere">Do I need to return the device somewhere?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#returned-device-processing-and-cleaning--an-application-use-period-for-a-participant-has-ended">Returned device processing and cleaning / an application use period for a participant has ended</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#trigger-data-transfer-protocols">Trigger Data Transfer Protocols?</a></li>
+<li class="toc-entry toc-h2"><a href="#where-should-the-device-be-returned">Where should the device be returned?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#device-recycling-and-provisioning">Device recycling and provisioning</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#how-will-the-devices-and-applications-be-supplied-to-the-study-site">How will the devices and applications be supplied to the study site?</a></li>
+<li class="toc-entry toc-h2"><a href="#what-to-do-with-devices-once-the-study-site-is-entirely-done-with-them">What to do with devices once the study site is entirely done with them?</a></li>
+</ul>
+</li>
+</ul><h1 id="introduction">
+<a class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h1>
+
+<p>CANTAB Connect is an iPad mobile application that has two components: (i) an administration area for clinical staff to login and create new participants as part of an ongoing study and to add those participants to the CANTAB ThinkFast app; and (ii) a suite of cognitive assessments designed to measure episodic memory, executive function and attention. CANTAB Connect should be used with each participant on their first visit to the clinical site to <em>administer three cognitive tests</em> and to help in activating the participant’s ThinkFast application.</p>
+
+<h2 id="how-does-this-technology-look">
+<a class="anchor" href="#how-does-this-technology-look" aria-hidden="true"><span class="octicon octicon-link"></span></a>How does this technology look?</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="../images/cantab_connect/1.jpeg" alt=""></td>
+      <td><img src="../images/cantab_connect/2.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 1: A reactive time assessments.</td>
+      <td>Figure 2: Adding a participant before a test.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="what-does-it-record">
+<a class="anchor" href="#what-does-it-record" aria-hidden="true"><span class="octicon octicon-link"></span></a>What does it record?</h2>
+
+<p>CANTAB Connect records responses to specific tests that measure different aspects of cognition, such as visual memory through a gameful task (Figure 3) or the time taken to react, find and match a box to measure working memory (Figure 4).</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="../images/cantab_connect/3.jpeg" alt=""></td>
+      <td><img src="../images/cantab_connect/4.jpeg" alt=""></td>
+    </tr>
+    <tr>
+      <td>Figure 3: The One Touch Stockings Task.</td>
+      <td>Figure 4: The Spatial Working Memory Task.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="how-is-it-used">
+<a class="anchor" href="#how-is-it-used" aria-hidden="true"><span class="octicon octicon-link"></span></a>How is it used?</h2>
+
+<p>CANTAB Connect is used when a participant first visits a study site to gain a baseline measurement of their cognition and onboard them into the associated take-home cognitive app, <strong>ThinkFast</strong>.</p>
+
+<h1 id="data-transfer-protocol-for-patients">
+<a class="anchor" href="#data-transfer-protocol-for-patients" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data transfer protocol for patients</h1>
+
+<h2 id="as-a-patient-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days">
+<a class="anchor" href="#as-a-patient-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a patient: do I need to do anything on a daily basis or all N days?</h2>
+
+<p>Yes. On first visit to the clinical site you will be asked to perform a cognitive assessment on an iPad. After completion, a clinician will ask you to download the CANTAB ThinkFast application and open it. They will then provide you with a 6-digit code to use in ThinkFast that will log you in and therefore, any data recorded through ThinkFast will be anonymised.</p>
+
+<h2 id="as-a-patient-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended">
+<a class="anchor" href="#as-a-patient-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a patient: do I need to do anything after each individual period of device / app use ended?</h2>
+
+<p>Not applicable.</p>
+
+<h2 id="as-a-patient-do-i-need-to-do-anything-after-my-full-periods-of-use-of-a-specific-device--app-ends">
+<a class="anchor" href="#as-a-patient-do-i-need-to-do-anything-after-my-full-periods-of-use-of-a-specific-device--app-ends" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a patient: do I need to do anything after my full periods of use of a specific device / app ends?</h2>
+
+<p>Not applicable.</p>
+
+<h1 id="data-transfer-protocol-for-professionals">
+<a class="anchor" href="#data-transfer-protocol-for-professionals" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data transfer protocol for professionals</h1>
+
+<h2 id="as-a-professional-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days-for-each-patient-using-a-specific-device--app">
+<a class="anchor" href="#as-a-professional-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days-for-each-patient-using-a-specific-device--app" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a professional: do I need to do anything on a daily basis or all N days (for each patient using a specific device / app)?</h2>
+
+<p>Yes. Prior to patient visiting the study site you should setup the iPad and become familiar with the CANTAB Connect application as outlined below. You will have access to a training site, where you can familiarise yourself with the participant detail screens and run the CANTAB tests – the sessions collected here will be kept separate from the testing sessions you complete with the participants.</p>
+
+<h3 id="setting-up-the-ipad">
+<a class="anchor" href="#setting-up-the-ipad" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting up the iPad</h3>
+
+<p>CANTAB Connect requires that the iPad is positioned horizontally (Figure N) and placed on the provided stand at waist height for patients to easily complete cognitive tasks. The iPad should also be plugged into a mains connection. To do this:</p>
+
+<ol>
+  <li>Place the stand with the three rubber feet flat against the surface of the table.</li>
+  <li>Place the iPad on the stand with the bottom of the iPad resting on the ridge and the power and volume buttons should be on the top left corner of device.</li>
+  <li>Ensure that the iPad’s home button is located on the right-hand side and that the iPad is in a landscape position as below:</li>
+</ol>
+
+<p><img src="../images/cantab_connect/5.jpeg" alt=""></p>
+
+<h3 id="setting-up-cantab-connect">
+<a class="anchor" href="#setting-up-cantab-connect" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting up CANTAB Connect</h3>
+
+<p>Once you receive the provided iPads please unbox it, set it up and install CANTAB as follows:</p>
+
+<ol>
+  <li>Take the iPad out of the box and turn on</li>
+  <li>Select your language</li>
+  <li>Set your location</li>
+  <li>Connect to Wi-Fi</li>
+  <li>Select ‘Enable Location Services’</li>
+  <li>Select ‘Set-up as new iPad’</li>
+  <li>Apple ID – Press ‘Skip This Step’ and then ‘Don’t use’</li>
+  <li>Agree to the terms and conditions</li>
+  <li>Passcode - Press ‘Don’t Add Passcode’ and then ‘Continue’</li>
+  <li>Siri - Press ‘Don’t use Siri’</li>
+  <li>Diagnostics – Press ‘Don’t Send’</li>
+  <li>Tap ‘Get Started’</li>
+  <li>Go to Settings:
+    1.  Press ‘General’ on the left-hand menu to get to the ‘General Settings Tab’.
+    2.  On the General tab press ‘Software Update’ and ensure that the latest software is installed.
+    3.  On the General tab ensure that ‘Multitasking Gestures’ are turned off.
+    4.  On the General tab set ‘Auto-Lock’ to 15 minutes
+    5.  On the General tab press ‘Date and Time’ and ensure that ‘Set Automatically’ is on.
+    6.  Press ‘Control Center’ on the left-hand menu and turn off ‘Access on Lock Screen’ and ‘Access within Apps‘.
+    7.  Press ‘Notifications’ on the left-hand and ensure all notifications are turned off.
+    8.  On the ‘Notifications’ tab to go into each of the apps under ‘INCLUDE’ (e.g. App Store, Mail, etc.) and ensure that all notifications are turned off. As the notifications are turned off the different apps will move from ‘INCLUDE’ to ‘DO NOT INCLUDE’. Check that all the apps have moved to ‘DO NOT INCLUDE’.
+    9.  Press ‘Safari’ on the left-hand menu and then press ‘Passwords &amp; AutoFill’. Ensure that the option for ‘Names and Password’ is turned off.</li>
+  <li>Open Safari and enter the URL https://app.cantab.com/rater</li>
+  <li>Create a home screen shortcut for the CANTAB application by pressing the up arrow next to the URL and then select Add to Home Screen.</li>
+  <li>On the home screen press and hold the Cantab icon created above until the icons shake and then drag the icon to bottom of screen. Press home button (to stop icons shaking).</li>
+  <li>Tap the Cantab icon and wait for the installation to complete. Use the buttons on the side of the iPad to ensure that the volume is set to a suitable level. Shut down the iPad.
+    1.  Setting the iPad orientation: For optimised testing, it is important to ensure that the iPad orientation is set correctly. To do this:</li>
+  <li>Go to Settings</li>
+  <li>On the General tab under ‘USE SIDE SWITCH TO:’ select ‘Lock Rotation’.</li>
+  <li>Hold the iPad in a landscape position with the home button on the right-hand side. Keep the iPad in this position and set the switch on the side of the iPad into the locked position.</li>
+  <li>The iPad should now be locked in a landscape orientation. Rotate the iPad to check that iPad screen does not change orientation.</li>
+</ol>
+
+<p><strong>Note:</strong> <em>it is very important that the iPad is set to the correct orientation before using Cantab Connect.</em></p>
+
+<h3 id="creating-a-cantab-account">
+<a class="anchor" href="#creating-a-cantab-account" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating a CANTAB Account</h3>
+
+<p>Once the application is downloaded, please contact CANTAB to register an account at <a href="mailto:suppot@cantab.com">suppot@cantab.com</a>. Once an account is registered, please login to the following screen:</p>
+
+<p><img src="../images/cantab_connect/6.jpeg" alt=""></p>
+
+<h3 id="application-overview">
+<a class="anchor" href="#application-overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Application Overview</h3>
+
+<p>This section describes the key features of the CANTAB Connect application:</p>
+
+<ol>
+  <li><strong><em>Initial Study site: choose “idea-fast”</em></strong></li>
+</ol>
+
+<p>When you log into the platform you will select <strong>Training sites</strong> (if you are familiarising yourself with the Connect application) or your clinic site (if you are administering the assessments to a participant). There are separate sites for the Baseline testing completed on the iPad and a site for adding a participant to the <strong>ThinkFAST app</strong>. The ThinkFAST site should not be accessed on the iPad – this should be accessed via the admin application – instructions are provided below. When logging in select IDEA-FAST and your Site (or training if you are completing a practice session with no participant present). Active sites will include the status ‘Active’</p>
+
+<p><img src="../images/cantab_connect/7.jpeg" alt=""></p>
+
+<ol>
+  <li><strong><em>System status (preparing offline vs offline ready)</em></strong></li>
+</ol>
+
+<p><em>Once you have logged into the platform, in the top right-hand corner of the screen, ensure Online (offline ready) is displayed before you run a test session. You may notice this can take a few moments to update.</em></p>
+
+<p>We recommend all testing sessions are completed online, with the iPad connected to Wi-Fi. This ensures the end of the testing session, and the data are automatically transferred to Cambridge Cognition.</p>
+
+<ol>
+  <li><strong><em>Adding subjects for testing - iPad Configuration</em></strong></li>
+</ol>
+
+<p><em>To add the details of a participant for the iPad testing, from the main screen, tap on</em> <strong><em>Test a new Participant</em></strong> <em>as illustrated below:</em><br>
+<img src="../images/cantab_connect/8.jpeg" alt=""><img src="../images/cantab_connect/9.jpeg" alt=""><strong>Figure N:</strong> The run test screen within CANTAB Connect.</p>
+
+<p>The Add New Participant screen will be displayed, enter the following details:</p>
+
+<ul>
+  <li><strong>Connect Participant ID (a sequential number assigned by site to each participant, e.g. 001, 002, 003)</strong></li>
+  <li>
+<strong>Language</strong> – select the language that the Participant requires for the test voiceover instructions</li>
+  <li>
+<strong>IDEA-FAST Participant ID</strong> – the 7 character ID for the participant</li>
+  <li>
+<strong>Level of Education</strong> – selecting from the list of available options</li>
+</ul>
+
+<p>The remaining two fields, <strong>Visit Schedule</strong> and <strong>Status</strong> should not be updated.</p>
+
+<p>Once you have entered all required details tap on Save to create the participant as illustrated below:</p>
+
+<p><img src="../images/cantab_connect/10.jpeg" alt=""></p>
+
+<p><img src="../images/cantab_connect/11.jpeg" alt=""></p>
+
+<ol>
+  <li><strong><em>Testing a Subject</em></strong></li>
+</ol>
+
+<p><em>After the Participant details have been entered in step 3, the Participant details will be displayed on screen. You can check these details are correct, if you need to make any changes or updates to the information entered tap</em> <strong><em>Edit</em></strong><em>. When you make any changes to the details previously entered you will be required to enter a reason for the change.</em></p>
+
+<p><em>To begin the assessments, tap on</em> <strong><em>Start Test</em></strong><em>.</em></p>
+
+<p><img src="../images/cantab_connect/12.jpeg" alt=""></p>
+
+<p><em>The first test start screen will be displayed, the name of the test is shown in the bottom right corner of the screen. The Participant should tap on Next to being the assessment. The voiceover instructions will start in the correct language for the Participant (as selected in step 3).</em></p>
+
+<p><em>At the end of each assessment a similar screen will be displayed with the name of the next test to be administered.</em></p>
+
+<p><img src="../images/cantab_connect/13.jpeg" alt=""></p>
+
+<ol>
+  <li><strong><em>End of the assessments</em></strong></li>
+</ol>
+
+<p><em>At the end of the assessments, the testing complete screen will be displayed. At this point the participant should pass the iPad back to the clinic staff. The final screen requires the clinic team member who logged into the Platform to being the testing session to enter their password:</em></p>
+
+<p><img src="../images/cantab_connect/14.jpeg" alt=""></p>
+
+<p><img src="../images/cantab_connect/15.jpeg" alt=""></p>
+
+<p><em>Once you have entered your password the data collected as part of the testing session will be uploaded (if the iPad is connected to Wi-Fi). You will then return to the main screen.</em></p>
+
+<p><strong><em>Familiarising with Cognitive Tasks</em></strong></p>
+
+<p>The CANTAB tasks included are Spatial Working Memory (SWM), Reaction Time (RTI) and One-Touch Stockings of Cambridge (OTS).</p>
+
+<p><strong>Spatial Working Memory (SWM)</strong></p>
+
+<p>SWM requires retention and manipulation of visuospatial information. This test has notable executive function demands, and measures strategy use as well as errors. In this task the participant has to search for tokens hidden in boxes. The participant must touch a box to open the box to reveal either a yellow token or an empty box. Once the participant has found a yellow token, they must touch the outline of the right-hand side of the screen to ‘store’ it. The participant must then continue searching through the boxes until all of the tokens have been found.</p>
+
+<p>Voiceover instructions introduce the task and explain how the task is completed. The participant is informed that ‘the tokens will never be in the same box twice, so do not go back to a box if you have already found a token there’. The participant will then be asked to complete 2 practice trials, each containing 3 boxes/ tokens. If the participant returns to a box where a token has already been found, they are reminded that the tokens will never be in the same box twice, so do not go back to a box if you have already found a token there. After the participant has completed the 2 training problems, the voiceovers instructions introduce the assessed phase of the task during which the participant will be presented with 3 trials to complete, 1 containing 4 tokens, 1 containing 6 tokens and a final trial containing 8 tokens.</p>
+
+<p><img src="../images/cantab_connect/16.jpeg" alt=""></p>
+
+<p><strong>Reaction Time (RTI)</strong></p>
+
+<p>RTI provides assays of motor and mental response speeds, as well as measures of movement time, reaction time and response accuracy. In this five-choice reaction time test, the participant will see five circles at the top of the screen and a button at the bottom of the screen. For each trial, the participant must hold down the button at the bottom of the screen until one of the five circles above flashes yellow. Once this has occurred, the participant must then release their finger and touch the circle which just flashed, as quickly as possible. Voiceover instructions introduce the task and explain how the task is completed. The subject is informed that ‘Both speed and accuracy are important, so go as quickly as you can, whilst trying not to make any mistakes and that ‘You will need to use the index finger of your dominant hand only: do not use two hands’. The subject will then be asked to practice holding the down the button at the bottom of the screen and is again informed that they should hold this button down until a yellow spot flashes in one of the circles above. The subject will then be presented with 10 practice trials, 2 from each of the 5 locations at the top of the screen, in a randomised order.</p>
+
+<p>After the participant has completed the 10 training problems, the voiceovers instructions introduce the assessed phase of the task during which the participant will be presented with 30 trials, 6 from each of the 5 locations at the top of the screen, in a randomised order to complete.</p>
+
+<p><strong>One-Touch Stockings of Cambridge (OTS)</strong></p>
+
+<p>The One Touch Stockings of Cambridge (OTS) task is a measure of executive function; planning and working memory. The participant is presented with two displays of ‘stockings’ each containing three coloured balls. There is a row of numbered boxes from 1 - 7 along the bottom of the screen. For each trial, the participant must mentally calculate how many moves are required to in order to match the bottom arrays of stockings to the top array of stockings. They must then touch the numbered box along the bottom of the screen corresponding to the number of moves they believe the problem can be solved in.</p>
+
+<p><img src="../images/cantab_connect/17.jpeg" alt=""></p>
+
+<p>Voiceover instructions introduce the task and explain how the task is completed. The rules of the task are also presented and the participant is told that ‘ You cannot move a ball that is underneath another one’ and ‘You cannot move a ball into thin air; you have to move it into another free pocket, where it will drop to the bottom’. The participant will then be presented with a series of 3 mandatory training problems. The first two training problems will show the participant how to complete the presented problem before asking them to select the correct corresponding number. During the final training problem, the participant will be asked ‘What is the minimum number of moves I need to make? Touch one of the boxes below’ prior to being shown the solution to the problem. After the participant has completed the 3 training problems, the voiceovers instructions introduce the assessed phase of the task during which the participant will be presented with 15 problems of varying levels of difficulty to complete.</p>
+
+<p><strong><em>Adding subjects for testing - ThinkFAST app</em></strong></p>
+
+<p><strong><em>To link the ThinkFAST app with the participant, the participant details msut be entered in the Connect connect admin application (this is not completed on the iPad).</em></strong></p>
+
+<p><strong><em>Open the following link on your laptop/PC:</em></strong> <a href="https://app.cantab.com/admin/">https://app.cantab.com/admin/</a></p>
+
+<p>Log in using the login details you have been provided</p>
+
+<p>When logged in, you will see this screen (note this is an example from the practice site, you will see your site for participants when logged in):</p>
+
+<p><img src="../images/cantab_connect/18.jpeg" alt=""></p>
+
+<p>Select Add Subject</p>
+
+<p>The Add New Subject window will be displayed, enter the required details.</p>
+
+<p>Note when entering details for actual participants please use the same Connect Participant ID as entered into the iPad for the cognitive testing session.</p>
+
+<p>Select the correct language for the participant</p>
+
+<p>Enter the date of the Day 1 ThinkFAST Testing</p>
+
+<p>Enter the IDEA-FAST Participant ID (7 characters)</p>
+
+<p>Visit Schedule and Status should not be updated.</p>
+
+<p><img src="../images/cantab_connect/19.jpeg" alt=""></p>
+
+<p>Tap Save to create the participant in the admin application</p>
+
+<p>Navigate back to the Subject List by selecting cancel</p>
+
+<p>From the subject list, select the participant you created and double click</p>
+
+<p><img src="../images/cantab_connect/20.jpeg" alt=""></p>
+
+<p>The details of the participant will be displayed, select activate by code to enter the code displayed on the participants study phone</p>
+
+<p><img src="../images/cantab_connect/21.jpeg" alt=""></p>
+
+<p>Note the code displayed on the participants phone is valid for 2 minutes, so it is recommended to enter these details in advance of generating the code on the participants phone.</p>
+
+<p><strong>Patient’s First Visit</strong></p>
+
+<p>On the patient’s first visit to a study site you should: (i) add them for “testing” in CANTAB Connect; (ii) complete the initial cognitive tasks; (iii) add the participant to the CANTAB Connect admin application in the ThinkFAST site and (iiii) generate an activation code to onboard them into the ThinkFast mobile application on their personal smartphone as outlined above. Detailed instructions for the connecting with CANTAB ThinkFast are provided below:</p>
+
+<p>Creating a User Account (for professionals)</p>
+
+<p>You will need to log into the <a href="https://app.cantab.com/admin">CANTAB Connect admin</a> application via your laptop/PC and find the entry that was created by CANTAB for this participant as outlined below:</p>
+
+<p><img src="../images/cantab_connect/22.jpeg" alt=""></p>
+
+<p><strong>Figure N:</strong> How a participant appears in the CANTAB Connection admin application.</p>
+
+<p>Ask the participant to open the CANTAB ThinkFast mobile application on their personal smartphone. If they are not logged in, a screen will appear with a 6-digit code as illustrated below.</p>
+
+<p><img src="../images/cantab_connect/23.jpeg" alt=""></p>
+
+<p><strong>Figure N:</strong> Once you open CANTAB ThinkFast, you can request a new code.</p>
+
+<p>Follow the steps in section 6 above select “<strong>Activate by Code”</strong> and enter the 6-digit code that was generated from the mobile application on the participant’s phone. This will link user you created in CANTAB Connect app to the participant’s mobile smartphone.</p>
+
+<p><img src="../images/cantab_connect/24.jpeg" alt=""></p>
+
+<p>Figure N: You should use this code generated by the chat service to authenticate with the CANTAB iPad application.</p>
+
+<h2 id="as-a-professional-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended-for-each-patient-using-a-specific-device--app">
+<a class="anchor" href="#as-a-professional-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended-for-each-patient-using-a-specific-device--app" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a professional: do I need to do anything after each individual period of device / app use ended (for each patient using a specific device / app)?</h2>
+
+<p>Not applicable.</p>
+
+<h2 id="as-a-professional-do-i-need-to-do-anything-after-the-full-periods-of-use-of-a-specific-device--app-ends-for-each-patient-using-a-specific-device--app">
+<a class="anchor" href="#as-a-professional-do-i-need-to-do-anything-after-the-full-periods-of-use-of-a-specific-device--app-ends-for-each-patient-using-a-specific-device--app" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a professional: do I need to do anything after the full periods of use of a specific device / app ends (for each patient using a specific device / app)?</h2>
+
+<p>Not applicable.</p>
+
+<h1 id="original-device-setup-and-pairing">
+<a class="anchor" href="#original-device-setup-and-pairing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Original device setup and pairing</h1>
+
+<h2 id="if-handling-a-device-and-it-arrives-new-what-needs-doing-before-it-gets-sent-to-a-study-centre">
+<a class="anchor" href="#if-handling-a-device-and-it-arrives-new-what-needs-doing-before-it-gets-sent-to-a-study-centre" aria-hidden="true"><span class="octicon octicon-link"></span></a>If handling a device and it arrives new: what needs doing before it gets sent to a study centre?</h2>
+
+<h3 id="put-into-inventory-management">
+<a class="anchor" href="#put-into-inventory-management" aria-hidden="true"><span class="octicon octicon-link"></span></a>Put into inventory management?</h3>
+
+<p>Not applicable.</p>
+
+<h3 id="needs-firmware-update">
+<a class="anchor" href="#needs-firmware-update" aria-hidden="true"><span class="octicon octicon-link"></span></a>Needs firmware update?</h3>
+
+<p>Not applicable.</p>
+
+<h3 id="pairing-with-a-companion-application">
+<a class="anchor" href="#pairing-with-a-companion-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pairing with a companion application?</h3>
+
+<p>Not applicable.</p>
+
+<h3 id="any-account-setup-required">
+<a class="anchor" href="#any-account-setup-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any account setup required?</h3>
+
+<p>Yes. Each study site will receive 2 iPads that require downloading and installing the CANTAB Connect application as outlined below.</p>
+
+<p>You will also require access to the Connect admin application (web-app) to add participant details to the Connect system (this cannot be completed on an iPad) <a href="https://app.cantab.com/admin/">https://app.cantab.com/admin/</a></p>
+
+<h3 id="needs-pairing-with-hub-device">
+<a class="anchor" href="#needs-pairing-with-hub-device" aria-hidden="true"><span class="octicon octicon-link"></span></a>Needs pairing with hub device?</h3>
+
+<p>Not applicable.</p>
+
+<h3 id="any-assembly-required">
+<a class="anchor" href="#any-assembly-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any assembly required?</h3>
+
+<p>Yes. See <a href="#setting-up-cantab-connect">Setting up CANTAB Connect</a> above.</p>
+
+<h2 id="package-together-with-which-other-devices-for-which-study-centre">
+<a class="anchor" href="#package-together-with-which-other-devices-for-which-study-centre" aria-hidden="true"><span class="octicon octicon-link"></span></a>Package together with which other devices for which study centre?</h2>
+
+<p>Not applicable.</p>
+
+<h2 id="if-handling-an-application-what-needs-doing-before-a-study-centre-can-use-the-app">
+<a class="anchor" href="#if-handling-an-application-what-needs-doing-before-a-study-centre-can-use-the-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>If handling an application: what needs doing before a study centre can use the app?</h2>
+
+<h3 id="do-we-need-to-get-accounts-from-the-application-provider">
+<a class="anchor" href="#do-we-need-to-get-accounts-from-the-application-provider" aria-hidden="true"><span class="octicon octicon-link"></span></a>Do we need to get accounts from the application provider?</h3>
+
+<p>Yes. Administrator accounts for CANTAB Connect are accessible for each study site and accessible through the <a href="https://docs.ideafast.eu/all/hubcomputer#keepassx-password-manager">encrypted vault</a></p>
+
+<h3 id="can-the-software-be-downloaded-or-do-we-need-to-make-it-available">
+<a class="anchor" href="#can-the-software-be-downloaded-or-do-we-need-to-make-it-available" aria-hidden="true"><span class="octicon octicon-link"></span></a>Can the software be downloaded, or do we need to make it available?</h3>
+
+<p>Yes.</p>
+
+<h4 id="downloading-and-installing-cantab">
+<a class="anchor" href="#downloading-and-installing-cantab" aria-hidden="true"><span class="octicon octicon-link"></span></a>Downloading and Installing CANTAB</h4>
+
+<p>The CANTAB Connection mobile application should be installed prior to configuring the iPad orientation as outlined <a href="#as-a-professional-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days-for-each-patient-using-a-specific-device--app">above</a>.</p>
+
+<h4 id="logging-in">
+<a class="anchor" href="#logging-in" aria-hidden="true"><span class="octicon octicon-link"></span></a>Logging In</h4>
+
+<p>Each clinical staff member at the study site must create an individual account to log into the CANTAB Connect application. Please contact your study site lead for more details on who to email to have an account setup for you.</p>
+
+<h3 id="does-it-need-to-be-installed-on-the-hub-devices">
+<a class="anchor" href="#does-it-need-to-be-installed-on-the-hub-devices" aria-hidden="true"><span class="octicon octicon-link"></span></a>Does it need to be installed on the hub devices?</h3>
+
+<p>Not applicable.</p>
+
+<h3 id="do-we-need-to-activate-study-accounts">
+<a class="anchor" href="#do-we-need-to-activate-study-accounts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Do we need to activate study accounts?</h3>
+
+<p>No. Site specific accounts have been pre-setup as outlined above.</p>
+
+<h1 id="device-pre-setup-and-configuration">
+<a class="anchor" href="#device-pre-setup-and-configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Device pre-setup and configuration</h1>
+
+<h2 id="what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work">
+<a class="anchor" href="#what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work" aria-hidden="true"><span class="octicon octicon-link"></span></a>What sort of a device / application is this, what is it for and how does it work?</h2>
+
+<p>CANTAB Connect is an application for running cognitive tests with patients during a site visit (on the iPad), and to manage multiple patients across a study, and to authenticate patients into the take-home ThinkFast mobile application via the Connect admin application (web-based app)</p>
+
+<h2 id="what-has-already-been-done-in-pre-setup-for-the-device-or-application">
+<a class="anchor" href="#what-has-already-been-done-in-pre-setup-for-the-device-or-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>What has already been done in pre-setup for the device or application?</h2>
+
+<p>Not applicable.</p>
+
+<h2 id="what-will-need-to-be-done-before-a-patient-can-start-using-this">
+<a class="anchor" href="#what-will-need-to-be-done-before-a-patient-can-start-using-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>What will need to be done before a patient can start using this?</h2>
+
+<h3 id="any-account-setup-required">
+<a class="anchor" href="#any-account-setup-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any account setup required?</h3>
+
+<p><strong>Yes.</strong> You will receive a username and initial password to log into the iPad. Each user will have a separate account and will need to use this each time you log into the iPad. If you forget your password, then please email <a href="mailto:support@cantab.com">support@cantab.com</a> to request a password reset.</p>
+
+<h3 id="needs-pairing-with-hub-device">
+<a class="anchor" href="#needs-pairing-with-hub-device" aria-hidden="true"><span class="octicon octicon-link"></span></a>Needs pairing with hub-device?</h3>
+
+<p>Not applicable.</p>
+
+<h3 id="any-configuration--assembly-required">
+<a class="anchor" href="#any-configuration--assembly-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any configuration / assembly required?</h3>
+
+<p>Yes. The iPad must be placed in a landscape position, possibly on a stand to operate correctly. Instructions for how to do this are detailed <a href="#as-a-professional-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days-for-each-patient-using-a-specific-device--app">above</a></p>
+
+<h1 id="devicehow-to-setup-for-wear">
+<a class="anchor" href="#devicehow-to-setup-for-wear" aria-hidden="true"><span class="octicon octicon-link"></span></a>Device How To / setup for wear </h1>
+
+<h2 id="what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work">
+<a class="anchor" href="#what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work" aria-hidden="true"><span class="octicon octicon-link"></span></a>What sort of a device / application is this, what is it for and how does it work?</h2>
+
+<p>CANTAB Connect is a mobile application that is used by clinical professionals on site to administrator one cognitive test to patients on their first visit and to create a new patient record. As part of creating the patient record in the admin application, participants will be provided with a code to log into the CANTAB ThinkFast mobile application on their personal smartphone.</p>
+
+<h2 id="what-will-i-need-to-do-before-i-can-start-using-this">
+<a class="anchor" href="#what-will-i-need-to-do-before-i-can-start-using-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>What will I need to do before I can start using this?</h2>
+
+<h3 id="any-account-setup-required">
+<a class="anchor" href="#any-account-setup-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any account setup required?</h3>
+
+<p>Not applicable.</p>
+
+<h3 id="needs-pairing-with-hub-device">
+<a class="anchor" href="#needs-pairing-with-hub-device" aria-hidden="true"><span class="octicon octicon-link"></span></a>Needs pairing with hub-device?</h3>
+
+<p>Not applicable.</p>
+
+<h3 id="any-configuration--assembly-required">
+<a class="anchor" href="#any-configuration--assembly-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any configuration / assembly required?</h3>
+
+<p>Not applicable.</p>
+
+<h3 id="how-can-i-get-help-with-using-this">
+<a class="anchor" href="#how-can-i-get-help-with-using-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>How can I get help with using this?</h3>
+
+<p>Not applicable.</p>
+
+<h1 id="troubleshootingfaq">
+<a class="anchor" href="#troubleshootingfaq" aria-hidden="true"><span class="octicon octicon-link"></span></a>Troubleshooting/FAQ</h1>
+
+<h2 id="the-device--app-seems-to-have-stopped-working-what-should-i-do">
+<a class="anchor" href="#the-device--app-seems-to-have-stopped-working-what-should-i-do" aria-hidden="true"><span class="octicon octicon-link"></span></a>The device / app seems to have stopped working: what should I do?</h2>
+
+<p>If the CANTAB Connect application stops working, please close and reopen the application.</p>
+
+<h3 id="battery">
+<a class="anchor" href="#battery" aria-hidden="true"><span class="octicon octicon-link"></span></a>Battery?</h3>
+
+<p>Please ensure that the iPad remains connected to the mains power using the lightening cable and charger. Ensure that the iPad is charged to at least 50% prior to each testing session.</p>
+
+<h3 id="sounds">
+<a class="anchor" href="#sounds" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sounds?</h3>
+
+<p>There are voiceover instructions for the CANTAB tasks. Please ensure that the volume level is set so that the voiceover is audible. Sound can be increased or decreased by tapping the buttons on the right side of the iPad.</p>
+
+<h3 id="connectivity-issues">
+<a class="anchor" href="#connectivity-issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Connectivity issues?</h3>
+
+<p>Although the CANTAB assessments can be run without being connected to Wi-Fi, an internet connection is required for the data collected to be automatically transferred and backed up on Cambridge Cognition’s secure servers. When Wi-Fi is not available, the data will be stored locally on the iPad in a secure encrypted format and will be transferred to Cambridge Cognition as soon as the iPad is connected to Wi-Fi.</p>
+
+<p>It is recommended that the iPad is connected to the Wi-Fi during each assessment. However, if this is not possible the user should ensure that the tablet is connected to Wi-Fi as regularly as possible so that subject data is transferred to Cambridge Cognition.</p>
+
+<h3 id="need-to-restart-or-log-in-again">
+<a class="anchor" href="#need-to-restart-or-log-in-again" aria-hidden="true"><span class="octicon octicon-link"></span></a>Need to restart or log in again?</h3>
+
+<p>Not applicable.</p>
+
+<h2 id="using-the-device--app-is-uncomfortable-to-me-what-can-i-do">
+<a class="anchor" href="#using-the-device--app-is-uncomfortable-to-me-what-can-i-do" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using the device / app is uncomfortable to me: what can I do?</h2>
+
+<h3 id="adjust-wear-style">
+<a class="anchor" href="#adjust-wear-style" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adjust wear style?</h3>
+
+<p>Not applicable.</p>
+
+<h3 id="adjust-usage-pattern">
+<a class="anchor" href="#adjust-usage-pattern" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adjust usage pattern?</h3>
+
+<p>Not applicable.</p>
+
+<h1 id="device-return">
+<a class="anchor" href="#device-return" aria-hidden="true"><span class="octicon octicon-link"></span></a>Device return</h1>
+
+<h2 id="what-do-i-do-when-a-period-of-device-use-is-over">
+<a class="anchor" href="#what-do-i-do-when-a-period-of-device-use-is-over" aria-hidden="true"><span class="octicon octicon-link"></span></a>What do I do when a period of device use is over?</h2>
+
+<p>Not applicable.</p>
+
+<h2 id="before-the-device-is-returned-or-disposed-of-does-any-data-need-to-be-transferred">
+<a class="anchor" href="#before-the-device-is-returned-or-disposed-of-does-any-data-need-to-be-transferred" aria-hidden="true"><span class="octicon octicon-link"></span></a>Before the device is returned or disposed of: does any data need to be transferred?</h2>
+
+<p>Not applicable.</p>
+
+<h2 id="do-i-need-to-return-the-device-somewhere">
+<a class="anchor" href="#do-i-need-to-return-the-device-somewhere" aria-hidden="true"><span class="octicon octicon-link"></span></a>Do I need to return the device somewhere?</h2>
+
+<p>Not applicable.</p>
+
+<h1 id="returned-device-processing-and-cleaning--an-application-use-period-for-a-participant-has-ended">
+<a class="anchor" href="#returned-device-processing-and-cleaning--an-application-use-period-for-a-participant-has-ended" aria-hidden="true"><span class="octicon octicon-link"></span></a>Returned device processing and cleaning / an application use period for a participant has ended</h1>
+
+<h2 id="trigger-data-transfer-protocols">
+<a class="anchor" href="#trigger-data-transfer-protocols" aria-hidden="true"><span class="octicon octicon-link"></span></a>Trigger Data Transfer Protocols?</h2>
+
+<p>The iPad stores data securely in an encrypted database on the device when it is offline. When the device goes online (i.e. when “Online” is displayed at the top right of the Test Subject screen), data is automatically transferred via HTTPS to a secure server.</p>
+
+<h2 id="where-should-the-device-be-returned">
+<a class="anchor" href="#where-should-the-device-be-returned" aria-hidden="true"><span class="octicon octicon-link"></span></a>Where should the device be returned?</h2>
+
+<p>N/A. Participants will use their personal phone to install and use the CANTAB ThinkFAST application.</p>
+
+<h1 id="device-recycling-and-provisioning">
+<a class="anchor" href="#device-recycling-and-provisioning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Device recycling and provisioning</h1>
+
+<h2 id="how-will-the-devices-and-applications-be-supplied-to-the-study-site">
+<a class="anchor" href="#how-will-the-devices-and-applications-be-supplied-to-the-study-site" aria-hidden="true"><span class="octicon octicon-link"></span></a>How will the devices and applications be supplied to the study site?</h2>
+
+<p>2 iPads will be mailed to each study site. The CANTAB Connection iPad applications will be made available to each study site using their own unique credentials as outlined in <a href="#application-overview">application overview above</a>.</p>
+
+<h2 id="what-to-do-with-devices-once-the-study-site-is-entirely-done-with-them">
+<a class="anchor" href="#what-to-do-with-devices-once-the-study-site-is-entirely-done-with-them" aria-hidden="true"><span class="octicon octicon-link"></span></a>What to do with devices once the study site is entirely done with them?</h2>
+
+<p>The iPads should be returned to Newcastle University following completion of the Feasibility Study.</p>
+
+
+  </div>
+
+  <a class="u-url" href="/nl/all/cantab-connect" hidden></a>
+</article>
+
+      </div>
+    </main></body>
+
+</html>

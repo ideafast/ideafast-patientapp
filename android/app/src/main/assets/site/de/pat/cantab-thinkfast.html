@@ -8,11 +8,11 @@
   
     <title>CANTAB ThinkFast (Patient Materials)</title>
   
-  <link rel="manifest" href="de/manifest.json" crossorigin="use-credentials">
-  <link rel="stylesheet" href="de/assets/main.css">
-  <link rel="stylesheet" href="de/assets/app.css">
-  <link rel="apple-touch-icon" type="image/png" href="de/icons/favicon.png">
-  <link rel="shortcut icon" type="image/png" href="de/icons/favicon.png">
+  <link rel="manifest" href="/de/manifest.json" crossorigin="use-credentials">
+  <link rel="stylesheet" href="/de/assets/main.css">
+  <link rel="stylesheet" href="/de/assets/app.css">
+  <link rel="apple-touch-icon" type="image/png" href="/de/icons/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="/de/icons/favicon.png">
   <script type="text/javascript">
     if ("serviceWorker" in navigator) {
       if (navigator.serviceWorker.controller) {
@@ -20,7 +20,7 @@
       } else {
         // Register the service worker
         navigator.serviceWorker
-          .register("de/sw.js", {
+          .register("/de/sw.js", {
             scope: "./"
           })
           .then(function (reg) {
@@ -43,36 +43,96 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h1 id="introduction">Introduction</h1>
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#introduction">Introduction</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#how-does-this-technology-look">How does this technology look?</a></li>
+<li class="toc-entry toc-h2"><a href="#what-does-it-record">What does it record?</a></li>
+<li class="toc-entry toc-h2"><a href="#how-is-it-used">How is it used?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#data-transfer-protocol-for-patients">Data transfer protocol for patients</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#as-a-patient-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days">As a patient: do I need to do anything on a daily basis or all N days?</a></li>
+<li class="toc-entry toc-h2"><a href="#as-a-patient-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended">As a patient: do I need to do anything after each individual period of device / app use ended?</a></li>
+<li class="toc-entry toc-h2"><a href="#as-a-patient-do-i-need-to-do-anything-after-my-full-periods-of-use-of-a-specific-device--app-ends">As a patient: do I need to do anything after my full periods of use of a specific device / app ends?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#devicehow-to-setup-for-wear">Device How To / setup for wear </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#how-can-i-get-help-with-using-this">How can I get help with using this?</a></li>
+<li class="toc-entry toc-h2"><a href="#what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work">What sort of a device / application is this, what is it for and how does it work?</a></li>
+<li class="toc-entry toc-h2"><a href="#what-will-i-need-to-do-before-i-can-start-using-this">What will I need to do before I can start using this?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#any-account-setup-required">Any account setup required?</a></li>
+<li class="toc-entry toc-h3"><a href="#needs-pairing-with-hub-device">Needs pairing with hub-device?</a></li>
+<li class="toc-entry toc-h3"><a href="#any-configuration--assembly-required">Any configuration / assembly required?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#troubleshootingfaq">Troubleshooting/FAQ</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#the-device--app-seems-to-have-stopped-working-what-should-i-do">The device / app seems to have stopped working: what should I do?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#battery">Battery?</a></li>
+<li class="toc-entry toc-h3"><a href="#connectivity-issues">Connectivity issues?</a></li>
+<li class="toc-entry toc-h3"><a href="#need-to-restart-or-log-in-again">Need to restart or log in again?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#using-the-device--app-is-uncomfortable-to-me-what-can-i-do">Using the device / app is uncomfortable to me: what can I do?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#adjust-wear-style">Adjust wear style?</a></li>
+<li class="toc-entry toc-h3"><a href="#adjust-usage-pattern">Adjust usage pattern?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#device-return">Device return</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#what-do-i-do-when-a-period-of-device-use-is-over">What do I do when a period of device use is over?</a></li>
+<li class="toc-entry toc-h2"><a href="#before-the-device-is-returned-or-disposed-of-does-any-data-need-to-be-transferred">Before the device is returned or disposed of: does any data need to be transferred?</a></li>
+<li class="toc-entry toc-h2"><a href="#do-i-need-to-return-the-device-somewhere">Do I need to return the device somewhere?</a></li>
+</ul>
+</li>
+</ul><h1 id="introduction">
+<a class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h1>
 
 <p>CANTAB ThinkFAST is a mobile application that has a collection of short_tasks_to determine different types of cognitive state, such as measuring working memory and processing speed (Figure 1), reaction times (Figure 2), attention and processing speed (Figure 3).</p>
 
 <table>
   <tbody>
     <tr>
-      <td><img src="../images/cantab_thinkfast/15.jpeg" alt="" /></td>
-      <td><img src="../images/cantab_thinkfast/2.jpeg" alt="" /></td>
-      <td><img src="../images/cantab_thinkfast/3.jpeg" alt="" /></td>
+      <td><img src="../images/cantab_thinkfast/15.jpeg" alt=""></td>
+      <td><img src="../images/cantab_thinkfast/2.jpeg" alt=""></td>
+      <td><img src="../images/cantab_thinkfast/3.jpeg" alt=""></td>
     </tr>
     <tr>
-      <td><strong>Figure 1:</strong> <em>n-back test</em></td>
-      <td><strong>Figure 2:</strong> <em>Psychomotor Vigilance Task (PVT)</em></td>
-      <td><strong>Figure 3:</strong> <em>Digit Symbol Substitution Test</em></td>
+      <td>
+<strong>Figure 1:</strong> <em>n-back test</em>
+</td>
+      <td>
+<strong>Figure 2:</strong> <em>Psychomotor Vigilance Task (PVT)</em>
+</td>
+      <td>
+<strong>Figure 3:</strong> <em>Digit Symbol Substitution Test</em>
+</td>
     </tr>
   </tbody>
 </table>
 
 <p>The ThinkFAST application will send you notifications at pre-determined times during the day to prompt and remind you to complete a short task. Although there are three tasks, you will be only asked to complete one per day and the tasks will change each day. Each task typically lasts only a few minutes. Each test requires different interactions, but broadly will involve opening the mobile application, and tapping on the screen to draw patterns or numbers.</p>
 
-<h2 id="how-does-this-technology-look">How does this technology look?</h2>
+<h2 id="how-does-this-technology-look">
+<a class="anchor" href="#how-does-this-technology-look" aria-hidden="true"><span class="octicon octicon-link"></span></a>How does this technology look?</h2>
 
 <p>CANTAB ThinkFAST is a mobile application that will appear as a green background and face in the icon when installed on your personal smartphone (Figure 1). ThinkFast uses an automated chat service to help authenticate your account, which you will need to do on your first clinical visit (Figure 2).</p>
 
 <table>
   <tbody>
     <tr>
-      <td><img src="../images/cantab_thinkfast/4.jpeg" alt="" /></td>
-      <td><img src="../images/cantab_thinkfast/5.jpeg" alt="" /></td>
+      <td><img src="../images/cantab_thinkfast/4.jpeg" alt=""></td>
+      <td><img src="../images/cantab_thinkfast/5.jpeg" alt=""></td>
     </tr>
     <tr>
       <td>Figure 1: How the ThinkFast app will appear.</td>
@@ -81,39 +141,47 @@
   </tbody>
 </table>
 
-<h2 id="what-does-it-record">What does it record?</h2>
+<h2 id="what-does-it-record">
+<a class="anchor" href="#what-does-it-record" aria-hidden="true"><span class="octicon octicon-link"></span></a>What does it record?</h2>
 
 <p>ThinkFAST records responses to specific tests that measure different aspects of cognition, such as, the time taken to draw a shape that previously appeared on the screen (Figure 1 and 3), or the time taken to react and write a number that appeared and disappeared from the screen (Figure 2).</p>
 
-<h2 id="how-is-it-used">How is it used?</h2>
+<h2 id="how-is-it-used">
+<a class="anchor" href="#how-is-it-used" aria-hidden="true"><span class="octicon octicon-link"></span></a>How is it used?</h2>
 
 <p>The ThinkFAST mobile application will send_two notifications_ per day to request the completion of one test: at 08:00, and a reminder at 9:30 if the tests have not yet been performed. These notifications are for the same test; there is only one test per day. The test sent to you each day will change between the three tests above. The following image shows how a notification will appear from the CANTAB ThinkFast application:</p>
 
-<p><img src="../images/cantab_thinkfast/6.jpeg" alt="" /></p>
+<p><img src="../images/cantab_thinkfast/6.jpeg" alt=""></p>
 
-<h1 id="data-transfer-protocol-for-patients">Data transfer protocol for patients</h1>
+<h1 id="data-transfer-protocol-for-patients">
+<a class="anchor" href="#data-transfer-protocol-for-patients" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data transfer protocol for patients</h1>
 
-<h2 id="as-a-patient-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days">As a patient: do I need to do anything on a daily basis or all N days?</h2>
+<h2 id="as-a-patient-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days">
+<a class="anchor" href="#as-a-patient-do-i-need-to-do-anything-on-a-daily-basis-or-all-n-days" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a patient: do I need to do anything on a daily basis or all N days?</h2>
 
 <p>During the device wearing period you will be asked to complete_one cognitive test per day_on your personal smartphone. You will receive at most two notifications throughout the day with a link to complete the test if it has not been completed. If the ThinkFAST app is not compatible with your personal device, or if you prefer not to install it on your personal device it can be used on the study phone provided to you instead. Data from each test will be stored on the smartphone and automatically uploaded to the cloud once an internet connection is available.</p>
 
-<h2 id="as-a-patient-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended">As a patient: do I need to do anything after each individual period of device / app use ended?</h2>
+<h2 id="as-a-patient-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended">
+<a class="anchor" href="#as-a-patient-do-i-need-to-do-anything-after-each-individual-period-of-device--app-use-ended" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a patient: do I need to do anything after each individual period of device / app use ended?</h2>
 
 <p>N/A</p>
 
-<h2 id="as-a-patient-do-i-need-to-do-anything-after-my-full-periods-of-use-of-a-specific-device--app-ends">As a patient: do I need to do anything after my full periods of use of a specific device / app ends?</h2>
+<h2 id="as-a-patient-do-i-need-to-do-anything-after-my-full-periods-of-use-of-a-specific-device--app-ends">
+<a class="anchor" href="#as-a-patient-do-i-need-to-do-anything-after-my-full-periods-of-use-of-a-specific-device--app-ends" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a patient: do I need to do anything after my full periods of use of a specific device / app ends?</h2>
 
 <p>After your last cognitive test, the app may advise you that there is outstanding data that it has been unable to upload to the cloud. If this is the case, ensure the smartphone is connected to the internet and follow the in-app instructions to upload the outstanding data.</p>
 
-<h1 id="devicehow-to-setup-for-wear">Device How To / setup for wear </h1>
+<h1 id="devicehow-to-setup-for-wear">
+<a class="anchor" href="#devicehow-to-setup-for-wear" aria-hidden="true"><span class="octicon octicon-link"></span></a>Device How To / setup for wear </h1>
 
 <p>CANTAB ThinkFAST should be installed on your personal phone and can be identified as the following icon:</p>
 
-<p><img src="../images/cantab_thinkfast/15.jpeg" alt="" /></p>
+<p><img src="../images/cantab_thinkfast/15.jpeg" alt=""></p>
 
 <p>Figure N: The ThinkFast mobile application has a green background.</p>
 
-<h2 id="how-can-i-get-help-with-using-this">How can I get help with using this?</h2>
+<h2 id="how-can-i-get-help-with-using-this">
+<a class="anchor" href="#how-can-i-get-help-with-using-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>How can I get help with using this?</h2>
 
 <p>If you have any other questions or concerns, please contact your <em>local study centre:</em></p>
 
@@ -134,15 +202,16 @@
       <td><strong>Muenster, Germany</strong></td>
     </tr>
     <tr>
-      <td>Person Name<br />Centre Name<br />Location</td>
-      <td>Person Name<br />Centre Name<br />Location</td>
-      <td>Person Name<br />Centre Name<br />Location</td>
-      <td>Person Name<br />Centre Name<br />Location</td>
+      <td>Person Name<br>Centre Name<br>Location</td>
+      <td>Person Name<br>Centre Name<br>Location</td>
+      <td>Person Name<br>Centre Name<br>Location</td>
+      <td>Person Name<br>Centre Name<br>Location</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work">What sort of a device / application is this, what is it for and how does it work?</h2>
+<h2 id="what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work">
+<a class="anchor" href="#what-sort-of-a-device--application-is-this-what-is-it-for-and-how-does-it-work" aria-hidden="true"><span class="octicon octicon-link"></span></a>What sort of a device / application is this, what is it for and how does it work?</h2>
 
 <p>CANTAB ThinkFAST is a mobile application that collects cognitive data from three brief tasks that measure working memory and attention. A notification will be sent to you via the smartphone to complete a different task per day. Data is stored on the mobile device and uploaded when internet is available. This content of the tests may change between days. An overview of each test, including screenshots of what to expect is outlined below:</p>
 
@@ -152,43 +221,45 @@
 
 <p>The task will start with some instructions and a quick practice.</p>
 
-<p><img src="../images/cantab_thinkfast/16.jpeg" alt="" /></p>
+<p><img src="../images/cantab_thinkfast/16.jpeg" alt=""></p>
 
 <p>During this practice phase, when you see a symbol which matches, text appears on the screen to guide you touch the screen with your finger. Also, you are told that to you will get feedback, to let you know how you are doing. During the test, the screen will flash the following colours after touching the screen (Green = correct response, Pink = incorrect response, Grey = too slow of a response). After a few practice stimuli you are asked to try a few more or continue to the main testing phase.</p>
 
 <p>At this point you will begin the main phase of the test with no text instructions on the screen but will still be provided with feedback via screen colour changes each time you tap the screen.</p>
 
-<p><img src="../images/cantab_thinkfast/17.jpeg" alt="" /></p>
+<p><img src="../images/cantab_thinkfast/17.jpeg" alt=""></p>
 
 <p><em>Psychomotor Vigilance Task (PVT)</em></p>
 
 <p>The Psychomotor Vigilance Task assesses how quickly you can react. You must continue to look at the smartphone screen until a number appears, then touch the screen as soon as you see a number. The text instructions introduce the PVT test and explains how the test is completed. Afterwards, you will see a few examples for practice (see image below). When an empty rectangle appears on screen, you should pay attention because a number will appear and begin rapidly counting upwards within this rectangle. You should tap the screen as quickly as possible when the numbers appear. If you touch the screen too soon, text on the screen will let you know that you responded, ‘Too Soon’. If you do not respond quickly enough or not at all, text on the screen will show ‘Time Out’.</p>
 
-<p><img src="../images/cantab_thinkfast/18.jpeg" alt="" /></p>
+<p><img src="../images/cantab_thinkfast/18.jpeg" alt=""></p>
 
-<p><img src="../images/cantab_thinkfast/19.jpeg" alt="" /></p>
+<p><img src="../images/cantab_thinkfast/19.jpeg" alt=""></p>
 
 <p>After you have completed the brief practice session, the task begins and will continue without breaks for approximately 3 minutes. You should continually pay attention during the test and respond as quickly as possible when a number appears within the rectangle.</p>
 
-<p><img src="../images/cantab_thinkfast/20.jpeg" alt="" /></p>
+<p><img src="../images/cantab_thinkfast/20.jpeg" alt=""></p>
 
 <p><em>Digit Symbol Substitution Test (DSST)</em></p>
 
 <p>In this task, you will be presented with a list of abstract symbols which are matched with numbers. When a number is shown on screen, you should draw the corresponding shape on the screen using the index finger of your dominant hand. The task begins with some text instructions which explain on how the test is completed.</p>
 
-<p><img src="../images/cantab_thinkfast/21.jpeg" alt="" /></p>
+<p><img src="../images/cantab_thinkfast/21.jpeg" alt=""></p>
 
 <p>Then you are presented with a few examples for practice. When a number is highlighted on screen, then you should draw the corresponding abstract shape using your index finger on the smartphone. You are encouraged to “<em>Try working through them quickly”.</em></p>
 
-<p><img src="../images/cantab_thinkfast/22.jpeg" alt="" /></p>
+<p><img src="../images/cantab_thinkfast/22.jpeg" alt=""></p>
 
 <p>After you have completed the instructions and practice portion, the timed part of the test begins. You have to try to complete as many symbols as possible within 90 seconds.</p>
 
-<p><img src="../images/cantab_thinkfast/23.jpeg" alt="" /></p>
+<p><img src="../images/cantab_thinkfast/23.jpeg" alt=""></p>
 
-<h2 id="what-will-i-need-to-do-before-i-can-start-using-this">What will I need to do before I can start using this?</h2>
+<h2 id="what-will-i-need-to-do-before-i-can-start-using-this">
+<a class="anchor" href="#what-will-i-need-to-do-before-i-can-start-using-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>What will I need to do before I can start using this?</h2>
 
-<h3 id="any-account-setup-required">Any account setup required?</h3>
+<h3 id="any-account-setup-required">
+<a class="anchor" href="#any-account-setup-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any account setup required?</h3>
 
 <p>As you need to interact with the application daily, it is preferred to install it on your own phone. This requires you to:</p>
 
@@ -199,73 +270,87 @@
   <li>The application will then be linked to your details in the study, and you are ready to go.</li>
 </ul>
 
-<h3 id="needs-pairing-with-hub-device">Needs pairing with hub-device?</h3>
+<h3 id="needs-pairing-with-hub-device">
+<a class="anchor" href="#needs-pairing-with-hub-device" aria-hidden="true"><span class="octicon octicon-link"></span></a>Needs pairing with hub-device?</h3>
 
 <p>N/A</p>
 
-<h3 id="any-configuration--assembly-required">Any configuration / assembly required?</h3>
+<h3 id="any-configuration--assembly-required">
+<a class="anchor" href="#any-configuration--assembly-required" aria-hidden="true"><span class="octicon octicon-link"></span></a>Any configuration / assembly required?</h3>
 
 <p>N/A</p>
 
-<h1 id="troubleshootingfaq">Troubleshooting/FAQ</h1>
+<h1 id="troubleshootingfaq">
+<a class="anchor" href="#troubleshootingfaq" aria-hidden="true"><span class="octicon octicon-link"></span></a>Troubleshooting/FAQ</h1>
 
 <p>Creating a User Account</p>
 
 <p>The site staff will need to log into the <a href="https://app.cantab.com/admin">CANTAB Connect</a> application on the provided iPad to search and find the entry that was created by CANTAB for this participant as outlined in the <a href="https://docs.ideafast.eu/all/cantab-connect">CANTAB documentation</a>.</p>
 
-<p><img src="../images/cantab_thinkfast/24.jpeg" alt="" /></p>
+<p><img src="../images/cantab_thinkfast/24.jpeg" alt=""></p>
 
 <p>How a participant appears in the CANTAB Connection iPad application.</p>
 
 <p>Ask the participant to open the CANTAB ThinkFast mobile application on their personal smartphone. If they are not logged in, a screen will appear with a 6-digit code as illustrated below.</p>
 
-<p><img src="../images/cantab_thinkfast/25.jpeg" alt="" /></p>
+<p><img src="../images/cantab_thinkfast/25.jpeg" alt=""></p>
 
 <p>Once you open CANTAB ThinkFast, you can request a new code.</p>
 
 <p>From CANTAB Connect, click tap the dropmenu below “visit” and select “<strong>Activate by Code”</strong> and enter the 6-digit code that was generated from the mobile application on the participant’s phone. This will link user you created in CANTAB Connect app to the participant’s mobile smartphone.</p>
 
-<p><img src="../images/cantab_thinkfast/26.jpeg" alt="" /></p>
+<p><img src="../images/cantab_thinkfast/26.jpeg" alt=""></p>
 
 <p>You should use this code generated by the chat service to authenticate with the CANTAB iPad application.</p>
 
-<h2 id="the-device--app-seems-to-have-stopped-working-what-should-i-do">The device / app seems to have stopped working: what should I do?</h2>
+<h2 id="the-device--app-seems-to-have-stopped-working-what-should-i-do">
+<a class="anchor" href="#the-device--app-seems-to-have-stopped-working-what-should-i-do" aria-hidden="true"><span class="octicon octicon-link"></span></a>The device / app seems to have stopped working: what should I do?</h2>
 
 <p>If the CANTAB ThinkFAST app stops working, please close and reopen the application.</p>
 
-<h3 id="battery">Battery?</h3>
+<h3 id="battery">
+<a class="anchor" href="#battery" aria-hidden="true"><span class="octicon octicon-link"></span></a>Battery?</h3>
 
 <p>N/A</p>
 
-<h3 id="connectivity-issues">Connectivity issues?</h3>
+<h3 id="connectivity-issues">
+<a class="anchor" href="#connectivity-issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Connectivity issues?</h3>
 
 <p>Internet connection will not impact use of the mobile application but is required to upload your results. The mobile application will upload your results daily, so you do not have to manually do this.</p>
 
-<h3 id="need-to-restart-or-log-in-again">Need to restart or log in again?</h3>
+<h3 id="need-to-restart-or-log-in-again">
+<a class="anchor" href="#need-to-restart-or-log-in-again" aria-hidden="true"><span class="octicon octicon-link"></span></a>Need to restart or log in again?</h3>
 
 <p>N/A</p>
 
-<h2 id="using-the-device--app-is-uncomfortable-to-me-what-can-i-do">Using the device / app is uncomfortable to me: what can I do?</h2>
+<h2 id="using-the-device--app-is-uncomfortable-to-me-what-can-i-do">
+<a class="anchor" href="#using-the-device--app-is-uncomfortable-to-me-what-can-i-do" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using the device / app is uncomfortable to me: what can I do?</h2>
 
-<h3 id="adjust-wear-style">Adjust wear style?</h3>
-
-<p>N/A</p>
-
-<h3 id="adjust-usage-pattern">Adjust usage pattern?</h3>
+<h3 id="adjust-wear-style">
+<a class="anchor" href="#adjust-wear-style" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adjust wear style?</h3>
 
 <p>N/A</p>
 
-<h1 id="device-return">Device return</h1>
-
-<h2 id="what-do-i-do-when-a-period-of-device-use-is-over">What do I do when a period of device use is over?</h2>
+<h3 id="adjust-usage-pattern">
+<a class="anchor" href="#adjust-usage-pattern" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adjust usage pattern?</h3>
 
 <p>N/A</p>
 
-<h2 id="before-the-device-is-returned-or-disposed-of-does-any-data-need-to-be-transferred">Before the device is returned or disposed of: does any data need to be transferred?</h2>
+<h1 id="device-return">
+<a class="anchor" href="#device-return" aria-hidden="true"><span class="octicon octicon-link"></span></a>Device return</h1>
+
+<h2 id="what-do-i-do-when-a-period-of-device-use-is-over">
+<a class="anchor" href="#what-do-i-do-when-a-period-of-device-use-is-over" aria-hidden="true"><span class="octicon octicon-link"></span></a>What do I do when a period of device use is over?</h2>
+
+<p>N/A</p>
+
+<h2 id="before-the-device-is-returned-or-disposed-of-does-any-data-need-to-be-transferred">
+<a class="anchor" href="#before-the-device-is-returned-or-disposed-of-does-any-data-need-to-be-transferred" aria-hidden="true"><span class="octicon octicon-link"></span></a>Before the device is returned or disposed of: does any data need to be transferred?</h2>
 
 <p>CANTAB ThinkFAST will automatically transfer your responses from your phone to a remote server when you have an internet connection.</p>
 
-<h2 id="do-i-need-to-return-the-device-somewhere">Do I need to return the device somewhere?</h2>
+<h2 id="do-i-need-to-return-the-device-somewhere">
+<a class="anchor" href="#do-i-need-to-return-the-device-somewhere" aria-hidden="true"><span class="octicon octicon-link"></span></a>Do I need to return the device somewhere?</h2>
 
 <p>N/A</p>
 
