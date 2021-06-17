@@ -1,13 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  SafeAreaView,
-  StatusBar,
-  ScrollView,
-  ActivityIndicator,
-} from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, View, ActivityIndicator} from 'react-native';
 import {Colors, Spacing} from '../../styles';
 import {WebView} from 'react-native-webview';
 import {connect} from 'react-redux';
@@ -19,7 +11,6 @@ function LoadingIndicatorView() {
 
 const SupportDoc: () => React$Node = props => {
   const [renderedOnce, setRenderedOnce] = useState(false);
-  let webview = null;
 
   const patFilenames = {
     AX6: 'ax6.html',
@@ -43,10 +34,7 @@ const SupportDoc: () => React$Node = props => {
     title: props.route.params.device.name,
   });
 
-  const styleV = {
-    flex: 1,
-    fontSize: '104em',
-  };
+  const styleV = {flex: 1, flexDirection: 'column'};
 
   let filenameWithPath = patFilenames[props.route.params.device.id];
   if (props.userLang != 'en') {
@@ -58,13 +46,13 @@ const SupportDoc: () => React$Node = props => {
   console.log('');
 
   return (
-    <View style={{flex: 1, flexDirection: 'column'}}>
+    <View style={styleV}>
       <WebView
         allowFileAccess={true}
         allowUniversalAccessFromFileURLs={true}
         renderLoading={LoadingIndicatorView}
         startInLoadingState={true}
-        style={{flex: 1, flexDirection: 'column'}}
+        style={styleV}
         onLoad={updateSource}
         source={renderedOnce ? {uri: localURI} : undefined}
       />
