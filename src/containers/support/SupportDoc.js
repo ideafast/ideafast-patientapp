@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, ActivityIndicator} from 'react-native';
-import {Colors, Spacing} from '../../styles';
+import {View, ActivityIndicator} from 'react-native';
 import {WebView} from 'react-native-webview';
 import {connect} from 'react-redux';
 import {mapDispatchToProps} from '../../ducks/actions';
@@ -12,7 +11,8 @@ function LoadingIndicatorView() {
 const SupportDoc: () => React$Node = props => {
   const [renderedOnce, setRenderedOnce] = useState(false);
 
-  const patFilenames = {
+  // TODO: give filenames in docs repo IDs of the actual docs
+  const filenames = {
     AX6: 'ax6.html',
     BTF: 'byteflies.html',
     DRM: 'dreem.html',
@@ -34,45 +34,27 @@ const SupportDoc: () => React$Node = props => {
     title: props.route.params.device.name,
   });
 
-  const styleV = {flex: 1, flexDirection: 'column'};
+  let filename = filenames[props.route.params.device.id];
 
-  let filenameWithPath = patFilenames[props.route.params.device.id];
-  if (props.userLang != 'en') {
-    filenameWithPath = props.userLang + '/' + filenameWithPath;
-  }
-  let localURI = 'file:///android_asset/site/pat/' + filenameWithPath;
-
-  // comment
-  console.log('');
+  let localURI = `file:///android_asset/site/${props.userLang}/${filename}`;
 
   return (
-    <View style={styleV}>
+    <View style={styles}>
       <WebView
         allowFileAccess={true}
         allowUniversalAccessFromFileURLs={true}
         renderLoading={LoadingIndicatorView}
         startInLoadingState={true}
-        style={styleV}
+        style={styles}
         onLoad={updateSource}
+        // TODO: provide error message rather than undefined here
         source={renderedOnce ? {uri: localURI} : undefined}
       />
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  view: {
-    flex: 1,
-    backgroundColor: Colors.WHITESMOKE,
-  },
-  container: {
-    marginTop: Spacing.SCALE_16,
-    paddingHorizontal: Spacing.SCALE_16,
-  },
-  text: {
-    color: Colors.black,
-  },
-});
+const styles = {flex: 1, flexDirection: 'column'};
 
 const mapStateToProps = state => state;
 
