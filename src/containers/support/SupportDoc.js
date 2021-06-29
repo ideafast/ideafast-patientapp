@@ -36,7 +36,7 @@ const SupportDoc: () => React$Node = props => {
 
   let filename = filenames[props.route.params.device.id];
 
-  let localURI = `file:///android_asset/site/${props.userLang}/${filename}`;
+  let localURI = `file:///android_asset/docs/${props.userLang}/${filename}`;
 
   return (
     <View style={styles}>
