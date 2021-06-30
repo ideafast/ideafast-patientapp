@@ -63,3 +63,5 @@ buck-out/
 *.ttf
 
 android/app/src/main/assets/docs/*
+!android/app/src/main/assets/docs/.gitkeep
+!android/app/src/main/assets/docs/main.sh
