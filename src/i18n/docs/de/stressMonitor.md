@@ -1,1 +1,0 @@
-stressMonitor DE

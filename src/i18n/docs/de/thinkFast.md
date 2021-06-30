@@ -1,1 +1,0 @@
-ThinkFast DE
