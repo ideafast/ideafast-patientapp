@@ -11,10 +11,6 @@ git clone git@github.com:ideafast/ideafast-devicesupportdocs-web.git ${TMP_DOCS}
 
 # STEP 2: INSTALL DOCS LOCALLY
 
-# Needed on my (Jays) machine to build jekyll
-PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH
-
 cd ${TMP_DOCS}
 
 bundle install && bundle exec jekyll build
@@ -22,9 +18,6 @@ bundle install && bundle exec jekyll build
 cd ..
 
 # STEP 3:  MOVE RELEVANT DOCS INSIDE THE APP
-
-# Folders must exist before moving them
-mkdir -p ${DOCS}{en,nl,de,images,assets}
 
 # Copy files rather than move so we can re-run as needed.
 cp -r ${STATIC_SITE}pat/. ${DOCS}en/
@@ -38,7 +31,7 @@ rm -rf ${TMP_DOCS}
 
 # STEP 5: REPLACE ABSOLUTE URLs FOR RELATIVE
 
-# NOTE: have to set extension to empty string on OSX as it's not GNU seD:
+# NOTE: have to set extension to empty string on OSX as it's not GNU sed:
 # see https://stackoverflow.com/questions/39325759/sed-on-mac-extra-characters-after-p-command
 
 cd ${DOCS}de/
